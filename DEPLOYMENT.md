@@ -38,7 +38,7 @@ ea-ia/                          ← nom court, propre, brandé
 4. Save
 ```
 
-→ Disponible à : `https://<username>.github.io/ea-ia/`
+→ Disponible à : `https://github.com/eriqallain-afk/EAIA//msp-preview.html`
 
 **Délai :** 1–3 minutes au premier déploiement, quasi-instantané ensuite.
 
