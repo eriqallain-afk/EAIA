@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MSP Intelligence IT — EA IA · Preview produit</title>
+<style>
+:root{
+  --bg:     #000000;
+  --s1:     #080808;
+  --gold:   #EDAF45;
+  --gdk:    #CC8E28;
+  --gcir:   #DC961A;
+  --glt:    #FFD04F;
+  --silver: #D5D5D1;
+  --text:   #F2EFEA;
+  --muted:  #6A6460;
+  --bdr:    #1A1714;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',Helvetica,Arial,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+
+/* LOGO */
+.lm{display:inline-flex;align-items:center}
+.lea{color:var(--gold);font-weight:900;font-style:italic}
+.ldiv{width:2px;height:.75em;background:linear-gradient(180deg,var(--gcir),var(--gold));margin:0 5px}
+.lia{color:var(--silver);font-weight:300;letter-spacing:.08em}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.97);border-bottom:1px solid var(--bdr);padding:12px 0}
+nav .inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 22px;gap:16px}
+.back-link{font-size:12px;color:var(--muted);letter-spacing:.08em}
+.back-link:hover{color:var(--gold)}
+.nc{background:var(--gold);color:#050300;padding:10px 20px;border-radius:7px;font-weight:800;font-size:13px}
+
+/* HERO PRODUIT */
+.hero-prod{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;position:relative;overflow:hidden}
+.hero-prod::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(220,150,26,.04) 0%,transparent 60%)}
+
+/* Badge preview */
+.preview-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gdk);border-radius:20px;padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.preview-badge::before{content:'●';color:var(--gold);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.kicker{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gdk);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.kicker::before{content:'';width:28px;height:1px;background:var(--gdk)}
+h1{font-size:clamp(38px,5.5vw,80px);line-height:1.0;font-weight:800;letter-spacing:-.025em;margin-bottom:22px}
+h1 em{color:var(--gold);font-style:normal;display:block}
+.hero-desc{font-size:clamp(16px,1.7vw,20px);color:#9A9088;max-width:700px;margin-bottom:40px;line-height:1.65}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-g{background:var(--gold);color:#050300;padding:15px 28px;border-radius:9px;font-weight:800;font-size:15px}
+.btn-g:hover{background:var(--glt)}
+.btn-o{border:1px solid var(--gdk);color:var(--gold);padding:15px 28px;border-radius:9px;font-weight:600;font-size:15px}
+
+/* Stats */
+.stats-row{display:flex;gap:44px;margin-top:52px;flex-wrap:wrap}
+.st .n{font-size:42px;font-weight:900;color:var(--gold);line-height:1}
+.st .l{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+
+/* SECTIONS */
+section{padding:88px 0;border-top:1px solid var(--bdr)}
+.sec-lbl{font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gdk);margin-bottom:12px}
+h2{font-size:clamp(26px,3.5vw,50px);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:18px}
+h2 em{color:var(--gold);font-style:normal}
+.sub{font-size:clamp(14px,1.5vw,17px);color:#9A9088;max-width:700px;margin-bottom:44px;line-height:1.65}
+
+/* ÉQUIPES */
+.teams{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.team{background:var(--s1);border:1px solid var(--bdr);border-radius:13px;padding:24px;position:relative;overflow:hidden}
+.team::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gdk),var(--gold))}
+.team h3{font-size:16px;font-weight:700;color:var(--gold);margin-bottom:10px}
+.team ul{list-style:none}
+.team ul li{font-size:12px;color:var(--muted);padding:5px 0 5px 14px;position:relative;border-bottom:1px solid var(--bdr)}
+.team ul li::before{content:'›';position:absolute;left:0;color:var(--gold)}
+.team .count{position:absolute;top:16px;right:16px;font-size:11px;color:var(--gdk);font-weight:700;letter-spacing:.1em}
+
+/* AGENTS PHARES */
+.agents-g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ag{background:var(--s1);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.ag .dom{font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--gdk);text-transform:uppercase;margin-bottom:6px}
+.ag h4{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:6px}
+.ag p{font-size:12px;color:var(--muted);line-height:1.55}
+.ag .out{font-size:11px;color:var(--silver);margin-top:8px;padding-top:8px;border-top:1px solid var(--bdr)}
+
+/* WORKFLOW VISUEL */
+.workflow{display:flex;align-items:center;gap:0;overflow-x:auto;padding-bottom:8px}
+.wf-step{background:var(--s1);border:1px solid var(--bdr);border-radius:10px;padding:16px;min-width:140px;text-align:center;flex-shrink:0}
+.wf-step .ico{font-size:22px;margin-bottom:8px}
+.wf-step .label{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.08em}
+.wf-step .desc{font-size:10px;color:var(--muted);margin-top:3px}
+.wf-arrow{color:var(--gdk);font-size:18px;padding:0 8px;flex-shrink:0}
+
+/* TARIFICATION */
+.pricing{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pc{background:var(--s1);border:1px solid var(--bdr);border-radius:13px;padding:26px;text-align:center}
+.pc.feat{border-color:var(--gdk);box-shadow:0 0 0 1px rgba(220,150,26,.3)}
+.pc h3{font-size:15px;font-weight:700;color:var(--silver);margin-bottom:10px}
+.pc .pr{font-size:30px;font-weight:900;color:var(--gold);margin-bottom:10px}
+.pc p{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* CTA */
+.cta-s{background:var(--s1);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:88px 0;text-align:center}
+.cta-s p{color:#9A9088;max-width:600px;margin:0 auto 32px;font-size:16px;line-height:1.65}
+
+/* PHI */
+.phi-sep{height:1px;background:linear-gradient(90deg,transparent,var(--gdk) 38.2%,var(--gold) 50%,var(--gdk) 61.8%,transparent);opacity:.4}
+
+footer{border-top:1px solid var(--bdr);padding:40px 0;text-align:center}
+.fc{font-size:12px;color:var(--muted);margin-top:10px}
+
+@media(max-width:860px){.teams,.agents-g,.pricing{grid-template-columns:1fr}.stats-row{gap:24px}.workflow{flex-direction:column;align-items:flex-start}.wf-arrow{transform:rotate(90deg)}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a class="back-link" href="EAIA_Lancement_2026.html">← EA IA</a>
+    <div style="font-size:18px" class="lm">
+      <span class="lea">EA</span>
+      <span class="ldiv"></span>
+      <span class="lia">IA</span>
+      <span style="color:var(--muted);font-size:12px;margin-left:10px;font-weight:400;letter-spacing:.08em">MSP Intelligence IT</span>
+    </div>
+    <a class="nc" href="#demo">Réserver une démo</a>
+  </div>
+</nav>
+
+<!-- HERO PRODUIT -->
+<div class="hero-prod">
+  <div class="wrap">
+    <div class="preview-badge">Preview produit · Lancement 2026</div>
+    <div class="kicker">Produit phare EA IA · MSP / IT</div>
+    <h1>Vos techniciens viennent<br>de gagner<br><em>26 spécialistes IA.</em></h1>
+    <p class="hero-desc">MSP Intelligence IT est la plateforme IA la plus avancée du portefeuille EA IA. Six équipes spécialisées couvrent l'ensemble des opérations MSP — sans improvisation, sans variabilité, avec des livrables conformes à vos standards.</p>
+    <div class="btns">
+      <a class="btn-g" href="#demo">Réserver une démo</a>
+      <a class="btn-o" href="#equipes">Voir les 6 équipes</a>
+    </div>
+    <div class="stats-row">
+      <div class="st"><div class="n">26+</div><div class="l">Agents</div></div>
+      <div class="st"><div class="n">6</div><div class="l">Équipes</div></div>
+      <div class="st"><div class="n">ConnectWise</div><div class="l">Compatible</div></div>
+      <div class="st"><div class="n">24/7</div><div class="l">NOC Ready</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="phi-sep"></div>
+
+<!-- PROBLÈME -->
+<section>
+  <div class="wrap">
+    <div class="sec-lbl">Le vrai problème</div>
+    <h2>Vos techniciens ne manquent pas de talent.<br><em>Ils manquent de constance.</em></h2>
+    <p class="sub">Deux techniciens règlent le même incident et produisent deux traces complètement différentes. Le résultat : escalades difficiles, suivi client brouillon, knowledge base inexistante, rapports reconstruits à la main.</p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px">
+      <div style="background:var(--s1);border:1px solid var(--bdr);border-radius:12px;padding:22px;display:flex;gap:14px">
+        <div style="font-size:22px;flex-shrink:0">📋</div>
+        <div><strong style="color:var(--silver);font-size:14px">Notes internes variables</strong><p style="font-size:13px;color:var(--muted);margin-top:5px;line-height:1.55">Chaque technicien documente différemment. L'escalade devient un puzzle.</p></div>
+      </div>
+      <div style="background:var(--s1);border:1px solid var(--bdr);border-radius:12px;padding:22px;display:flex;gap:14px">
+        <div style="font-size:22px;flex-shrink:0">📧</div>
+        <div><strong style="color:var(--silver);font-size:14px">Communications client inégales</strong><p style="font-size:13px;color:var(--muted);margin-top:5px;line-height:1.55">Trop courtes, trop longues, trop techniques ou trop vagues selon l'humeur.</p></div>
+      </div>
+      <div style="background:var(--s1);border:1px solid var(--bdr);border-radius:12px;padding:22px;display:flex;gap:14px">
+        <div style="font-size:22px;flex-shrink:0">⏱️</div>
+        <div><strong style="color:var(--silver);font-size:14px">Temps perdu en documentation</strong><p style="font-size:13px;color:var(--muted);margin-top:5px;line-height:1.55">Les rapports, QBRs et procédures sont reconstruits manuellement chaque fois.</p></div>
+      </div>
+      <div style="background:var(--s1);border:1px solid var(--bdr);border-radius:12px;padding:22px;display:flex;gap:14px">
+        <div style="font-size:22px;flex-shrink:0">🔄</div>
+        <div><strong style="color:var(--silver);font-size:14px">Onboarding lent et coûteux</strong><p style="font-size:13px;color:var(--muted);margin-top:5px;line-height:1.55">Un nouveau technicien met des mois à atteindre les standards de l'équipe.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÉQUIPES -->
+<section id="equipes">
+  <div class="wrap">
+    <div class="sec-lbl">Architecture MSP</div>
+    <h2>Six équipes. <em>Tout le spectre opérationnel.</em></h2>
+    <p class="sub">Chaque équipe couvre un domaine MSP précis avec ses agents, ses runbooks et ses templates ConnectWise.</p>
+    <div class="teams">
+      <div class="team"><span class="count">5 agents</span><h3>🎫 Support N1–N3</h3><ul><li>TicketScribe — notes & fermetures CW</li><li>ClientComm — communications client</li><li>EscalationGuide — procédures d'escalade</li><li>KnowledgeCapture — doc des solutions</li><li>FirstResponse — premier contact client</li></ul></div>
+      <div class="team"><span class="count">5 agents</span><h3>📡 NOC & Incidents</h3><ul><li>NOC Commander — dispatch & alertes P1</li><li>HandoverBrief — transferts de quart</li><li>IncidentLog — documentation incidents</li><li>SLATracker — suivi & communications SLA</li><li>CriticalComm — communications de crise</li></ul></div>
+      <div class="team"><span class="count">4 agents</span><h3>🔧 Patching & Maintenance</h3><ul><li>PatchMaster — séquence complète</li><li>BackupVerifier — validation backup</li><li>MaintenanceReport — rapport post-maint.</li><li>ChangeManager — gestion des changements</li></ul></div>
+      <div class="team"><span class="count">4 agents</span><h3>☁️ Cloud & M365</h3><ul><li>M365Manager — Azure AD, Exchange, Intune</li><li>CloudAuditor — audit & conformité</li><li>TeamsAdmin — Teams, SharePoint, OneDrive</li><li>AzureOps — ressources & surveillance</li></ul></div>
+      <div class="team"><span class="count">4 agents</span><h3>🛡️ Backup & Sécurité</h3><ul><li>BackupOps — Veeam, Datto, Keepit</li><li>SOCAnalyst — incidents sécurité</li><li>ComplianceAudit — audits conformité</li><li>IncidentResponse — procédures réponse</li></ul></div>
+      <div class="team"><span class="count">4 agents</span><h3>📊 Reporting & QBR</h3><ul><li>MonthlyReport — rapport mensuel client</li><li>QBRBuilder — préparation QBR exécutif</li><li>HealthCheck — santé infrastructure</li><li>ScriptGen — scripts PowerShell</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section>
+  <div class="wrap">
+    <div class="sec-lbl">Exemple de workflow</div>
+    <h2>Un ticket. <em>Une séquence complète.</em></h2>
+    <p class="sub" style="margin-bottom:36px">Voici comment MSP Intelligence IT traite un ticket de niveau 2 du début à la fermeture.</p>
+    <div class="workflow">
+      <div class="wf-step"><div class="ico">📥</div><div class="label">Réception</div><div class="desc">Ticket entrant brut</div></div>
+      <div class="wf-arrow">›</div>
+      <div class="wf-step"><div class="ico">🔍</div><div class="label">Triage</div><div class="desc">Classification & priorité</div></div>
+      <div class="wf-arrow">›</div>
+      <div class="wf-step"><div class="ico">⚙️</div><div class="label">Diagnostic</div><div class="desc">Analyse & investigation</div></div>
+      <div class="wf-arrow">›</div>
+      <div class="wf-step"><div class="ico">📋</div><div class="label">Note interne</div><div class="desc">Documentation CW</div></div>
+      <div class="wf-arrow">›</div>
+      <div class="wf-step"><div class="ico">📧</div><div class="label">Comm client</div><div class="desc">Update professionnel</div></div>
+      <div class="wf-arrow">›</div>
+      <div class="wf-step"><div class="ico">✅</div><div class="label">Fermeture</div><div class="desc">Format CW conforme</div></div>
+      <div class="wf-arrow">›</div>
+      <div class="wf-step"><div class="ico">📚</div><div class="label">Knowledge</div><div class="desc">Capture de la solution</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS PHARES -->
+<section>
+  <div class="wrap">
+    <div class="sec-lbl">Agents à haute valeur</div>
+    <h2>Les agents qui <em>changent le quotidien MSP.</em></h2>
+    <div class="agents-g">
+      <div class="ag"><div class="dom">Support</div><h4>TicketScribe</h4><p>Prend un ticket brut et produit une note interne structurée, une communication client professionnelle et une fermeture ConnectWise conforme.</p><div class="out">Note · Comm client · Fermeture CW</div></div>
+      <div class="ag"><div class="dom">NOC</div><h4>NOC Commander</h4><p>Dispatch P1, communications critiques, handover de quart documenté et log d'incident selon les protocoles NOC.</p><div class="out">Alerte · Handover · Log incident</div></div>
+      <div class="ag"><div class="dom">Patching</div><h4>PatchMaster</h4><p>Séquence complète automatisée : precheck → communication → fenêtre maintenance → postcheck → rapport signé client.</p><div class="out">Rapport de maintenance complet</div></div>
+      <div class="ag"><div class="dom">Cloud</div><h4>M365Manager</h4><p>Gère les demandes M365/Azure AD/Intune avec documentation, communication client et note CW conforme.</p><div class="out">Procédure appliquée · Note CW</div></div>
+      <div class="ag"><div class="dom">Sécurité</div><h4>SOCAnalyst</h4><p>Analyse les alertes sécurité, classifie la menace, produit le rapport d'incident et les actions correctives recommandées.</p><div class="out">Rapport sécurité · Actions</div></div>
+      <div class="ag"><div class="dom">Reporting</div><h4>QBRBuilder</h4><p>Construit le QBR client : performance, incidents majeurs, tendances, recommandations et roadmap sur 90 jours.</p><div class="out">Présentation QBR structurée</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TARIFICATION -->
+<section>
+  <div class="wrap">
+    <div class="sec-lbl">Tarification</div>
+    <h2>Commencez par <em>votre friction principale.</em></h2>
+    <p class="sub" style="margin-bottom:40px">Déploiement progressif. Un agent peut être opérationnel rapidement. Une équipe complète se déploie selon vos priorités.</p>
+    <div class="pricing">
+      <div class="pc"><h3>Starter</h3><div class="pr">499 $+</div><p>1 agent spécialisé avec templates et runbook de base.</p></div>
+      <div class="pc"><h3>Équipe Core</h3><div class="pr">3 500 $+</div><p>Support, NOC et Patching — les 3 équipes essentielles.</p></div>
+      <div class="pc feat"><h3>Platform complète</h3><div class="pr">8 000 $+</div><p>Les 26 agents, personnalisation et formation équipe.</p></div>
+      <div class="pc"><h3>Sur mesure</h3><div class="pr">Devis</div><p>Agents construits sur vos procédures et standards internes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-s" id="demo">
+  <div class="wrap">
+    <div class="sec-lbl" style="text-align:center">Prochaine étape</div>
+    <h2 style="text-align:center">Démo MSP Intelligence IT — <em>votre ticket réel.</em></h2>
+    <p>Apportez un vrai ticket, une alerte NOC ou une demande de rapport. On vous montre comment l'agent traite votre cas réel en temps réel. 20 minutes. Sans engagement.</p>
+    <a class="btn-g" href="mailto:contact@eaia.ca?subject=Demo%20MSP%20Intelligence%20IT" style="display:inline-block">Réserver une démo</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div style="font-size:20px" class="lm"><span class="lea">EA</span><span class="ldiv" style="height:16px"></span><span class="lia">IA</span></div>
+    <div class="fc">MSP Intelligence IT · Produit phare EA IA · 26 agents opérationnels</div>
+    <div class="fc" style="margin-top:6px">EA IA Technologies · contact@eaia.ca · φ = 1.618034</div>
+  </div>
+</footer>
+
+</body>
+</html>

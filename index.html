@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EA|IA — Intelligence artificielle opérationnelle</title>
+<meta name="description" content="La prochaine étape de l'IA n'est pas une conversation. C'est une armée. 6 armées déployées. 130+ agents actifs.">
+<meta property="og:title" content="EA|IA — Intelligence artificielle opérationnelle">
+<meta property="og:description" content="La prochaine étape de l'IA n'est pas une conversation. C'est une armée. 6 armées déployées. 130+ agents actifs.">
+<meta property="og:image" content="assets/images/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_CA">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --bg:#000;--s1:#070707;--gold:#EDAF45;--gdk:#CC8E28;
+  --gcir:#DC961A;--glt:#FFD04F;--slv:#D5D5D1;
+  --text:#F2EFEA;--muted:#6A6460;--bdr:#181410;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',Helvetica,Arial,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+
+/* ── LOGO TEXTE (nav + footer) ─────────────────── */
+.lm{display:inline-flex;align-items:center}
+.lea{color:var(--gold);font-weight:900;font-style:italic;letter-spacing:-.02em}
+.ldiv{width:2px;background:linear-gradient(180deg,var(--gcir),var(--gold));margin:0 5px;flex-shrink:0}
+.lia{color:var(--slv);font-weight:300;letter-spacing:.08em}
+
+/* ── NAV ───────────────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.97);border-bottom:1px solid var(--bdr);padding:12px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 22px;gap:20px}
+.nav-sub{font-size:11px;color:var(--muted);letter-spacing:.12em;margin-left:10px;font-weight:400}
+.nav-links{display:flex;gap:26px;font-size:13px;color:var(--muted)}
+.nav-links a:hover{color:var(--gold)}
+.nc{background:var(--gold);color:#050300;padding:10px 20px;border-radius:7px;font-weight:800;font-size:13px}
+.nc:hover{background:var(--glt)}
+
+/* ── HERO ──────────────────────────────────────── */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px}
+
+/* Grille φ : logo 38.2% | texte 61.8% */
+.hero-grid{
+  display:grid;
+  grid-template-columns:38.2fr 61.8fr;
+  gap:60px;
+  align-items:center;
+  width:100%
+}
+
+/* Logo col */
+.hero-logo-col{display:flex;justify-content:center;align-items:center}
+.hero-logo{
+  width:100%;max-width:440px;height:auto;display:block;
+  filter:
+    drop-shadow(0 0 48px rgba(220,150,26,.30))
+    drop-shadow(0 0 100px rgba(220,150,26,.12));
+  animation:pulse 5s ease-in-out infinite
+}
+@keyframes pulse{
+  0%,100%{filter:drop-shadow(0 0 48px rgba(220,150,26,.30)) drop-shadow(0 0 100px rgba(220,150,26,.12))}
+  50%{filter:drop-shadow(0 0 72px rgba(220,150,26,.50)) drop-shadow(0 0 150px rgba(220,150,26,.22))}
+}
+
+/* Texte col */
+.hero-text{}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gcir);margin-bottom:22px;display:flex;align-items:center;gap:12px}
+.kicker::before{content:'';width:32px;height:1px;background:var(--gdk)}
+h1{font-size:clamp(36px,5.2vw,80px);line-height:1.0;font-weight:800;letter-spacing:-.025em;margin-bottom:24px}
+h1 .g{color:var(--gold)}
+h1 .s{color:var(--slv)}
+.hero-tag{font-size:clamp(15px,1.5vw,19px);color:#9A9280;max-width:620px;margin-bottom:40px;line-height:1.65;border-left:2px solid var(--gdk);padding-left:18px}
+.hero-tag strong{color:var(--slv)}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-g{background:var(--gold);color:#050300;padding:14px 26px;border-radius:9px;font-weight:800;font-size:15px}
+.btn-g:hover{background:var(--glt)}
+.btn-o{border:1px solid var(--gdk);color:var(--gold);padding:14px 26px;border-radius:9px;font-weight:600;font-size:15px}
+.btn-o:hover{background:rgba(220,150,26,.08)}
+.hero-stats{display:flex;gap:36px;margin-top:48px;padding-top:36px;border-top:1px solid var(--bdr);flex-wrap:wrap}
+.hs .n{font-size:40px;font-weight:900;color:var(--gold);line-height:1;letter-spacing:-.02em}
+.hs .l{font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:4px}
+
+/* ── PHI SEP ───────────────────────────────────── */
+.phi-sep{height:1px;background:linear-gradient(90deg,transparent,var(--gdk) 38.2%,var(--gold) 50%,var(--gdk) 61.8%,transparent);opacity:.45}
+.phi-note{text-align:center;font-size:10px;color:var(--muted);letter-spacing:.2em;padding:10px 0;text-transform:uppercase}
+.phi-note b{color:var(--gdk)}
+
+/* ── MANIFESTE ─────────────────────────────────── */
+.manifeste{max-width:900px;margin:0 auto;text-align:center;padding:80px 22px}
+.manifeste blockquote{font-size:clamp(22px,3.5vw,44px);font-weight:800;line-height:1.12;letter-spacing:-.02em;margin-bottom:20px}
+.manifeste blockquote em{color:var(--gold);font-style:normal;display:block}
+.manifeste p{font-size:17px;color:#9A9280;max-width:680px;margin:0 auto}
+
+/* ── SECTIONS ──────────────────────────────────── */
+section{padding:90px 0;border-top:1px solid var(--bdr)}
+.sec-lbl{font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gdk);margin-bottom:14px}
+h2{font-size:clamp(26px,3.5vw,50px);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:18px}
+h2 em{color:var(--gold);font-style:normal}
+.sub{font-size:clamp(14px,1.4vw,17px);color:#9A9280;max-width:720px;margin-bottom:48px;line-height:1.7}
+
+/* ── FACTORY ───────────────────────────────────── */
+.factory-grid{display:grid;grid-template-columns:1fr 1.618fr;gap:28px;align-items:start}
+.teams{display:flex;flex-direction:column;gap:9px}
+.tc{background:var(--s1);border:1px solid var(--bdr);border-radius:11px;padding:16px 18px;position:relative;overflow:hidden}
+.tc.on{border-color:var(--gdk)}
+.tc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--gdk),var(--gold))}
+.tc-code{font-size:10px;font-weight:800;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:3px}
+.tc-name{font-size:13px;font-weight:700;color:var(--slv);margin-bottom:2px}
+.tc-desc{font-size:11px;color:var(--muted);line-height:1.5}
+.tc-n{position:absolute;top:14px;right:14px;font-size:10px;color:var(--gdk);font-weight:700;letter-spacing:.08em}
+.schema{background:var(--s1);border:1px solid var(--bdr);border-radius:14px;padding:24px}
+.sf-lbl{font-size:10px;color:var(--muted);letter-spacing:.1em;margin:8px 0 4px;text-transform:uppercase;font-weight:700}
+.sf-b{background:#000;border:1px solid;border-radius:7px;padding:9px 12px;font-size:11px;font-weight:700;text-align:center;width:100%;margin-bottom:4px}
+.sf-b.ctl{border-color:rgba(237,175,69,.5);color:var(--gold)}
+.sf-b.hub{border-color:rgba(237,175,69,.35);color:var(--gold)}
+.sf-b.ops{border-color:rgba(237,175,69,.4);color:var(--gold)}
+.sf-b.out{border-color:rgba(213,213,209,.3);color:var(--slv);font-style:italic}
+.sf-a{text-align:center;color:var(--gdk);font-size:16px;margin:2px 0}
+.sf-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:4px}
+.sf-s{background:#000;border:1px solid rgba(237,175,69,.25);border-radius:7px;padding:7px;font-size:10px;font-weight:700;color:var(--gold);text-align:center}
+.sf-s span{display:block;color:var(--muted);font-weight:400;font-size:9px;margin-top:2px}
+.std-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid var(--bdr)}
+.std-tag{background:#000;border:1px solid var(--bdr);border-radius:4px;padding:3px 9px;font-size:10px;color:var(--muted);font-family:monospace}
+
+/* ── ARMÉES ────────────────────────────────────── */
+.armies{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.army{background:var(--s1);border:1px solid var(--bdr);border-radius:13px;padding:24px;position:relative;overflow:hidden;transition:.2s}
+.army::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gdk),var(--gold))}
+.army:hover{border-color:var(--gdk);transform:translateY(-2px)}
+.army.phare{border-color:rgba(220,150,26,.4)}
+.army-code{font-size:10px;font-weight:800;letter-spacing:.2em;color:var(--gdk);text-transform:uppercase;margin-bottom:9px}
+.army-name{font-size:17px;font-weight:700;color:var(--gold);margin-bottom:8px}
+.army-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.army-count{font-size:12px;font-weight:700;color:var(--slv)}
+.army-badge{display:inline-block;border:1px solid var(--gdk);color:var(--gold);border-radius:4px;padding:2px 8px;font-size:10px;letter-spacing:.1em;font-weight:700;margin-top:9px}
+.army-link{display:inline-block;background:var(--gold);color:#050300;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:800;margin-top:10px;letter-spacing:.03em}
+
+/* ── PLAYBOOKS ─────────────────────────────────── */
+.pb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.pb{background:var(--s1);border:1px solid var(--bdr);border-radius:11px;padding:18px 20px}
+.pb-cat{font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--gdk);text-transform:uppercase;margin-bottom:4px}
+.pb h4{font-size:14px;font-weight:700;color:var(--slv);margin-bottom:4px;font-family:monospace}
+.pb p{font-size:12px;color:var(--muted)}
+.pb-meta{font-size:11px;color:var(--gdk);margin-top:6px;font-weight:700}
+
+/* ── CTA ───────────────────────────────────────── */
+.cta-s{background:var(--s1);border-top:1px solid var(--bdr);padding:96px 0;text-align:center}
+.cta-s p{color:#9A9280;max-width:620px;margin:0 auto 32px;font-size:17px;line-height:1.65}
+.cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:18px}
+
+/* ── FOOTER ────────────────────────────────────── */
+footer{border-top:1px solid var(--bdr);padding:48px 0;text-align:center}
+.foot-armies{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:12px 0}
+.foot-copy{font-size:11px;color:var(--bdr);letter-spacing:.1em;margin-top:6px}
+
+/* ── RESPONSIVE ────────────────────────────────── */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-logo{max-width:260px;margin:0 auto}
+  .armies,.factory-grid,.pb-grid{grid-template-columns:1fr}
+  .hero-stats{gap:22px}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div>
+      <span class="lm" style="font-size:21px">
+        <span class="lea">EA</span>
+        <span class="ldiv" style="height:16px"></span>
+        <span class="lia">IA</span>
+      </span>
+      <span class="nav-sub">Intelligence artificielle opérationnelle</span>
+    </div>
+    <div class="nav-links">
+      <a href="#factory">La FACTORY</a>
+      <a href="#armees">Les armées</a>
+      <a href="#playbooks">Playbooks</a>
+      <a href="#demo">Démo</a>
+    </div>
+    <a class="nc" href="#demo">Planifier une démo</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="wrap" style="width:100%">
+    <div class="hero-grid">
+
+      <!-- LOGO — colonne φ gauche 38.2% -->
+      <div class="hero-logo-col">
+        <img
+          class="hero-logo"
+          src="assets/images/logo-ea-ia.png"
+          alt="EA|IA — Intelligence artificielle opérationnelle"
+        >
+      </div>
+
+      <!-- TEXTE — colonne φ droite 61.8% -->
+      <div class="hero-text">
+        <div class="kicker">Lancement · Studio d'architecture d'agents IA · 2026</div>
+        <h1>La prochaine étape de l'IA<br>n'est pas une <span class="g">conversation.</span><br>C'est une <span class="s">armée.</span></h1>
+        <p class="hero-tag">
+          <strong>EA|IA est l'usine derrière les armées IA.</strong><br>
+          39 agents en 5 équipes fabriquent, déploient et supervisent
+          6 armées spécialisées — plus de 130 agents actifs dans les opérations réelles.
+        </p>
+        <div class="btns">
+          <a class="btn-g" href="#demo">Planifier une démonstration</a>
+          <a class="btn-o" href="#armees">Les 6 armées</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hs"><div class="n">39</div><div class="l">Agents FACTORY</div></div>
+          <div class="hs"><div class="n">6</div><div class="l">Armées déployées</div></div>
+          <div class="hs"><div class="n">130+</div><div class="l">Agents actifs</div></div>
+          <div class="hs"><div class="n">10</div><div class="l">Playbooks</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="phi-sep"></div>
+<div class="phi-note"><b>φ</b> = 1.618034 · Architecture selon le nombre d'or · Logo col 38.2% · Texte col 61.8%</div>
+
+<!-- MANIFESTE -->
+<div class="manifeste">
+  <blockquote>
+    Des agents IA qui connaissent votre métier.<br>
+    Pas des chatbots génériques.<br>
+    <em>Des armées IA opérationnelles.</em>
+  </blockquote>
+  <p>EA|IA transforme les workflows métier en systèmes d'agents structurés. Chaque agent a un rôle, un mandat, des limites, des playbooks et des livrables. L'IA qui produit, documente, vérifie et livre.</p>
+</div>
+
+<div class="phi-sep"></div>
+
+<!-- FACTORY -->
+<section id="factory">
+  <div class="wrap">
+    <div class="sec-lbl">Architecture interne</div>
+    <h2>EA|IA est une <em>FACTORY.</em></h2>
+    <p class="sub">Pas une marque avec des produits. Une usine à agents avec 5 équipes core, 10 playbooks de fabrication et un pipeline de déploiement reproductible vers n'importe quel secteur.</p>
+
+    <div class="factory-grid">
+      <!-- Équipes -->
+      <div class="teams">
+        <div class="tc on">
+          <div class="tc-n">10 agents</div>
+          <div class="tc-code">TEAM HUB</div>
+          <div class="tc-name">Orchestration centrale</div>
+          <div class="tc-desc">Coordination inter-équipes, mémoire globale, routing et coaching IA.</div>
+        </div>
+        <div class="tc">
+          <div class="tc-n">14 agents</div>
+          <div class="tc-code">TEAM META</div>
+          <div class="tc-name">Fabrication — cœur de la FACTORY</div>
+          <div class="tc-desc">PromptMaster · PlaybookBuilder · AgentProductFactory</div>
+        </div>
+        <div class="tc">
+          <div class="tc-n">10 agents</div>
+          <div class="tc-code">TEAM IAHQ</div>
+          <div class="tc-name">Stratégie entreprise IA</div>
+          <div class="tc-desc">Intake client · Business cases · ROI · Blueprints</div>
+        </div>
+        <div class="tc">
+          <div class="tc-n">3 agents · critiques</div>
+          <div class="tc-code">TEAM OPS</div>
+          <div class="tc-name">Moteur d'exécution</div>
+          <div class="tc-desc">RouterIA · PlaybookRunner · DossierIA — invoqués dans chaque pipeline</div>
+        </div>
+        <div class="tc">
+          <div class="tc-n">3 agents</div>
+          <div class="tc-code">TEAM CTL</div>
+          <div class="tc-name">Surveillance continue</div>
+          <div class="tc-desc">WatchdogIA · AlertRouter · HealthReporter</div>
+        </div>
+      </div>
+
+      <!-- Schéma flux -->
+      <div class="schema">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gdk);margin-bottom:16px">Flux d'exécution standard</div>
+        <div class="sf-lbl">Surveillance permanente</div>
+        <div class="sf-b ctl">CTL — WatchdogIA · AlertRouter · HealthReporter</div>
+        <div class="sf-lbl">Requête entrante</div>
+        <div class="sf-b hub">HUB — Concierge → MasterOrchestrator</div>
+        <div class="sf-a">↓</div>
+        <div class="sf-b ops">OPS — RouterIA détecte l'intent</div>
+        <div class="sf-a">↓</div>
+        <div class="sf-b ops">OPS — PlaybookRunner exécute step-by-step</div>
+        <div class="sf-a">↓</div>
+        <div class="sf-3">
+          <div class="sf-s">META<span>Fabrication</span></div>
+          <div class="sf-s">IAHQ<span>Stratégie</span></div>
+          <div class="sf-s">Armée<span>Déployée</span></div>
+        </div>
+        <div class="sf-a">↓</div>
+        <div class="sf-b ops">OPS — DossierIA archive &amp; export</div>
+        <div class="sf-a">↓</div>
+        <div class="sf-b out">Livrable · Armée déployée · Rapport</div>
+        <div class="std-tags">
+          <span style="font-size:10px;color:var(--gdk);font-weight:700;letter-spacing:.1em;text-transform:uppercase;width:100%;margin-bottom:4px">Standard par agent</span>
+          <span class="std-tag">agent.yaml</span>
+          <span class="std-tag">contract.yaml</span>
+          <span class="std-tag">prompt.md</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARMÉES -->
+<section id="armees">
+  <div class="wrap">
+    <div class="sec-lbl">Portefeuille déployé</div>
+    <h2>Six armées. <em>Six réalités terrain.</em></h2>
+    <p class="sub">Chaque armée est produite par la FACTORY : agents, playbooks, runbooks, templates et bundles prêts à charger. Déployable tel quel ou personnalisable.</p>
+    <div class="armies">
+      <div class="army phare">
+        <div class="army-code">IT · Produit phare</div>
+        <div class="army-name">MSP Intelligence IT</div>
+        <div class="army-desc">Six équipes couvrent l'ensemble des opérations MSP : support N1–N3, NOC, patching, cloud M365/Azure, backup, sécurité, scripts PowerShell, documentation et QBR. Runbooks et templates ConnectWise inclus.</div>
+        <div class="army-count">26+ agents · 6 équipes · 24/7 NOC</div>
+        <div class="army-badge">DISPONIBLE</div>
+        <a class="army-link" href="msp-preview.html">Preview produit →</a>
+      </div>
+      <div class="army">
+        <div class="army-code">DAM · Design & Construction</div>
+        <div class="army-name">ARMY DAM DESIGN</div>
+        <div class="army-desc">Du relevé terrain (MagicPlan + laser) à la clôture chantier. Deux professionnels sur site, 19 agents en back-office. PWA Flask hors-ligne avec sync automatique.</div>
+        <div class="army-count">19 agents · PWA terrain · Off-line</div>
+        <div class="army-badge">EN PRODUCTION</div>
+      </div>
+      <div class="army">
+        <div class="army-code">TRAD · Intelligence stratégique</div>
+        <div class="army-name">ARMY TRAD INTEL</div>
+        <div class="army-desc">Veille parallèle sur marchés, crypto, géopolitique, cybersécurité et sentiment social. FractalMathCrypto + Correlator → rapport actionnable pour la décision d'investissement.</div>
+        <div class="army-count">13 agents · Signaux fusionnés · Actionnable</div>
+        <div class="army-badge">EN PRODUCTION</div>
+      </div>
+      <div class="army">
+        <div class="army-code">IASM · Santé mentale</div>
+        <div class="army-name">IASM</div>
+        <div class="army-desc">Cabinet IA d'accompagnement non médical. Module sécurité prioritaire — détecte crise et escalade automatiquement. TCC, coaching de vie, relations, addictions. Supervision éthique continue.</div>
+        <div class="army-count">19 agents · Supervision éthique · Protocoles sécurité</div>
+        <div class="army-badge">EN PRODUCTION</div>
+      </div>
+      <div class="army">
+        <div class="army-code">EDU · Éducation</div>
+        <div class="army-name">EDU SERVICES</div>
+        <div class="army-desc">Services éducatifs sectoriels pour le secondaire. Correction de travaux avec OCR et évaluation CCQ, radio étudiante et production podcast. Routing maître par secteur.</div>
+        <div class="army-count">Multi-secteurs · Secondaire · Polyvalente</div>
+        <div class="army-badge">EN PRODUCTION</div>
+      </div>
+      <div class="army">
+        <div class="army-code">NEA · Édition & Rédaction</div>
+        <div class="army-name">ARMY NEA WRITING</div>
+        <div class="army-desc">Cycle éditorial complet pour recueils et publications à thématique profonde : cosmos, symbolisme, vivant, systèmes. Du plan éditorial aux briefs d'illustration.</div>
+        <div class="army-count">7 agents · Cycle éditorial complet</div>
+        <div class="army-badge">EN PRODUCTION</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="phi-sep"></div>
+
+<!-- PLAYBOOKS -->
+<section id="playbooks">
+  <div class="wrap">
+    <div class="sec-lbl">Infrastructure de fabrication</div>
+    <h2>10 playbooks. <em>Un pipeline reproductible.</em></h2>
+    <p class="sub">La FACTORY n'improvise pas. Elle exécute un pipeline documenté : analyse → architecture → fabrication → validation → déploiement. Chaque étape est traçable.</p>
+    <div class="pb-grid">
+      <div class="pb"><div class="pb-cat">Fabrication</div><h4>BUILD_ARMY_FACTORY</h4><p>Construire une armée complète de zéro : analyse, équipes, agents, playbooks, index.</p><div class="pb-meta">300 min · 8 étapes</div></div>
+      <div class="pb"><div class="pb-cat">Fabrication</div><h4>BUILD_TEAM_FROM_SCRATCH</h4><p>Créer une équipe spécialisée avec agents, contracts et routing intégré.</p><div class="pb-meta">180 min · 6 étapes</div></div>
+      <div class="pb"><div class="pb-cat">Fabrication</div><h4>CLONE_AND_ADAPT_AGENT</h4><p>Cloner un agent existant et l'adapter à un nouveau contexte ou domaine.</p><div class="pb-meta">45 min · 4 étapes</div></div>
+      <div class="pb"><div class="pb-cat">Stratégie</div><h4>IAHQ_FRONTDOOR</h4><p>Intake client complet : cadrage, business case, ROI, blueprint de solution IA.</p><div class="pb-meta">180 min · 7 étapes</div></div>
+      <div class="pb"><div class="pb-cat">Opérationnel</div><h4>ARMY_AUDIT_COMPLETE</h4><p>Audit complet d'une armée : agents, routing, index, qualité et conformité.</p><div class="pb-meta">90 min · 5 étapes</div></div>
+      <div class="pb"><div class="pb-cat">Surveillance</div><h4>FACTORY_HEALTH_CHECK</h4><p>Rapport de santé FACTORY : alertes, contrats, index, disponibilité agents.</p><div class="pb-meta">20 min · 3 étapes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-s" id="demo">
+  <div class="wrap">
+    <div class="sec-lbl" style="text-align:center">Prochaine étape</div>
+    <h2 style="text-align:center">Démonstration EA|IA — <em>20 minutes.</em></h2>
+    <p>Une démonstration suffit pour voir la différence entre un chatbot et une armée IA opérationnelle. Apportez un workflow, un document ou un problème récurrent de votre secteur.</p>
+    <a class="btn-g" href="mailto:contact@eaia.ca?subject=Demo%20EA%7CIA%202026" style="display:inline-block">Planifier une démonstration</a>
+    <div class="cta-row">
+      <a class="btn-o" href="#" style="font-size:14px;padding:11px 20px">Parlez-nous de votre environnement</a>
+      <a class="btn-o" href="#" style="font-size:14px;padding:11px 20px">Créer votre armée sur mesure</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <img src="assets/images/logo-ea-ia.png" alt="EA|IA" style="width:120px;height:auto;opacity:.7;margin-bottom:14px;filter:drop-shadow(0 0 12px rgba(220,150,26,.3))">
+    <div style="font-size:13px;color:var(--muted);margin-bottom:14px">Intelligence artificielle opérationnelle · Studio d'architecture d'agents IA</div>
+    <div class="foot-armies">
+      <span>MSP Intelligence IT</span><span>ARMY DAM DESIGN</span>
+      <span>ARMY TRAD INTEL</span><span>IASM</span>
+      <span>EDU SERVICES</span><span>ARMY NEA WRITING</span>
+    </div>
+    <div class="foot-armies" style="margin-bottom:10px">
+      <span>39 agents FACTORY · 130+ agents déployés · 10 playbooks</span>
+    </div>
+    <div class="foot-copy">EA|IA Technologies · φ = 1.618034 · contact@eaia.ca · 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>
