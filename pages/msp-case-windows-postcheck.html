@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EAIA | MSP Intelligence IT — Cas de résolution post-maintenance Windows Server</title>
+  <style>
+    :root {
+      --bg: #0b0a08;
+      --panel: #12100d;
+      --panel-2: #171410;
+      --border: #181410;
+      --gold: #EDAF45;
+      --gold-dark: #CC8E28;
+      --gold-accent: #DC961A;
+      --silver: #D5D5D1;
+      --text: #F2EFEA;
+      --muted: #9A9280;
+      --ok: #7fd18b;
+      --warn: #f1b85b;
+      --danger: #f07c6c;
+      --shadow: 0 18px 40px rgba(0,0,0,.28);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(237,175,69,.13), transparent 26%),
+        radial-gradient(circle at left 10%, rgba(213,213,209,.06), transparent 18%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(11,10,8,.78);
+      border-bottom: 1px solid rgba(237,175,69,.12);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .brand-logo {
+      height: 48px;
+      width: auto;
+      max-width: 178px;
+      object-fit: contain;
+      display: block;
+      flex: 0 0 auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 64px 0 36px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border: 1px solid rgba(237,175,69,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(237,175,69,.18);
+      background: rgba(237,175,69,.08);
+      color: var(--silver);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(237,175,69,.12);
+    }
+
+    h1, h2, h3 { margin: 0 0 14px; line-height: 1.1; }
+    h1 {
+      font-size: clamp(2.15rem, 4.5vw, 4rem);
+      letter-spacing: -0.03em;
+      max-width: 13ch;
+    }
+    h2 {
+      font-size: clamp(1.45rem, 2.2vw, 2rem);
+      letter-spacing: -0.02em;
+    }
+    h3 {
+      font-size: 1.05rem;
+      color: var(--silver);
+    }
+
+    .lead {
+      color: var(--silver);
+      font-size: 1.05rem;
+      max-width: 64ch;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 24px 0 28px;
+    }
+
+    .pill {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(237,175,69,.16);
+      font-weight: 600;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #111;
+      border-color: transparent;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,.02);
+      color: var(--text);
+    }
+
+    .summary {
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+      background: linear-gradient(180deg, rgba(237,175,69,.06), rgba(255,255,255,.015));
+    }
+
+    .summary .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--muted);
+    }
+
+    .summary strong {
+      display: block;
+      color: var(--text);
+      font-size: 1rem;
+      margin-top: 2px;
+    }
+
+    .section {
+      padding: 18px 0 24px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 22px;
+      min-height: 128px;
+    }
+
+    .metric-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 6px;
+      letter-spacing: -.03em;
+    }
+
+    .metric-label {
+      color: var(--silver);
+      font-size: .96rem;
+      margin-bottom: 6px;
+    }
+
+    .metric-note {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      padding: 26px;
+    }
+
+    .small-title {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 16px 0 0;
+      list-style: none;
+    }
+
+    .list li {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.05);
+      color: var(--silver);
+    }
+
+    .ticket-raw {
+      border-left: 4px solid var(--gold);
+      background: #0f0d0a;
+      padding: 18px;
+      border-radius: 16px;
+      color: var(--silver);
+      white-space: pre-line;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    th, td {
+      padding: 14px 12px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      font-size: .95rem;
+    }
+
+    th {
+      color: var(--silver);
+      background: rgba(255,255,255,.03);
+      font-weight: 700;
+    }
+
+    td { color: var(--muted); }
+    td strong { color: var(--text); }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .step {
+      position: relative;
+      padding: 18px 16px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border: 1px solid rgba(237,175,69,.1);
+      min-height: 108px;
+    }
+
+    .step-index {
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .step strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.025);
+      color: var(--silver);
+    }
+
+    .badge.ok { color: var(--ok); }
+    .badge.warn { color: var(--warn); }
+    .badge.danger { color: var(--danger); }
+
+    .deliverables {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .deliverable {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .deliverable strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .split-result {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .result-box {
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(237,175,69,.1);
+      background: linear-gradient(180deg, rgba(237,175,69,.05), rgba(255,255,255,.015));
+    }
+
+    .result-box .kicker {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .result-box p {
+      margin: 0;
+      color: var(--silver);
+    }
+
+    .marketing {
+      padding: 28px;
+      text-align: center;
+      color: var(--silver);
+      font-size: 1.02rem;
+      background: linear-gradient(180deg, rgba(237,175,69,.07), rgba(255,255,255,.02));
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding: 28px 0 46px;
+      color: var(--muted);
+      border-top: 1px solid rgba(237,175,69,.1);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1100px) {
+      .metrics { grid-template-columns: repeat(3, 1fr); }
+      .deliverables { grid-template-columns: repeat(2, 1fr); }
+      .split-result { grid-template-columns: repeat(2, 1fr); }
+      .pipeline { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid, .grid-2 { grid-template-columns: 1fr; }
+      .metrics, .deliverables, .split-result, .pipeline { grid-template-columns: 1fr; }
+      .nav { align-items: flex-start; flex-direction: column; }
+      .hero { padding-top: 38px; }
+      .hero-card, .summary, .panel, .marketing { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="../index.html" aria-label="EA IA — Accueil">
+        <img class="brand-logo" src="../assets/images/eaia-logo-officiel.png" alt="EA IA — Intelligence artificielle opérationnelle">
+        <div>
+          <div>MSP Intelligence IT</div>
+          <div style="font-size:12px;color:var(--muted);font-weight:500;">Casepage post-maintenance Windows</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="msp-demos.html">Démos</a>
+        <a href="#cas">Cas</a>
+        <a href="#diagnostic">Diagnostic</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#agents">Agents</a>
+        <a href="#livrables">Livrables</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" id="cas">
+      <div class="hero-grid">
+        <div class="card hero-card">
+          <div class="eyebrow"><span class="dot"></span> Démonstrateur MSP Intelligence IT</div>
+          <h1>Résolution assistée d’une maintenance Windows Update multi-serveurs avec postcheck critique</h1>
+          <p class="lead">
+            Cette page montre comment MSP Intelligence IT transforme une alerte de redémarrage en attente en
+            intervention structurée : triage, séquencement des redémarrages, validations par rôle serveur,
+            documentation ConnectWise et réactivation d’un angle de protection opérationnelle.
+          </p>
+          <div class="hero-meta">
+            <span class="pill">Mode public anonymisé</span>
+            <span class="pill">Catégorie : Windows Update / post-maintenance</span>
+            <span class="pill">Source : Script Monitor / RMM</span>
+            <span class="pill">Statut final : Stabilisé avec suivi ciblé</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:contact@eaia.ca">Demander une démo</a>
+            <a class="btn btn-secondary" href="#pipeline">Voir le pipeline</a>
+          </div>
+        </div>
+
+        <aside class="card summary">
+          <div>
+            <div class="label">Client</div>
+            <strong>Organisation multi-serveurs, environnement Windows Server</strong>
+          </div>
+          <div>
+            <div class="label">Périmètre</div>
+            <strong>2 contrôleurs de domaine, 2 serveurs SQL, 1 serveur web, 1 serveur de fichiers</strong>
+          </div>
+          <div>
+            <div class="label">Symptôme initial</div>
+            <strong>Indicateurs de redémarrage en attente après mises à jour Windows et maintenance récente</strong>
+          </div>
+          <div>
+            <div class="label">Décision technique</div>
+            <strong>Lecture seule d’abord, validation rôle par rôle, aucun reboot en lot, vérification AD post-DC obligatoire</strong>
+          </div>
+          <div>
+            <div class="label">Résultat</div>
+            <strong>Services revenus, SQL validé, AD répliqué, sauvegardes Veeam réactivées, 1 suivi reboot restant sur un DC</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="metrics">
+        <div class="card metric">
+          <div class="metric-value">6</div>
+          <div class="metric-label">Serveurs validés</div>
+          <div class="metric-note">DC, SQL, IIS et fichiers revus dans le même flux d’intervention</div>
+        </div>
+        <div class="card metric">
+          <div class="metric-value">2</div>
+          <div class="metric-label">Contrôleurs de domaine</div>
+          <div class="metric-note">Services AD/DNS, SYSVOL/NETLOGON et réplication revus</div>
+        </div>
+        <div class="card metric">
+          <div class="metric-value">2</div>
+          <div class="metric-label">Serveurs SQL</div>
+          <div class="metric-note">Services MSSQL et connectivité locale validés après reboot</div>
+        </div>
+        <div class="card metric">
+          <div class="metric-value">0</div>
+          <div class="metric-label">Échec de réplication AD</div>
+          <div class="metric-note">Résumé repadmin propre sur l’ensemble du périmètre DC</div>
+        </div>
+        <div class="card metric">
+          <div class="metric-value">1</div>
+          <div class="metric-label">Point de suivi résiduel</div>
+          <div class="metric-note">PendingFileRenameOperations persistant sur un contrôleur de domaine</div>
+        </div>
+        <div class="card metric">
+          <div class="metric-value">Veeam</div>
+          <div class="metric-label">Protection rétablie</div>
+          <div class="metric-note">Jobs de sauvegarde réactivés durant la même intervention</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container grid-2">
+      <article class="card panel">
+        <div class="small-title">Point de départ — billet brut reçu</div>
+        <h2>Une alerte simple en apparence, mais à fort impact infra</h2>
+        <div class="ticket-raw">
+Sujet : Script Monitor — Windows Update pending reboot
+Source : RMM / supervision
+Contexte : plusieurs serveurs ont déjà été redémarrés
+Actifs concernés : rôles critiques d’infrastructure et de bases de données
+Risque réel : un simple redémarrage en attente peut cacher un postcheck incomplet sur AD, SQL ou protection backup
+Limite initiale : le billet ne précise pas quels rôles ont été pleinement revalidés ni ce qui reste à confirmer
+        </div>
+      </article>
+
+      <article class="card panel">
+        <div class="small-title">Lecture agent</div>
+        <h2>Ce que l’agent comprend réellement</h2>
+        <ul class="list">
+          <li><strong>Ce que le billet dit :</strong> des serveurs ont été redémarrés et un signal de reboot pending existe encore.</li>
+          <li><strong>Ce que le billet implique :</strong> la maintenance n’est pas terminée tant que chaque rôle critique n’a pas son postcheck adapté.</li>
+          <li><strong>Ce qui doit être validé avant fermeture :</strong> état Windows, services métiers, santé AD, SQL local, partage SYSVOL/NETLOGON, réplication, sauvegardes.</li>
+          <li><strong>Ce qui représente un risque :</strong> considérer “serveur revenu” comme équivalent à “service validé”.</li>
+        </ul>
+        <div class="badge-row">
+          <span class="badge danger">Risque initial : élevé sur l’infra</span>
+          <span class="badge warn">Aucun reboot de masse</span>
+          <span class="badge ok">Validation par rôle obligatoire</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section container" id="diagnostic">
+      <div class="card panel">
+        <div class="small-title">Diagnostic structuré</div>
+        <h2>Des redémarrages effectués ne suffisent pas : il faut prouver le retour de service</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Élément</th>
+              <th>Constat</th>
+              <th>Impact</th>
+              <th>Décision</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Contrôleurs de domaine</strong></td>
+              <td>Services AD/DNS revenus, SYSVOL/NETLOGON présents, réplication sans échec</td>
+              <td>Le cœur d’authentification est stable</td>
+              <td>Valider DC par services, partages, repadmin et contrôle DFSR</td>
+            </tr>
+            <tr>
+              <td><strong>Serveurs SQL</strong></td>
+              <td>MSSQLSERVER et SQLSERVERAGENT démarrés, requête locale répondante</td>
+              <td>Les bases critiques sont redevenues accessibles</td>
+              <td>Clore SQL seulement après test service + connectivité locale</td>
+            </tr>
+            <tr>
+              <td><strong>Serveur IIS</strong></td>
+              <td>Windows revenu proprement, pas d’erreur critique immédiate</td>
+              <td>Le socle OS est stable mais la validation applicative reste distincte</td>
+              <td>Documenter la différence entre postcheck OS et smoke test applicatif</td>
+            </tr>
+            <tr>
+              <td><strong>Backup Veeam</strong></td>
+              <td>Jobs désactivés constatés puis réactivés</td>
+              <td>La protection ne devait pas rester suspendue après maintenance</td>
+              <td>Rétablir la protection dans le même flux d’intervention</td>
+            </tr>
+            <tr>
+              <td><strong>Point résiduel</strong></td>
+              <td>PendingFileRenameOperations persistant sur un DC malgré reboot</td>
+              <td>Le service est revenu, mais la fermeture technique n’est pas totalement propre</td>
+              <td>Escalader en suivi ciblé ou planifier un second reboot contrôlé</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section container" id="pipeline">
+      <div class="card panel">
+        <div class="small-title">Pipeline de traitement</div>
+        <h2>Le workflow appliqué par MSP Intelligence IT</h2>
+        <div class="pipeline">
+          <div class="step">
+            <div class="step-index">01 — Ingestion</div>
+            <strong>Lecture du billet brut</strong>
+            <p>Extraction de l’alerte pending reboot, des actifs cités et du contexte de maintenance déjà entamé.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">02 — Triage</div>
+            <strong>Requalification du risque</strong>
+            <p>Une simple alerte Windows Update devient un cas infra critique dès qu’elle touche DC et SQL.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">03 — Séquencement</div>
+            <strong>Ordre de validation</strong>
+            <p>Le système impose un ordre défendable : DC, SQL, IIS, fichiers, puis protection associée.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">04 — Préservation</div>
+            <strong>Lecture seule d’abord</strong>
+            <p>Collecte des états Windows, services et événements avant toute recommandation additionnelle.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">05 — Validation Windows</div>
+            <strong>Postcheck générique</strong>
+            <p>Uptime, pending reboot, disques, services automatiques et journaux récents sont standardisés.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">06 — Validation métier</div>
+            <strong>Rôle par rôle</strong>
+            <p>AD via repadmin et SYSVOL, SQL via services et requête locale, IIS via validation applicative.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">07 — Détection d’écarts</div>
+            <strong>Ce qui reste ouvert</strong>
+            <p>Le moteur sépare ce qui est revenu correctement de ce qui exige un suivi ciblé sans dramatiser.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">08 — Remédiation annexe</div>
+            <strong>Réactivation Veeam</strong>
+            <p>La protection est rétablie pendant l’intervention, sans créer un second billet isolé.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">09 — Communication</div>
+            <strong>Livrables CW + Teams + courriel</strong>
+            <p>Les sorties sont formulées différemment selon le public, sans détails internes sensibles.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">10 — Capitalisation</div>
+            <strong>Le billet devient une preuve</strong>
+            <p>L’intervention réelle est transformée en cas démonstrateur clair pour le site EAIA.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container grid-2">
+      <article class="card panel">
+        <div class="small-title">Actions effectuées</div>
+        <h2>Ce qui a été fait</h2>
+        <ul class="list">
+          <li>Qualification de l’alerte et recensement des rôles serveurs réellement impactés.</li>
+          <li>Contrôle post-redémarrage Windows sur l’ensemble du périmètre visé.</li>
+          <li>Validation AD/DNS sur les contrôleurs de domaine avec SYSVOL, NETLOGON et réplication.</li>
+          <li>Validation SQL sur les deux serveurs via services et connectivité locale de l’instance.</li>
+          <li>Contrôle du serveur IIS au niveau OS avec séparation explicite du test applicatif.</li>
+          <li>Documentation des écarts restants au lieu de les masquer dans une fermeture optimiste.</li>
+          <li>Réactivation des sauvegardes Veeam afin de rétablir la couverture de protection.</li>
+        </ul>
+      </article>
+
+      <article class="card panel">
+        <div class="small-title">Risques et garde-fous</div>
+        <h2>Ce que l’agent empêche autant que ce qu’il accélère</h2>
+        <ul class="list">
+          <li><strong>Risque technique :</strong> traiter un DC comme un simple serveur générique après reboot.</li>
+          <li><strong>Risque opérationnel :</strong> lancer un redémarrage supplémentaire sans preuve ni postcheck complet.</li>
+          <li><strong>Risque de documentation :</strong> fermer le billet sans distinguer OK opérationnel et suivi résiduel.</li>
+          <li><strong>Garde-fou :</strong> un seul serveur critique à la fois pour les redémarrages recommandés.</li>
+          <li><strong>Garde-fou :</strong> postcheck DC obligatoire après chaque reboot de contrôleur de domaine.</li>
+          <li><strong>Garde-fou :</strong> aucune donnée sensible, aucun nom client réel dans la version publique.</li>
+        </ul>
+        <div class="badge-row">
+          <span class="badge ok">Rôle par rôle</span>
+          <span class="badge ok">AD validé</span>
+          <span class="badge warn">Suivi ciblé maintenu</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section container" id="agents">
+      <div class="card panel">
+        <div class="small-title">Ce que les agents font concrètement</div>
+        <h2>Ils ne remplacent pas le technicien : ils structurent la décision</h2>
+        <div class="deliverables">
+          <div class="deliverable">
+            <strong>@IT-MaintenanceMaster</strong>
+            Transforme l’alerte pending reboot en séquence contrôlée : ordre des serveurs, garde-fous, postchecks et point résiduel.
+          </div>
+          <div class="deliverable">
+            <strong>@IT-SysAdmin</strong>
+            Valide les rôles critiques après redémarrage : DC, DNS, SYSVOL, NETLOGON, SQL, IIS et état Windows.
+          </div>
+          <div class="deliverable">
+            <strong>@IT-BackupDRMaster</strong>
+            Repère que la protection Veeam ne doit pas rester désactivée et la ramène dans le flux de fermeture.
+          </div>
+          <div class="deliverable">
+            <strong>@IT-TicketOpsAI</strong>
+            Produit la note interne, la discussion client et la fermeture avec les limites, les preuves et le suivi restant.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="livrables">
+      <div class="card panel">
+        <div class="small-title">Livrables générés</div>
+        <h2>L’agent ne fait pas que répondre : il produit des sorties prêtes à être utilisées</h2>
+        <div class="deliverables">
+          <div class="deliverable">
+            <strong>Avis Teams</strong>
+            Message court pour informer le NOC du début, de la progression et de la fin de l’intervention.
+          </div>
+          <div class="deliverable">
+            <strong>Postchecks PowerShell</strong>
+            Blocs standards et spécialisés par rôle, réutilisables par l’équipe technique sans réécriture.
+          </div>
+          <div class="deliverable">
+            <strong>Note interne ConnectWise</strong>
+            Historique structuré des validations, écarts résiduels et décisions prises pendant la maintenance.
+          </div>
+          <div class="deliverable">
+            <strong>Courriel client</strong>
+            Communication claire sur le retour de service, la réactivation Veeam et le suivi préventif restant.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="card panel">
+        <div class="small-title">Résultat final</div>
+        <h2>Avant, pendant, après</h2>
+        <div class="split-result">
+          <div class="result-box">
+            <div class="kicker">Avant</div>
+            <p>Liste de serveurs redémarrés, alerte pending reboot encore active, visibilité incomplète sur les validations réelles.</p>
+          </div>
+          <div class="result-box">
+            <div class="kicker">Pendant</div>
+            <p>Découpage du cas par rôle, validations techniques ciblées, distinction entre état Windows et état métier.</p>
+          </div>
+          <div class="result-box">
+            <div class="kicker">Après</div>
+            <p>Infra stabilisée, SQL validé, AD répliqué, protection backup rétablie, un seul point de suivi documenté proprement.</p>
+          </div>
+          <div class="result-box">
+            <div class="kicker">Valeur produite</div>
+            <p>Une maintenance post-patch devient une démonstration de rigueur opérationnelle, pas seulement un reboot réussi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="card marketing">
+        Ce cas démontre comment MSP Intelligence IT transforme une maintenance à risque diffus en séquence défendable :
+        triage, ordre d’exécution, validation par rôle, communication ciblée et documentation exploitable. L’agent structure.
+        L’humain garde la décision finale.
+      </div>
+    </section>
+
+    <section class="section container" id="contact">
+      <div class="card hero-card" style="padding:30px;">
+        <div class="small-title">Contact</div>
+        <h2>Tu veux une page comme celle-ci générée à partir de tes billets MSP réels ?</h2>
+        <p class="lead" style="max-width:72ch;">
+          EAIA peut transformer un ticket de maintenance, d’incident ou de remédiation en étude de cas
+          anonymisée, démontrable et prête pour le site, la vente ou la démo produit.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:contact@eaia.ca">contact@eaia.ca</a>
+          <a class="btn btn-secondary" href="#cas">Revoir le cas</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong style="color:var(--text);">EAIA Technologies</strong><br />
+        MSP Intelligence IT
+      </div>
+      <div>
+        Démonstrateur public anonymisé — compatible site de lancement / GitHub Pages
+      </div>
+      <div>
+        <a href="mailto:contact@eaia.ca">contact@eaia.ca</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

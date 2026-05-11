@@ -3,9 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MSP — Un billet flou entre.Un plan exploitable sort.</title>
-<meta name="description" content="Cas MSP anonymisé.">
-
+<title>MSP Intelligence IT — Estimation & fenêtres de maintenance</title>
+<meta name="description" content="Cas MSP Intelligence IT : estimation de temps, lots applicatifs, fenêtres de maintenance, sauvegardes, snapshots hors DC, contingence et rapports.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -15,6 +14,27 @@
   --border:rgba(200,149,42,.18);--border2:rgba(255,255,255,.08);--ok:#79D28B;--warn:#F2BE61;--bad:#F08072;--max:1160px;
 }
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--black);color:var(--white);font-family:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;overflow-x:hidden;line-height:1.65}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(200,149,42,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(200,149,42,.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;z-index:0}section,nav,footer,header,main{position:relative;z-index:1}.wrap{width:min(calc(100% - 48px),var(--max));margin:0 auto}.nav{display:flex;justify-content:space-between;align-items:center;gap:28px;padding:18px 64px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.92);position:sticky;top:0;z-index:100;backdrop-filter:blur(24px)}.nav-brand{display:flex;align-items:center;gap:14px;min-width:0}.nav-logo{height:48px;width:auto;max-width:178px;object-fit:contain;display:block;flex:0 0 auto}.nav-title{display:flex;flex-direction:column;gap:2px;min-width:0}.nav-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;letter-spacing:4px;line-height:1;color:var(--silver-light);white-space:nowrap}.nav-name .ea{color:var(--gold-light)}.nav-tagline{font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(200,149,42,.62);letter-spacing:3px;text-transform:uppercase;white-space:nowrap}.nav-links{display:flex;gap:30px;list-style:none;align-items:center}.nav-links a{color:var(--muted);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:color .2s}.nav-links a:hover{color:var(--gold-light)}.nav-cta{border:1px solid var(--gold);color:var(--gold-light);padding:10px 24px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:.25s;white-space:nowrap}.nav-cta:hover{background:var(--gold);color:var(--black)}.hero{min-height:calc(100vh - 85px);display:flex;flex-direction:column;justify-content:center;padding:98px 64px 78px;overflow:hidden}.hero.compact{min-height:auto;padding-top:90px;padding-bottom:56px}.orb{position:absolute;top:-22%;right:-8%;width:700px;height:700px;border-radius:50%;border:1px solid rgba(200,149,42,.08);pointer-events:none}.orb::before{content:'';position:absolute;inset:40px;border-radius:50%;border:1px solid rgba(200,149,42,.05)}.orb-glow{position:absolute;top:50%;right:3%;transform:translateY(-50%);width:520px;height:520px;background:radial-gradient(ellipse,rgba(200,149,42,.075) 0%,transparent 65%);pointer-events:none}.label{display:flex;align-items:center;gap:16px;margin-bottom:34px}.label-line{width:48px;height:1px;background:var(--gold)}.label-text{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold-light);letter-spacing:4px;text-transform:uppercase}.eyebrow{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--silver);letter-spacing:8px;text-transform:uppercase;margin-bottom:20px}.hero h1,.display-title{font-family:'Cormorant Garamond',serif;font-size:clamp(54px,8vw,112px);font-weight:300;line-height:.95;letter-spacing:-1px;margin-bottom:16px;max-width:980px}.hero h1 em,.display-title em,.s-title em{font-style:italic;color:var(--gold-light)}.hero h1 strong,.display-title strong,.s-title strong{font-weight:600;color:var(--white)}.product-tag{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gold);letter-spacing:3px;margin:16px 0 34px;text-transform:uppercase}.hero-sub{font-size:17px;color:var(--muted);max-width:680px;line-height:1.78;margin-bottom:46px;font-weight:300}.hero-sub strong{color:var(--white);font-weight:600}.actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.btn-gold,.btn-outline,.btn-muted{display:inline-flex;align-items:center;justify-content:center;padding:15px 38px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:.25s;border-radius:0;cursor:pointer}.btn-gold{background:var(--gold);color:var(--black);border:1px solid var(--gold)}.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}.btn-outline{border:1px solid rgba(200,149,42,.42);color:var(--gold-light);background:transparent}.btn-outline:hover{border-color:var(--gold);background:var(--gold-dim)}.btn-muted{border:1px solid var(--border2);color:var(--silver);background:rgba(255,255,255,.02)}.btn-muted:hover{border-color:var(--gold-line);color:var(--gold-light)}.metrics{display:flex;gap:0;margin:0 0 52px;border:1px solid var(--border);width:fit-content;flex-wrap:wrap}.metric{padding:20px 34px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:6px;min-width:140px}.metric:last-child{border-right:none}.metric-n{font-family:'Cormorant Garamond',serif;font-size:43px;font-weight:300;color:var(--gold-light);line-height:1}.metric-l{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}.firm-band{background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px}.firm-band-name{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:5px;color:var(--gold-light);text-transform:uppercase}.firm-band-desc{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted2);letter-spacing:2px;text-transform:uppercase;margin-top:6px}.firm-products{display:flex;gap:2px;flex-wrap:wrap}.firm-product{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;padding:6px 14px;border:1px solid rgba(200,149,42,.16);color:rgba(200,149,42,.58);text-transform:uppercase}.firm-product.active{border-color:var(--gold);color:var(--gold-light);background:var(--gold-dim)}.ticker{overflow:hidden;border-bottom:1px solid var(--border2);padding:12px 0;background:var(--dark3)}.ticker-inner{display:inline-flex;gap:48px;animation:ticker 35s linear infinite;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.22);white-space:nowrap}.ticker-inner span{color:rgba(200,149,42,.68)}@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}.s-pad{padding:96px 64px}.s-label{display:flex;align-items:center;gap:16px;margin-bottom:20px}.s-label-line{width:36px;height:1px;background:var(--gold)}.s-label-text{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gold-light);letter-spacing:4px;text-transform:uppercase}.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,6vw,80px);font-weight:300;line-height:.95;letter-spacing:-.5px;margin-bottom:24px}.s-sub{color:var(--muted);font-size:16px;max-width:640px;line-height:1.78;font-weight:300}.dark-band{background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.split{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}.card-grid{max-width:var(--max);margin:56px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}.card-grid.four{grid-template-columns:repeat(4,1fr)}.card-grid.two{grid-template-columns:repeat(2,1fr)}.pro-card{background:var(--dark);padding:34px 28px;min-height:220px;transition:.25s;position:relative;overflow:hidden}.pro-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:.25s}.pro-card:hover{background:#0C0C0C}.pro-card:hover::after{transform:scaleX(1)}.card-n{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(200,149,42,.38);letter-spacing:2px;margin-bottom:18px;text-transform:uppercase}.card-icon{font-size:24px;margin-bottom:14px}.card-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:.4px;margin-bottom:7px;color:var(--white)}.card-sub{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}.card-desc{font-size:13.5px;color:var(--muted);line-height:1.68;font-weight:300;margin-bottom:16px}.card-link{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;border-top:1px solid var(--border2);padding-top:14px;display:inline-block}.terminal{background:#050505;border:1px solid rgba(200,149,42,.25);padding:28px;position:relative}.terminal::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}.t-bar{display:flex;gap:8px;margin-bottom:20px;align-items:center}.t-dot{width:9px;height:9px;border-radius:50%}.t-dot:nth-child(1){background:#FF5F57}.t-dot:nth-child(2){background:#FEBC2E}.t-dot:nth-child(3){background:#28C840}.t-bar-title{margin-left:8px;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,.22);letter-spacing:2px}.t-line{font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.74;margin-bottom:2px}.t-gray{color:rgba(255,255,255,.22)}.t-gold{color:var(--gold-light)}.t-silver{color:var(--silver)}.t-green{color:#4ADE80}.t-red{color:#F87171}.t-white{color:var(--white)}.table-wrap{overflow:auto;border:1px solid var(--border);background:var(--dark)}table{width:100%;border-collapse:collapse}th,td{padding:16px 14px;border-bottom:1px solid var(--border2);vertical-align:top;text-align:left;font-size:13px}th{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);background:#0B0B0B}td{color:var(--muted)}td strong{color:var(--silver-light)}.pipeline{max-width:var(--max);margin:48px auto 0;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}.step{background:var(--dark);padding:24px 20px;min-height:170px}.step-n{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(200,149,42,.6);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}.step strong{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--white);font-weight:600;display:block;margin-bottom:8px}.step p{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300}.quote-section{background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 64px;text-align:center}.quote-mark{font-family:'Cormorant Garamond',serif;font-size:120px;color:rgba(200,149,42,.08);line-height:.5;margin-bottom:20px;font-style:italic}.quote-text{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,34px);font-weight:300;font-style:italic;max-width:800px;margin:0 auto 28px;line-height:1.45;color:var(--silver-light)}.quote-text strong{color:var(--gold-light);font-style:normal}.quote-attr{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted2);letter-spacing:3px;text-transform:uppercase}.cta-section{padding:112px 64px;text-align:center;overflow:hidden}.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,96px);font-weight:300;line-height:.95;margin-bottom:28px}.cta-section h2 em{font-style:italic;color:var(--gold-light)}.cta-section p{color:var(--muted);font-size:17px;margin:0 auto 44px;max-width:560px;line-height:1.75;font-weight:300}.form-grid{display:grid;grid-template-columns:minmax(0,1.05fr) .95fr;gap:1px;background:var(--border);border:1px solid var(--border);max-width:var(--max);margin:56px auto 0}.form-panel{background:var(--dark);padding:32px}.field{margin-bottom:16px}label{display:block;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gold-light);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}input,select,textarea{width:100%;background:#060606;color:var(--silver-light);border:1px solid var(--border);padding:13px 14px;outline:none}textarea{min-height:116px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:var(--gold)}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 18px}.chip{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:8px 12px;border:1px solid var(--border);color:var(--muted);cursor:pointer;background:#070707}.chip[data-on=true]{color:var(--black);background:var(--gold);border-color:var(--gold)}.result-panel{background:#070707;padding:32px}.agent-list{display:grid;gap:10px;margin-top:16px}.agent{border:1px solid var(--border2);padding:14px;background:#050505}.agent b{display:block;color:var(--silver-light);margin-bottom:4px}.agent span{font-size:13px;color:var(--muted)}.mono{white-space:pre-wrap;word-break:break-word;font-family:'JetBrains Mono',monospace;font-size:10px;line-height:1.6;background:#030303;border:1px solid var(--border);padding:14px;color:var(--silver);max-height:260px;overflow:auto}footer{border-top:1px solid var(--border);padding:36px 64px;display:flex;justify-content:space-between;align-items:center;gap:18px;background:var(--dark)}.footer-logo{height:42px;width:auto;object-fit:contain}.footer-right{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted2);letter-spacing:2px;text-align:right;text-transform:uppercase}@media(max-width:1100px){.card-grid,.card-grid.four{grid-template-columns:repeat(2,1fr)}.pipeline{grid-template-columns:repeat(2,1fr)}.split,.form-grid{grid-template-columns:1fr}.nav-links{display:none}.metrics{width:100%}.metric{flex:1 1 50%;border-bottom:1px solid var(--border)}}@media(max-width:720px){.nav,.hero,.s-pad,.firm-band,.quote-section,.cta-section,footer{padding-left:24px;padding-right:24px}.nav-title{display:none}.nav-logo{height:44px;max-width:152px}.hero h1,.display-title{font-size:52px}.card-grid,.card-grid.four,.card-grid.two,.pipeline{grid-template-columns:1fr}.firm-band{flex-direction:column;align-items:flex-start}.hero-metrics,.metrics{display:grid;width:100%;grid-template-columns:1fr}.metric{border-right:none}.actions{align-items:stretch}.btn-gold,.btn-outline,.btn-muted{width:100%;padding-left:22px;padding-right:22px}.row{grid-template-columns:1fr}.footer-right{text-align:left}footer{flex-direction:column;align-items:flex-start}}
+
+
+.plan-grid{max-width:1160px;margin:42px auto 0;display:grid;grid-template-columns:1.05fr .95fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.plan-panel{background:var(--dark);padding:34px}
+.window-list{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:28px}
+.window-row{display:grid;grid-template-columns:1.05fr 1.25fr .5fr;gap:1px;background:var(--border)}
+.window-cell{background:#050505;padding:18px 18px;color:var(--muted);font-size:13px;line-height:1.65}
+.window-cell strong{display:block;color:var(--silver-light);font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.08;margin-bottom:6px;letter-spacing:.2px}
+.window-cell .mono-small{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;line-height:1.6}
+.server-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.server-tag{border:1px solid rgba(200,149,42,.22);background:rgba(200,149,42,.05);color:var(--silver);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.7px;padding:5px 7px;text-transform:uppercase}
+.estimation{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold-light);line-height:1.05}
+.matrix{max-width:1160px;margin:42px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.matrix-card{background:var(--dark);padding:28px;min-height:230px}
+.matrix-card h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin-bottom:10px;color:var(--white)}
+.matrix-card p{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300}
+.matrix-card .k{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gold-light);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.deliverable-grid{max-width:1160px;margin:42px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.deliverable{background:#050505;padding:24px;min-height:190px}
+.deliverable b{display:block;color:var(--silver-light);font-family:'Cormorant Garamond',serif;font-size:24px;margin-bottom:8px}.deliverable span{font-size:13px;color:var(--muted);line-height:1.65}.timeline-note{max-width:1160px;margin:28px auto 0;border:1px solid rgba(242,190,97,.25);background:rgba(242,190,97,.055);padding:22px;color:var(--silver);font-size:14px;line-height:1.75}.source-card{border:1px solid var(--border);background:#050505;padding:24px;margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--silver);line-height:1.75;white-space:pre-wrap}
+@media(max-width:1100px){.plan-grid,.matrix,.deliverable-grid{grid-template-columns:1fr}.window-row{grid-template-columns:1fr}.window-cell{border-bottom:1px solid var(--border)}}
 </style>
 </head>
 <body>
@@ -27,16 +47,128 @@
     <li><a href="../pages/factory.html">Factory</a></li>
     <li><a href="../msp-preview.html">MSP</a></li>
     <li><a href="../pages/msp-demos.html">Démonstrateurs</a></li>
-    <li><a href="../pages/eaia-apercu-besoin-client.html">Cadrage</a></li>
+    <li><a href="#fenetres">Fenêtres</a></li>
   </ul>
-  <a class="nav-cta" href="mailto:contact@eaia.ca?subject=Demo%20EAIA">Démo — 30 min</a>
+  <a class="nav-cta" href="mailto:contact@eaia.ca?subject=Demo%20MSP%20Estimation">Démo — 30 min</a>
 </nav>
 
-<section class="hero compact"><div class="orb"></div><div class="orb-glow"></div><div class="label"><div class="label-line"></div><div class="label-text">Démonstrateur MSP Intelligence IT · Mode public anonymisé</div></div><div class="eyebrow">Cas de résolution</div><h1>Un billet flou entre.<br><em>Un plan exploitable sort.</em></h1><div class="product-tag">Résolution de billet serveur</div><p class="hero-sub">Exemple de résolution structurée : triage, précheck, risques, planification, estimation et livrables prêts à coller.</p><div class="metrics"><div class="metric"><div class="metric-n">11</div><div class="metric-l">Serveurs</div></div><div class="metric"><div class="metric-n">5</div><div class="metric-l">Fenêtres</div></div><div class="metric"><div class="metric-n">15 h</div><div class="metric-l">Estimation</div></div><div class="metric"><div class="metric-n">10/25%</div><div class="metric-l">Contingence</div></div></div><div class="actions"><a class="btn-gold" href="mailto:contact@eaia.ca?subject=Demo%20MSP">Demander une démo</a><a class="btn-outline" href="msp-demos.html">Choix des cas</a></div></section><section class="s-pad dark-band"><div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Lecture</div></div><div class="s-title">Du billet brut au plan <em>défendable.</em></div><p class="s-sub">L’agent transforme une demande de maintenance en séquence opérationnelle.</p><div class="pipeline"><div class="step"><div class="step-n">01</div><strong>Ingestion</strong><p>Extraction du contexte et du périmètre.</p></div><div class="step"><div class="step-n">02</div><strong>Précheck</strong><p>Backups, pending reboot, rôles et état serveur.</p></div><div class="step"><div class="step-n">03</div><strong>Plan</strong><p>Fenêtres par priorité et partage applicatif.</p></div><div class="step"><div class="step-n">04</div><strong>Garde-fous</strong><p>Snapshots hors DC, validations et rollback.</p></div><div class="step"><div class="step-n">05</div><strong>Livrables</strong><p>Note interne, client et rapport coordo.</p></div></div></section><section class="cta-section"><h2>Transformer vos billets<br><em>en preuves.</em></h2><p>EA|IA peut convertir un traitement réel en page démonstrateur publique, anonymisée et prête pour la vente.</p><a class="btn-gold" href="msp-demos.html">Revenir aux cas</a></section>
+<section class="hero compact">
+  <div class="orb"></div><div class="orb-glow"></div>
+  <div class="label"><div class="label-line"></div><div class="label-text">MSP Intelligence IT · Estimation · Fenêtres de maintenance</div></div>
+  <div class="eyebrow">Cas de planification opérationnelle</div>
+  <h1>De la demande floue<br>à des <em>fenêtres</em><br><strong>défendables.</strong></h1>
+  <div class="product-tag">Précheck · sauvegardes · snapshots · contingence · rapports</div>
+  <p class="hero-sub">Cette page démontre une capacité essentielle de MSP Intelligence IT : transformer une demande de maintenance serveur en estimation réaliste, lots applicatifs, fenêtres de maintenance, garde-fous techniques et livrables coordonnateur/client.</p>
+  <div class="metrics">
+    <div class="metric"><div class="metric-n">11</div><div class="metric-l">Serveurs analysés</div></div>
+    <div class="metric"><div class="metric-n">5</div><div class="metric-l">Fenêtres proposées</div></div>
+    <div class="metric"><div class="metric-n">15 h</div><div class="metric-l">Effort estimé</div></div>
+    <div class="metric"><div class="metric-n">10/25%</div><div class="metric-l">Contingence</div></div>
+  </div>
+  <div class="actions"><a class="btn-gold" href="#fenetres">Voir les fenêtres</a><a class="btn-outline" href="msp-demos.html">Choix des cas</a></div>
+</section>
+
+<div class="ticker"><div class="ticker-inner"><span>PRECHECK</span> · BACKUP VALIDATION · SNAPSHOT HORS DC · WINDOWS UPDATE · PENDING REBOOT · SQL CONTINGENCY · POSTCHECK · RAPPORT COORDO · <span>PRECHECK</span> · BACKUP VALIDATION · SNAPSHOT HORS DC · WINDOWS UPDATE · PENDING REBOOT · SQL CONTINGENCY · POSTCHECK · RAPPORT COORDO ·</div></div>
+
+<section class="dark-band s-pad" id="valeur">
+  <div class="split">
+    <div>
+      <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Valeur ajoutée</div></div>
+      <div class="s-title">L’agent ne donne pas<br>un chiffre. Il donne<br><em>un raisonnement.</em></div>
+      <p class="s-sub">La valeur commerciale de ce cas est claire : le client ne reçoit pas une estimation arbitraire. Il reçoit une proposition structurée par rôle serveur, dépendances applicatives, risques, prérequis, contingence et livrables.</p>
+      <div class="source-card">Demande client / opérations :
+Précheck sur les serveurs afin de connaître leur rôle spécifique, leur état général et leur conformité aux mises à jour.
+
+Objectif :
+Fournir une estimation réaliste avec contingence, planifier par priorité et par partage applicatif, inclure vérification des sauvegardes, snapshots sauf DC, reboot pending, precheck, patching, postcheck et rapports.</div>
+    </div>
+    <div class="terminal">
+      <div class="t-bar"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div><div class="t-bar-title">MAINTENANCE PLANNER · MSP INTELLIGENCE IT</div></div>
+      <div class="t-line t-gray">// CE QUE L’AGENT FAIT</div>
+      <div class="t-line"><span class="t-gold">01.</span> <span class="t-white">Identifie les rôles et dépendances</span></div>
+      <div class="t-line"><span class="t-gold">02.</span> <span class="t-white">Sépare DC, SQL, RDS, fichiers, virtualisation</span></div>
+      <div class="t-line"><span class="t-gold">03.</span> <span class="t-white">Ajoute backups + snapshots sauf DC</span></div>
+      <div class="t-line"><span class="t-gold">04.</span> <span class="t-white">Inclut reboot pending, patching, reboot, postcheck</span></div>
+      <div class="t-line"><span class="t-gold">05.</span> <span class="t-white">Calcule contingence 10% standard / 25% SQL-hybride</span></div>
+      <div class="t-line t-green" style="margin-top:12px">✓ SORTIE : ESTIMATION + FENÊTRES + RAPPORT COORDO</div>
+    </div>
+  </div>
+</section>
+
+<section class="s-pad" id="fenetres">
+  <div class="wrap">
+    <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Fenêtres de maintenance</div></div>
+    <div class="s-title"><strong>5 lots.</strong><br><em>Pas 11 serveurs lancés au hasard.</em></div>
+    <p class="s-sub">L’agent ne propose pas un modèle “un serveur à la fois” mécanique. Il groupe les serveurs selon le rôle, le partage applicatif et le niveau de risque. Le client voit donc pourquoi chaque fenêtre existe.</p>
+  </div>
+  <div class="window-list">
+    <div class="window-row">
+      <div class="window-cell"><strong>Fichier / soutien applicatif</strong><span class="mono-small">Fenêtre 01 · Risque standard</span></div>
+      <div class="window-cell">Serveurs applicatifs et fichiers regroupés pour limiter les validations croisées.<div class="server-tags"><span class="server-tag">AJ-APP-01</span><span class="server-tag">AJ-FS-03</span></div></div>
+      <div class="window-cell"><div class="estimation">1 h 50<br>à 2 h 20</div></div>
+    </div>
+    <div class="window-row">
+      <div class="window-cell"><strong>Partage applicatif RDS</strong><span class="mono-small">Fenêtre 02 · Dépendances utilisateurs</span></div>
+      <div class="window-cell">RDS / sessions / applications groupés pour contrôler l’impact utilisateur et les tests de retour de service.<div class="server-tags"><span class="server-tag">AJ-CAMELEON</span><span class="server-tag">AJ-TS-02</span><span class="server-tag">AJ-TS-03</span></div></div>
+      <div class="window-cell"><div class="estimation">3 h 45<br>à 4 h 30</div></div>
+    </div>
+    <div class="window-row">
+      <div class="window-cell"><strong>Backends SQL</strong><span class="mono-small">Fenêtre 03 · Contingence renforcée</span></div>
+      <div class="window-cell">Serveurs SQL isolés avec contingence accrue pour validation des services, connectivité, bases et dépendances applicatives.<div class="server-tags"><span class="server-tag">SRV-FUZION3</span><span class="server-tag">SRV-SQL01</span></div></div>
+      <div class="window-cell"><div class="estimation">2 h 45<br>à 3 h 20</div></div>
+    </div>
+    <div class="window-row">
+      <div class="window-cell"><strong>Virtualisation</strong><span class="mono-small">Fenêtre 04 · Hyperviseur / dépendances</span></div>
+      <div class="window-cell">Fenêtre distincte pour réduire le risque de cascade et permettre un postcheck plus serré de l’hôte et des services dépendants.<div class="server-tags"><span class="server-tag">SRV-CUISIRAMA</span></div></div>
+      <div class="window-cell"><div class="estimation">1 h 45<br>à 2 h 10</div></div>
+    </div>
+    <div class="window-row">
+      <div class="window-cell"><strong>Contrôleurs de domaine</strong><span class="mono-small">Fenêtre 05 · Aucun snapshot</span></div>
+      <div class="window-cell">DC isolés : pas de snapshot, validation AD/DNS/SYSVOL/NETLOGON/repadmin après chaque redémarrage, pas de reboot simultané.<div class="server-tags"><span class="server-tag">AJ-DC-05</span><span class="server-tag">AJ-DC-06</span><span class="server-tag">SRV-DC</span></div></div>
+      <div class="window-cell"><div class="estimation">2 h 30<br>à 3 h 00</div></div>
+    </div>
+  </div>
+  <div class="timeline-note"><strong>Note MSP :</strong> ces fenêtres ne remplacent pas l’approbation humaine. Elles donnent au coordonnateur une base défendable : ordre, dépendances, risques, temps estimé, contingence et critères de fermeture.</div>
+</section>
+
+<section class="dark-band s-pad" id="cycle">
+  <div class="wrap"><div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Cycle par fenêtre</div></div><div class="s-title">Chaque fenêtre suit<br><em>la même discipline.</em></div><p class="s-sub">La capacité ne se limite pas à découper le calendrier. L’agent impose un cycle de maintenance complet et répétable.</p></div>
+  <div class="pipeline">
+    <div class="step"><div class="step-n">01</div><strong>Avant action</strong><p>Confirmer sauvegardes, statut RMM, espace disque, pending reboot et rôle réel du serveur.</p></div>
+    <div class="step"><div class="step-n">02</div><strong>Snapshot sauf DC</strong><p>Prendre un snapshot seulement sur les VMs admissibles. Exclusion stricte des DC.</p></div>
+    <div class="step"><div class="step-n">03</div><strong>Précheck</strong><p>Services critiques, journaux récents, dépendances applicatives et connectivité de base.</p></div>
+    <div class="step"><div class="step-n">04</div><strong>Patching + reboot</strong><p>Application des mises à jour, redémarrage contrôlé, possiblement deux cycles si requis.</p></div>
+    <div class="step"><div class="step-n">05</div><strong>Postcheck</strong><p>Validation OS, services, SQL, AD, DNS, IIS, fichiers, backup et applications selon le rôle.</p></div>
+    <div class="step"><div class="step-n">06</div><strong>Fermeture</strong><p>Suppression snapshots après validation, rapport de fenêtre, note interne et résumé client.</p></div>
+  </div>
+</section>
+
+<section class="s-pad" id="contingence">
+  <div class="wrap"><div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Contingence</div></div><div class="s-title">Un estimé crédible<br>inclut <em>l’imprévisible.</em></div><p class="s-sub">L’agent applique une logique simple : 10% pour la variabilité normale, 25% pour les rôles SQL / hybrides / dépendants où le postcheck et le rollback demandent plus de prudence.</p></div>
+  <div class="matrix">
+    <div class="matrix-card"><div class="k">Standard · 10%</div><h3>Variabilité normale</h3><p>Temps additionnel pour redémarrage, vérifications, suppression de snapshots, documentation et petites corrections mineures.</p></div>
+    <div class="matrix-card"><div class="k">SQL / hybride · 25%</div><h3>Risque applicatif</h3><p>Validation services SQL, dépendances ERP, connectivité, bases, reprise de services et tests applicatifs nécessitent une marge plus grande.</p></div>
+    <div class="matrix-card"><div class="k">DC · règle spéciale</div><h3>Pas de snapshot</h3><p>Les contrôleurs de domaine suivent un flux distinct : aucune capture instantanée, redémarrage non simultané et postcheck AD obligatoire.</p></div>
+  </div>
+</section>
+
+<section class="dark-band s-pad" id="livrables">
+  <div class="wrap"><div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Livrables</div></div><div class="s-title">Le résultat n’est pas seulement<br>un plan. C’est <em>un dossier prêt à utiliser.</em></div><p class="s-sub">L’agent produit les sorties nécessaires pour le technicien, le coordonnateur, le client et la réutilisation interne.</p></div>
+  <div class="deliverable-grid">
+    <div class="deliverable"><b>Note interne</b><span>Résumé technique, hypothèses, risques, décisions, fenêtres proposées, exclusions DC et points de validation.</span></div>
+    <div class="deliverable"><b>Discussion client</b><span>Version lisible : pourquoi les serveurs sont regroupés, durée attendue, impact et validations après intervention.</span></div>
+    <div class="deliverable"><b>Rapport coordo</b><span>Planification exploitable : lots, estimation, contingence, prérequis, dépendances et critères de fermeture.</span></div>
+    <div class="deliverable"><b>Modèle KB</b><span>Le cas devient un standard réutilisable pour les futures maintenances multi-serveurs MSP.</span></div>
+  </div>
+</section>
+
+<section class="quote-section"><div class="quote-mark">“</div><p class="quote-text">La différence n’est pas de produire une estimation plus vite. C’est de produire une estimation que le coordonnateur, le technicien et le client peuvent défendre.</p><div class="quote-attr">MSP Intelligence IT · Maintenance Planner</div></section>
+
+<section class="cta-section" id="contact"><h2>Vos fenêtres de maintenance<br><em>peuvent devenir un actif.</em></h2><p>EA|IA peut transformer une demande de patching, de reboot ou de maintenance multi-serveurs en plan exploitable, rapport coordonnateur et démonstrateur public anonymisé.</p><a class="btn-gold" href="msp-demos.html">Revenir aux cas MSP</a></section>
+
 <footer>
   <img class="footer-logo" src="../assets/images/eaia-logo-officiel.png" alt="EA IA">
-  <div class="footer-right">EA|IA — Intelligence artificielle opérationnelle<br>© 2026 · contact@eaia.ca · GitHub Pages ready</div>
+  <div class="footer-right">MSP Intelligence IT — Estimation & fenêtres de maintenance<br>© 2026 · contact@eaia.ca · GitHub Pages ready</div>
 </footer>
-
 </body>
 </html>
