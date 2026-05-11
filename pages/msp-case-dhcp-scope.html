@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EA|IA — Cas MSP · Windows post-maintenance</title>
-<meta name="description" content="Cas MSP détaillé : maintenance Windows Server multi-rôles, postchecks, AD, SQL, Veeam et livrables.">
+<title>EA|IA — Cas MSP · DHCP scope saturé</title>
+<meta name="description" content="Cas MSP détaillé : résolution structurée d’un scope DHCP saturé avec diagnostic lecture seule et livrables CW.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -33,38 +33,38 @@
 
 <section class="hero compact" id="top">
   <div class="orb"></div><div class="orb-glow"></div>
-  <div class="label"><div class="label-line"></div><div class="label-text">Démonstrateur public · MSP Intelligence IT · Windows post-maintenance</div></div>
-  <div class="eyebrow">Cas de résolution — Windows Server</div>
-  <h1>Un pending reboot<br><em>n’est jamais</em><br><strong>seulement un reboot.</strong></h1>
-  <div class="product-tag">WINDOWS UPDATE · POSTCHECK · AD · SQL · VEEAM · CONNECTWISE</div>
-  <p class="hero-sub"><strong>Cette page montre comment MSP Intelligence IT transforme une alerte post-maintenance en intervention défendable :</strong> redémarrages séquencés, validations par rôle serveur, distinction OS/métier, réactivation de la protection Veeam et livrables prêts à coller.</p>
-  <div class="metrics"><div class="metric"><div class="metric-n">6</div><div class="metric-l">Serveurs validés</div></div><div class="metric"><div class="metric-n">2</div><div class="metric-l">DC postcheckés</div></div><div class="metric"><div class="metric-n">2</div><div class="metric-l">SQL validés</div></div><div class="metric"><div class="metric-n">0</div><div class="metric-l">Échec AD</div></div><div class="metric"><div class="metric-n">1</div><div class="metric-l">Suivi résiduel</div></div><div class="metric"><div class="metric-n">Veeam</div><div class="metric-l">Protection rétablie</div></div></div>
+  <div class="label"><div class="label-line"></div><div class="label-text">Démonstrateur public · MSP Intelligence IT · Réseau / DHCP</div></div>
+  <div class="eyebrow">Cas de résolution — DHCP</div>
+  <h1>Un scope DHCP<br><em>à 100 %</em><br><strong>sans geste risqué.</strong></h1>
+  <div class="product-tag">DHCP · AD · DNS · RMM · CONNECTWISE · READ-ONLY FIRST</div>
+  <p class="hero-sub"><strong>Cette page montre comment une alerte DHCP devient un diagnostic défendable :</strong> hypothèses ouvertes, lecture seule, corrélation DHCP / AD / DNS / RMM, isolation de la cause racine et sorties ConnectWise prêtes à coller.</p>
+  <div class="metrics"><div class="metric"><div class="metric-n">0</div><div class="metric-l">Changement risqué</div></div><div class="metric"><div class="metric-n">7</div><div class="metric-l">Validations</div></div><div class="metric"><div class="metric-n">1</div><div class="metric-l">Cause racine</div></div><div class="metric"><div class="metric-n">2</div><div class="metric-l">Sorties CW</div></div><div class="metric"><div class="metric-n">100%</div><div class="metric-l">Scope critique</div></div><div class="metric"><div class="metric-n">24</div><div class="metric-l">Plan /24 saturé</div></div></div>
   <div class="actions"><a class="btn-gold" href="#lecture">Voir la lecture agent</a><a class="btn-outline" href="#livrables">Voir les livrables</a><a class="btn-muted" href="msp-demos.html">Retour aux cas MSP</a></div>
 </section>
 
 <div class="firm-band">
-  <div><div class="firm-band-name">Cas Windows post-maintenance — version publique anonymisée</div><div class="firm-band-desc">environnement multi-rôles · maintenance Windows · validation post-redémarrage</div></div>
-  <div class="firm-products"><span class="firm-product active">AD / DNS</span><span class="firm-product active">SQL</span><span class="firm-product active">IIS</span><span class="firm-product active">Fichiers</span><span class="firm-product active">Veeam</span><span class="firm-product active">Suivi ciblé</span></div>
+  <div><div class="firm-band-name">Cas DHCP — saturation structurelle d’étendue</div><div class="firm-band-desc">client anonymisé · DHCP saturé · diagnostic lecture seule · corrélation multi-source</div></div>
+  <div class="firm-products"><span class="firm-product active">DHCP</span><span class="firm-product active">AD</span><span class="firm-product active">DNS</span><span class="firm-product active">RMM</span><span class="firm-product active">CW</span><span class="firm-product active">Lecture seule</span></div>
 </div>
-<div class="ticker"><div class="ticker-inner"><span>WINDOWS UPDATE</span> · POSTCHECK · <span>ACTIVE DIRECTORY</span> · SYSVOL · <span>NETLOGON</span> · SQL SERVER · <span>VEEAM</span> · CONNECTWISE · <span>TEAMS NOTICE</span> · <span>WINDOWS UPDATE</span> · POSTCHECK · <span>ACTIVE DIRECTORY</span> · SYSVOL · <span>NETLOGON</span> · SQL SERVER · <span>VEEAM</span> · CONNECTWISE · <span>TEAMS NOTICE</span></div></div>
+<div class="ticker"><div class="ticker-inner"><span>DHCP</span> · CONNECTWISE · <span>NOC</span> · POWERSHELL · <span>ACTIVE DIRECTORY</span> · DNS · <span>RMM</span> · READ-ONLY FIRST · <span>DOCUMENTATION</span> · <span>DHCP</span> · CONNECTWISE · <span>NOC</span> · POWERSHELL · <span>ACTIVE DIRECTORY</span> · DNS · <span>RMM</span> · READ-ONLY FIRST · <span>DOCUMENTATION</span></div></div>
 
 <section class="s-pad dark-band" id="lecture">
   <div class="split">
     <div>
       <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Billet source anonymisé</div></div>
       <div class="s-title">Du signal brut<br><em>au vrai besoin.</em></div>
-      <p class="s-sub">Le signal initial semble simple : redémarrage en attente après mises à jour Windows. La valeur de l’agent est de refuser la fermeture rapide et de prouver que chaque rôle critique est réellement revenu.</p>
-      <div class="terminal" style="margin-top:28px"><div class="t-bar"><span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span><span class="t-bar-title">SIGNAL-BRUT · PUBLIC ANONYMISÉ</span></div><div class="t-line t-silver" style="white-space:pre-wrap">Sujet : Script Monitor — Windows Update pending reboot
-Source : RMM / supervision
-Contexte : plusieurs serveurs ont été redémarrés
-Actifs concernés : contrôleurs de domaine, SQL, IIS, fichiers
-Risque réel : un serveur revenu au niveau OS peut cacher un rôle non validé
-Limite initiale : aucun postcheck par rôle n’est confirmé dans le billet brut</div></div>
+      <p class="s-sub">Le billet démarre comme une alerte NOC de capacité. Le piège serait de supprimer, nettoyer ou exclure trop vite. L’agent garde les hypothèses ouvertes jusqu’à la preuve.</p>
+      <div class="terminal" style="margin-top:28px"><div class="t-bar"><span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span><span class="t-bar-title">SIGNAL-BRUT · PUBLIC ANONYMISÉ</span></div><div class="t-line t-silver" style="white-space:pre-wrap">Sujet : Alerte NOC — Étendue DHCP saturée
+Client : client manufacturier régional anonymisé
+Symptôme : scope DHCP à 100 %
+Risque : nouveaux appareils incapables d’obtenir une adresse IP
+Hypothèses initiales : faux positif, conflit IP, réservations, exclusions, BAD_ADDRESS, saturation réelle
+Règle : lecture seule avant toute remédiation</div></div>
     </div>
     <div class="terminal">
       <div class="t-bar"><span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span><span class="t-bar-title">MSP-CASE · LECTURE AGENT</span></div>
-      <div class="t-line t-gray">// REQUALIFICATION PAR L’AGENT</div><div class="t-line t-gold">ALERTE : pending reboot multi-serveurs</div><div class="t-line t-silver">Un reboot effectué n’est pas une validation.</div><div class="t-line t-silver">Chaque rôle impose son propre postcheck.</div><div class="t-line t-green">✓ AD/DNS, SYSVOL, NETLOGON et réplication doivent être prouvés</div><div class="t-line t-green">✓ SQL doit être validé par services + instance</div><div class="t-line t-red">✗ Un point résiduel reste ouvert et documenté</div>
-      <div class="badge-row"><span class="badge ok">Aucun reboot de masse</span><span class="badge ok">Postcheck DC obligatoire</span><span class="badge warn">Suivi résiduel assumé</span></div>
+      <div class="t-line t-gray">// HYPOTHÈSES OUVERTES</div><div class="t-line t-gold">1. Faux positif / alerte transitoire</div><div class="t-line t-gold">2. Conflit IP ponctuel</div><div class="t-line t-gold">3. Réservations ou exclusions mal lues</div><div class="t-line t-gold">4. Saturation structurelle du scope</div><div class="t-line t-green">✓ Service DHCP fonctionnel</div><div class="t-line t-red">✗ Capacité structurellement serrée</div><div class="t-line t-silver">BAD_ADDRESS classé symptôme secondaire après corrélation</div>
+      <div class="badge-row"><span class="badge warn">Alerte capacité</span><span class="badge ok">Service vivant</span><span class="badge bad">Scope critique</span></div>
     </div>
   </div>
 </section>
@@ -74,12 +74,12 @@ Limite initiale : aucun postcheck par rôle n’est confirmé dans le billet bru
     <div class="list-card">
       <h3>Ce que l’agent comprend vraiment</h3>
       <p>Le billet est reformulé en décisions techniques, pas simplement résumé.</p>
-      <ul><li>Le billet ne demande pas seulement une action; il demande une preuve de retour de service.</li><li>Un contrôleur de domaine ne se valide pas comme un serveur générique.</li><li>SQL doit être confirmé par services et connectivité locale, pas seulement par uptime.</li><li>La protection de sauvegarde désactivée pendant maintenance doit être réactivée avant fermeture.</li><li>Un warning résiduel documenté vaut mieux qu’une fermeture optimiste.</li></ul>
+      <ul><li>L’alerte ne prouve pas une panne DHCP; elle indique une saturation à qualifier.</li><li>La présence de BAD_ADDRESS peut être un symptôme secondaire, pas la cause racine.</li><li>Un scope /24 partagé entre postes, VoIP, IoT, serveurs et multimédia peut être structurellement trop serré.</li><li>Le bon livrable doit distinguer panne, risque opérationnel et recommandation de design.</li></ul>
     </div>
     <div class="list-card">
       <h3>Risques et garde-fous</h3>
       <p>Le modèle commun force la discipline MSP : faits, limites, validation et sorties adaptées.</p>
-      <ul><li>Lecture seule avant recommandation additionnelle.</li><li>Aucun redémarrage en lot sur rôles critiques.</li><li>Distinction explicite entre retour Windows et retour applicatif.</li><li>Anonymisation des noms serveur et client dans la version publique.</li><li>Fermeture conditionnelle : service stable + suivi ciblé si nécessaire.</li></ul>
+      <ul><li>Aucune suppression de baux avant analyse complète.</li><li>Aucune exclusion ou modification DHCP sans cause confirmée.</li><li>Validation des réservations, exclusions, baux, logs et corrélation AD/DNS.</li><li>Communication client orientée capacité et plan d’adressage, pas panique incident.</li></ul>
     </div>
   </div>
 </section>
@@ -88,55 +88,45 @@ Limite initiale : aucun postcheck par rôle n’est confirmé dans le billet bru
   <div class="wrap">
     <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Diagnostic structuré</div></div>
     <div class="s-title"><strong>Des constats</strong><br>transformés en <em>décision.</em></div>
-    <p class="s-sub">Le tableau force une lecture par rôle. Chaque élément reçoit un constat, un impact et une décision exploitable par le technicien ou le coordonnateur.</p>
+    <p class="s-sub">Le cas est résolu par corrélation progressive plutôt que par intuition. L’agent sépare service actif, anomalie secondaire et cause structurelle.</p>
   </div>
-  <div class="table-wrap"><table><thead><tr><th>Élément</th><th>Constat</th><th>Impact</th><th>Décision</th></tr></thead><tbody><tr><td><strong>Contrôleurs de domaine</strong></td><td>AD/DNS revenus, SYSVOL/NETLOGON présents, réplication sans échec sur le périmètre contrôlé.</td><td>Le cœur d’authentification est stable.</td><td>Valider les DC par services, partages, réplication et DFSR ciblé.</td></tr><tr><td><strong>Serveurs SQL</strong></td><td>Services MSSQL et SQL Agent démarrés, connectivité locale confirmée.</td><td>Les bases critiques sont revenues de façon crédible.</td><td>Fermer SQL seulement après test service + instance locale.</td></tr><tr><td><strong>Serveur IIS</strong></td><td>Retour Windows propre, pas d’erreur critique visible côté OS.</td><td>Le socle système est stable, mais l’applicatif reste distinct.</td><td>Documenter OS OK et demander smoke test applicatif si requis.</td></tr><tr><td><strong>Protection Veeam</strong></td><td>Jobs désactivés constatés puis réactivés pendant l’intervention.</td><td>La protection ne reste pas suspendue après maintenance.</td><td>Rétablir la couverture et vérifier le prochain cycle.</td></tr><tr><td><strong>Point résiduel</strong></td><td>PendingFileRenameOperations persistant sur un DC malgré reboot.</td><td>Le service est revenu mais la fermeture technique n’est pas totalement propre.</td><td>Maintenir un suivi ciblé ou planifier un second reboot contrôlé.</td></tr></tbody></table></div>
+  <div class="table-wrap"><table><thead><tr><th>Élément</th><th>Constat</th><th>Impact</th><th>Décision</th></tr></thead><tbody><tr><td><strong>Service DHCP</strong></td><td>Le service répond et l’étendue est visible.</td><td>Il ne s’agit pas d’une panne DHCP générale.</td><td>Poursuivre en lecture de capacité et de baux.</td></tr><tr><td><strong>Utilisation du scope</strong></td><td>L’étendue est à 100 % ou presque saturée.</td><td>Risque réel pour les nouveaux appareils.</td><td>Qualifier la taille du pool, la durée des baux et les réservations.</td></tr><tr><td><strong>BAD_ADDRESS</strong></td><td>Une entrée de conflit est observée.</td><td>Indice utile, mais insuffisant pour expliquer toute la saturation.</td><td>Traiter comme symptôme secondaire sauf preuve contraire.</td></tr><tr><td><strong>Design réseau</strong></td><td>Le même scope sert trop de catégories d’équipements.</td><td>La capacité est structurellement serrée.</td><td>Recommander segmentation ou agrandissement plan d’adressage.</td></tr><tr><td><strong>Communication</strong></td><td>Le client doit comprendre risque et solution durable.</td><td>Évite une fermeture trop technique ou rassurante à tort.</td><td>Produire discussion CW et note interne claire.</td></tr></tbody></table></div>
 </section>
 
 <section class="s-pad" id="pipeline">
   <div class="wrap">
     <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Pipeline agent</div></div>
     <div class="s-title"><strong>Une méthode.</strong><br><em>Pas de l’improvisation.</em></div>
-    <p class="s-sub">L’intervention est transformée en séquence répétable : ingestion, triage, validation générique, validation métier, fermeture et capitalisation.</p>
+    <p class="s-sub">Le workflow impose une logique de preuve : valider, qualifier, corréler, conclure et documenter.</p>
   </div>
-  <div class="pipeline"><div class="step"><div class="step-n">Étape 01</div><strong>Ingestion du billet</strong><p>Extraire l’alerte pending reboot, les serveurs cités et le contexte de maintenance.</p></div><div class="step"><div class="step-n">Étape 02</div><strong>Requalification du risque</strong><p>Identifier que DC et SQL rendent le cas plus critique qu’un simple reboot.</p></div><div class="step"><div class="step-n">Étape 03</div><strong>Séquencement</strong><p>Traiter un serveur critique à la fois et éviter toute fermeture groupée prématurée.</p></div><div class="step"><div class="step-n">Étape 04</div><strong>Postcheck Windows</strong><p>Valider uptime, pending reboot, services automatiques, disques et journaux.</p></div><div class="step"><div class="step-n">Étape 05</div><strong>Validation métier</strong><p>Valider AD, SQL, IIS et fichiers selon le rôle réel de chaque serveur.</p></div><div class="step"><div class="step-n">Étape 06</div><strong>Écarts résiduels</strong><p>Séparer OK opérationnel, warning résiduel et suivi nécessaire.</p></div><div class="step"><div class="step-n">Étape 07</div><strong>Protection</strong><p>Réactiver Veeam et documenter le statut de sauvegarde.</p></div><div class="step"><div class="step-n">Étape 08</div><strong>Communication</strong><p>Générer note interne, discussion client, Teams et courriel.</p></div><div class="step"><div class="step-n">Étape 09</div><strong>Capitalisation</strong><p>Transformer le billet en casepage public anonymisé.</p></div><div class="step"><div class="step-n">Étape 10</div><strong>Standardisation</strong><p>Réutiliser le même modèle pour les prochains cas MSP.</p></div></div>
-  <div class="card-grid four"><div class="pro-card"><div class="card-n">Capacité 01</div><div class="card-icon">◎</div><div class="card-title">Validation par rôle</div><div class="card-sub">OS ≠ métier</div><div class="card-desc">L’agent force un postcheck différent pour DC, SQL, IIS, fichiers et sauvegarde.</div></div><div class="pro-card"><div class="card-n">Capacité 02</div><div class="card-icon">◇</div><div class="card-title">Garde-fous reboot</div><div class="card-sub">séquencement critique</div><div class="card-desc">Pas de redémarrage de masse et pas de fermeture sans preuve de retour.</div></div><div class="pro-card"><div class="card-n">Capacité 03</div><div class="card-icon">↺</div><div class="card-title">Protection backup</div><div class="card-sub">Veeam réactivé</div><div class="card-desc">L’intervention ne se limite pas au patching; elle rétablit la posture de protection.</div></div><div class="pro-card"><div class="card-n">Capacité 04</div><div class="card-icon">✎</div><div class="card-title">Livrables prêts</div><div class="card-sub">CW / Teams / email</div><div class="card-desc">Le diagnostic devient une trace utilisable pour l’équipe et le client.</div></div></div>
+  <div class="pipeline"><div class="step"><div class="step-n">Étape 01</div><strong>Valider le scope</strong><p>Confirmer les statistiques réelles, adresses libres, réservations, exclusions et états de baux.</p></div><div class="step"><div class="step-n">Étape 02</div><strong>Qualifier la plage</strong><p>Vérifier taille du pool, durée des baux et présence de Declined / BAD_ADDRESS.</p></div><div class="step"><div class="step-n">Étape 03</div><strong>Tester les conflits</strong><p>Comparer les IP en conflit avec réservations et présence réelle sur le réseau.</p></div><div class="step"><div class="step-n">Étape 04</div><strong>Corréler les sources</strong><p>Relire les journaux DHCP et croiser avec AD, DNS et RMM.</p></div><div class="step"><div class="step-n">Étape 05</div><strong>Conclure proprement</strong><p>Isoler la saturation structurelle et produire une recommandation durable.</p></div><div class="step"><div class="step-n">Étape 06</div><strong>Produire CW</strong><p>Générer note interne et discussion facturable client-safe.</p></div></div>
+  <div class="card-grid four"><div class="pro-card"><div class="card-n">Capacité 01</div><div class="card-icon">⌁</div><div class="card-title">Triage utile</div><div class="card-sub">pas générique</div><div class="card-desc">L’agent garde les hypothèses ouvertes et oriente la prochaine validation.</div></div><div class="pro-card"><div class="card-n">Capacité 02</div><div class="card-icon">◫</div><div class="card-title">Lecture seule</div><div class="card-sub">réduction du risque</div><div class="card-desc">Aucun changement réseau avant confirmation, ce qui protège la production.</div></div><div class="pro-card"><div class="card-n">Capacité 03</div><div class="card-icon">⟐</div><div class="card-title">Corrélation</div><div class="card-sub">DHCP · AD · DNS · RMM</div><div class="card-desc">Les signaux dispersés deviennent un diagnostic exploitable.</div></div><div class="pro-card"><div class="card-n">Capacité 04</div><div class="card-icon">✎</div><div class="card-title">Sorties CW</div><div class="card-sub">notes uniformes</div><div class="card-desc">Le cas se transforme en note interne et discussion facturable propres.</div></div></div>
 </section>
 
-<section class="quote-section"><div class="quote-mark">“</div><div class="quote-text">La vraie valeur n’est pas le redémarrage. C’est la preuve que l’infrastructure est revenue proprement, rôle par rôle.</div><div class="quote-attr">EA|IA · MSP Intelligence IT · Casepage standardisé</div></section>
+<section class="quote-section"><div class="quote-mark">“</div><div class="quote-text">Le bon diagnostic DHCP ne saute pas à la suppression de baux. Il explique pourquoi le scope est saturé et ce qu’il faut faire pour que cela ne revienne pas.</div><div class="quote-attr">EA|IA · MSP Intelligence IT · Casepage standardisé</div></section>
 
 <section class="s-pad dark-band" id="livrables">
   <div class="wrap">
     <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Sorties produites</div></div>
     <div class="s-title"><strong>Résoudre, puis</strong><br><em>documenter proprement.</em></div>
-    <p class="s-sub">Le cas produit les sorties que l’équipe doit utiliser immédiatement, avec des niveaux de langage différents selon le public.</p>
+    <p class="s-sub">Les sorties montrent la valeur directe pour le technicien : moins de rédaction, plus de cohérence, plus de professionnalisme.</p>
   </div>
-  <div class="output-grid"><div class="output-card"><h3>Note interne CW</h3><div class="tag">audit trail technique</div><div class="mini">Post-maintenance Windows complétée sur environnement multi-rôles.
+  <div class="output-grid"><div class="output-card"><h3>Note interne CW</h3><div class="tag">technique</div><div class="mini">DHCP / SATURATION D’ÉTENDUE / ANALYSE
 
-Validations effectuées :
-- Uptime et état Windows
-- Pending reboot
-- Services automatiques
-- AD/DNS, SYSVOL/NETLOGON, réplication
-- Services SQL et connectivité locale
-- Retour OS IIS
-- Sauvegardes Veeam réactivées
+Analyse lecture seule complétée. Validation des statistiques DHCP, baux, réservations, exclusions, journaux et corrélations AD/DNS/RMM.
 
-Point résiduel : un DC conserve PendingFileRenameOperations. Suivi ciblé recommandé.</div></div><div class="output-card"><h3>Discussion client</h3><div class="tag">client-safe</div><div class="mini">Les serveurs ciblés ont été redémarrés et validés selon leur rôle. Les services principaux sont revenus correctement. Les sauvegardes Veeam ont été réactivées. Un point de suivi mineur demeure documenté sur un contrôleur de domaine et sera traité de façon contrôlée si requis.</div></div><div class="output-card"><h3>Avis Teams</h3><div class="tag">coordination</div><div class="mini">Post-maintenance Windows terminée.
-AD/DNS : OK
-SQL : OK
-IIS / fichiers : OK côté OS
-Veeam : jobs réactivés
-Suivi : pending reboot résiduel sur un DC, non bloquant mais à surveiller.</div></div></div>
+Constat : service DHCP fonctionnel. Problème principal : saturation structurelle du scope. BAD_ADDRESS observé mais retenu comme symptôme secondaire.
+
+Suivi recommandé : maintenir surveillance, réévaluer priorité si attribution IP échoue, planifier correction durable du plan d’adressage.</div></div><div class="output-card"><h3>Discussion CW</h3><div class="tag">client-safe</div><div class="mini">Validation effectuée à la suite d’une alerte de capacité DHCP. Le service d’attribution répondait au moment de la vérification. Aucune panne générale n’a été confirmée. Le constat principal est une capacité d’adressage très serrée sur le segment réseau actuel. Une correction durable du plan d’adressage est recommandée.</div></div><div class="output-card"><h3>Mémo coordonnateur</h3><div class="tag">opérationnel</div><div class="mini">Cas DHCP : saturation réelle du scope, service actif, pas de correction risquée appliquée. Recommandation : planifier segmentation ou extension d’adressage. Priorité à remonter si nouveaux appareils ne reçoivent plus d’adresse IP.</div></div></div>
 </section>
 
 <section class="s-pad" id="impact">
   <div class="wrap">
     <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Valeur MSP</div></div>
     <div class="s-title">Pourquoi ce cas<br><em>compte pour un MSP.</em></div>
-    <p class="s-sub">Ce cas prouve que l’agent ne fait pas juste résumer. Il impose le niveau de vérification qu’un MSP veut voir sur un environnement critique.</p>
+    <p class="s-sub">Ce cas démontre la capacité de transformer une alerte réseau anxiogène en plan de correction défendable.</p>
   </div>
-  <div class="card-grid four"><div class="pro-card"><div class="card-n">Valeur 01</div><div class="card-title">Moins de risque</div><div class="card-desc">Les rôles critiques sont traités avec garde-fous et preuve de retour.</div></div><div class="pro-card"><div class="card-n">Valeur 02</div><div class="card-title">Meilleure fermeture</div><div class="card-desc">Le billet ne se ferme pas sur une impression, mais sur des constats.</div></div><div class="pro-card"><div class="card-n">Valeur 03</div><div class="card-title">Coordination claire</div><div class="card-desc">Le coordonnateur voit ce qui est OK et ce qui reste à suivre.</div></div><div class="pro-card"><div class="card-n">Valeur 04</div><div class="card-title">Actif commercial</div><div class="card-desc">Une maintenance banale devient une preuve de méthode MSP.</div></div></div>
+  <div class="card-grid four"><div class="pro-card"><div class="card-n">Valeur 01</div><div class="card-title">Moins d’improvisation</div><div class="card-desc">Le technicien suit une séquence de preuves plutôt qu’une intuition.</div></div><div class="pro-card"><div class="card-n">Valeur 02</div><div class="card-title">Risque réduit</div><div class="card-desc">Aucun geste sur le DHCP avant confirmation.</div></div><div class="pro-card"><div class="card-n">Valeur 03</div><div class="card-title">Recommandation durable</div><div class="card-desc">Le problème est traité comme design réseau, pas juste incident ponctuel.</div></div><div class="pro-card"><div class="card-n">Valeur 04</div><div class="card-title">Notes facturables</div><div class="card-desc">Les sorties sont claires, uniformes et client-safe.</div></div></div>
 </section>
 
 <section class="cta-section">
