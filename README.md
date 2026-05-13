@@ -18,7 +18,7 @@ Pas une marque avec des produits. Une usine à agents avec 5 équipes core, 10 p
 EA|IA conçoit et déploie des **armées d'agents IA spécialisés** qui appliquent des workflows métier réels, produisent des livrables concrets et s'intègrent aux opérations d'une organisation.
 
 ```
-root_IA/
+EA|IA/
 ├── FACTORY/    ← EA|IA — back-office, infrastructure de fabrication
 ├── PRODUCTS/   ← Les 6 armées déployées par secteur
 └── SHARED/     ← Ressources communes
