@@ -765,6 +765,97 @@ footer {
   .modules-grid { grid-template-columns: 1fr; }
 }
 
+
+
+/* BEGIN EAIA_UNIFORM_MODEL_HEADER_2026_05_14
+   Entête uniformisé selon le modèle eaia_case_dc_double_reboot.html */
+nav {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 28px !important;
+  padding: 22px 64px !important;
+  border-bottom: 1px solid var(--border) !important;
+  background: rgba(0,0,0,0.92) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+  backdrop-filter: blur(24px) !important;
+}
+nav .nav-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 2px !important;
+  min-width: 0 !important;
+  text-decoration: none !important;
+}
+nav .nav-logo-text {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  letter-spacing: 4px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+nav .nav-logo-text .ea { color: var(--gold) !important; }
+nav .nav-logo-text .sep { color: rgba(200,149,42,0.5) !important; margin: 0 2px !important; }
+nav .nav-logo-text .ia { color: var(--silver-light) !important; }
+nav .nav-tagline {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 7px !important;
+  color: rgba(200,149,42,0.5) !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+}
+nav .nav-links {
+  display: flex !important;
+  gap: 36px !important;
+  list-style: none !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+nav .nav-links a {
+  color: var(--muted) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  transition: color 0.2s !important;
+}
+nav .nav-links a:hover { color: var(--gold-light) !important; }
+nav .nav-cta {
+  background: transparent !important;
+  border: 1px solid var(--gold) !important;
+  color: var(--gold) !important;
+  padding: 10px 28px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  transition: all 0.25s !important;
+  white-space: nowrap !important;
+}
+nav .nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; }
+nav .nav-logo,
+nav .nav-brand img,
+nav .nav-title,
+nav .nav-copy,
+footer .footer-logo { display: none !important; }
+@media (max-width: 960px) {
+  nav { padding-left: 24px !important; padding-right: 24px !important; }
+  nav .nav-links { display: none !important; }
+}
+/* END EAIA_UNIFORM_MODEL_HEADER_2026_05_14 */
+
+
+/* EAIA_PRODUCT_ARMIES_2026_05_15 */
+.army-status{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gold-light);letter-spacing:2px;text-transform:uppercase;margin-top:8px}.mini-list{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:8px}.mini-list li{font-size:13px;color:var(--muted);line-height:1.65;padding-left:18px;position:relative}.mini-list li::before{content:'—';position:absolute;left:0;color:var(--gold-light)}.note-box{max-width:var(--max);margin:40px auto 0;border:1px solid var(--border);background:linear-gradient(180deg,rgba(200,149,42,.08),rgba(255,255,255,.02));padding:28px}.note-box strong{color:var(--white)}.timeline{max-width:var(--max);margin:52px auto 0;border:1px solid var(--border);background:var(--dark)}.timeline-row{display:grid;grid-template-columns:180px 1fr;gap:1px;border-bottom:1px solid var(--border2)}.timeline-row:last-child{border-bottom:0}.timeline-k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);padding:18px;background:rgba(200,149,42,.055)}.timeline-v{padding:18px;color:var(--muted);font-size:14px;line-height:1.75}.timeline-v strong{color:var(--white)}.product-tagline{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold-light);letter-spacing:2px;text-transform:uppercase;margin-top:14px}.status-prod{color:var(--ok)}.status-coming{color:var(--warn)}@media(max-width:760px){.timeline-row{grid-template-columns:1fr}.timeline-k{border-bottom:1px solid var(--border2)}}
+/* END EAIA_PRODUCT_ARMIES_2026_05_15 */
+
 </style>
 </head>
 <body>
@@ -775,12 +866,14 @@ footer {
     <div class="nav-tagline">Intelligence artificielle opérationnelle</div>
   </div>
   <ul class="nav-links">
-    <li><a href="#cas">Cas</a></li>
-    <li><a href="#diagnostic">Diagnostic</a></li>
-    <li><a href="#pipeline">Pipeline</a></li>
-    <li><a href="#livrables">Livrables</a></li>
+    <li><a href="../pages/factory.html">Factory</a></li>
+    <li><a href="../pages/armees-eaia.html">Armées</a></li>
+    <li><a href="../msp-preview.html">MSP</a></li>
+    <li><a href="../pages/agence-marketing-ia.html">Marketing IA</a></li>
+    <li><a href="../pages/msp-demos.html">Démonstrateurs</a></li>
+    <li><a href="../pages/eaia-apercu-besoin-client.html">Cadrage</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Démo — 30 min</a>
+  <a class="nav-cta" href="mailto:contact@eaia.ca?subject=Demo%20EAIA">Démo — 30 min</a>
 </nav>
 
 <section class="hero" id="cas">

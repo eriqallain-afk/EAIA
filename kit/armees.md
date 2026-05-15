@@ -1,146 +1,55 @@
-# EA|IA — Les 6 armées déployées
+# EA|IA — Briefing des 6 armées · Source site web
 
-> Chaque armée est produite par la FACTORY et livrée avec agents, playbooks, runbooks, templates et bundles.
+Ce document décrit les 6 produits déployés par la FACTORY EA|IA. Chaque armée est un ensemble d’agents IA spécialisés livré avec playbooks, runbooks et workflows opérationnels.
 
----
+## 1. MSP Intelligence IT · Code : IT
+Domaine : Firmes IT / Fournisseurs de services gérés (MSP)
+Statut : Produit phare · Disponible · 26+ agents
 
-## MSP Intelligence IT · Code: IT
+La plateforme IA la plus complète du portefeuille. Couvre l'ensemble des opérations d'un MSP : support N1–N3, NOC & incidents, patching & maintenance, Cloud/M365, backup & sécurité, reporting & QBR.
 
-**Domaine :** IT / MSP
-**Statut :** Produit phare · Disponible
-**Agents :** 26+
+Livrables types : Notes ConnectWise conformes · Communications client structurées · Rapports de maintenance · QBR exécutifs · Scripts PowerShell de diagnostic.
 
-La plateforme IA la plus avancée du portefeuille EA|IA. Six équipes couvrent l'ensemble des opérations MSP.
+## 2. IASM · Intelligence Artificielle en Santé Mentale
+Domaine : Coaching psychologique structuré — non médical · Clientèle cible : entreprises
+Statut : En production · En recherche de partenaire/preneur · 19 agents + 3 OPS
 
-### Équipes
+Cabinet IA complet offrant un accompagnement psychologique structuré. Conçu pour être intégré en milieu organisationnel : soutien aux employés, gestion du stress, prévention de l'épuisement, coaching de vie.
 
-| Équipe | Agents clés |
-|---|---|
-| Support N1–N3 | TicketScribe · ClientComm · EscalationGuide · KnowledgeCapture |
-| NOC & Incidents | NOC Commander · HandoverBrief · IncidentLog · SLATracker |
-| Patching & Maintenance | PatchMaster · BackupVerifier · MaintenanceReport |
-| Cloud & M365 | M365Manager · CloudAuditor · TeamsAdmin · AzureOps |
-| Backup & Sécurité | BackupOps · SOCAnalyst · ComplianceAudit · IncidentResponse |
-| Reporting & QBR | MonthlyReport · QBRBuilder · HealthCheck · ScriptGen |
+Modules : TCC · Coaching de vie · Gestion des émotions · Gestion de la colère · Addictions · Relations conjugales et familiales · Support émotionnel · Psychoéducation.
 
-### Livrables types
-- Notes internes et fermetures ConnectWise conformes
-- Communications client structurées
-- Rapports de maintenance complets
-- QBR exécutifs
-- Scripts PowerShell de diagnostic
+Sécurité intégrée : Module de détection de crise actif en permanence — escalade automatique vers aide professionnelle en cas de situation à risque. Non médical, non diagnostique.
 
----
+## 3. DAM · Design Annie Morneau
+Domaine : Design d'intérieur résidentiel et gestion de projet de rénovation — Québec
+Statut : En production · 19 agents + 3 OPS
 
-## ARMY DAM DESIGN · Code: DAM
+Armée d'assistance professionnelle déployée pour une équipe sur le terrain. Le mandat commence par le design d'intérieur (relevé spatial, profil client, esquisses conceptuelles) et s'étend, selon les besoins, à la gestion complète du projet de rénovation qui s'ensuit.
 
-**Domaine :** Design d'intérieur résidentiel — Québec
-**Statut :** En production
-**Agents :** 19 + 3 OPS
+Capacités : Relevé de pièces avec MagicPlan + laser · Profil client · 2 concepts design · Conformité RBQ/municipale · Cadrage budgétaire · Planification et dépendances · Suivi de chantier. Application PWA utilisable hors-ligne sur le terrain.
 
-Armée déployée pour Annie Morneau Design (AMD). Deux professionnels travaillent simultanément sur site.
+## 4. TRAD · Surveillance intelligente des marchés
+Domaine : Trading · Marchés boursiers · Cryptomonnaies · Géopolitique · Facteurs d'influence
+Statut : En production · 13 agents + 3 OPS
 
-### Agents principaux
+Équipe de veille multi-domaines en temps réel. Les agents travaillent en parallèle sur les marchés financiers, la cryptomonnaie, la géopolitique, la cybersécurité et les dynamiques sociétales — puis fusionnent les signaux en un rapport actionnable avec cote de confiance.
 
-| Agent | Rôle |
-|---|---|
-| DAM-Orchestrator | Point d'entrée, coordination |
-| DAM-GPT1-ReleverSpatial | Relevé pièce par pièce (MagicPlan + laser) |
-| DAM-GPT14-ProfilClient | Entretien découverte client |
-| DAM-GPT15-Esquisse | 2 concepts design complets |
-| DAM-GPT2-Conformite | Conformité RBQ / municipal |
-| DAM-GPT3-Budget | Cadrage financier |
-| DAM-GPT4-Planification | Calendrier et dépendances |
-| DAM-GPT17-GestionChantier | Suivi d'avancement |
+Spécialité : Analyse fractale BTC/ETH/SOL, niveaux Fibonacci, cycles de marché.
 
-### Infrastructure
-- PWA Flask hors-ligne (port 5050)
-- Service Worker + IndexedDB
-- Sync automatique au retour réseau
+## 5. EDU · EDU Services
+Domaine : Éducation secondaire / polyvalente — Assistance aux enseignants
+Statut : En production · En expansion · 1 membre actif, d'autres à venir
 
----
+Équipe conçue pour alléger le travail des enseignants. Le premier agent opérationnel se spécialise dans la correction de travaux étudiants (avec OCR, évaluation selon critères). D'autres agents sont en développement pour couvrir davantage de besoins du corps enseignant.
 
-## ARMY TRAD INTEL · Code: TRAD
+Secteurs actifs : Correction de travaux · Production radio/podcast scolaire · Formations (à venir).
 
-**Domaine :** Trading · Crypto · Géopolitique · Cybersécurité
-**Statut :** En production
-**Agents :** 13 + 3 OPS
+## 6. NEA · Army NEA Writing
+Domaine : Édition · Rédaction créative · Publications thématiques
+Statut : En production · 7 agents + 3 OPS
 
-Veille multi-domaines en parallèle → fusion des signaux → rapport actionnable.
+Maison d'édition IA couvrant le cycle éditorial complet. Spécialisée dans les publications à thématique profonde : cosmos, symbolisme, vivant, systèmes, géopolitique culturelle.
 
-### Flux parallèle
+Workflow : Idéation par patterns → Plan éditorial + carte conceptuelle → Rédaction section par section → Révision cohérence → Briefs d'illustration (style, palette, symboles).
 
-```
-TRAD-CommandCore
-  → [VigillIntel · MarketSentinel · CyberWatch · SocioRadar · CosmoPsyWatcher]
-  → [MarketAnalyst · GeoAnalyst · CryptoStrategist · FractalMathCrypto · AnalytikGlobal]
-  → TRAD-Correlator (fusion, cote de confiance)
-  → TRAD-GlobalReport (rapport actionnable)
-```
-
-### Spécialité FractalMathCrypto
-Analyse fractale : BTC/ETH/SOL · Fibonacci · Cycles de marché · Niveaux clés
-
----
-
-## IASM · Intelligence artificielle en santé mentale
-
-**Domaine :** Coaching psychologique — non médical
-**Statut :** En production
-**Agents :** 19 + 3 OPS
-
-Cabinet IA structuré avec supervision éthique continue.
-
-> **Important :** Non médical. Module sécurité actif en permanence — détecte les situations de danger et escalade automatiquement vers aide professionnelle.
-
-### Flux sécurisé
-
-```
-Usager → OrchestreurCabinetIA → SecuriteRisques (prioritaire)
-       → Module spécialisé → SuperviseurEthique → DirecteurCabinetIA → Réponse validée
-```
-
-### Modules
-TCC · Coaching de vie · Gestion émotions · Gestion colère · Addictions · Relations conjugales/familiales · Support émotionnel · Psychoéducation
-
----
-
-## EDU SERVICES · Code: EDU
-
-**Domaine :** Éducation secondaire / polyvalente
-**Statut :** En production
-**Architecture :** Racine commune + routings sectoriels
-
-### Secteurs
-- `CORRECTION_TRAVAUX` — Correction avec OCR, évaluation CCQ
-- `RADIO_ETUDIANTE` — Production radio/podcast scolaire
-- `FORMATIONS` — Réservé aux futurs agents
-
-### Principe
-Routing maître vers le secteur → routing sectoriel vers l'agent. Évite les collisions d'intents entre métiers différents.
-
----
-
-## ARMY NEA WRITING · Code: NEA
-
-**Domaine :** Édition · Rédaction créative · Recueils thématiques
-**Statut :** En production
-**Agents :** 7 + 3 OPS
-
-Cycle éditorial complet pour publications à thématique profonde (cosmos, symbolisme, vivant, systèmes).
-
-### Workflow éditorial
-
-```
-NEA-Orchestrator
-  → ConseilPatterns   (patterns cosmos/terre/vivant/symboles/systèmes)
-  → Cartographe       (plan éditorial + carte conceptuelle)
-  → Redacteur         (section par section)
-  → RedacteurRecueil  (sections longues, prose structurée)
-  → Archiviste        (révision cohérence, titres, tags)
-  → Imagier           (briefs illustration : style, palette, symboles)
-```
-
----
-
-*EA|IA Technologies · FACTORY v3.0 · 2026*
+EA|IA Technologies · FACTORY v3.0 · 2026 · contact@eaia.ca
