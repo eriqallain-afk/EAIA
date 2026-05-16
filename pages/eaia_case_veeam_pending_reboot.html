@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EAIA | MSP Intelligence IT — Cas Veeam pending reboot Windows Update</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #000000;
+  --dark: #080808;
+  --dark2: #0E0E0E;
+  --dark3: #141414;
+  --gold: #C8952A;
+  --gold-light: #E4B84A;
+  --gold-dim: rgba(200,149,42,0.15);
+  --gold-line: rgba(200,149,42,0.3);
+  --silver: #B8BCC8;
+  --silver-light: #D8DCE8;
+  --white: #FFFFFF;
+  --muted: rgba(255,255,255,0.56);
+  --muted2: rgba(255,255,255,0.2);
+  --border: rgba(200,149,42,0.18);
+  --border2: rgba(255,255,255,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,149,42,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,149,42,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
+}
+section, nav, footer, header, div { position: relative; z-index: 1; }
+a { color: inherit; text-decoration: none; }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 64px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.92);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(24px);
+}
+.nav-brand { display: flex; flex-direction: column; gap: 2px; }
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  line-height: 1;
+}
+.nav-logo-text .ea { color: var(--gold); }
+.nav-logo-text .sep { color: rgba(200,149,42,0.5); margin: 0 2px; }
+.nav-logo-text .ia { color: var(--silver-light); }
+.nav-tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px;
+  color: rgba(200,149,42,0.5);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold-light); }
+.nav-cta {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 10px 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.25s;
+}
+.nav-cta:hover { background: var(--gold); color: var(--black); }
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 64px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-orb {
+  position: absolute;
+  top: -20%;
+  right: -8%;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,149,42,0.08);
+  pointer-events: none;
+}
+.hero-orb::before {
+  content: '';
+  position: absolute;
+  inset: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,149,42,0.05);
+}
+.hero-orb-glow {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(200,149,42,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-label, .s-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-label { margin-bottom: 36px; }
+.hero-label-line, .s-label-line { width: 48px; height: 1px; background: var(--gold); }
+.hero-label-text, .s-label-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.hero-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--silver);
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 8vw, 108px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+  max-width: 980px;
+}
+.hero h1 em { font-style: italic; color: var(--gold-light); }
+.hero h1 .strong { font-weight: 600; color: var(--white); }
+.hero-product-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  margin-top: 16px;
+}
+.hero-sub {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 760px;
+  line-height: 1.8;
+  margin-bottom: 52px;
+  font-weight: 300;
+}
+.hero-sub strong { color: var(--white); font-weight: 600; }
+.hero-metrics {
+  display: flex;
+  gap: 0;
+  margin-bottom: 56px;
+  border: 1px solid var(--border);
+  width: fit-content;
+  flex-wrap: wrap;
+}
+.hero-metric {
+  padding: 20px 32px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hero-metric:last-child { border-right: none; }
+.hero-metric-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--gold-light);
+  line-height: 1;
+}
+.hero-metric-l {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.hero-actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-gold {
+  background: var(--gold);
+  color: var(--black);
+  padding: 16px 44px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: all 0.25s;
+}
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+.btn-outline {
+  border: 1px solid rgba(200,149,42,0.4);
+  color: var(--gold);
+  padding: 16px 44px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.25s;
+}
+.btn-outline:hover { border-color: var(--gold); background: var(--gold-dim); }
+
+.firm-band {
+  background: var(--dark2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.firm-band-left { display: flex; flex-direction: column; gap: 6px; }
+.firm-band-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  letter-spacing: 5px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.firm-band-desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted2);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.firm-products {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+.firm-product {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  padding: 6px 14px;
+  border: 1px solid rgba(200,149,42,0.15);
+  color: rgba(200,149,42,0.5);
+  text-transform: uppercase;
+}
+.firm-product.active {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: var(--gold-dim);
+}
+.ticker {
+  overflow: hidden;
+  border-bottom: 1px solid var(--border2);
+  padding: 12px 0;
+  background: var(--dark3);
+}
+.ticker-inner {
+  display: inline-flex;
+  gap: 48px;
+  animation: ticker 35s linear infinite;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.2);
+  white-space: nowrap;
+}
+.ticker-inner span { color: rgba(200,149,42,0.6); }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.s-pad { padding: 96px 64px; }
+.s-label { margin-bottom: 20px; }
+.s-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+}
+.s-title em { font-style: italic; color: var(--gold-light); }
+.s-title strong { font-weight: 600; }
+.s-sub {
+  color: var(--muted);
+  font-size: 16px;
+  max-width: 780px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+.problem {
+  background: var(--dark2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.problem-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.problem-pains {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+}
+.pain-item {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: background 0.2s;
+}
+.pain-item:last-child { border-bottom: none; }
+.pain-item:hover { background: var(--gold-dim); }
+.pain-icon {
+  font-size: 11px;
+  color: var(--gold);
+  margin-top: 3px;
+  font-family: 'JetBrains Mono', monospace;
+  flex-shrink: 0;
+}
+.pain-text {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.pain-text strong { color: var(--white); font-weight: 600; }
+
+.terminal {
+  background: #050505;
+  border: 1px solid rgba(200,149,42,0.25);
+  padding: 28px;
+  position: relative;
+}
+.terminal::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.t-bar { display: flex; gap: 8px; margin-bottom: 20px; align-items: center; }
+.t-dot { width: 9px; height: 9px; border-radius: 50%; }
+.t-dot:nth-child(1) { background: #FF5F57; }
+.t-dot:nth-child(2) { background: #FEBC2E; }
+.t-dot:nth-child(3) { background: #28C840; }
+.t-bar-title {
+  margin-left: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 2px;
+}
+.t-line {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  line-height: 1.8;
+  margin-bottom: 2px;
+}
+.t-gray { color: rgba(255,255,255,0.2); }
+.t-gold { color: var(--gold); }
+.t-silver { color: var(--silver); }
+.t-green { color: #4ADE80; }
+.t-red { color: #F87171; }
+.t-white { color: var(--white); }
+.cursor {
+  display: inline-block;
+  width: 7px;
+  height: 12px;
+  background: var(--gold);
+  animation: blink 1.2s infinite;
+  vertical-align: middle;
+}
+@keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+
+.modules-header, .content-wrap, .table-wrap, .deliver-wrap, .results-wrap, .cta-wrap, .doc-wrap, .flow-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+.modules-grid {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.mod-card {
+  background: var(--dark);
+  padding: 30px 24px;
+  transition: background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.mod-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.25s;
+  transform-origin: left;
+}
+.mod-card:hover { background: #0C0C0C; }
+.mod-card:hover::after { transform: scaleX(1); }
+.mod-n {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: rgba(200,149,42,0.35);
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+.mod-icon { font-size: 24px; margin-bottom: 14px; }
+.mod-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  color: var(--white);
+}
+.mod-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.mod-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 14px;
+  font-weight: 300;
+}
+.mod-agents {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: rgba(255,255,255,0.18);
+  letter-spacing: 0.5px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 12px;
+  line-height: 1.7;
+}
+.arsenal {
+  background: var(--dark2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.arsenal-grid {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.arsenal-block {
+  background: var(--dark);
+  padding: 40px 32px;
+}
+.arsenal-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 68px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.arsenal-unit {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: rgba(200,149,42,0.6);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.arsenal-desc {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+.arsenal-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.arsenal-list li {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.6;
+}
+.arsenal-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+
+.case-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--dark);
+  border: 1px solid var(--border);
+  margin-top: 36px;
+}
+.case-table th, .case-table td {
+  padding: 18px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border2);
+  vertical-align: top;
+}
+.case-table th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.case-table td {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+.case-table td strong { color: var(--white); font-weight: 600; }
+
+.doc-section {
+  padding: 96px 64px;
+}
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+}
+.doc-card {
+  background: var(--dark);
+  border: 1px solid var(--border);
+  padding: 28px;
+  position: relative;
+}
+.doc-card.full { grid-column: 1 / -1; }
+.doc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.doc-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.doc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+.doc-copy {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: rgba(255,255,255,0.24);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.doc-pre {
+  white-space: pre-wrap;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  line-height: 1.9;
+  color: #D2D7E1;
+}
+.doc-pre strong { color: var(--white); }
+
+.quote-section {
+  background: var(--dark2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 80px 64px;
+  text-align: center;
+  position: relative;
+}
+.quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 120px;
+  color: rgba(200,149,42,0.08);
+  line-height: 0.5;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 300;
+  font-style: italic;
+  max-width: 920px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+  color: var(--silver-light);
+}
+.quote-text strong { color: var(--gold-light); font-style: normal; }
+.quote-attr {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted2);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.cta-section {
+  padding: 120px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-orb {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,149,42,0.06);
+  pointer-events: none;
+}
+.cta-orb::before {
+  content: '';
+  position: absolute;
+  inset: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,149,42,0.04);
+}
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 300;
+  line-height: 0.95;
+  margin-bottom: 28px;
+}
+.cta-section h2 em { font-style: italic; color: var(--gold-light); }
+.cta-section p {
+  color: var(--muted);
+  font-size: 17px;
+  margin-bottom: 48px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+  font-weight: 300;
+}
+.cta-note {
+  margin-top: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted2);
+  letter-spacing: 2px;
+}
+footer {
+  border-top: 1px solid var(--border);
+  padding: 36px 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--dark);
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  letter-spacing: 4px;
+  color: var(--gold);
+}
+.footer-brand span { color: rgba(200,149,42,0.5); margin: 0 4px; }
+.footer-brand em { color: var(--silver); font-style: normal; }
+.footer-right {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted2);
+  letter-spacing: 2px;
+  text-align: right;
+  line-height: 1.8;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-label{ animation: fadeUp 0.7s ease both; }
+.hero-eyebrow{ animation: fadeUp 0.7s 0.1s ease both; }
+.hero h1{ animation: fadeUp 0.7s 0.15s ease both; }
+.hero-product-tag{ animation: fadeUp 0.7s 0.2s ease both; }
+.hero-sub{ animation: fadeUp 0.7s 0.25s ease both; }
+.hero-metrics{ animation: fadeUp 0.7s 0.3s ease both; }
+.hero-actions{ animation: fadeUp 0.7s 0.35s ease both; }
+
+@media (max-width: 1080px) {
+  .modules-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 960px) {
+  nav, .hero, .s-pad, .firm-band, .quote-section, .cta-section, .doc-section { padding-left: 24px; padding-right: 24px; }
+  .problem-inner { grid-template-columns: 1fr; gap: 40px; }
+  .arsenal-grid { grid-template-columns: 1fr; }
+  .doc-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .hero-metric { border-bottom: 1px solid var(--border); border-right: none; }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+  .footer-right { text-align: center; }
+}
+@media (max-width: 640px) {
+  .modules-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo-text"><span class="ea">EA</span><span class="sep"> | </span><span class="ia">IA</span></div>
+    <div class="nav-tagline">Intelligence artificielle opérationnelle</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#cas">Cas</a></li>
+    <li><a href="#diagnostic">Diagnostic</a></li>
+    <li><a href="#pipeline">Pipeline</a></li>
+    <li><a href="#livrables">Livrables</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Démo — 30 min</a>
+</nav>
+
+<section class="hero" id="cas">
+  <div class="hero-orb"></div>
+  <div class="hero-orb-glow"></div>
+
+  <div class="hero-label">
+    <div class="hero-label-line"></div>
+    <div class="hero-label-text">Démonstrateur public · MSP Intelligence IT · Cas réel anonymisé</div>
+  </div>
+
+  <div class="hero-eyebrow">EAIA — Site de lancement</div>
+
+  <h1>
+    Une alerte<br>
+    <em>pending reboot</em><br>
+    transformée en <span class="strong">preuve d’exécution MSP.</span>
+  </h1>
+
+  <div class="hero-product-tag">MSP INTELLIGENCE IT · WINDOWS UPDATE · VEEAM · RMM · CW · REBOOT CONTRÔLÉ</div>
+
+  <p class="hero-sub">
+    Cette page montre comment <strong>MSP Intelligence IT</strong> traite une alerte NOC simple en apparence — un redémarrage Windows Update en attente —
+    sur un <strong>serveur de sauvegarde Veeam</strong>. L’agent ne se limite pas à redémarrer : il impose la lecture seule, vérifie les jobs de sauvegarde,
+    gère le risque de session active, attend le GO explicite, supervise le retour en ligne, puis génère les <strong>livrables complets</strong> pour ConnectWise.
+  </p>
+
+  <div class="hero-metrics">
+    <div class="hero-metric">
+      <div class="hero-metric-n">49j</div>
+      <div class="hero-metric-l">Uptime validé</div>
+    </div>
+    <div class="hero-metric">
+      <div class="hero-metric-n">3</div>
+      <div class="hero-metric-l">Flags actifs</div>
+    </div>
+    <div class="hero-metric">
+      <div class="hero-metric-n">0</div>
+      <div class="hero-metric-l">Job Veeam en cours</div>
+    </div>
+    <div class="hero-metric">
+      <div class="hero-metric-n">1</div>
+      <div class="hero-metric-l">Reboot contrôlé</div>
+    </div>
+    <div class="hero-metric">
+      <div class="hero-metric-n">100%</div>
+      <div class="hero-metric-l">Flags levés</div>
+    </div>
+  </div>
+
+  <div class="hero-actions">
+    <a href="#diagnostic" class="btn-gold">Voir le cas complet</a>
+    <a href="#contact" class="btn-outline">Demander une démo</a>
+  </div>
+</section>
+
+<div class="firm-band">
+  <div class="firm-band-left">
+    <div class="firm-band-name">Résumé exécutif du cas</div>
+    <div class="firm-band-desc">Organisation culturelle anonymisée · Serveur de sauvegarde · Windows Update · Veeam · ConnectWise</div>
+  </div>
+  <div class="firm-products">
+    <div class="firm-product active">NOC Alert</div>
+    <div class="firm-product active">Pending Reboot</div>
+    <div class="firm-product active">Veeam</div>
+    <div class="firm-product active">GO / NO-GO</div>
+    <div class="firm-product active">CW Discussion</div>
+    <div class="firm-product active">CW Note</div>
+  </div>
+</div>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>WINDOWS UPDATE</span> · PENDING REBOOT · VEEAM BACKUP ·
+    <span>LECTURE SEULE</span> · PRECHECK · GO / NO-GO ·
+    <span>EVENT 1074</span> · REBOOT CONTRÔLÉ · POSTCHECK · CW NOTE · CW DISCUSSION ·
+    <span>TEAMS NOTICE</span> · SERVICE OPÉRATIONNEL ·
+    <span>WINDOWS UPDATE</span> · PENDING REBOOT · VEEAM BACKUP ·
+    <span>LECTURE SEULE</span> · PRECHECK · GO / NO-GO ·
+    <span>EVENT 1074</span> · REBOOT CONTRÔLÉ · POSTCHECK · CW NOTE · CW DISCUSSION ·
+    <span>TEAMS NOTICE</span> · SERVICE OPÉRATIONNEL ·
+  </div>
+</div>
+
+<section class="problem s-pad">
+  <div class="problem-inner">
+    <div>
+      <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Le point de départ</div></div>
+      <div class="s-title">Une alerte simple,<br>un serveur critique,<br><em>un risque réel.</em></div>
+      <p class="s-sub" style="margin-bottom: 24px;">
+        Le signal initial indiquait un redémarrage requis à la suite de mises à jour Windows. Sur un poste standard, l’action aurait pu sembler banale.
+        Sur un serveur hébergeant Veeam, le mauvais réflexe aurait été de redémarrer immédiatement et d’interrompre une sauvegarde ou une opération de restauration.
+      </p>
+      <p class="s-sub">
+        L’agent a donc transformé une alerte de monitoring en <strong>intervention contrôlée</strong> : confirmation des flags Windows,
+        validation qu’aucun job Veeam n’était en cours, acceptation explicite de la session active du technicien, redémarrage documenté,
+        puis postcheck complet avec preuve que le pending reboot était levé.
+      </p>
+    </div>
+
+    <div>
+      <div class="problem-pains">
+        <div class="pain-item">
+          <div class="pain-icon">01</div>
+          <div class="pain-text"><strong>L’alerte NOC était valide</strong> — Windows Update signalait un redémarrage requis avec un uptime dépassant 45 jours.</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">02</div>
+          <div class="pain-text"><strong>Le serveur était lié aux sauvegardes</strong> — aucun reboot ne devait être autorisé sans validation de l’état Veeam.</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">03</div>
+          <div class="pain-text"><strong>Trois flags Windows étaient actifs</strong> — CBS, Windows Update et PendingFileRenameOperations confirmaient la nécessité du reboot.</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">04</div>
+          <div class="pain-text"><strong>Une session console était active</strong> — l’agent a bloqué le GO tant que cette session n’était pas identifiée et acceptée.</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">05</div>
+          <div class="pain-text"><strong>La clôture devait être client-safe</strong> — pas de détails sensibles, pas de jargon brut, mais une preuve claire de valeur MSP.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1160px;margin:56px auto 0">
+    <div class="terminal">
+      <div class="t-bar">
+        <div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div>
+        <div class="t-bar-title">MSP-INTELLIGENCE-IT · CASEFLOW · VEEAM PENDING REBOOT</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+        <div>
+          <div class="t-line t-gray">// BILLET BRUT REÇU</div>
+          <div class="t-line" style="margin-top:8px"><span class="t-gold">SOURCE :</span> <span class="t-white">SCRIPT MONITOR / RMM</span></div>
+          <div class="t-line"><span class="t-gold">SYMPTÔME :</span> <span class="t-white">WINDOWS UPDATE PENDING REBOOT</span></div>
+          <div class="t-line"><span class="t-gold">RÔLE :</span> <span class="t-white">SERVEUR DE SAUVEGARDE VEEAM</span></div>
+          <div class="t-line"><span class="t-gold">RISQUE :</span> <span class="t-white">REBOOT PENDANT JOB BACKUP</span></div>
+          <div class="t-line" style="margin-top:12px"><span class="t-gray">// REQUALIFICATION PAR L'AGENT</span></div>
+          <div class="t-line t-silver">NO-GO tant que les jobs Veeam ne sont pas confirmés Idle.</div>
+          <div class="t-line t-silver">NO-GO tant que la session active n’est pas acceptée.</div>
+          <div class="t-line t-silver">GO seulement après validation explicite du technicien.</div>
+        </div>
+        <div>
+          <div class="t-line t-gray">// DÉCISION OPÉRATIONNELLE</div>
+          <div class="t-line" style="margin-top:8px"><span class="t-green">✓ Aucun job Veeam Running/Postprocessing</span></div>
+          <div class="t-line"><span class="t-green">✓ Session active identifiée comme celle du technicien</span></div>
+          <div class="t-line"><span class="t-green">✓ Reboot contrôlé lancé avec commentaire billet</span></div>
+          <div class="t-line"><span class="t-green">✓ Postcheck : RebootRequired=False</span></div>
+          <div class="t-line" style="margin-top:12px"><span class="t-gold">RÉSULTAT :</span> <span class="t-white">ALERTE RÉSOLUE + SERVICES VEEAM VALIDÉS</span></div>
+          <div class="t-line t-gold">▌<span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-pad" id="diagnostic">
+  <div class="content-wrap">
+    <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Diagnostic structuré</div></div>
+    <div class="s-title"><strong>Une résolution qui transforme</strong><br>un reboot banal en <em>acte maîtrisé.</em></div>
+    <p class="s-sub">
+      Le système impose la bonne séquence MSP : lecture seule, preuve technique, validation du rôle critique, décision GO/NO-GO,
+      action contrôlée, postcheck et documentation. C’est exactement la différence entre un simple script et un agent d’exploitation fiable.
+    </p>
+
+    <table class="case-table">
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Constat</th>
+          <th>Impact</th>
+          <th>Décision</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Alerte NOC</strong></td>
+          <td>Windows Update pending reboot déclenché, uptime supérieur à 45 jours</td>
+          <td>Le système nécessitait un redémarrage pour finaliser les changements Windows</td>
+          <td>Ouvrir un triage contrôlé, pas un reboot immédiat</td>
+        </tr>
+        <tr>
+          <td><strong>Flags Windows</strong></td>
+          <td>CBS=True, Windows Update=True, PendingFileRenameOperations=True</td>
+          <td>Le pending reboot était confirmé par plusieurs indicateurs indépendants</td>
+          <td>Préparer un redémarrage supervisé après validation du risque</td>
+        </tr>
+        <tr>
+          <td><strong>Rôle Veeam</strong></td>
+          <td>Services Veeam principaux observés en état Running</td>
+          <td>Le serveur était opérationnel mais critique pour la chaîne de sauvegarde</td>
+          <td>Valider l’absence de job Running/Postprocessing avant toute action</td>
+        </tr>
+        <tr>
+          <td><strong>Sessions actives</strong></td>
+          <td>Session console active identifiée comme celle du technicien</td>
+          <td>Risque utilisateur neutralisé par acceptation explicite</td>
+          <td>Passer de HOLD à prêt pour GO après confirmation</td>
+        </tr>
+        <tr>
+          <td><strong>Redémarrage</strong></td>
+          <td>Reboot contrôlé lancé avec commentaire de billet et raison de maintenance</td>
+          <td>Traçabilité Windows conservée et intervention corrélable au ticket</td>
+          <td>Superviser l’application des mises à jour jusqu’au retour en ligne</td>
+        </tr>
+        <tr>
+          <td><strong>Postcheck</strong></td>
+          <td>Tous les flags pending reboot revenus à False, services Veeam principaux Running</td>
+          <td>L’alerte est résolue et le serveur de sauvegarde est de nouveau opérationnel</td>
+          <td>Clôture CW avec Discussion client-safe et Note interne technique</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="s-pad" id="pipeline">
+  <div class="modules-header">
+    <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Pipeline de traitement</div></div>
+    <div class="s-title"><strong>10 étapes.</strong><br><em>Un reboot, zéro improvisation.</em></div>
+    <p class="s-sub">Le cas démontre une capacité essentielle du produit : ralentir l’action juste assez pour éviter le mauvais reboot, puis accélérer la clôture avec des livrables propres.</p>
+  </div>
+
+  <div class="modules-grid">
+    <div class="mod-card">
+      <div class="mod-n">ÉTAPE 01</div>
+      <div class="mod-icon">◎</div>
+      <div class="mod-name">Ingestion</div>
+      <div class="mod-sub">Billet NOC / RMM</div>
+      <div class="mod-desc">Le monitor signale un pending reboot Windows Update sur un serveur de sauvegarde.</div>
+      <div class="mod-agents">Signal brut → cas structuré</div>
+    </div>
+    <div class="mod-card">
+      <div class="mod-n">ÉTAPE 02</div>
+      <div class="mod-icon">◇</div>
+      <div class="mod-name">Triage</div>
+      <div class="mod-sub">Lecture seule d’abord</div>
+      <div class="mod-desc">L’agent identifie le client, l’actif, le rôle Veeam, l’uptime, les flags Windows et le niveau de risque.</div>
+      <div class="mod-agents">Aucun changement appliqué</div>
+    </div>
+    <div class="mod-card">
+      <div class="mod-n">ÉTAPE 03</div>
+      <div class="mod-icon">⌁</div>
+      <div class="mod-name">Precheck</div>
+      <div class="mod-sub">État initial</div>
+      <div class="mod-desc">Collecte des services, processus, sessions, journaux récents et état exact du pending reboot.</div>
+      <div class="mod-agents">Preuve avant action</div>
+    </div>
+    <div class="mod-card">
+      <div class="mod-n">ÉTAPE 04</div>
+      <div class="mod-icon">□</div>
+      <div class="mod-name">NO-GO</div>
+      <div class="mod-sub">Contrôle du risque</div>
+      <div class="mod-desc">L’agent bloque le reboot tant que les jobs Veeam et la session active ne sont pas explicitement validés.</div>
+      <div class="mod-agents">Discipline MSP</div>
+    </div>
+    <div class="mod-card">
+      <div class="mod-n">ÉTAPE 05</div>
+      <div class="mod-icon">△</div>
+      <div class="mod-name">Validation Veeam</div>
+      <div class="mod-sub">Aucun job en cours</div>
+      <div class="mod-desc">Le technicien confirme l’absence de job Running/Postprocessing avant d’autoriser le redémarrage.</div>
+      <div class="mod-agents">Protection backup</div>
+    </div>
+    <div class="mod-card">
+      <div class="mod-n">ÉTAPE 06</div>
+      <div class="mod-icon">✦</div>
+      <div class="mod-name">GO explicite</div>
+      <div class="mod-sub">Session acceptée</div>
+      <div class="mod-desc">La session console est reconnue comme celle du technicien; l’agent demande le GO avant de fournir la commande.</div>
+      <div class="mod-agents">Approbation tracée</div>
+    </div>
+    <div class="mod-card">
+      <div class="mod-n">ÉTAPE 07</div>
+      <div class="mod-icon">↺</div>
+      <div class="mod-name">Reboot contrôlé</div>
+      <div class="mod-sub">Event 1074</div>
+      <div class="mod-desc">Le redémarrage est lancé avec commentaire de billet et raison de maintenance pour assurer la traçabilité.</div>
+      <div class="mod-agents">Action maîtrisée</div>
+    </div>
+    <div class="mod-card">
+      <div class="mod-n">ÉTAPE 08</div>
+      <div class="mod-icon">✉</div>
+      <div class="mod-name">Retour en ligne</div>
+      <div class="mod-sub">Supervision</div>
+      <div class="mod-desc">Le technicien confirme que le serveur est revenu accessible; l’agent passe immédiatement au postcheck.</div>
+      <div class="mod-agents">Pas de fermeture aveugle</div>
+    </div>
+    <div class="mod-card">
+      <div class="mod-n">ÉTAPE 09</div>
+      <div class="mod-icon">◆</div>
+      <div class="mod-name">Postcheck</div>
+      <div class="mod-sub">Flags levés</div>
+      <div class="mod-desc">Les flags CBS, WU, PendingFileRename et CCM sont tous à False; les services Veeam principaux sont Running.</div>
+      <div class="mod-agents">Résolution prouvée</div>
+    </div>
+    <div class="mod-card">
+      <div class="mod-n">ÉTAPE 10</div>
+      <div class="mod-icon">◈</div>
+      <div class="mod-name">Livrables</div>
+      <div class="mod-sub">CW + Teams + page</div>
+      <div class="mod-desc">La fermeture génère une Discussion client-safe, une Note interne complète et une page de cas premium.</div>
+      <div class="mod-agents">Opérations + marketing</div>
+    </div>
+  </div>
+</section>
+
+<section class="arsenal s-pad" id="livrables">
+  <div style="max-width:1160px;margin:0 auto 56px">
+    <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Livrables et résultats</div></div>
+    <div class="s-title">Ce que le cas<br><em>produit vraiment.</em></div>
+    <p class="s-sub">Le cas montre qu’un agent MSP sérieux ne fait pas seulement “redémarrer une machine”. Il protège la sauvegarde, vérifie les conditions, documente l’action et livre une clôture exploitable.</p>
+  </div>
+
+  <div class="arsenal-grid">
+    <div class="arsenal-block">
+      <div class="arsenal-n">01</div>
+      <div class="arsenal-unit">Actions effectuées</div>
+      <div class="arsenal-desc">Analyse de l’alerte, precheck Windows/Veeam, validation GO/NO-GO, reboot contrôlé et postcheck complet.</div>
+      <ul class="arsenal-list">
+        <li>Precheck lecture seule</li>
+        <li>Validation pending reboot</li>
+        <li>Confirmation jobs Veeam</li>
+        <li>Redémarrage supervisé</li>
+        <li>Postcheck flags + services</li>
+      </ul>
+    </div>
+    <div class="arsenal-block">
+      <div class="arsenal-n">02</div>
+      <div class="arsenal-unit">Garde-fous</div>
+      <div class="arsenal-desc">La décision reste bloquée tant que les conditions de sécurité opérationnelle ne sont pas confirmées.</div>
+      <ul class="arsenal-list">
+        <li>Lecture seule avant action</li>
+        <li>Un seul actif traité</li>
+        <li>NO-GO si backup actif</li>
+        <li>Session active acceptée</li>
+        <li>GO explicite requis</li>
+      </ul>
+    </div>
+    <div class="arsenal-block">
+      <div class="arsenal-n">03</div>
+      <div class="arsenal-unit">Résultats techniques</div>
+      <div class="arsenal-desc">Les trois indicateurs Windows initiaux sont levés et les services Veeam principaux reviennent opérationnels.</div>
+      <ul class="arsenal-list">
+        <li>CBS=False</li>
+        <li>WU=False</li>
+        <li>PendingFileRename=False</li>
+        <li>RebootRequired=False</li>
+        <li>Services Veeam Running</li>
+      </ul>
+    </div>
+    <div class="arsenal-block">
+      <div class="arsenal-n">04</div>
+      <div class="arsenal-unit">Effets observables</div>
+      <div class="arsenal-desc">Le serveur revient en ligne, l’alerte est résolue et la chaîne de sauvegarde peut poursuivre son cycle normal.</div>
+      <ul class="arsenal-list">
+        <li>Retour RMM confirmé</li>
+        <li>Application Windows finalisée</li>
+        <li>Aucune erreur critique observée</li>
+        <li>Risque backup évité</li>
+        <li>Intervention traçable</li>
+      </ul>
+    </div>
+    <div class="arsenal-block">
+      <div class="arsenal-n">05</div>
+      <div class="arsenal-unit">Sorties prêtes à l’emploi</div>
+      <div class="arsenal-desc">Le produit génère exactement ce dont un MSP a besoin pour fermer proprement : client, interne, coordination et preuve.</div>
+      <ul class="arsenal-list">
+        <li>Discussion CW client-safe</li>
+        <li>Note interne CW complète</li>
+        <li>Avis Teams terminé</li>
+        <li>Résumé exécutif</li>
+        <li>Page de cas premium</li>
+      </ul>
+    </div>
+    <div class="arsenal-block">
+      <div class="arsenal-n">06</div>
+      <div class="arsenal-unit">Valeur business</div>
+      <div class="arsenal-desc">Un petit billet devient une preuve de maturité opérationnelle, utile en démo produit et compréhensible par les décideurs.</div>
+      <ul class="arsenal-list">
+        <li>Cas réel anonymisé</li>
+        <li>Récit clair pour vente</li>
+        <li>Discernement technique visible</li>
+        <li>Traçabilité MSP</li>
+        <li>Réutilisable au lancement</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="doc-section">
+  <div class="doc-wrap">
+    <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Livrables complets</div></div>
+    <div class="s-title"><strong>Les sorties réelles,</strong><br><em>dans le bon format MSP.</em></div>
+    <p class="s-sub">
+      Cette section expose les livrables générés à partir du cas : une discussion client-safe, une note interne technique complète,
+      une notice Teams de fin d’intervention et un résumé démonstrateur pour le site. Le contenu est anonymisé pour usage public.
+    </p>
+
+    <div class="doc-grid">
+      <div class="doc-card">
+        <div class="doc-top">
+          <div>
+            <div class="doc-label">Livrable 01</div>
+            <div class="doc-title">CW Discussion</div>
+          </div>
+          <div class="doc-copy">Client-safe · facturable</div>
+        </div>
+        <div class="doc-pre">────────────────────────────────────────────────────────
+       Validation — redémarrage en attente Windows Update
+────────────────────────────────────────────────────────
+
+BILLET : #[1751829]
+DATE : 2026-05-15
+TECHNICIEN : EA
+---------
+
+PRÉPARATION ET DÉCOUVERTE :
+---------
+• Prendre connaissance de la demande et consultation de la documentation de l'entreprise.
+• Connexion au RMM et analyse de l'état global et de la présence d'alerte.
+
+TRAVAUX EFFECTUÉS :
+---------
+• Analyse de l'alerte proactive signalant un redémarrage en attente lié aux mises à jour Windows
+• Vérification de l'état général du système et des services de sauvegarde avant intervention
+• Validation qu'aucune tâche de sauvegarde n'était en cours avant le redémarrage
+• Redémarrage contrôlé et supervisé afin d'appliquer les changements Windows en attente
+• Vérification post-intervention de l'état du système et des services critiques
+
+RÉSULTAT :
+---------
+• Le redémarrage en attente est résolu
+• Les services de sauvegarde sont opérationnels
+• Aucun impact prolongé sur les opérations n'a été observé
+
+RECOMMANDATION :
+---------
+• Maintenir la surveillance normale des sauvegardes lors du prochain cycle planifié</div>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-top">
+          <div>
+            <div class="doc-label">Livrable 02</div>
+            <div class="doc-title">CW Note Interne</div>
+          </div>
+          <div class="doc-copy">Interne · complet</div>
+        </div>
+        <div class="doc-pre">════════════════════════════════════════════════════════════════
+INTERVENTION TECHNIQUE — PENDING REBOOT WINDOWS UPDATE
+════════════════════════════════════════════════════════════════
+
+INFORMATIONS GÉNÉRALES
+-----------------------
+Date        : 2026-05-15
+Technicien  : EA
+Client      : Organisation culturelle [anonymisée]
+Billet CW   : #1751829
+Équipements : Serveur de sauvegarde Veeam [anonymisé]
+Type        : Maintenance / Alerte NOC / Pending reboot
+
+PRÉPARATION ET DÉCOUVERTE :
+----------
+• Prendre connaissance de la demande et consultation de la documentation de l'entreprise.
+• Connexion au RMM et analyse de l'état global et de la présence d'alerte.
+
+CONTEXTE INITIAL
+----------------
+Alerte NOC reçue pour un redémarrage Windows Update en attente sur le serveur de sauvegarde.
+Détails de l'alerte initiale :
+- WU_RebootPending=True
+- DaysSinceBoot=46
+- Over45Days=True
+- NeedsAttention=True
+
+DIAGNOSTIC / ANALYSE
+--------------------
+Precheck lecture seule exécuté avant action.
+Résultats observés :
+- OS : Microsoft Windows 11 Pro
+- Build : 26200
+- Uptime precheck : 49,1 jours
+- Dernier redémarrage avant intervention : 2026-03-27 13:04
+- CBS_RebootPending : True
+- WU_RebootRequired : True
+- PendingFileRenameOperations : True
+- CCMClientRebootPending : False
+- RebootRequired : True
+
+Validation Veeam avant redémarrage :
+- Services Veeam principaux observés en état Running
+- Aucune job Veeam Running/Postprocessing confirmée par le technicien
+- Session active identifiée et acceptée par le technicien comme sa session active
+
+ACTIONS TECHNIQUES
+------------------
+Action 1 — Precheck pending reboot et services
+  Résultat : pending reboot confirmé avec flags CBS / WU / PendingFileRenameOperations actifs.
+
+Action 2 — Validation du rôle sauvegarde avant reboot
+  Résultat : aucun job Veeam en cours confirmé par le technicien avant redémarrage.
+
+Action 3 — Redémarrage contrôlé
+  Résultat : redémarrage lancé et application des mises à jour supervisée.
+
+Action 4 — Postcheck après retour en ligne
+  Résultat : serveur revenu en ligne et validation post-redémarrage effectuée.
+
+CONFIGURATIONS MODIFIÉES
+-------------------------
+Aucune configuration modifiée.
+Redémarrage contrôlé uniquement afin d'appliquer les changements Windows en attente.
+
+TESTS DE VALIDATION
+-------------------
+✓ Serveur revenu accessible après redémarrage : OK
+✓ LastReboot postcheck : 2026-05-15 15:34
+✓ Uptime postcheck : 54,2 minutes au moment de la validation
+✓ CBS_RebootPending : False
+✓ WU_RebootRequired : False
+✓ PendingFileRenameOperations : False
+✓ CCMClientRebootPending : False
+✓ RebootRequired : False
+✓ Services Veeam principaux : Running
+✓ Journaux System/Application depuis reboot : aucune erreur critique visible dans l'output fourni
+
+RÉSULTAT FINAL
+--------------
+État : RÉSOLU
+
+Le pending reboot Windows Update est levé après redémarrage contrôlé.
+Les services Veeam principaux sont opérationnels.
+Aucune erreur critique post-redémarrage n'a été observée dans l'output fourni.
+
+SUIVI REQUIS
+------------
+▢ Surveiller le prochain cycle de sauvegarde planifié via le monitoring habituel.
+▢ Aucune autre action immédiate requise si le prochain cycle de sauvegarde complète avec succès.</div>
+      </div>
+
+      <div class="doc-card full">
+        <div class="doc-top">
+          <div>
+            <div class="doc-label">Livrable 03</div>
+            <div class="doc-title">Notice Teams — intervention terminée</div>
+          </div>
+          <div class="doc-copy">Coordination · NOC</div>
+        </div>
+        <div class="doc-pre">✅ Maintenance terminée — Ticket #[1751829]
+
+Client : Organisation culturelle [anonymisée]
+
+Serveur de sauvegarde opérationnel et fonctionnement confirmé.
+Le redémarrage Windows Update en attente a été traité de façon contrôlée.
+Les validations post-intervention confirment que le pending reboot est levé et que les services de sauvegarde principaux sont opérationnels.
+
+Statut : Résolu — aucune anomalie bloquante observée au postcheck.</div>
+      </div>
+
+      <div class="doc-card full">
+        <div class="doc-top">
+          <div>
+            <div class="doc-label">Livrable 04</div>
+            <div class="doc-title">Résumé démonstrateur — lancement produit</div>
+          </div>
+          <div class="doc-copy">Marketing · opérations</div>
+        </div>
+        <div class="doc-pre">Ce cas illustre parfaitement la promesse MSP Intelligence IT :
+
+1. L’agent ne redémarre jamais automatiquement un serveur critique.
+2. Il force la validation des conditions GO / NO-GO.
+3. Il protège les jobs de sauvegarde en exigeant une vérification Veeam explicite.
+4. Il documente le redémarrage avec traçabilité.
+5. Il exige un postcheck complet avant clôture.
+6. Il produit une Discussion client-safe et une Note interne technique prêtes à coller dans ConnectWise.
+
+Valeur démontrée :
+- réduction du risque opérationnel;
+- discipline d’exécution MSP;
+- documentation exploitable;
+- transformation d’un billet simple en preuve produit claire.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="quote-section">
+  <div class="quote-mark">"</div>
+  <p class="quote-text">
+    Le bon agent MSP n’est pas celui qui redémarre le plus vite.
+    C’est celui qui <strong>bloque le reboot au bon moment</strong>, protège les sauvegardes,
+    obtient le GO explicite, puis <strong>prouve la résolution</strong> avant de fermer.
+  </p>
+  <div class="quote-attr">EAIA · MSP Intelligence IT · démonstrateur public anonymisé</div>
+</div>
+
+<section class="cta-section" id="contact">
+  <div class="cta-orb"></div>
+  <h2>Tu veux des cas<br><em>comme celui-ci</em><br>sur ton site de lancement ?</h2>
+  <p>
+    EAIA transforme de vrais billets MSP en démonstrations premium prêtes pour le site,
+    la vente ou la démo produit — avec le niveau de fond nécessaire pour convaincre les opérations autant que le marketing.
+  </p>
+  <a href="mailto:contact@eaia.ca" class="btn-gold">Demander une démo</a>
+  <p class="cta-note">Page premium · contenu anonymisé · compatible site existant, GitHub Pages et lancement produit</p>
+</section>
+
+<footer>
+  <div class="footer-brand">EA<span>|</span><em>IA</em></div>
+  <div class="footer-right">
+    MSP Intelligence IT — Cas Veeam pending reboot Windows Update<br>
+    © 2026 EAIA — Tous droits réservés
+  </div>
+</footer>
+
+</body>
+</html>
