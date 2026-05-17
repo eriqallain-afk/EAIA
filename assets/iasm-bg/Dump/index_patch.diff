@@ -1,0 +1,5 @@
+--- index.html (original)
++++ index.html (patched)
+@@
+-        <a class="army-link" href="EAIA_MSP_Preview_v2.html">Preview produit →</a>
++        <a class="army-link" href="msp-preview.html">Preview produit →</a>

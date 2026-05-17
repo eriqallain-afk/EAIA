@@ -1,0 +1,395 @@
+catalog_version: '2026-04-30'
+scope:
+  repo: eriqallain-afk/root_IA
+  paths_scanned:
+  - PRODUCTS/IT/20_Agents/*/prompt.md
+  command_header_target: '## COMMANDES DISPONIBLES'
+common_commands_all_agents_with_commandes_disponibles:
+- command: /close
+  description: Menu/flow de clôture (CW Note/Discussion/Email/Teams etc selon agent)
+agents:
+  IT-AssetMaster:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-AssetMaster/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /inventaire [client]
+      description: Inventaire / CMDB — consolidation par client
+    - command: /eol [client]
+      description: End-of-Life / End-of-Support par client
+    - command: /audit [client]
+      description: Audit d'actifs / conformité inventaire
+    - command: /cycle [asset]
+      description: Cycle de vie d’un actif (acquisition→retrait)
+    - command: /licences [client]
+      description: Vue licences / conformité par client
+    - command: /close
+      description: Clôture guidée
+  IT-BackupDRMaster:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-BackupDRMaster/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /triage [job]
+      description: Triage backup job / alerte
+    - command: /restore [contexte]
+      description: Plan & checklist de restauration
+    - command: /dr [client]
+      description: Plan DR / validation RTO-RPO
+    - command: /check [résultats]
+      description: Validation post-actions (logs, points de contrôle)
+    - command: /close
+      description: Clôture guidée
+  IT-ClientDocMaster:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-ClientDocMaster/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /analyse [coller texte]
+      description: Analyse/synthèse d’un contenu client
+    - command: /brief [coller le brief]
+      description: Structuration d’un brief client
+    - command: /serveur [contexte]
+      description: Fiche serveur / standardisation doc
+    - command: /reseau [contexte]
+      description: Fiche réseau / standardisation doc
+    - command: /hyperviseur [contexte]
+      description: Fiche hyperviseur / standardisation doc
+    - command: /nas [contexte]
+      description: Fiche NAS / standardisation doc
+    - command: /ups [contexte]
+      description: Fiche UPS / standardisation doc
+    - command: /pbx [contexte]
+      description: Fiche PBX/VoIP / standardisation doc
+    - command: /imprimante [contexte]
+      description: Fiche imprimante / standardisation doc
+    - command: /application [contexte]
+      description: Fiche application / standardisation doc
+    - command: /backup [contexte]
+      description: Fiche backup / standardisation doc
+    - command: /compte [contexte]
+      description: Fiche compte / accès / standardisation doc
+    - command: /licence [contexte]
+      description: Fiche licence / standardisation doc
+    - command: /procedure [contexte]
+      description: Procédure/SOP / standardisation doc
+    - command: /audit [client]
+      description: Audit documentation / complétude
+    - command: /close
+      description: Clôture guidée
+  IT-CloudMaster:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-CloudMaster/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /exchange [symptôme]
+      description: Diag Exchange / mail flow
+    - command: /entraid [symptôme]
+      description: Diag Entra ID / auth
+    - command: /teams [symptôme]
+      description: Diag Teams / services
+    - command: /intune [symptôme]
+      description: Diag Intune / MDM
+    - command: /keepit
+      description: Backup SaaS Keepit (triage / actions)
+    - command: /close
+      description: Clôture guidée
+  IT-Commandare-Infra:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-Commandare-Infra/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /triage [incident]
+      description: Analyse + classification + plan d’action + routage
+    - command: /escalade [domaine]
+      description: Bloc CW de transfert structuré
+    - command: /teams
+      description: Notice Teams pour le moment en cours
+    - command: /flagup
+      description: Flag up / passation structurée
+    - command: /status
+      description: Résumé intervention en cours
+    - command: /close
+      description: Clôture guidée
+  IT-Commandare-NOC:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-Commandare-NOC/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /triage [incident]
+      description: Analyse + classification + plan d’action + routage
+    - command: /escalade [domaine]
+      description: Bloc CW de transfert structuré
+    - command: /teams
+      description: Notice Teams pour le moment en cours
+    - command: /flagup
+      description: Flag up / passation structurée
+    - command: /status
+      description: Résumé intervention en cours
+    - command: /close
+      description: Clôture guidée
+  IT-Commandare-OPR:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-Commandare-OPR/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /triage [incident]
+      description: Analyse + classification + plan d’action + routage
+    - command: /escalade [domaine]
+      description: Bloc CW de transfert structuré
+    - command: /teams
+      description: Notice Teams pour le moment en cours
+    - command: /flagup
+      description: Flag up / passation structurée
+    - command: /status
+      description: Résumé intervention en cours
+    - command: /close
+      description: Clôture guidée
+  IT-Commandare-TECH:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-Commandare-TECH/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /triage [incident]
+      description: Analyse + classification + plan d’action + routage
+    - command: /escalade [domaine]
+      description: Bloc CW de transfert structuré
+    - command: /teams
+      description: Notice Teams pour le moment en cours
+    - command: /flagup
+      description: Flag up / passation structurée
+    - command: /status
+      description: Résumé intervention en cours
+    - command: /close
+      description: Clôture guidée
+  IT-FrontLine:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-FrontLine/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /appel
+      description: Gérer un appel entrant (script + collecte)
+    - command: '/ticket #XXXXX'
+      description: Consolider/structurer un ticket existant
+    - command: /triage
+      description: Qualification rapide + routage
+    - command: /status
+      description: Résumé / état d’avancement
+    - command: /close
+      description: Clôture guidée
+  IT-KnowledgeKeeper:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-KnowledgeKeeper/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /kb [brief]
+      description: Créer/mettre à jour un article KB
+    - command: /runbook [sujet]
+      description: Créer/mettre à jour un runbook
+    - command: /sop [sujet]
+      description: Créer une SOP (procédure)
+    - command: /index
+      description: Indexer/relier la doc (table des matières)
+    - command: /close
+      description: Clôture guidée
+  IT-MaintenanceMaster:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-MaintenanceMaster/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /start
+      description: Démarrer une maintenance (cadre + checks)
+    - command: /start_maint
+      description: Démarrer une fenêtre de maintenance (mode guidé)
+    - command: /runbook [sujet]
+      description: Proposer un runbook de maintenance
+    - command: /script [desc]
+      description: Générer/adapter un script (PS/Bash)
+    - command: /check [résultats]
+      description: Valider résultats (pré/post)
+    - command: /estimé
+      description: Estimation durée / fenêtres / risques
+    - command: /kb
+      description: Capitalisation KB
+    - command: /db
+      description: Journal / base de connaissance interne
+    - command: /status
+      description: Résumé en cours
+    - command: /close
+      description: Clôture guidée
+  IT-MonitoringMaster:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-MonitoringMaster/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /alerte [détails]
+      description: Analyse d’alerte monitoring
+    - command: /seuils [type]
+      description: Recommandations seuils / tuning
+    - command: /rapport
+      description: Rapport synthèse monitoring
+    - command: /config [actif]
+      description: Guidance configuration / checks
+    - command: /close
+      description: Clôture guidée
+  IT-NetworkMaster:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-NetworkMaster/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /diag [symptôme]
+      description: Diagnostic réseau
+    - command: /firewall [marque]
+      description: Diag/plan firewall (Fortinet/Sonicwall/etc)
+    - command: /vpn [symptôme]
+      description: Diag VPN (site-to-site/remote)
+    - command: /vlan [contexte]
+      description: Design/diag VLAN
+    - command: /qos [contexte]
+      description: QoS (voix, perf)
+    - command: /close
+      description: Clôture guidée
+  IT-NOCDispatcher:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-NOCDispatcher/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /dispatch [ticket]
+      description: Dispatcher un ticket/alerte entrant
+    - command: /escalade_sla [ticket]
+      description: Escalade quand risque SLA
+    - command: /handover
+      description: Passation de quart
+    - command: /status
+      description: Résumé P1/P2 en cours
+    - command: /close
+      description: Clôture guidée
+  IT-ReportMaster:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-ReportMaster/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /postmortem [billet]
+      description: Post-mortem incident
+    - command: /mensuel [mois]
+      description: Rapport mensuel MSP
+    - command: /qbr [trimestre]
+      description: Quarterly Business Review
+    - command: /securite [période]
+      description: Rapport sécurité sur période
+    - command: /close
+      description: Clôture guidée
+  IT-ScriptMaster:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-ScriptMaster/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /script [description]
+      description: Générer un script (PS/Bash)
+    - command: /audit [script]
+      description: Audit/risques d’un script
+    - command: /lib [catégorie]
+      description: Lister snippets / librairie
+    - command: /close
+      description: Clôture guidée
+  IT-SecurityMaster:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-SecurityMaster/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /triage [alerte]
+      description: Triage alerte sécurité
+    - command: /ir [phase]
+      description: Incident response (phase)
+    - command: /audit
+      description: Audit sécurité
+    - command: /rapport [période]
+      description: Rapport sécurité
+    - command: /close
+      description: Clôture guidée
+  IT-SysAdmin:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-SysAdmin/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /start
+      description: Démarrage prise en charge / cadre
+    - command: /start_maint
+      description: Démarrage maintenance guidée
+    - command: /runbook [sujet]
+      description: Runbook SysAdmin
+    - command: /script [desc]
+      description: Script (PS/Bash)
+    - command: /check [résultats]
+      description: Validation / checks
+    - command: /estimé
+      description: Estimation durée/risques
+    - command: /kb
+      description: Capitalisation KB
+    - command: /db
+      description: Journal / base interne
+    - command: /status
+      description: Résumé en cours
+    - command: /close
+      description: Clôture guidée
+  IT-TicketScribe:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-TicketScribe/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /note [contexte]
+      description: CW Note interne (structurée)
+    - command: /discussion [contexte]
+      description: CW Discussion STAR (facturable)
+    - command: /email [contexte]
+      description: Email client (safe)
+    - command: /teams [moment]
+      description: Notice Teams (moment)
+    - command: /edocs [type]
+      description: Document type (procédure/KB/etc)
+    - command: /kb
+      description: Capitalisation KB
+    - command: /close
+      description: Clôture guidée
+  IT-UrgenceMaster:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-UrgenceMaster/prompt.md
+    commands_section_header: Commandes opérationnaires (pas de bloc '## COMMANDES
+      DISPONIBLES')
+    commands:
+    - command: /panne
+      description: Protocole panne électrique (Hydro-Québec, etc.)
+    - command: /urgence [description]
+      description: Urgence P1/P2 non électrique (classification + actions)
+    - command: /retour
+      description: Retour de service (validation GO/NO-GO)
+    - command: /flagup
+      description: Flag up (passation / action requise)
+    - command: /teams
+      description: Menu/notice Teams (moments)
+    - command: /escalade [domaine]
+      description: Bloc de transfert structuré
+    - command: /status
+      description: Résumé urgence
+    - command: /close
+      description: Clôture guidée urgence
+  IT-VoIPMaster:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-VoIPMaster/prompt.md
+    commands_section_header: '## COMMANDES DISPONIBLES'
+    commands:
+    - command: /diag [symptôme]
+      description: Diagnostic VoIP (causes + checklist + commandes)
+    - command: /design [contexte]
+      description: Conception solution VoIP
+    - command: /qualite
+      description: Analyse qualité appels (MOS/jitter/loss)
+    - command: /close
+      description: Clôture guidée
+agents_without_commandes_disponibles_block:
+  IT-Assistant-N2:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-Assistant-N2/prompt.md
+    commands_section_header: '## COMMANDES'
+    commands:
+    - /start
+    - /escalade
+    - /kb
+    - /db
+    - /status
+    - /close
+  IT-Assistant-N3:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-Assistant-N3/prompt.md
+    commands_section_header: '## COMMANDES'
+    commands:
+    - /start
+    - /start_maint
+    - /runbook [sujet]
+    - /script [description]
+    - /escalade
+    - /kb
+    - /db
+    - /status
+    - /close
+  IT-OPS-RouterIA:
+    prompt_path: PRODUCTS/IT/20_Agents/IT-OPS-RouterIA/prompt.md
+    commands_section_header: null
+    commands: []

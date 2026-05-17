@@ -1,0 +1,43 @@
+# Intégration manuelle — EAIA / MSP CasePage NOC Hyper-V
+
+## Fichiers à ajouter/modifier
+
+1. Ajouter à la racine du repo :
+   msp-case-incident-noc-hyperv.html
+
+2. Dans msp-preview.html :
+   a) Corriger le lien retour existant :
+      Remplacer : href="EAIA_Lancement_2026.html"
+      Par       : href="index.html"
+
+   b) Ajouter un lien de navigation vers la section démonstrateurs :
+      Dans la zone .btns du HERO, ajouter :
+      <a class="btn-o" href="#demos">Voir les cas terrain</a>
+
+   c) Coller le bloc contenu dans msp-preview-integration-snippet.html
+      Emplacement recommandé : juste après la section WORKFLOW et avant la section AGENTS PHARES.
+
+## Commandes Git
+
+git checkout -b feature/msp-casepage-noc-hyperv
+
+git add msp-case-incident-noc-hyperv.html msp-preview.html
+
+git commit -m "add MSP NOC Hyper-V case page"
+
+git push -u origin feature/msp-casepage-noc-hyperv
+
+# Puis ouvrir une PR vers main, ou merger localement selon ton workflow.
+
+## Vérification locale
+
+Ouvrir :
+- index.html
+- msp-preview.html
+- msp-case-incident-noc-hyperv.html
+
+Tester les liens :
+- msp-preview.html → #demos
+- #demos → msp-case-incident-noc-hyperv.html
+- msp-case-incident-noc-hyperv.html → msp-preview.html
+- msp-case-incident-noc-hyperv.html → index.html
