@@ -4,8 +4,8 @@
 
 [![Version](https://img.shields.io/badge/version-1.0.0--lancement-gold?style=flat-square&color=CC8E28)](CHANGELOG.md)
 [![Licence](https://img.shields.io/badge/licence-Propriétaire-silver?style=flat-square&color=555)](LICENSE)
-[![Armées déployées](https://img.shields.io/badge/armées-6-gold?style=flat-square&color=DC961A)](kit/armees.md)
-[![Agents actifs](https://img.shields.io/badge/agents-130%2B-gold?style=flat-square&color=EDAF45)](kit/armees.md)
+[![Armées déployées](https://img.shields.io/badge/armées-7-gold?style=flat-square&color=DC961A)](kit/armees.md)
+[![Agents actifs](https://img.shields.io/badge/agents-140%2B-gold?style=flat-square&color=EDAF45)](kit/armees.md)
 
 ---
 
@@ -20,22 +20,23 @@ EA|IA conçoit et déploie des **armées d'agents IA spécialisés** qui appliqu
 ```
 EA|IA/
 ├── FACTORY/    ← EA|IA — back-office, infrastructure de fabrication
-├── PRODUCTS/   ← Les 6 armées déployées par secteur
+├── PRODUCTS/   ← Les 7 armées déployées par secteur
 └── SHARED/     ← Ressources communes
 ```
 
 ---
 
-## Les 6 armées déployées
+## Les 7 armées déployées
 
 | Code | Armée | Agents | Secteur |
 |---|---|---|---|
-| **IT** | MSP Intelligence IT | 26+ | IT / MSP — produit phare |
-| **DAM** | ARMY DAM DESIGN | 19 | Design d'intérieur & Construction |
-| **TRAD** | ARMY TRAD INTEL | 13 | Intelligence stratégique & Marchés |
+| **IT** | MSP Intelligence AI | 26 | IT / MSP — produit phare |
+| **DAM** | DAM RénoDesigner IA | 22 | Design d'intérieur & Rénovation |
+| **TRAD** | ARMY TRAD INTEL | 15 | Intelligence stratégique & Marchés |
 | **IASM** | IASM | 19 | Accompagnement psychologique structuré |
-| **EDU** | EDU SERVICES | multi | Éducation secondaire |
-| **NEA** | ARMY NEA WRITING | 7 | Édition & Publications |
+| **EDU** | EDU SERVICES | multi | Éducation secondaire & postsecondaire |
+| **NEA** | ARMY NEA WRITING | 10 | Édition & Publications |
+| **MKT** | MarketingOps IA | 5+ | Marketing & Propulsion produits |
 
 ---
 
@@ -87,9 +88,9 @@ Ce repo contient le **kit de lancement public EA|IA** :
 ```
 ea-ia/
 ├── index.html              ← Landing page lancement (GitHub Pages)
-├── msp-preview.html        ← Preview MSP Intelligence IT
+├── msp-preview.html        ← Preview MSP Intelligence AI
 ├── kit/
-│   ├── armees.md           ← Description des 6 armées
+│   ├── armees.md           ← Description des 7 armées
 │   ├── palette.md          ← Charte couleurs officielle
 │   ├── specs-phi.md        ← Spécifications nombre d'or φ
 │   └── textes-campagne.md  ← Textes officiels de lancement
@@ -131,8 +132,6 @@ echo "eaia.ca" > CNAME
 git add CNAME && git commit -m "add: custom domain"
 git push
 ```
-
-La page sera disponible à `https://<username>.github.io/ea-ia` ou sur votre domaine.
 
 ---
 
