@@ -1,15 +1,15 @@
 catalog_version: '2026-04-30'
 scope:
-  repo: eriqallain-afk/root_IA
+  repo: eriqallain-afk/IT
   paths_scanned:
-  - PRODUCTS/IT/20_Agents/*/prompt.md
+  - 20_Agents/*/prompt.md
   command_header_target: '## COMMANDES DISPONIBLES'
 common_commands_all_agents_with_commandes_disponibles:
 - command: /close
   description: Menu/flow de clôture (CW Note/Discussion/Email/Teams etc selon agent)
 agents:
   IT-AssetMaster:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-AssetMaster/prompt.md
+    prompt_path: 20_Agents/IT-AssetMaster/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /inventaire [client]
@@ -19,13 +19,13 @@ agents:
     - command: /audit [client]
       description: Audit d'actifs / conformité inventaire
     - command: /cycle [asset]
-      description: Cycle de vie d’un actif (acquisition→retrait)
+      description: Cycle de vie d'un actif (acquisition→retrait)
     - command: /licences [client]
       description: Vue licences / conformité par client
     - command: /close
       description: Clôture guidée
   IT-BackupDRMaster:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-BackupDRMaster/prompt.md
+    prompt_path: 20_Agents/IT-BackupDRMaster/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /triage [job]
@@ -39,13 +39,13 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-ClientDocMaster:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-ClientDocMaster/prompt.md
+    prompt_path: 20_Agents/IT-ClientDocMaster/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /analyse [coller texte]
-      description: Analyse/synthèse d’un contenu client
+      description: Analyse/synthèse d'un contenu client
     - command: /brief [coller le brief]
-      description: Structuration d’un brief client
+      description: Structuration d'un brief client
     - command: /serveur [contexte]
       description: Fiche serveur / standardisation doc
     - command: /reseau [contexte]
@@ -75,7 +75,7 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-CloudMaster:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-CloudMaster/prompt.md
+    prompt_path: 20_Agents/IT-CloudMaster/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /exchange [symptôme]
@@ -91,11 +91,11 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-Commandare-Infra:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-Commandare-Infra/prompt.md
+    prompt_path: 20_Agents/IT-Commandare-Infra/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /triage [incident]
-      description: Analyse + classification + plan d’action + routage
+      description: Analyse + classification + plan d'action + routage
     - command: /escalade [domaine]
       description: Bloc CW de transfert structuré
     - command: /teams
@@ -107,11 +107,11 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-Commandare-NOC:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-Commandare-NOC/prompt.md
+    prompt_path: 20_Agents/IT-Commandare-NOC/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /triage [incident]
-      description: Analyse + classification + plan d’action + routage
+      description: Analyse + classification + plan d'action + routage
     - command: /escalade [domaine]
       description: Bloc CW de transfert structuré
     - command: /teams
@@ -123,11 +123,11 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-Commandare-OPR:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-Commandare-OPR/prompt.md
+    prompt_path: 20_Agents/IT-Commandare-OPR/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /triage [incident]
-      description: Analyse + classification + plan d’action + routage
+      description: Analyse + classification + plan d'action + routage
     - command: /escalade [domaine]
       description: Bloc CW de transfert structuré
     - command: /teams
@@ -139,11 +139,11 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-Commandare-TECH:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-Commandare-TECH/prompt.md
+    prompt_path: 20_Agents/IT-Commandare-TECH/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /triage [incident]
-      description: Analyse + classification + plan d’action + routage
+      description: Analyse + classification + plan d'action + routage
     - command: /escalade [domaine]
       description: Bloc CW de transfert structuré
     - command: /teams
@@ -155,7 +155,7 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-FrontLine:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-FrontLine/prompt.md
+    prompt_path: 20_Agents/IT-FrontLine/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /appel
@@ -165,11 +165,11 @@ agents:
     - command: /triage
       description: Qualification rapide + routage
     - command: /status
-      description: Résumé / état d’avancement
+      description: Résumé / état d'avancement
     - command: /close
       description: Clôture guidée
   IT-KnowledgeKeeper:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-KnowledgeKeeper/prompt.md
+    prompt_path: 20_Agents/IT-KnowledgeKeeper/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /kb [brief]
@@ -183,7 +183,7 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-MaintenanceMaster:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-MaintenanceMaster/prompt.md
+    prompt_path: 20_Agents/IT-MaintenanceMaster/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /start
@@ -207,11 +207,11 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-MonitoringMaster:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-MonitoringMaster/prompt.md
+    prompt_path: 20_Agents/IT-MonitoringMaster/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /alerte [détails]
-      description: Analyse d’alerte monitoring
+      description: Analyse d'alerte monitoring
     - command: /seuils [type]
       description: Recommandations seuils / tuning
     - command: /rapport
@@ -221,7 +221,7 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-NetworkMaster:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-NetworkMaster/prompt.md
+    prompt_path: 20_Agents/IT-NetworkMaster/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /diag [symptôme]
@@ -237,7 +237,7 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-NOCDispatcher:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-NOCDispatcher/prompt.md
+    prompt_path: 20_Agents/IT-NOCDispatcher/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /dispatch [ticket]
@@ -251,7 +251,7 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-ReportMaster:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-ReportMaster/prompt.md
+    prompt_path: 20_Agents/IT-ReportMaster/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /postmortem [billet]
@@ -265,19 +265,19 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-ScriptMaster:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-ScriptMaster/prompt.md
+    prompt_path: 20_Agents/IT-ScriptMaster/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /script [description]
       description: Générer un script (PS/Bash)
     - command: /audit [script]
-      description: Audit/risques d’un script
+      description: Audit/risques d'un script
     - command: /lib [catégorie]
       description: Lister snippets / librairie
     - command: /close
       description: Clôture guidée
   IT-SecurityMaster:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-SecurityMaster/prompt.md
+    prompt_path: 20_Agents/IT-SecurityMaster/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /triage [alerte]
@@ -291,7 +291,7 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-SysAdmin:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-SysAdmin/prompt.md
+    prompt_path: 20_Agents/IT-SysAdmin/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /start
@@ -315,7 +315,7 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-TicketScribe:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-TicketScribe/prompt.md
+    prompt_path: 20_Agents/IT-TicketScribe/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /note [contexte]
@@ -333,7 +333,7 @@ agents:
     - command: /close
       description: Clôture guidée
   IT-UrgenceMaster:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-UrgenceMaster/prompt.md
+    prompt_path: 20_Agents/IT-UrgenceMaster/prompt.md
     commands_section_header: Commandes opérationnaires (pas de bloc '## COMMANDES
       DISPONIBLES')
     commands:
@@ -354,7 +354,7 @@ agents:
     - command: /close
       description: Clôture guidée urgence
   IT-VoIPMaster:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-VoIPMaster/prompt.md
+    prompt_path: 20_Agents/IT-VoIPMaster/prompt.md
     commands_section_header: '## COMMANDES DISPONIBLES'
     commands:
     - command: /diag [symptôme]
@@ -367,7 +367,7 @@ agents:
       description: Clôture guidée
 agents_without_commandes_disponibles_block:
   IT-Assistant-N2:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-Assistant-N2/prompt.md
+    prompt_path: 20_Agents/IT-Assistant-N2/prompt.md
     commands_section_header: '## COMMANDES'
     commands:
     - /start
@@ -377,7 +377,7 @@ agents_without_commandes_disponibles_block:
     - /status
     - /close
   IT-Assistant-N3:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-Assistant-N3/prompt.md
+    prompt_path: 20_Agents/IT-Assistant-N3/prompt.md
     commands_section_header: '## COMMANDES'
     commands:
     - /start
@@ -390,6 +390,6 @@ agents_without_commandes_disponibles_block:
     - /status
     - /close
   IT-OPS-RouterIA:
-    prompt_path: PRODUCTS/IT/20_Agents/IT-OPS-RouterIA/prompt.md
+    prompt_path: 20_Agents/IT-OPS-RouterIA/prompt.md
     commands_section_header: null
     commands: []
