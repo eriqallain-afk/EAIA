@@ -1,6 +1,6 @@
 catalog_version: '2026-04-30'
 scope:
-  repo: eriqallain-afk/root_IA
+  repo: eriqallain-afk/IT
   paths_scanned:
   - PRODUCTS/IT/20_Agents/*/prompt.md
   command_header_target: '## COMMANDES DISPONIBLES'
