@@ -1,4 +1,0 @@
-EAIA MSP Exchange link check
-Checked local links: 91
-Broken local links: 0
-No broken local links detected.
