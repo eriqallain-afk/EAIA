@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Story Facebook — 1080×1920</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+.card{
+  width:1080px;height:1920px;
+  background:#000;
+  position:relative;
+  display:flex;flex-direction:column;
+  justify-content:space-between;
+}
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:linear-gradient(rgba(200,149,42,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,149,42,.03) 1px,transparent 1px);
+  background-size:80px 80px;
+  pointer-events:none;
+}
+.bg{
+  position:absolute;inset:0;
+  background-image:url('../../FACEBOOK-Bandeau-1.png');
+  background-size:cover;background-position:center 20%;
+  opacity:0.15;
+}
+.grad{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.7) 40%,rgba(0,0,0,.82) 70%,rgba(0,0,0,.98) 100%);
+}
+.top{
+  position:relative;z-index:2;
+  padding:80px 64px 0;
+  text-align:center;
+}
+.brand{
+  font-family:'Georgia',serif;
+  font-size:36px;font-weight:700;letter-spacing:6px;
+  color:rgba(255,255,255,.85);margin-bottom:6px;
+}
+.brand span{color:#E4B84A}
+.brand-sub{
+  font-family:'Courier New',monospace;
+  font-size:10px;color:rgba(200,149,42,.6);
+  letter-spacing:4px;text-transform:uppercase;
+  margin-bottom:80px;
+}
+.eyebrow{
+  font-family:'Courier New',monospace;
+  font-size:11px;color:rgba(200,149,42,.8);
+  letter-spacing:4px;text-transform:uppercase;
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  margin-bottom:32px;
+}
+.eyebrow::before,.eyebrow::after{content:'';display:block;width:36px;height:1px;background:#C8952A}
+.headline{
+  font-family:'Georgia',serif;
+  font-size:64px;font-weight:300;line-height:1.0;
+  color:#fff;letter-spacing:-0.5px;
+  margin-bottom:28px;
+}
+.headline em{font-style:italic;color:#E4B84A;display:block}
+.headline strong{font-weight:700}
+.sub{
+  font-family:Arial,sans-serif;
+  font-size:18px;color:rgba(255,255,255,.55);
+  line-height:1.72;max-width:720px;
+  margin:0 auto;
+}
+.sub strong{color:rgba(255,255,255,.85)}
+.middle{
+  position:relative;z-index:2;
+  padding:0 64px;
+}
+.quote{
+  border-left:3px solid #C8952A;
+  padding:24px 28px;
+  background:rgba(200,149,42,.06);
+  margin-bottom:48px;
+}
+.quote p{
+  font-family:'Georgia',serif;
+  font-size:22px;font-style:italic;
+  color:rgba(255,255,255,.75);line-height:1.5;
+  margin-bottom:10px;
+}
+.quote cite{
+  font-family:'Courier New',monospace;
+  font-size:9px;color:rgba(255,255,255,.3);
+  letter-spacing:2px;text-transform:uppercase;
+}
+.points{
+  display:flex;flex-direction:column;gap:1px;
+  background:rgba(200,149,42,.14);
+  border:1px solid rgba(200,149,42,.14);
+}
+.point{
+  background:#060606;
+  padding:22px 26px;
+  display:flex;align-items:flex-start;gap:20px;
+}
+.point-n{
+  font-family:'Georgia',serif;
+  font-size:28px;font-weight:300;
+  color:rgba(200,149,42,.45);line-height:1;
+  min-width:36px;
+}
+.point-title{
+  font-family:Arial,sans-serif;
+  font-size:16px;font-weight:700;
+  color:rgba(255,255,255,.88);margin-bottom:5px;
+}
+.point-desc{
+  font-family:Arial,sans-serif;
+  font-size:13px;color:rgba(255,255,255,.42);line-height:1.55;
+}
+.bottom{
+  position:relative;z-index:2;
+  padding:0 64px 80px;
+}
+.stats{
+  display:flex;gap:0;
+  border:1px solid rgba(200,149,42,.2);
+  width:100%;margin-bottom:40px;
+}
+.stat{flex:1;padding:20px;border-right:1px solid rgba(200,149,42,.2);text-align:center}
+.stat:last-child{border-right:none}
+.stat-n{
+  font-family:'Georgia',serif;
+  font-size:36px;font-weight:300;color:#E4B84A;line-height:1;
+}
+.stat-l{
+  font-family:'Courier New',monospace;
+  font-size:8px;color:rgba(255,255,255,.35);
+  letter-spacing:2px;text-transform:uppercase;margin-top:5px;
+}
+.btn{
+  display:block;width:100%;
+  background:#C8952A;color:#000;
+  padding:22px;
+  font-family:'Courier New',monospace;
+  font-size:13px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;
+  text-align:center;margin-bottom:16px;
+}
+.email{
+  font-family:'Courier New',monospace;
+  font-size:13px;color:rgba(200,149,42,.65);
+  letter-spacing:1px;text-align:center;display:block;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg"></div>
+  <div class="grad"></div>
+  <div class="top">
+    <div class="brand"><span>EA</span> | IA</div>
+    <div class="brand-sub">Intelligence artificielle opérationnelle</div>
+    <div class="eyebrow">Lancement · 2026</div>
+    <div class="headline">
+      Votre MSP.<br>
+      <em>Enfin</em>
+      avec la <strong>mémoire.</strong>
+    </div>
+    <div class="sub">
+      <strong>23 agents IA</strong> — un par rôle dans votre MSP.
+      La méthode de vos meilleurs experts, disponible pour toute l’équipe.
+    </div>
+  </div>
+  <div class="middle">
+    <div class="quote">
+      <p>« Je n’ai jamais vu une documentation tenue à jour dans un MSP. C’est une perte de temps constante. »</p>
+      <cite>— 25 ans dans le milieu IT · Québec</cite>
+    </div>
+    <div class="points">
+      <div class="point"><div class="point-n">01</div><div><div class="point-title">Clôture uniforme pour tous</div><div class="point-desc">Note CW + discussion client structurées à chaque billet, peu importe le technicien</div></div></div>
+      <div class="point"><div class="point-n">02</div><div><div class="point-title">Documentation prête à coller</div><div class="point-desc">Générée pendant l’intervention — sans temps supplémentaire</div></div></div>
+      <div class="point"><div class="point-n">03</div><div><div class="point-title">Gain sur le prochain billet</div><div class="point-desc">Le contexte est là — résolution plus rapide pour le même client</div></div></div>
+      <div class="point"><div class="point-n">04</div><div><div class="point-title">Knowledge base automatique</div><div class="point-desc">Votre KB se construit au fil des billets résolus</div></div></div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="stats">
+      <div class="stat"><div class="stat-n">23</div><div class="stat-l">Agents IA</div></div>
+      <div class="stat"><div class="stat-n">77</div><div class="stat-l">Runbooks</div></div>
+      <div class="stat"><div class="stat-n">12h→2h</div><div class="stat-l">Onboarding</div></div>
+    </div>
+    <div class="btn">Réserver une démo — 30 min</div>
+    <span class="email">eallain@passport.com</span>
+  </div>
+</div>
+</body>
+</html>

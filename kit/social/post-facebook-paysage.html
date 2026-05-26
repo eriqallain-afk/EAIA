@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Post Facebook — 1200×630</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden;background:#000}
+.card{
+  width:1200px;height:630px;
+  background:#000;
+  position:relative;
+  display:flex;
+  font-family:'Georgia',serif;
+}
+.bg{
+  position:absolute;inset:0;
+  background-image:url('../../FACEBOOK-Bandeau-1.png');
+  background-size:cover;background-position:center right;
+  opacity:0.38;
+}
+.overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(105deg,rgba(0,0,0,0.97) 38%,rgba(0,0,0,0.55) 68%,rgba(0,0,0,0.18) 100%);
+}
+.content{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:56px 64px;
+  width:640px;
+}
+.tag{
+  font-family:'Courier New',monospace;
+  font-size:11px;color:rgba(200,149,42,.85);
+  letter-spacing:4px;text-transform:uppercase;
+  margin-bottom:22px;
+  display:flex;align-items:center;gap:12px;
+}
+.tag::before{content:'';display:block;width:28px;height:1px;background:#C8952A}
+.headline{
+  font-size:48px;font-weight:300;line-height:1.0;
+  color:#fff;letter-spacing:-0.5px;
+  margin-bottom:20px;
+}
+.headline em{font-style:italic;color:#E4B84A}
+.headline strong{font-weight:700}
+.sub{
+  font-family:Arial,sans-serif;
+  font-size:15px;color:rgba(255,255,255,.58);
+  line-height:1.7;margin-bottom:32px;
+  font-weight:300;
+}
+.sub strong{color:rgba(255,255,255,.88)}
+.stats{
+  display:flex;gap:0;
+  border:1px solid rgba(200,149,42,.22);
+  width:fit-content;
+  margin-bottom:32px;
+}
+.stat{
+  padding:12px 22px;
+  border-right:1px solid rgba(200,149,42,.22);
+}
+.stat:last-child{border-right:none}
+.stat-n{
+  font-size:28px;font-weight:300;
+  color:#E4B84A;line-height:1;
+  font-family:'Georgia',serif;
+}
+.stat-l{
+  font-family:'Courier New',monospace;
+  font-size:8px;color:rgba(255,255,255,.38);
+  letter-spacing:2px;text-transform:uppercase;
+  margin-top:3px;
+}
+.cta{
+  display:flex;align-items:center;gap:18px;
+}
+.btn{
+  background:#C8952A;color:#000;
+  padding:12px 26px;
+  font-family:'Courier New',monospace;
+  font-size:10px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+}
+.email{
+  font-family:'Courier New',monospace;
+  font-size:11px;color:rgba(200,149,42,.72);
+  letter-spacing:1px;
+}
+.brand{
+  position:absolute;bottom:32px;right:48px;z-index:2;
+  text-align:right;
+}
+.brand-name{
+  font-size:22px;font-weight:700;letter-spacing:5px;
+  color:rgba(255,255,255,.18);
+  font-family:'Georgia',serif;
+}
+.brand-name span{color:rgba(200,149,42,.4)}
+.brand-tag{
+  font-family:'Courier New',monospace;
+  font-size:8px;color:rgba(255,255,255,.18);
+  letter-spacing:3px;text-transform:uppercase;margin-top:3px;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg"></div>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="tag">Lancement · MSP Intelligence AI</div>
+    <div class="headline">
+      La connaissance<br>
+      dans les têtes —<br>
+      <em>mise en système.</em>
+    </div>
+    <div class="sub">
+      <strong>23 agents IA</strong> qui assistent chaque rôle dans un MSP.
+      Clôture uniforme. Doc prête à coller.
+      Knowledge base générée automatiquement.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-n">23</div><div class="stat-l">Agents IA</div></div>
+      <div class="stat"><div class="stat-n">77</div><div class="stat-l">Runbooks</div></div>
+      <div class="stat"><div class="stat-n">12h→2h</div><div class="stat-l">Onboarding</div></div>
+    </div>
+    <div class="cta">
+      <div class="btn">Démo — 30 min</div>
+      <div class="email">eallain@passport.com</div>
+    </div>
+  </div>
+  <div class="brand">
+    <div class="brand-name"><span>EA</span> | IA</div>
+    <div class="brand-tag">Intelligence artificielle opérationnelle</div>
+  </div>
+</div>
+</body>
+</html>
