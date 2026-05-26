@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MSP Intelligence AI — La plateforme qui sait ce que savent vos techniciens</title>
+<meta name="description" content="23 agents IA qui assistent chaque rôle dans un MSP. Clôture uniforme, documentation prête à coller, knowledge base générée automatiquement.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="MSP Intelligence AI — Chaque billet produit plus qu'une résolution">
+<meta property="og:description" content="23 agents IA. Clôture uniforme, doc prête à coller, knowledge base auto. La connaissance de vos meilleurs techniciens, structurée pour tout le monde.">
+<meta property="og:image" content="../og-image.png">
+<meta property="og:locale" content="fr_CA">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black:#000000;--dark:#080808;--dark2:#0E0E0E;
+  --gold:#C8952A;--gold-light:#E4B84A;--gold-dim:rgba(200,149,42,.12);--gold-line:rgba(200,149,42,.28);
+  --silver:#B8BCC8;--silver-light:#D8DCE8;--white:#FFFFFF;
+  --muted:rgba(255,255,255,.52);--muted2:rgba(255,255,255,.22);
+  --border:rgba(200,149,42,.18);--border2:rgba(255,255,255,.08);
+  --ok:#79D28B;--max:780px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Outfit',system-ui,sans-serif;overflow-x:hidden;line-height:1.65}
+a{color:inherit;text-decoration:none}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(200,149,42,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,149,42,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+section,nav,footer{position:relative;z-index:1}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.95);position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:4px}
+.nav-brand .ea{color:var(--gold-light)}
+.nav-cta{border:1px solid var(--gold);color:var(--gold-light);padding:9px 20px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:.2s}
+.nav-cta:hover{background:var(--gold);color:var(--black)}
+
+.hero{padding:64px 28px 52px;max-width:var(--max);margin:0 auto}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold-light);letter-spacing:4px;text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,9vw,72px);font-weight:300;line-height:.95;letter-spacing:-.5px;margin-bottom:28px}
+.hero h1 em{font-style:italic;color:var(--gold-light)}
+.hero h1 strong{font-weight:600}
+.hero-lead{font-size:17px;color:var(--muted);line-height:1.78;margin-bottom:36px;max-width:640px}
+.hero-lead strong{color:var(--white)}
+.metrics{display:flex;gap:0;border:1px solid var(--border);width:fit-content;margin-bottom:40px;flex-wrap:wrap}
+.metric{padding:16px 24px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:4px}
+.metric:last-child{border-right:none}
+.metric-n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold-light);line-height:1}
+.metric-l{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-gold{display:inline-flex;align-items:center;padding:14px 32px;background:var(--gold);color:var(--black);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:.2s;border:1px solid var(--gold)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{display:inline-flex;align-items:center;padding:14px 32px;border:1px solid var(--gold-line);color:var(--gold-light);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:.2s}
+.btn-outline:hover{border-color:var(--gold);background:var(--gold-dim)}
+
+.divider{border:none;border-top:1px solid var(--border);margin:0}
+
+.section{padding:56px 28px;max-width:var(--max);margin:0 auto}
+.section.dark{background:var(--dark2);max-width:100%;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.section.dark .inner{max-width:var(--max);margin:0 auto}
+.s-label{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.s-label-line{width:28px;height:1px;background:var(--gold)}
+.s-label-text{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gold-light);letter-spacing:4px;text-transform:uppercase}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,6vw,56px);font-weight:300;line-height:.97;letter-spacing:-.3px;margin-bottom:20px}
+.s-title em{font-style:italic;color:var(--gold-light)}
+.s-title strong{font-weight:600}
+.s-body{color:var(--muted);font-size:15px;line-height:1.82;margin-bottom:20px}
+.s-body strong{color:var(--white)}
+.s-body em{color:var(--gold-light);font-style:normal}
+
+.quote-block{border-left:2px solid var(--gold);padding:20px 24px;background:rgba(200,149,42,.05);margin:32px 0}
+.quote-block p{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,24px);font-style:italic;color:var(--silver-light);line-height:1.52;margin-bottom:10px}
+.quote-block cite{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted2);letter-spacing:2px;text-transform:uppercase}
+
+.terminal{background:#050505;border:1px solid rgba(200,149,42,.22);padding:22px;position:relative;margin:28px 0}
+.terminal::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.t-bar{display:flex;gap:7px;margin-bottom:16px;align-items:center}
+.t-dot{width:8px;height:8px;border-radius:50%}
+.t-dot:nth-child(1){background:#FF5F57}
+.t-dot:nth-child(2){background:#FEBC2E}
+.t-dot:nth-child(3){background:#28C840}
+.t-bar-title{margin-left:6px;font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,255,255,.2);letter-spacing:2px}
+.t-line{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.72;margin-bottom:1px}
+.t-gray{color:rgba(255,255,255,.2)}
+.t-gold{color:var(--gold-light)}
+.t-green{color:#4ADE80}
+.t-silver{color:var(--silver)}
+.t-white{color:var(--white)}
+.t-blue{color:#7DD3FC}
+
+/* EFFET COMPOSÉ */
+.effet-grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin:28px 0}
+.effet-item{background:var(--dark);padding:24px 22px;display:flex;gap:18px;align-items:flex-start}
+.effet-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--gold-light);line-height:1;flex:0 0 auto;min-width:44px}
+.effet-content{}
+.effet-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px}
+.effet-desc{font-size:13px;color:var(--muted);line-height:1.68}
+.effet-desc strong{color:var(--silver-light)}
+
+.roles{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin:28px 0}
+.role{background:var(--dark);padding:16px 18px}
+.role-tag{font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(200,149,42,.5);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.role-name{font-size:14px;color:var(--silver-light);font-weight:600;margin-bottom:3px}
+.role-desc{font-size:12px;color:var(--muted);line-height:1.55}
+
+.highlight-cards{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin:28px 0}
+.hcard{background:var(--dark);padding:28px 24px;position:relative;overflow:hidden}
+.hcard::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold)}
+.hcard-tag{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gold-light);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.hcard-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--white);margin-bottom:10px}
+.hcard-body{font-size:14px;color:var(--muted);line-height:1.7}
+.hcard-body strong{color:var(--white)}
+.hcard-stat{margin-top:14px;padding-top:14px;border-top:1px solid var(--border2)}
+.hcard-stat-n{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold-light);font-weight:300;line-height:1}
+.hcard-stat-l{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+
+.cta-section{padding:72px 28px;text-align:center;max-width:var(--max);margin:0 auto}
+.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,8vw,64px);font-weight:300;line-height:.95;margin-bottom:20px}
+.cta-section h2 em{font-style:italic;color:var(--gold-light)}
+.cta-section p{color:var(--muted);font-size:16px;margin:0 auto 36px;max-width:500px;line-height:1.72}
+.cta-email{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--gold-light);letter-spacing:1px;margin-bottom:28px;display:block}
+
+footer{border-top:1px solid var(--border);padding:28px;display:flex;justify-content:space-between;align-items:center;gap:14px;background:var(--dark);flex-wrap:wrap}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:4px;color:var(--gold-light)}
+.footer-right{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted2);letter-spacing:2px;text-transform:uppercase;text-align:right}
+
+@media(max-width:600px){
+  .metrics{width:100%}
+  .metric{flex:1 1 45%;border-bottom:1px solid var(--border)}
+  .actions{flex-direction:column}
+  .btn-gold,.btn-outline{width:100%;justify-content:center}
+  .roles{grid-template-columns:1fr}
+  .effet-item{flex-direction:column;gap:10px}
+  .effet-num{font-size:32px}
+  footer{flex-direction:column;align-items:flex-start}
+  .footer-right{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand"><span class="ea">EA</span> | IA</div>
+  <a class="nav-cta" href="mailto:eallain@passport.com?subject=Demo MSP Intelligence AI">Démo — 30 min</a>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">Lancement · MSP Intelligence AI · 2026</div>
+  <h1>Votre MSP.<br><em>Enfin</em> avec<br><strong>la mémoire.</strong></h1>
+  <p class="hero-lead">
+    <strong>23 agents IA spécialisés</strong> — un pour chaque rôle dans un MSP.
+    Clôture uniforme, documentation prête à coller, knowledge base générée automatiquement.
+    La méthode de vos meilleurs techniciens — disponible pour toute l’équipe.
+  </p>
+  <div class="metrics">
+    <div class="metric"><div class="metric-n">23</div><div class="metric-l">Agents IA</div></div>
+    <div class="metric"><div class="metric-n">77</div><div class="metric-l">Runbooks</div></div>
+    <div class="metric"><div class="metric-n">65</div><div class="metric-l">Templates</div></div>
+    <div class="metric"><div class="metric-n">28</div><div class="metric-l">Scripts PS</div></div>
+  </div>
+  <div class="actions">
+    <a class="btn-gold" href="mailto:eallain@passport.com?subject=Demo MSP Intelligence AI">Réserver une démo de 30 min</a>
+    <a class="btn-outline" href="../msp-preview.html">Voir la plateforme complète</a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section dark">
+  <div class="inner">
+    <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Le problème réel</div></div>
+    <div class="s-title">La connaissance<br>est dans les <em>têtes.</em></div>
+    <p class="s-body">
+      En 25 ans dans le milieu IT, j’ai rarement vu une documentation réellement à jour.
+      Pas par manque de volonté — par manque de structure et de temps.
+    </p>
+    <p class="s-body">
+      Les procédures qui fonctionnent, les garde-fous qui évitent les catastrophes,
+      les façons de gérer un Exchange sous pression à 2h du matin —
+      <strong>tout ça vit dans la tête des techniciens d’expérience.</strong>
+    </p>
+    <p class="s-body">
+      Et quand ce technicien est absent, part, ou que le billet tombe sur quelqu’un de moins expérimenté :
+      <em>on recommence à chercher. On improvise. On espère.</em>
+    </p>
+    <div class="quote-block">
+      <p>« Je n’ai jamais vu une documentation tenue à jour dans un MSP. C’est une perte de temps constante — chercher l’information au lieu de résoudre le problème. »</p>
+      <cite>— Constat après 25 ans dans le milieu IT, Québec</cite>
+    </div>
+    <p class="s-body">
+      Ce que j’avais accumulé en 25 ans d’opérations MSP —
+      les bonnes pratiques, les runbooks terrain, les garde-fous critiques —
+      <strong>je l’ai mis dans un système opérationnel.</strong> Celui-ci.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">La solution</div></div>
+  <div class="s-title">La méthode.<br><strong>Toujours là.</strong><br>Pour <em>chaque rôle.</em></div>
+  <p class="s-body">
+    MSP Intelligence AI n’est pas un chatbot générique. C’est une plateforme de
+    <strong>23 agents spécialisés</strong>, chacun calibré pour un rôle précis dans un MSP.
+    Chaque agent connaît les procédures, les garde-fous, les livrables attendus.
+  </p>
+  <div class="terminal">
+    <div class="t-bar"><span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span><span class="t-bar-title">IT-TICKETOPS · AUTO-DISPATCH</span></div>
+    <div class="t-line t-gray">// Billet ConnectWise reçu</div>
+    <div class="t-line"><span class="t-gold">SUJET :</span> <span class="t-white">Exchange Back Pressure · C: 6%</span></div>
+    <div class="t-line"><span class="t-gold">MATCH :</span> <span class="t-silver">RUNBOOK_EXCHANGE_BACK_PRESSURE</span></div>
+    <div class="t-line"><span class="t-gold">GARDE-FOU :</span> <span class="t-green">Ne pas toucher Queue/mail.que</span></div>
+    <div class="t-line"><span class="t-gold">ACTION :</span> <span class="t-silver">Purge Temp stale ciblée · aucun reboot</span></div>
+    <div class="t-line t-gray" style="margin-top:8px">// Livrables générés automatiquement</div>
+    <div class="t-line"><span class="t-gold">NOTE CW :</span> <span class="t-green">✓ prête à coller</span></div>
+    <div class="t-line"><span class="t-gold">DISCUSSION CLIENT :</span> <span class="t-green">✓ rédigée</span></div>
+    <div class="t-line"><span class="t-gold">ARTICLE KB :</span> <span class="t-blue">✓ généré en même temps</span></div>
+    <div class="t-line"><span class="t-gold">FICHE HUDU CLIENT :</span> <span class="t-green">✓ mise à jour</span></div>
+    <div class="t-line t-gray" style="margin-top:8px">// Temps total technicien : 90 secondes</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section dark">
+  <div class="inner">
+    <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">L’effet composé</div></div>
+    <div class="s-title">Chaque billet<br>produit <em>plus</em><br>qu’une résolution.</div>
+    <p class="s-body">Ce n’est pas juste résoudre plus vite. C’est ce que chaque intervention laisse derrière elle qui change tout.</p>
+    <div class="effet-grid">
+      <div class="effet-item">
+        <div class="effet-num">01</div>
+        <div class="effet-content">
+          <div class="effet-title">Clôture uniforme — peu importe le technicien</div>
+          <div class="effet-desc">Chaque billet se ferme de la même façon : note interne structurée, communication client précise, postcheck documenté. <strong>Que ce soit votre technicien senior ou votre N1 qui gère le billet.</strong> Le client reçoit toujours le même niveau de service.</div>
+        </div>
+      </div>
+      <div class="effet-item">
+        <div class="effet-num">02</div>
+        <div class="effet-content">
+          <div class="effet-title">Documentation prête à coller — sans temps supplémentaire</div>
+          <div class="effet-desc">La note ConnectWise, la discussion client, la fiche Hudu — <strong>générées pendant l’intervention, pas après.</strong> Pas d’heure supplémentaire à rédiger en fin de journée. Pas de notes incomplètes parce que le technicien était sous pression.</div>
+        </div>
+      </div>
+      <div class="effet-item">
+        <div class="effet-num">03</div>
+        <div class="effet-content">
+          <div class="effet-title">Gain de temps sur le prochain billet du même client</div>
+          <div class="effet-desc">Parce que la documentation est là, complète, structurée — <strong>le prochain technicien qui intervient chez ce client part avec le contexte complet.</strong> Pas de « qu’est-ce qui s’est passé la dernière fois ». Pas de recherche dans des notes à moitié écrites. Résolution plus rapide, client plus satisfait.</div>
+        </div>
+      </div>
+      <div class="effet-item">
+        <div class="effet-num">04</div>
+        <div class="effet-content">
+          <div class="effet-title">Knowledge base générée en même temps</div>
+          <div class="effet-desc">Chaque intervention peut produire un article de base de connaissance — <strong>automatiquement, sans étape supplémentaire.</strong> Votre KB se construit au fil des billets résolus. Après 6 mois, vous avez une documentation vivante que personne n’aurait eu le temps d’écrire autrement.</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote-block" style="margin-top:32px">
+      <p>« Ce qui prenait 25 minutes à écrire après chaque intervention devient une sortie structurée, cohérente, réutilisable et prête à coller. »</p>
+      <cite>— Démonstration MSP Intelligence AI</cite>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Un agent par rôle</div></div>
+  <div class="s-title">Tous les rôles.<br><em>Tous couverts.</em></div>
+  <p class="s-body" style="margin-bottom:4px">Chaque agent assiste le spécialiste qui occupe ce rôle — pas un outil générique, un assistant calibré pour ce que ce rôle fait vraiment au quotidien.</p>
+  <div class="roles">
+    <div class="role"><div class="role-tag">Support</div><div class="role-name">Technicien N1 / N2 / N3</div><div class="role-desc">Triage, résolution guidée, communication client, note CW structurée</div></div>
+    <div class="role"><div class="role-tag">NOC</div><div class="role-name">Analyste NOC · Dispatcher</div><div class="role-desc">Alertes monitoring, gestion P0–P4, SLA, handover de quart</div></div>
+    <div class="role"><div class="role-tag">Infrastructure</div><div class="role-name">Admin systèmes · TechOPS</div><div class="role-desc">AD/DC, Hyper-V, VMware, Exchange, Azure, M365, Intune</div></div>
+    <div class="role"><div class="role-tag">Cloud</div><div class="role-name">Spécialiste Cloud</div><div class="role-desc">Azure, M365, AWS, Entra ID, ARM, gouvernance cloud</div></div>
+    <div class="role"><div class="role-tag">Réseau</div><div class="role-name">Spécialiste Réseau · VoIP</div><div class="role-desc">Fortinet, Meraki, SonicWall, VPN, VLAN, diagnostic, VoIP</div></div>
+    <div class="role"><div class="role-tag">Sécurité</div><div class="role-name">Analyste Sécurité · SOC</div><div class="role-desc">Triage EDR, incidents, comptes compromis, contrôle accès</div></div>
+    <div class="role"><div class="role-tag">Conformité</div><div class="role-name">Responsable Conformité</div><div class="role-desc">Loi 25, PCI-DSS, HIPAA, cyber-assurance — rapports facturables</div></div>
+    <div class="role"><div class="role-tag">Backup · DR</div><div class="role-name">Spécialiste Backup · DR</div><div class="role-desc">Veeam, Datto, Keepit, BCDR, tests DR, validation</div></div>
+    <div class="role"><div class="role-tag">Maintenance</div><div class="role-name">Responsable Maintenance</div><div class="role-desc">Patching, préchecks, pending reboot, postchecks, rapports</div></div>
+    <div class="role"><div class="role-tag">Documentation</div><div class="role-name">Rédacteur Technique</div><div class="role-desc">Notes CW, fiches Hudu, KB, QBR, postmortems cohérents</div></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section dark">
+  <div class="inner">
+    <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Agents phares</div></div>
+    <div class="s-title">Ce qui change<br><em>immédiatement.</em></div>
+    <div class="highlight-cards">
+      <div class="hcard">
+        <div class="hcard-tag">IT-OnOffBoarder</div>
+        <div class="hcard-title">Transitions MSP complètes</div>
+        <div class="hcard-body">
+          Onboarding client, offboarding, nouvel employé, départ — les 4 scénarios les plus chronophages en MSP.
+          <strong>Zéro oubli sur les étapes critiques</strong> : accès MFA, Passportal, baseline, contrats NDA.
+          Livrable Hudu généré à la fin de chaque transition.
+        </div>
+        <div class="hcard-stat">
+          <div class="hcard-stat-n">12h → 2h</div>
+          <div class="hcard-stat-l">Durée onboarding client guidé</div>
+        </div>
+      </div>
+      <div class="hcard">
+        <div class="hcard-tag">IT-ComplianceMaster</div>
+        <div class="hcard-title">Conformité comme revenu</div>
+        <div class="hcard-body">
+          Loi 25, PCI-DSS, HIPAA, cyber-assurance — <strong>transformés en service facturable</strong>.
+          Rapports que vous produisiez déjà gratuitement, ou pas du tout.
+          Détecte les écarts avant l’auditeur — le MSP devient le conseiller de référence.
+        </div>
+        <div class="hcard-stat">
+          <div class="hcard-stat-n">500–2 000 $</div>
+          <div class="hcard-stat-l">Revenus additionnels estimés / client / an</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+<section class="cta-section">
+  <h2>Apportez un billet <em>réel.</em></h2>
+  <p>On vous montre en 30 minutes ce que la plateforme fait avec un cas concret de votre MSP.</p>
+  <a class="cta-email" href="mailto:eallain@passport.com?subject=Demo MSP Intelligence AI">eallain@passport.com</a>
+  <div class="actions" style="justify-content:center">
+    <a class="btn-gold" href="mailto:eallain@passport.com?subject=Demo MSP Intelligence AI">Réserver ma démo gratuite</a>
+    <a class="btn-outline" href="../msp-preview.html">Explorer la plateforme</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand"><span style="color:var(--gold-light)">EA</span> | IA</div>
+  <div class="footer-right">MSP Intelligence AI · EA|IA<br>eallain@passport.com · 2026</div>
+</footer>
+
+</body>
+</html>
