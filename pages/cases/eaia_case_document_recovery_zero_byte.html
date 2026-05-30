@@ -102,11 +102,11 @@ nav {
 .nav-cta:hover { background: var(--gold); color: var(--black); }
 
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 100px 64px 80px;
+  justify-content: flex-start;
+  padding: 64px 64px 56px;
   position: relative;
   overflow: hidden;
 }
@@ -162,7 +162,7 @@ nav {
 }
 .hero h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(52px, 8vw, 108px);
+  font-size: clamp(36px, 5vw, 68px);
   font-weight: 300;
   line-height: 0.95;
   letter-spacing: -1px;
@@ -918,7 +918,7 @@ footer {
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
         <div>
           <div class="t-line t-gray">// BILLET REÇU</div>
-          <div class="t-line" style="margin-top:8px"><span class="t-gold">BILLET :</span> <span class="t-white">#0001234</span></div>
+          <div class="t-line" style="margin-top:8px"><span class="t-gold">BILLET :</span> <span class="t-white">#000002</span></div>
           <div class="t-line"><span class="t-gold">CLIENT :</span> <span class="t-white">ENTREPRISE INC.</span></div>
           <div class="t-line"><span class="t-gold">SYMPTÔME :</span> <span class="t-white">DOCUMENT CONFIDENTIEL À RÉCUPÉRER</span></div>
           <div class="t-line"><span class="t-gold">PÉRIMÈTRE :</span> <span class="t-white">FS-01 · RDS-01 · OUTLOOK · BACKUP-01</span></div>
@@ -963,7 +963,7 @@ footer {
       <tbody>
         <tr>
           <td><strong>FS-01 — fichier principal</strong></td>
-          <td>Le document existe sur le partage, mais sa taille observée est de 0 Ko à 01-01-2026 07:50:11</td>
+          <td>Le document existe sur le partage, mais sa taille observée est de 0 Ko à 09-01-2024 07:50:11</td>
           <td>Le fichier présent n’est pas exploitable côté serveur</td>
           <td>Interdire toute remédiation intrusive et documenter le constat de base</td>
         </tr>
@@ -1196,7 +1196,7 @@ footer {
         </div>
         <div class="doc-pre">BILLET:
 -------
-#0001234
+#000002
 
 CLIENT:
 -------
@@ -1204,7 +1204,7 @@ Entreprise inc.
 
 DATE:
 -------
-01-01-2026
+09-01-2024
 
 
 ────────────────────────────────────────────────────────
@@ -1226,13 +1226,13 @@ Contrôle des versions antérieures disponibles pour le dossier et le fichier vi
 Vérification du fichier principal et du fichier temporaire associé.
 Analyse du contexte d’ouverture depuis Outlook et des informations disponibles sur l’environnement d’accès.
 Validation additionnelle : la pièce jointe consultée liée au document est également vide.
-Validation additionnelle : la version antérieure immédiatement avant 01-01-2026 07:50:11 ne contient ni le dossier ni le fichier.
+Validation additionnelle : la version antérieure immédiatement avant 09-01-2024 07:50:11 ne contient ni le dossier ni le fichier.
 
 
 CONSTATS
 
 Le fichier recherché est présent sur le partage, mais avec une taille de 0 Ko.
-Horodatage observé sur le fichier : 01-01-2026 à 07:50:11.
+Horodatage observé sur le fichier : 09-01-2024 à 07:50:11.
 Le fichier temporaire associé observé au même créneau horaire est également à 0 Ko.
 Les versions antérieures disponibles après ce moment montrent le même état, sans version exploitable retrouvée.
 La version antérieure immédiatement avant 07:50:11 ne contient ni le dossier ni le fichier.
@@ -1247,7 +1247,7 @@ Le dossier et le fichier apparaissent pour la première fois à cet emplacement 
 L’hypothèse la plus probable est une création ou un enregistrement incomplet du document au moment de sa première apparition sur le partage.
 Le fait que le fichier principal, le fichier temporaire associé et la pièce jointe observée soient tous vides suggère que le contenu n’a probablement pas été écrit correctement avant ou pendant l’enregistrement et/ou l’envoi.
 Le fichier temporaire a vraisemblablement servi de fichier de travail temporaire lors de l’ouverture ou de l’enregistrement, puis est resté en place à la suite d’une fermeture ou d’un enregistrement non complétés.
-Dans ce contexte, toute sauvegarde prise après 01-01-2026 07:50:11 aurait vraisemblablement capturé elle aussi un fichier vide.
+Dans ce contexte, toute sauvegarde prise après 09-01-2024 07:50:11 aurait vraisemblablement capturé elle aussi un fichier vide.
 Une exception demeure possible uniquement si la solution de sauvegarde conserve un point de restauration antérieur hors de ce chemin précis, ou si une copie distincte existe sur POSTE-01, POSTE-02, dans un cache applicatif ou dans une autre source indépendante.
 
 
@@ -1282,12 +1282,12 @@ Poursuite recommandée sur les postes locaux et sur la sauvegarde interne dès a
           <div class="doc-copy">Client-safe · facturable</div>
         </div>
         <div class="doc-pre">INTERVENTION: Validation et analyse de récupération d’un document
-DATE: 01-01-2026
-TECHNICIEN: Tech
+DATE: 09-01-2024
+TECHNICIEN: Agent NOC-05
 
 PRÉPARATION ET DÉCOUVERTE.
 ---------
-Prendre connaissance de la demande et connexion à la documentation de l'entreprise.
+Lecture du billet reçu et accès à la documentation d'infrastructure.
 
 TRAVAUX EFFECTUÉS:
 • Validation en lecture seule du document demandé sur le serveur de fichiers
@@ -1315,7 +1315,7 @@ RÉSULTAT:
         <div class="doc-pre">Mémo technique — récupération du fichier
 
 Résumé du constat
-- Le fichier apparaît sur le partage le 01-01-2026 à 07:50:11 déjà à 0 Ko.
+- Le fichier apparaît sur le partage le 09-01-2024 à 07:50:11 déjà à 0 Ko.
 - Le fichier temporaire associé est aussi à 0 Ko.
 - Les versions antérieures après cette heure montrent toutes le même état.
 - La version antérieure juste avant cette heure ne contient ni le dossier ni le fichier.
@@ -1347,7 +1347,7 @@ Conclusion
           </div>
           <div class="doc-copy">Coordination · opération</div>
         </div>
-        <div class="doc-pre">🔧 Maintenance en cours — Billet : #0001234
+        <div class="doc-pre">🔧 Maintenance en cours — Billet : #000002
 Client : client inc.
 Tâche principale : Validation de récupération documentaire sur FS-01 et analyse des versions antérieures
 Impact : Aucun changement serveur — analyse en lecture seule, document observé vide sur le partage et dans les versions disponibles
@@ -1379,7 +1379,7 @@ Mise à jour :
     EAIA transforme de vrais billets MSP en démonstrations premium prêtes pour le site,
     la vente ou la démo produit — avec le niveau de fond nécessaire pour convaincre les opérations autant que le marketing.
   </p>
-  <a href="mailto:ericallain@passport.com" class="btn-gold">Demander une démo</a>
+  <a href="mailto:eaia.eaai@gmail.com" class="btn-gold">Demander une démo</a>
   <p class="cta-note">Page premium · contenu anonymisé · compatible site existant, GitHub Pages et lancement produit</p>
 </section>
 
@@ -1387,7 +1387,7 @@ Mise à jour :
   <div class="footer-brand">EA<span>|</span><em>IA</em></div>
   <div class="footer-right">
     MSP Intelligence IT — Cas de récupération documentaire zéro ko<br>
-    © 2026 EAIA — Tous droits réservés
+    © 2025 EAIA — Tous droits réservés
   </div>
 </footer>
 

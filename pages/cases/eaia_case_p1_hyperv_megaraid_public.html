@@ -102,11 +102,11 @@ nav {
 .nav-cta:hover { background: var(--gold); color: var(--black); }
 
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 100px 64px 80px;
+  justify-content: flex-start;
+  padding: 64px 64px 56px;
   position: relative;
   overflow: hidden;
 }
@@ -162,7 +162,7 @@ nav {
 }
 .hero h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(52px, 8vw, 108px);
+  font-size: clamp(36px, 5vw, 68px);
   font-weight: 300;
   line-height: 0.95;
   letter-spacing: -1px;
@@ -919,7 +919,7 @@ footer {
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
         <div>
           <div class="t-line t-gray">// BILLET BRUT REÇU</div>
-          <div class="t-line" style="margin-top:8px"><span class="t-gold">BILLET :</span> <span class="t-white">#0001234</span></div>
+          <div class="t-line" style="margin-top:8px"><span class="t-gold">BILLET :</span> <span class="t-white">#000009</span></div>
           <div class="t-line"><span class="t-gold">CLIENT :</span> <span class="t-white">Entreprise inc.</span></div>
           <div class="t-line"><span class="t-gold">SITE :</span> <span class="t-white">site client</span></div>client inc.<div class="t-line"><span class="t-gold">SYMPTÔME :</span> <span class="t-white">PLUSIEURS SERVEURS INACCESSIBLES</span></div>
           <div class="t-line"><span class="t-gold">RISQUE :</span> <span class="t-white">HÔTE / STOCKAGE / VM CRITIQUE</span></div>
@@ -1023,7 +1023,7 @@ footer {
       <div class="mod-icon">◎</div>
       <div class="mod-name">Ingestion P1</div>
       <div class="mod-sub">Site down</div>
-      <div class="mod-desc">Le billet ##0001234 signale plusieurs serveurs inaccessibles chez Entreprise inc.</div>
+      <div class="mod-desc">Le billet ##000009 signale plusieurs serveurs inaccessibles chez Entreprise inc.</div>
       <div class="mod-agents">Incident Command</div>
     </div>
     <div class="mod-card">
@@ -1216,15 +1216,15 @@ footer {
        Intervention urgente — diagnostic matériel
 ────────────────────────────────────────────────────────
 
-BILLET : #0001234
-DATE : 01-01-2026
-TECHNICIEN : Tech
+BILLET : #000009
+DATE : 18-04-2025
+TECHNICIEN : Agent NOC-01
 ---------
 
-PRÉPARATION ET DÉCOUVERTE :
+RÉCEPTION ET DÉCOUVERTE :
 ---------
-• Prendre connaissance de la demande et consultation de la documentation.
-• Connexion au RMM et analyse de l'état global et de la présence d'alerte.
+• Lecture du billet et revue de la documentation disponible.
+• Accès au RMM, lecture des alertes et évaluation de la situation.
 
 TRAVAUX EFFECTUÉS :
 ---------
@@ -1260,7 +1260,7 @@ RECOMMANDATION :
           </div>
           <div class="doc-copy">Coordination · opération</div>
         </div>
-        <div class="doc-pre">🛡️ P1 — BackupDR complété — Billet : #0001234
+        <div class="doc-pre">🛡️ P1 — BackupDR complété — Billet : #000009
 
 Backup de DC-01 complété avec succès chez Entreprise inc. — site client.
 Tâche principale : Escalade INFRA/vendor pour contrôleur RAID en erreur firmware fatale.
@@ -1283,19 +1283,19 @@ INTERVENTION TECHNIQUE — INCIDENT MATÉRIEL / STOCKAGE
 
 INFORMATIONS GÉNÉRALES
 ----------------------
-Date        : 01-01-2026
-Technicien  : Tech
+Date        : 18-04-2025
+Technicien  : Agent NOC-01
 Client      : client inc.
 Contact     : nom du contact
-Billet CW   : #0001234
+Billet CW   : #000009
 Site        : site client
 Équipements : HV-01, DC-01
 Type        : Urgence P1 — Site down récurrent / hôte Hyper-V / stockage
 
-PRÉPARATION ET DÉCOUVERTE :
+RÉCEPTION ET DÉCOUVERTE :
 ----------
-• Prendre connaissance de la demande et consultation de la documentation.
-• Connexion au RMM et analyse de l'état global et de la présence d'alerte.
+• Lecture du billet et revue de la documentation disponible.
+• Accès au RMM, lecture des alertes et évaluation de la situation.
 
 CONTEXTE INITIAL
 ----------------
@@ -1308,7 +1308,7 @@ DIAGNOSTIC / ANALYSE
 --------------------
 L’hôte Hyper-V HV-01 est revenu en ligne après l’incident.
 Validation observée :
-- HV-01 : dernier démarrage observé le 01-01-2026.
+- HV-01 : dernier démarrage observé le 18-04-2025.
 - Uptime court observé au moment du post-check.
 - DC-01 : Running / Operating normally.
 - Une VM critique était active, mais reposait toujours sur un stockage à risque.
@@ -1325,7 +1325,7 @@ MegaRAID Storage Manager :
 - Error Level : Fatal.
 - Description : Fatal firmware error.
 - Message détaillé observé : erreur firmware fatale du contrôleur.
-- Événement confirmé le 01-01-2026.
+- Événement confirmé le 18-04-2025.
 - Occurrence similaire observée dans l’historique.
 - Plusieurs séquences de réinitialisation / power-on / détection disques observées dans l’historique du contrôleur.
 - Le comportement est cohérent avec une instabilité matérielle ou firmware du contrôleur RAID.
@@ -1414,8 +1414,8 @@ MÉMO INTERNE — Diagnostic réel incident stockage
 
 À            : Coordonnateur / VCIO / Gestionnaire / Chef NOC / INFRA
 De           : Tech
-Date         : 01-01-2026
-Billet       : #0001234
+Date         : 18-04-2025
+Billet       : #000009
 Client       : client inc.
 Contact      : nom du contact
 Site         : site client
@@ -1432,7 +1432,7 @@ Les preuves recueillies indiquent une défaillance matérielle critique du contr
 
 Éléments confirmés :
 - MegaRAID : Controller ID 0 — Fatal firmware error.
-- Occurrence confirmée le 01-01-2026.
+- Occurrence confirmée le 18-04-2025.
 - Occurrence similaire observée dans l’historique.
 - Windows : erreur matérielle fatale sur composant PCI Express.
 - Windows : arrêt non propre confirmé.
@@ -1460,7 +1460,7 @@ Maintenir une surveillance active et confirmer les sauvegardes avant toute manip
           <div class="doc-copy">Passation · intervention matérielle</div>
         </div>
         <div class="doc-pre">[ESCALADE → INFRA + Vendor hardware]
-Ticket     : #0001234
+Ticket     : #000009
 Client     : client inc.
 Contact    : nom du contact
 Site       : site client
@@ -1493,7 +1493,7 @@ Aucune action RAID ou redémarrage additionnel ne doit être effectuée sans app
         </div>
         <div class="doc-pre">CHECKLIST — P1 Hyper-V + RAID fatal
 
-□ Publier avis Teams P1 avec billet ##0001234
+□ Publier avis Teams P1 avec billet ##000009
 □ Confirmer impact : site client / plusieurs serveurs inaccessibles
 □ Lecture seule RMM : état global, alertes, heure de début
 □ Lecture seule module hors bande : Power status / health / console
@@ -1529,7 +1529,7 @@ Aucune action RAID ou redémarrage additionnel ne doit être effectuée sans app
     EAIA transforme de vrais billets MSP en démonstrations premium prêtes pour le site,
     la vente ou la démo produit — avec le niveau de méthode nécessaire pour convaincre les opérations autant que les décideurs.
   </p>
-  <a href="mailto:ericallain@passport.com" class="btn-gold">Demander une démo</a>
+  <a href="mailto:eaia.eaai@gmail.com" class="btn-gold">Demander une démo</a>
   <p class="cta-note">Page premium · contenu anonymisé · compatible site existant, GitHub Pages et lancement produit</p>
 </section>
 
@@ -1537,7 +1537,7 @@ Aucune action RAID ou redémarrage additionnel ne doit être effectuée sans app
   <div class="footer-brand">EA<span>|</span><em>IA</em></div>
   <div class="footer-right">
     MSP Intelligence IT — Cas P1 Hyper-V & contrôleur RAID critique<br>
-    © 2026 EAIA — Tous droits réservés
+    © 2025 EAIA — Tous droits réservés
   </div>
 </footer>
 

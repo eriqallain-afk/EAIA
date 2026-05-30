@@ -100,11 +100,11 @@ nav {
 .nav-cta:hover { background: var(--gold); color: var(--black); }
 
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 100px 64px 80px;
+  justify-content: flex-start;
+  padding: 64px 64px 56px;
   position: relative;
   overflow: hidden;
 }
@@ -160,7 +160,7 @@ nav {
 }
 .hero h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(52px, 8vw, 108px);
+  font-size: clamp(36px, 5vw, 68px);
   font-weight: 300;
   line-height: 0.95;
   letter-spacing: -1px;
@@ -965,7 +965,7 @@ footer {
         </tr>
         <tr>
           <td><strong>État post-reboot</strong></td>
-          <td>Le dernier boot observé se situe à 10:20:33, après hard reboot</td>
+          <td>Le dernier boot observé se situe à 15:00:33, après hard reboot</td>
           <td>La preuve utile doit être reconstruite à partir de la timeline et de l’état revenu en ligne</td>
           <td>Faire un triage post-incident rigoureux plutôt qu’improviser une cause</td>
         </tr>
@@ -983,7 +983,7 @@ footer {
         </tr>
         <tr>
           <td><strong>Rapport de tâches EDR</strong></td>
-          <td>Une tâche “Agent version change” vers SentinelOne 25.2.6.442 complète à 10:22:29, environ 2 minutes après le reboot</td>
+          <td>Une tâche “Agent version change” vers SentinelOne x.x.x.xx complète à 15:02:29, environ 2 minutes après le reboot</td>
           <td>La corrélation temporelle avec l’upgrade EDR est renforcée</td>
           <td>Dire “plausible”, jamais “confirmé”</td>
         </tr>
@@ -1195,14 +1195,14 @@ footer {
 ────────────────────────────────────────────────────────────
 
 BILLET : #[ANON]
-DATE : 2026-05-15
-TECHNICIEN : [À compléter]
+DATE : 2025-02-22
+TECHNICIEN : Agent NOC-19
 ────────────
 
-PRÉPARATION ET DÉCOUVERTE :
+ANALYSE ET PRÉPARATION :
 ────────────
-• Prendre connaissance de la demande et consultation de la documentation.
-• Connexion au RMM et analyse de l'état global et de la présence d'alerte.
+• Prise en charge du billet et examen de la documentation client.
+• Vérification de l'état global via le RMM et revue des alertes ouvertes.
 
 SITUATION :
 ────────────
@@ -1214,10 +1214,10 @@ TÂCHE :
 
 ACTIONS :
 ────────────
-• [10:20] Redémarrage supervisé requis pour rétablir l’accès au service et permettre le retour en ligne de l’équipement.
-• [17:24] Validation post-incident de l’état général du serveur, des ressources système et des services essentiels.
-• [17:32] Confirmation du retour de l’outil de gestion à distance et validation du fonctionnement général.
-• [17:45] Analyse complémentaire de l’historique de mise à jour de l’agent de sécurité et préparation d’une escalade interne pour investigation approfondie.
+• [15:00] Redémarrage supervisé requis pour rétablir l’accès au service et permettre le retour en ligne de l’équipement.
+• [15:18] Validation post-incident de l’état général du serveur, des ressources système et des services essentiels.
+• [15:34] Confirmation du retour de l’outil de gestion à distance et validation du fonctionnement général.
+• [15:55] Analyse complémentaire de l’historique de mise à jour de l’agent de sécurité et préparation d’une escalade interne pour investigation approfondie.
 
 RÉSULTAT :
 ────────────
@@ -1243,17 +1243,17 @@ INTERVENTION TECHNIQUE — TROUBLESHOOTING URGENT
 
 INFORMATIONS GÉNÉRALES
 ────────────────────
-Date         : 2026-05-15
-Technicien   : [À compléter]
+Date         : 2025-02-24
+Technicien   : Agent NOC-19
 Client       : client inc.
 Billet CW    : #[ANON]
 Équipements  : Serveur de stockage principal
 Type         : Troubleshooting / Urgence
 
-PRÉPARATION ET DÉCOUVERTE :
+ANALYSE ET PRÉPARATION :
 ────────────────────
-• Prendre connaissance de la demande et consultation de la documentation.
-• Connexion au RMM et analyse de l'état global et de la présence d'alerte.
+• Prise en charge du billet et examen de la documentation client.
+• Vérification de l'état global via le RMM et revue des alertes ouvertes.
 
 CONTEXTE INITIAL
 ────────────────────
@@ -1272,12 +1272,12 @@ DIAGNOSTIC / ANALYSE
 
 Observations
 - OS observé : Microsoft Windows Storage Server 2016 Standard
-- Dernier boot observé : 2026-05-15 10:20:33
+- Dernier boot observé : 2025-02-22 15:00:33
 - Pending reboot : CBS=False, Windows Update=False, PendingFileRename=True
 - Espace disque : volumes système et données sans manque d’espace critique
 - Processus les plus visibles au triage : DFSR, SentinelAgentWorker, SentinelAgent, ThreatLockerService
 - Aucun Event Log System concluant n’a permis d’attribuer à lui seul la cause du gel
-- Rapport de tâches SentinelOne : “Agent version change” pour le package 25.2.6.442, initié le 2026-05-11 et complété le 2026-05-15 à 10:22:29, soit environ 2 minutes après le reboot observé
+- Rapport de tâches SentinelOne : “Agent version change” pour le package x.x.x.xx, initié le 2025-02-22 et complété le 2025-02-24 à 15:02:29, soit environ 2 minutes après le reboot observé
 - Corrélation temporelle aussi observée sur un autre serveur du même parc
 
 Cause probable
@@ -1293,7 +1293,7 @@ Action 2 — Analyse des processus et de l’état général
   Résultat : Présence marquée de DFSR, SentinelAgentWorker, SentinelAgent et ThreatLockerService dans les processus les plus actifs.
 
 Action 3 — Analyse de la corrélation SentinelOne
-  Résultat : Tâche d’upgrade agent SentinelOne 25.2.6.442 confirmée comme complétée immédiatement après le reboot, ce qui renforce la corrélation temporelle sans démontrer la causalité.
+  Résultat : Tâche d’upgrade agent SentinelOne x.x.x.xx confirmée comme complétée immédiatement après le reboot, ce qui renforce la corrélation temporelle sans démontrer la causalité.
 
 Action 4 — Préparation d’une escalade sécurité
   Résultat : Brief interne préparé pour IT-SecurityMaster afin de valider l’historique d’upgrade, l’interopérabilité SentinelOne / ThreatLocker et la pertinence des exclusions existantes.
@@ -1345,15 +1345,15 @@ Contexte
 Constat technique local après retour en ligne
 - OS : Microsoft Windows Storage Server 2016 Standard
 - Version : 10.0.14393
-- Dernier boot observé : 2026-05-15 10:20:33
+- Dernier boot observé : 2025-02-24 15:00:33
 - Pending reboot : CBS=False, Windows Update=False, PendingFileRename=True
 - Processus les plus visibles : DFSR, SentinelAgentWorker, SentinelAgent, ThreatLockerService
 
 Nouveau constat corrélé au rapport de tâches SentinelOne
 - Tâche : Agent version change
-- Package : SentinelOneInstaller_windows_64bit_v25_2_6_442.exe
-- Initiée : 2026-05-11 08:40:59 Montréal
-- Dernière mise à jour : 2026-05-15 10:22:29 Montréal
+- Package : SentinelOneInstaller_windows_64bit_vx_x_x_xx.exe
+- Initiée : 2025-02-22 08:40:59 Montréal
+- Dernière mise à jour : 2025-02-22 15:02:29 Montréal
 - Statut : completed
 - Détail : Upgrade completed
 
@@ -1364,7 +1364,7 @@ Position demandée
 
 Action demandée
 Valider / extraire pour ce serveur la fenêtre suivante :
-- 2026-05-15 07:00 à 10:25 Montréal
+- 2025-02-22 12:00 à 15:05 Montréal
 
 Éléments à cibler
 - agent upgrade start / install phase
@@ -1385,7 +1385,7 @@ Valider / extraire pour ce serveur la fenêtre suivante :
           </div>
           <div class="doc-copy">Synthèse · prête à coller</div>
         </div>
-        <div class="doc-pre">Le rapport de tâches indique qu’une mise à jour agent SentinelOne vers 25.2.6.442 était active depuis le 2026-05-11 et a complété sur le serveur à 10:22:29, soit immédiatement après le hard reboot observé à 10:20:33.
+        <div class="doc-pre">Le rapport de tâches indique qu’une mise à jour agent SentinelOne vers x.x.x.xx était active depuis le 2025-02-24 et a complété sur le serveur à 15:02:29, soit immédiatement après le hard reboot observé à 15:00:33.
 Ceci renforce la corrélation temporelle avec SentinelOne, sans toutefois démontrer que l’agent a causé le gel initial du serveur.
 
 Verdict ajusté
@@ -1416,7 +1416,7 @@ Verdict ajusté
     EAIA transforme des billets réels, anonymisés et opérationnellement crédibles
     en pages premium prêtes à intégrer au site, à la démo produit ou au support commercial.
   </p>
-  <a href="mailto:ericallain@passport.com" class="btn-gold">Demander une démo</a>
+  <a href="mailto:eaia.eaai@gmail.com" class="btn-gold">Demander une démo</a>
   <p class="cta-note">Page premium · cas réel anonymisé · format calqué sur le modèle fourni · prête à intégrer au site existant</p>
 </section>
 
@@ -1424,7 +1424,7 @@ Verdict ajusté
   <div class="footer-brand">EA<span>|</span><em>IA</em></div>
   <div class="footer-right">
     MSP Intelligence IT — Cas serveur critique / corrélation EDR<br>
-    © 2026 EAIA — Tous droits réservés
+    © 2025 EAIA — Tous droits réservés
   </div>
 </footer>
 

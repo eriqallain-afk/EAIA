@@ -101,11 +101,11 @@ nav {
 .nav-cta:hover { background: var(--gold); color: var(--black); }
 
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 100px 64px 80px;
+  justify-content: flex-start;
+  padding: 64px 64px 56px;
   position: relative;
   overflow: hidden;
 }
@@ -161,7 +161,7 @@ nav {
 }
 .hero h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(52px, 8vw, 108px);
+  font-size: clamp(36px, 5vw, 68px);
   font-weight: 300;
   line-height: 0.95;
   letter-spacing: -1px;
@@ -841,7 +841,7 @@ footer {
 <div class="firm-band">
   <div class="firm-band-left">
     <div class="firm-band-name">Résumé exécutif du cas</div>
-    <div class="firm-band-desc">Entreprise inc. · site client · FILE-01 · ESX-01 · BCDR-01 · 01-01-2026</div>
+    <div class="firm-band-desc">Entreprise inc. · site client · FILE-01 · ESX-01 · BCDR-01 · 27-01-2025</div>
   </div>
   <div class="firm-products">
     <div class="firm-product active">WINDOWS SERVER</div>
@@ -917,7 +917,7 @@ footer {
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
         <div>
           <div class="t-line t-gray">// BILLET BRUT REÇU</div>
-          <div class="t-line" style="margin-top:8px"><span class="t-gold">BILLET :</span> <span class="t-white">#0001234</span></div>
+          <div class="t-line" style="margin-top:8px"><span class="t-gold">BILLET :</span> <span class="t-white">#000007</span></div>
           <div class="t-line"><span class="t-gold">CLIENT :</span> <span class="t-white">ENTREPRISE INC.</span></div>
           <div class="t-line"><span class="t-gold">SYMPTÔME :</span> <span class="t-white">NTFS FILE SYSTEM CORRUPTION</span></div>
           <div class="t-line"><span class="t-gold">ASSET :</span> <span class="t-white">FILE-01 · site client</span></div>client inc.<div class="t-line"><span class="t-gold">RISQUE :</span> <span class="t-white">CHKDSK / REBOOT LANCÉ TROP TÔT</span></div>
@@ -985,7 +985,7 @@ footer {
           <td>Traiter le cas comme incident transitoire lié à la sauvegarde</td>
         </tr>
         <tr>
-          <td><strong>Recovery points du 01-01-2026</strong></td>
+          <td><strong>Recovery points du 27-01-2025</strong></td>
           <td>Points de 06:00, 12:38 et 18:00 réussis localement et dans le cloud, screenshot verification réussie</td>
           <td>Le backup avait abouti malgré les warnings observés dans le guest</td>
           <td>Documenter un succès de sauvegarde avec bruit de journalisation côté OS</td>
@@ -1198,30 +1198,30 @@ footer {
 Validation — alerte NTFS et sauvegarde
 ────────────────────────────────────────────────────────
 
-BILLET : #0001234
+BILLET : #000007
 CLIENT : Entreprise inc.
 SITE : site client
 ASSET : FILE-01
-DATE : 01-01-2026
-TECHNICIEN : Tech
+DATE : 27-01-2025
+TECHNICIEN : Agent NOC-08
 
 PRÉPARATION ET DÉCOUVERTE
-• Prendre connaissance de la demande et consultation de la documentation de l'entreprise.
-• Connexion au RMM et analyse de l'état global et de la présence d'alerte.
+• Examen du billet et accès à la documentation technique du client.
+• Connexion à la plateforme de gestion et validation des alertes en cours.
 
 TRAVAUX EFFECTUÉS
 • Validation lecture seule sur FILE-01 à la suite de l’alerte Windows Server NTFS File System Corruption.
 • Vérification de l’état des volumes et disques visibles sur le serveur.
 • Validation des journaux système Windows pour les événements Disk / NTFS / Volsnap dans les fenêtres de 12:38 et 18:00.
 • Vérification côté hyperviseur ESX-01 afin d’exclure un problème de pathing actif au moment du contrôle.
-• Corrélation réalisée avec l’historique Datto sur BCDR-01 et validation des recovery points du 01-01-2026.
+• Corrélation réalisée avec l’historique Datto sur BCDR-01 et validation des recovery points du 27-01-2025.
 • Contrôle complémentaire après la dernière fenêtre de sauvegarde afin de confirmer l’absence de nouvelles erreurs critiques.
 
 CONSTATS
 • Les volumes visibles au moment de la validation étaient montés en NTFS, en état Healthy, et le dirty bit était négatif sur C: et T:.
-• Des événements “Disk surprise removed” suivis d’erreurs NTFS transactionnelles ont été observés durant les fenêtres de sauvegarde du 01-01-2026.
+• Des événements “Disk surprise removed” suivis d’erreurs NTFS transactionnelles ont été observés durant les fenêtres de sauvegarde du 27-01-2025.
 • Aucun dead path actif n’a été observé lors de la vérification ESX-01.
-• Les recovery points Datto du 01-01-2026 ont été créés avec succès localement et dans le cloud, avec screenshot verification réussie.
+• Les recovery points Datto du 27-01-2025 ont été créés avec succès localement et dans le cloud, avec screenshot verification réussie.
 • Après la dernière fenêtre de sauvegarde, seules des entrées informationnelles Volsnap / NTFS sur shadow copies ont été relevées; aucune nouvelle erreur critique Disk/NTFS n’a été observée.
 
 CONCLUSION
@@ -1248,12 +1248,12 @@ VALIDATIONS FINALES
 Validation — alerte système et sauvegarde
 ────────────────────────────────────────────────────────
 
-BILLET : #0001234
-DATE : 01-01-2026
-TECHNICIEN : Tech
+BILLET : #000007
+DATE : 27-01-2025
+TECHNICIEN : Agent NOC-08
 
-• Prendre connaissance de la demande et consultation de la documentation de l'entreprise.
-• Connexion au RMM et analyse de l'état global et de la présence d'alerte.
+• Examen du billet et accès à la documentation technique du client.
+• Connexion à la plateforme de gestion et validation des alertes en cours.
 
 TRAVAUX EFFECTUÉS
 • Vérification effectuée en lecture seule sur le serveur concerné afin de valider l’état général du système.
@@ -1279,7 +1279,7 @@ STATUT
             <div class="doc-title">Email client</div>
           </div>client inc.<div class="doc-copy">Communication · complet</div>
         </div>
-        <div class="doc-pre">Objet : Validation terminée — alerte système — Billet ##0001234
+        <div class="doc-pre">Objet : Validation terminée — alerte système — Billet ##000007
 
 Bonjour nom du contact,
 
@@ -1305,7 +1305,7 @@ Entreprise inc.</div>
           </div>
           <div class="doc-copy">Coordination · opération</div>
         </div>
-        <div class="doc-pre">✅ Intervention terminée — Ticket ##0001234
+        <div class="doc-pre">✅ Intervention terminée — Ticket ##000007
 Client : client inc.
 Site : site client
 
@@ -1336,7 +1336,7 @@ Aucune action intrusive n’a été nécessaire. Surveillance seulement; réouvr
     EAIA transforme de vrais billets MSP en démonstrations premium prêtes pour le site,
     la vente ou la démo produit — avec le niveau de fond nécessaire pour convaincre les opérations autant que le marketing.
   </p>
-  <a href="mailto:ericallain@passport.com" class="btn-gold">Demander une démo</a>
+  <a href="mailto:eaia.eaai@gmail.com" class="btn-gold">Demander une démo</a>
   <p class="cta-note">Page premium · contenu anonymisé · compatible site existant, GitHub Pages et lancement produit</p>
 </section>
 

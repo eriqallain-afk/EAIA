@@ -32,7 +32,7 @@ section,nav,footer,header,main{position:relative;z-index:1}
 .nav-links a:hover{color:var(--gold-light)}
 .nav-cta{border:1px solid var(--gold);color:var(--gold-light);padding:10px 24px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:.25s;white-space:nowrap}
 .nav-cta:hover{background:var(--gold);color:var(--black)}
-.hero{min-height:calc(100vh - 85px);display:flex;flex-direction:column;justify-content:center;padding:98px 64px 78px;overflow:hidden}
+.hero{min-height:auto;display:flex;flex-direction:column;justify-content:flex-start;padding:64px 64px 56px;overflow:hidden}
 .hero.compact{min-height:auto;padding-top:90px;padding-bottom:56px}
 .orb{position:absolute;top:-22%;right:-8%;width:700px;height:700px;border-radius:50%;border:1px solid rgba(200,149,42,.08);pointer-events:none}
 .orb::before{content:'';position:absolute;inset:40px;border-radius:50%;border:1px solid rgba(200,149,42,.05)}
@@ -41,7 +41,7 @@ section,nav,footer,header,main{position:relative;z-index:1}
 .label-line{width:48px;height:1px;background:var(--gold)}
 .label-text{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold-light);letter-spacing:4px;text-transform:uppercase}
 .eyebrow{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--silver);letter-spacing:8px;text-transform:uppercase;margin-bottom:20px}
-.hero h1,.display-title{font-family:'Cormorant Garamond',serif;font-size:clamp(54px,8vw,112px);font-weight:300;line-height:.95;letter-spacing:-1px;margin-bottom:16px;max-width:980px}
+.hero h1,.display-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,68px);font-weight:300;line-height:.95;letter-spacing:-1px;margin-bottom:16px;max-width:980px}
 .hero h1 em,.display-title em,.s-title em{font-style:italic;color:var(--gold-light)}
 .hero h1 strong,.display-title strong,.s-title strong{font-weight:600;color:var(--white)}
 .product-tag{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gold);letter-spacing:3px;margin:16px 0 34px;text-transform:uppercase}
@@ -189,7 +189,7 @@ footer{border-top:1px solid var(--border);padding:36px 64px;display:flex;justify
 <div class="firm-band">
   <div>
     <div class="firm-band-name">Fiche du cas — version anonymisée</div>
-    <div class="firm-band-desc">Billet ##0001234 · Entreprise inc. · site client · 01-01-2026</div>
+    <div class="firm-band-desc">Billet ##000019 · Entreprise inc. · site client · 03-02-2024</div>
   </div>
   <div class="firm-products">
     <span class="firm-product active">NOC</span>
@@ -212,11 +212,11 @@ footer{border-top:1px solid var(--border);padding:36px 64px;display:flex;justify
       <div class="s-title">Alerte DHCP.<br><em>Scope à 100 %.</em></div>
       <p class="s-sub">Le billet démarre avec une alerte NOC signalant une saturation complète de l’étendue DHCP sur <strong>DC-01</strong> au <strong>site client</strong>. Le risque immédiat : de nouveaux appareils pourraient ne plus obtenir d’adresse réseau. L’objectif de l’agent est de distinguer une simple anomalie ponctuelle d’une vraie saturation structurelle.</p>
       <div class="list-clean">
-        <div><strong>Billet</strong><span>#0001234</span></div>
+        <div><strong>Billet</strong><span>#000019</span></div>
         <div><strong>Client</strong><span>client inc.</span></div>
         <div><strong>Contact</strong><span>nom du contact</span></div>
         <div><strong>Technicien</strong><span>Tech</span></div>
-        <div><strong>Date</strong><span>01-01-2026</span></div>
+        <div><strong>Date</strong><span>03-02-2024</span></div>
       </div>
     </div>
     <div class="terminal">
@@ -224,7 +224,7 @@ footer{border-top:1px solid var(--border);padding:36px 64px;display:flex;justify
       <div class="t-line t-gray">// ALERTE INITIALE</div>
       <div class="t-line"><span class="t-gold">SERVEUR :</span> <span class="t-white">DC-01</span></div>
       <div class="t-line"><span class="t-gold">SITE :</span> <span class="t-white">site client</span></div>client inc.<div class="t-line"><span class="t-gold">MONITOR :</span> <span class="t-white">DHCP Scope 100%</span></div>
-      <div class="t-line"><span class="t-gold">BILLET :</span> <span class="t-white">#0001234</span></div>
+      <div class="t-line"><span class="t-gold">BILLET :</span> <span class="t-white">#000019</span></div>
       <div class="t-line t-gray" style="margin-top:12px">// HYPOTHÈSES OUVERTES</div>
       <div class="t-line t-silver">• faux pic ou alerte transitoire</div>
       <div class="t-line t-silver">• conflit IP ponctuel</div>
@@ -317,7 +317,7 @@ footer{border-top:1px solid var(--border);padding:36px 64px;display:flex;justify
       <div class="card-n">Validation 01</div>
       <div class="card-title">Lecture du scope</div>
       <div class="card-sub">Statistiques · exclusions · réservations · états de baux</div>
-      <div class="code-block">$ScopeId = '10.0.50.0'
+      <div class="code-block">$ScopeId = 'x.x.x.x'
 
 Write-Host "=== STATISTICS ==="
 Get-DhcpServerv4ScopeStatistics -ScopeId $ScopeId | Format-List *
@@ -360,13 +360,13 @@ Get-DhcpServerv4Lease -ScopeId $ScopeId |
         DHCP / SATURATION D’ÉTENDUE / ANALYSE
 ────────────────────────────────────────────────────────
 
-BILLET: #0001234
+BILLET: #000019
 CLIENT: Entreprise inc.
-DATE: 01-01-2026
+DATE: 03-02-2024
 
 PRÉPARATION ET DÉCOUVERTE
 ---------
-Prise de connaissance de la demande et consultation de la documentation du client.
+Analyse du billet entrant et accès à la documentation technique.
 
 Réception et analyse d’une alerte NOC liée à une saturation d’étendue DHCP sur DC-01 au site client.
 Investigation effectuée en lecture seule uniquement.
@@ -435,13 +435,13 @@ SUIVI RECOMMANDÉ
           Analyse d’alerte DHCP — Capacité d’adressage
   ────────────────────────────────────────────────────────
 
-DATE: 01-01-2026
-TECHNICIEN: Tech
+DATE: 03-02-2024
+TECHNICIEN: Agent NOC-20
 ---------
 
-PRÉPARATION ET DÉCOUVERTE:
+INITIALISATION DE L'INTERVENTION:
 ---------
-• Prendre connaissance de la demande et consultation de la documentation de l'entreprise.
+• Réception et lecture du billet, revue de la documentation existante.
 
 TRAVAUX EFFECTUÉS:
 ---------
@@ -469,10 +469,10 @@ RECOMMANDATION:
       <div class="card-title">Mémo coordonnateur</div>
       <div class="card-sub">Coordination · priorisation · suite</div>
       <div class="code-block">Mémo coordo
-Billet: #0001234
+Billet: #000019
 Client: client inc.
 Contact: nom du contact
-Date: 01-01-2026
+Date: 03-02-2024
 
 Résumé coordo:
 - Diagnostic complété sans changement en production.
