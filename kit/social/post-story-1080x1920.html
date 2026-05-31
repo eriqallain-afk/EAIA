@@ -45,21 +45,21 @@ body::before{
   font-family:'Courier New',monospace;
   font-size:10px;color:rgba(200,149,42,.6);
   letter-spacing:4px;text-transform:uppercase;
-  margin-bottom:80px;
+  margin-bottom:70px;
 }
 .eyebrow{
   font-family:'Courier New',monospace;
   font-size:11px;color:rgba(200,149,42,.8);
   letter-spacing:4px;text-transform:uppercase;
   display:flex;align-items:center;justify-content:center;gap:14px;
-  margin-bottom:32px;
+  margin-bottom:28px;
 }
 .eyebrow::before,.eyebrow::after{content:'';display:block;width:36px;height:1px;background:#C8952A}
 .headline{
   font-family:'Georgia',serif;
   font-size:64px;font-weight:300;line-height:1.0;
   color:#fff;letter-spacing:-0.5px;
-  margin-bottom:28px;
+  margin-bottom:24px;
 }
 .headline em{font-style:italic;color:#E4B84A;display:block}
 .headline strong{font-weight:700}
@@ -67,9 +67,16 @@ body::before{
   font-family:Arial,sans-serif;
   font-size:18px;color:rgba(255,255,255,.55);
   line-height:1.72;max-width:720px;
-  margin:0 auto;
+  margin:0 auto 14px;
 }
 .sub strong{color:rgba(255,255,255,.85)}
+.perso{
+  font-family:'Courier New',monospace;
+  font-size:10px;color:rgba(200,149,42,.7);
+  letter-spacing:3px;text-transform:uppercase;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.perso::before{content:'↳';color:#C8952A}
 .middle{
   position:relative;z-index:2;
   padding:0 64px;
@@ -78,7 +85,7 @@ body::before{
   border-left:3px solid #C8952A;
   padding:24px 28px;
   background:rgba(200,149,42,.06);
-  margin-bottom:48px;
+  margin-bottom:40px;
 }
 .quote p{
   font-family:'Georgia',serif;
@@ -123,7 +130,7 @@ body::before{
 .stats{
   display:flex;gap:0;
   border:1px solid rgba(200,149,42,.2);
-  width:100%;margin-bottom:40px;
+  width:100%;margin-bottom:36px;
 }
 .stat{flex:1;padding:20px;border-right:1px solid rgba(200,149,42,.2);text-align:center}
 .stat:last-child{border-right:none}
@@ -159,7 +166,7 @@ body::before{
   <div class="top">
     <div class="brand"><span>EA</span> | IA</div>
     <div class="brand-sub">Intelligence artificielle opérationnelle</div>
-    <div class="eyebrow">Lancement · 2025</div>
+    <div class="eyebrow">Lancement · 2026</div>
     <div class="headline">
       Votre MSP.<br>
       <em>Enfin</em>
@@ -167,17 +174,18 @@ body::before{
     </div>
     <div class="sub">
       <strong>23 agents IA</strong> — un par rôle dans votre MSP.
-      La méthode de vos meilleurs experts, disponible pour toute l’équipe.
+      La méthode de vos meilleurs experts, disponible pour toute l'équipe.
     </div>
+    <div class="perso">Personnalisé selon vos procédures</div>
   </div>
   <div class="middle">
     <div class="quote">
-      <p>« Je n’ai jamais vu une documentation tenue à jour dans un MSP. C’est une perte de temps constante. »</p>
+      <p>« Je n'ai jamais vu une documentation tenue à jour dans un MSP. C'est une perte de temps constante. »</p>
       <cite>— 25 ans dans le milieu IT · Québec</cite>
     </div>
     <div class="points">
       <div class="point"><div class="point-n">01</div><div><div class="point-title">Clôture uniforme pour tous</div><div class="point-desc">Note CW + discussion client structurées à chaque billet, peu importe le technicien</div></div></div>
-      <div class="point"><div class="point-n">02</div><div><div class="point-title">Documentation prête à coller</div><div class="point-desc">Générée pendant l’intervention — sans temps supplémentaire</div></div></div>
+      <div class="point"><div class="point-n">02</div><div><div class="point-title">Documentation prête à coller</div><div class="point-desc">Générée pendant l'intervention — sans temps supplémentaire</div></div></div>
       <div class="point"><div class="point-n">03</div><div><div class="point-title">Gain sur le prochain billet</div><div class="point-desc">Le contexte est là — résolution plus rapide pour le même client</div></div></div>
       <div class="point"><div class="point-n">04</div><div><div class="point-title">Knowledge base automatique</div><div class="point-desc">Votre KB se construit au fil des billets résolus</div></div></div>
     </div>
@@ -189,7 +197,7 @@ body::before{
       <div class="stat"><div class="stat-n">12h→2h</div><div class="stat-l">Onboarding</div></div>
     </div>
     <div class="btn">Réserver une démo — 30 min</div>
-    <span class="email">eaia.eaai@gmail.com</span>
+    <span class="email">eallain@passport.com</span>
   </div>
 </div>
 </body>
