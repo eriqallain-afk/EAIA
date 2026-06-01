@@ -127,7 +127,7 @@ cd ea-ia
 # Settings → Pages → Source: main / root
 
 # 3. Domaine custom (optionnel)
-echo "eaia.ca" > CNAME
+echo "ea-ia.ca" > CNAME
 git add CNAME && git commit -m "add: custom domain"
 git push
 ```
