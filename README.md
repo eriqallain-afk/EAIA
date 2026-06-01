@@ -120,8 +120,8 @@ ea-ia/
 
 ```bash
 # 1. Cloner
-git clone https://github.com/<username>/ea-ia.git
-cd ea-ia
+git clone https://github.com/<username>/eaia.git
+cd eaia
 
 # 2. Activer GitHub Pages
 # Settings → Pages → Source: main / root
