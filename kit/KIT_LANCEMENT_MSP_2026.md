@@ -3,7 +3,7 @@
 
 > **Produit :** MSP Intelligence IT  
 > **Positionnement :** Le système opérationnel intelligent pour MSP  
-> **Contact de lancement :** eaia.eaai@gmail.com  
+> **Contact de lancement :** info@ea-ia.ca  
 > **Offre pilote :** 3 MSP pilotes · rabais de lancement · places limitées
 
 ---
@@ -120,7 +120,7 @@
 - [ ] Préparer LinkedIn et X/Twitter
 - [ ] Préparer les images : `FACEBOOK-Bandeau.png`, `FACEBOOK-Bandeau-1.png`, `og-image.png`
 - [ ] Préparer une liste de 20 MSP cibles
-- [ ] Tester l’adresse `eaia.eaai@gmail.com`
+- [ ] Tester l’adresse `info@ea-ia.ca`
 - [ ] Confirmer la réponse sous 24 h pour les demandes de démo
 
 ### PHASE 2 — Lancement
@@ -187,7 +187,7 @@ MSP Intelligence IT aide les équipes techniques à transformer les billets en i
 
 **3 MSP pilotes avec rabais de lancement.**
 
-📧 eaia.eaai@gmail.com  
+📧 info@ea-ia.ca  
 Objet : « Pilote MSP Intelligence IT »  
 Démo 30 min · réponse sous 24 h
 
@@ -209,7 +209,7 @@ Une plateforme bâtie pour le terrain MSP : agents spécialisés, runbooks, temp
 
 **MSP Intelligence IT — le système opérationnel intelligent pour MSP.**
 
-📧 eaia.eaai@gmail.com
+📧 info@ea-ia.ca
 
 ---
 
@@ -235,7 +235,7 @@ Ce n’est pas une IA générique. C’est un système opérationnel intelligent
 
 Aujourd’hui, EA|IA ouvre une première cohorte limitée à **3 MSP pilotes avec rabais de lancement**.
 
-📩 eaia.eaai@gmail.com  
+📩 info@ea-ia.ca  
 Objet : Pilote MSP Intelligence IT
 
 #MSP #ManagedServices #IA #IT #Québec #EAIA
@@ -252,7 +252,7 @@ Le système opérationnel intelligent pour MSP.
 
 3 MSP pilotes avec rabais de lancement.
 
-📧 eaia.eaai@gmail.com
+📧 info@ea-ia.ca
 
 #MSP #IA #ITManagé #EAIA
 
@@ -282,7 +282,7 @@ MSP Intelligence IT est le système opérationnel intelligent pour MSP : 33 agen
 
 ```text
 Type  : Nous contacter / Envoyer un courriel
-Lien  : mailto:eaia.eaai@gmail.com?subject=Pilote MSP Intelligence IT
+Lien  : mailto:info@ea-ia.ca?subject=Pilote MSP Intelligence IT
 Texte : Réserver une démo
 ```
 
@@ -297,7 +297,7 @@ La plateforme aide les équipes techniques à guider les billets, appliquer les 
 
 Offre de lancement : 3 MSP pilotes avec rabais fondateur.
 
-📧 eaia.eaai@gmail.com
+📧 info@ea-ia.ca
 ```
 
 ### Site web
@@ -342,7 +342,7 @@ Seriez-vous disponible pour un appel de 30 minutes cette semaine ?
 Cordialement,
 [Votre nom]
 EA|IA — MSP Intelligence IT
-eaia.eaai@gmail.com
+info@ea-ia.ca
 ```
 
 ---
@@ -371,7 +371,7 @@ Si oui, MSP Intelligence IT peut être pertinent pour votre équipe.
 Merci,
 [Votre nom]
 EA|IA — MSP Intelligence IT
-eaia.eaai@gmail.com
+info@ea-ia.ca
 ```
 
 ---
@@ -401,7 +401,7 @@ L’offre pilote comprend :
 
 Si vous voulez être dans la première cohorte, répondez à ce courriel ou écrivez à :
 
-eaia.eaai@gmail.com
+info@ea-ia.ca
 
 [Votre nom]
 ```
@@ -419,7 +419,7 @@ eaia.eaai@gmail.com
 - [ ] Page Facebook prête
 - [ ] Profil LinkedIn prêt
 - [ ] Images prêtes : `FACEBOOK-Bandeau.png`, `FACEBOOK-Bandeau-1.png`, `og-image.png`
-- [ ] Email `eaia.eaai@gmail.com` testé
+- [ ] Email `info@ea-ia.ca` testé
 - [ ] Liste de prospection préparée
 
 ### Jour J
@@ -474,4 +474,4 @@ eaia.eaai@gmail.com
 
 *Kit de lancement — MSP Intelligence IT · EA|IA · Juin 2026*  
 *Le système opérationnel intelligent pour MSP*  
-*eaia.eaai@gmail.com*
+*info@ea-ia.ca*

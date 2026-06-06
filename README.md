@@ -120,14 +120,14 @@ ea-ia/
 
 ```bash
 # 1. Cloner
-git clone https://github.com/<username>/ea-ia.git
-cd ea-ia
+git clone https://github.com/<username>/eaia.git
+cd eaia
 
 # 2. Activer GitHub Pages
 # Settings → Pages → Source: main / root
 
 # 3. Domaine custom (optionnel)
-echo "eaia.ca" > CNAME
+echo "ea-ia.ca" > CNAME
 git add CNAME && git commit -m "add: custom domain"
 git push
 ```
@@ -138,8 +138,8 @@ La page sera disponible à `https://<username>.github.io/ea-ia` ou sur votre dom
 
 ## Contact & Démo
 
-📩 **contact@eaia.ca**
-📅 **Démo 20 min** — Apportez un workflow, un document ou un problème récurrent de votre secteur.
+📩 **info@ea-ia.ca**
+📅 **Démo 30 min** — Apportez un workflow, un document ou un problème récurrent de votre secteur.
 
 ---
 
