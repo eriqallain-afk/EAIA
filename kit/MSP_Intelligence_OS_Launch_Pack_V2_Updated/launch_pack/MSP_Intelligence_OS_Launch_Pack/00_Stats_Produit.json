@@ -1,0 +1,15 @@
+{
+  "agents": 32,
+  "runbooks_all": 123,
+  "runbooks_active_ex_archive": 100,
+  "dispatch_rules": 37,
+  "playbooks": 29,
+  "templates": 93,
+  "scripts": 30,
+  "checklists": 27,
+  "bundles": 83,
+  "examples": 26,
+  "kb": 3,
+  "site_cases": 37,
+  "files_total": 1334
+}

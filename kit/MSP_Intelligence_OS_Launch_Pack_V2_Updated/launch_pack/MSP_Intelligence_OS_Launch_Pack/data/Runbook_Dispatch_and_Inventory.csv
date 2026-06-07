@@ -1,0 +1,161 @@
+kind,category,id,priority,cmd,agent,playbook,title,path,patterns
+dispatch_rule,,pending_reboot,1,22,IT-MaintenanceMaster,IT_MAINT_PATCH_REBOOT_VALIDATE,,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT_RB_PendingReboot_OneByOne.md,"pending reboot, reboot pending, redémarrage en attente, windows update pending, CBS_RebootPending, WU_RebootRequired, Script Monitor.*pending reboot, reboot required"
+dispatch_rule,,windows_patching,2,20,IT-MaintenanceMaster,IT_MAINT_PATCH_REBOOT_VALIDATE,,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT_RB_Patching_COMPLET.md,"patching, windows update, mise à jour, mises à jour, patch tuesday, cumulative update, security update, fenêtre de maintenance, maintenance window, KB[0-9]{7}"
+dispatch_rule,,patching_cwrmm,3,21,IT-MaintenanceMaster,IT_MAINT_PATCH_REBOOT_VALIDATE,,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT_RB_Windows_Patching_CW_RMM_OneByOne.md,"CW RMM, connectwise rmm, patch via rmm, déployer patch"
+dispatch_rule,,wsus,4,24,IT-MaintenanceMaster,,,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT__RB__WSUS_Maintenance_V1.md,"wsus, windows server update services, WSUS sync, approbation WSUS"
+dispatch_rule,,server_health,5,23,IT-MaintenanceMaster,,,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT_RB_Srv_Health_Chk_V1.md,"server health, santé serveur, health check, CPU.*élevé, mémoire.*élevée, disque.*plein, disk.*full, disk.*space, espace disque, high cpu, performance.*serveur, serveur.*lent, slow server"
+dispatch_rule,,post_panne,6,26,IT-UrgenceMaster,IT_POST_SHUTDOWN_VALIDATE,,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT_RB_Post_Shutdown_Electrical_Validation.md,"post.*panne, panne électrique, power.*outage, retour.*courant, power.*restore, après panne, electrical, hydro, ups"
+dispatch_rule,,print_server,7,27,IT-MaintenanceMaster,,,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT_RB_PrintServer_PrePost_Validation.md,"print.*server, serveur.*impression, imprimante.*serveur, spooler, print.*prepost"
+dispatch_rule,,audit_trim,8,25,IT-SysAdmin,,,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT_RB_AUDIT_TRIMESTRIEL.md,"audit trimestriel, audit.*infrastructure, infrastructure.*audit, audit.*serveurs"
+dispatch_rule,,dc_prepost,10,01,IT-Assistant-N3,,,IT-SHARED/10_RUNBOOKS/INFRA/RUNBOOK__DC_PrePost_Validation.md,"domain controller, contrôleur de domaine, dc.*reboot, dc.*restart, redémarrage.*dc, dc.*precheck, dc.*postcheck, prepost.*dc, replication.*ad, réplication.*ad, ad.*réplication, NTDS, SYSVOL, netlogon.*down, FSMO"
+dispatch_rule,,ad_operations,11,05,IT-Assistant-N3,,,IT-SHARED/10_RUNBOOKS/INFRA/INFRA__RUNBOOK__AD_DC_Operations_V1.md,"active directory, GPO, group policy, OU.*move, déplacer.*OU, compte.*verrouillé, locked.*account, mot de passe.*expire, password.*expire, réinitialisation.*MDP, password reset.*AD, Entra.*Connect, AD.*sync"
+dispatch_rule,,ad_user_mgmt,12,06,IT-Assistant-N2,,,IT-SHARED/10_RUNBOOKS/INFRA/INFRA__RB__AD_User_Management_V1.md,"créer.*utilisateur, create.*user, désactiver.*compte, disable.*account, nouveau.*employé, onboarding.*AD, départ.*employé, AD user"
+dispatch_rule,,sql_prepost,13,02,IT-SysAdmin,,,IT-SHARED/10_RUNBOOKS/INFRA/RUNBOOK__SQL_PrePost_Validation.md,"SQL.*server, serveur.*SQL, sql.*reboot, sql.*restart, base de données.*redémarrage, MSSQL, sqlservr, sql.*precheck, sql.*postcheck"
+dispatch_rule,,rds,14,04,IT-Assistant-N3,,,IT-SHARED/10_RUNBOOKS/INFRA/INFRA__RUNBOOK__RDS_Operations_V1.md,"RDS, remote desktop, bureau à distance, session.*RDS, RemoteApp, TermService, session.*bloquée, session.*gelée"
+dispatch_rule,,hyperv,15,07,IT-SysAdmin,,,IT-SHARED/10_RUNBOOKS/INFRA/INFRA__RUNBOOK__HyperV_Operations_And_Check_V1.md,"hyper-v, hyperv, VM.*hyper, machine virtuelle.*hyper, vmms"
+dispatch_rule,,vmware,16,08,IT-SysAdmin,,,IT-SHARED/10_RUNBOOKS/INFRA/INFRA__RUNBOOK__VMware_vSphere_Operations_V1.md,"vmware, vsphere, esxi, vcenter, vm.*vmware"
+dispatch_rule,,m365_exchange,20,15,IT-CloudMaster,,,IT-SHARED/10_RUNBOOKS/INFRA/INFRA__RUNBOOK__M365_Exchange_Online_V1.md,"exchange.*online, exchange.*problème, courriel.*bloqué, email.*blocked, mail.*flow, boîte.*mail.*inaccessible, messagerie.*down, transport.*exchange"
+dispatch_rule,,m365_intune,21,16,IT-CloudMaster,,,IT-SHARED/10_RUNBOOKS/INFRA/INFRA__RUNBOOK__M365_Intune_Devices_V1.md,"intune, mdm.*compliance, conformité.*appareil, wipe.*device, effacer.*appareil, enrôlement.*intune"
+dispatch_rule,,m365_teams,22,17,IT-CloudMaster,,,IT-SHARED/10_RUNBOOKS/INFRA/INFRA__RUNBOOK__M365_Teams_SharePoint_OneDrive_V1.md,"teams.*problème, sharepoint.*sync, onedrive.*sync, teams.*audio, teams.*vidéo, collaboration.*cloud"
+dispatch_rule,,entra_id,23,13,IT-CloudMaster,,,IT-SHARED/10_RUNBOOKS/INFRA/INFRA__RUNBOOK__EntraID_Operations_V1.md,"entra.*id, azure.*ad, MFA.*problème, MFA.*reset, conditional.*access, authentification.*azure"
+dispatch_rule,,onedrive_sync,24,59,IT-Assistant-N2,,,IT-SHARED/10_RUNBOOKS/SUPPORT/SUPPORT__RUNBOOK__OneDrive_SharePoint_Sync_V1.md,"onedrive.*ne synchronise, onedrive.*sync.*fail, onedrive.*erreur, sharepoint.*erreur.*sync"
+dispatch_rule,,vpn_client,30,55,IT-NetworkMaster,,,IT-SHARED/10_RUNBOOKS/SUPPORT/SUPPORT__RUNBOOK__VPN_Client_Troubleshooting_V1.md,"VPN.*problème, vpn.*ne.*connect, ssl vpn, ipsec.*down, forticlient, watchguard.*vpn, tunnel.*vpn, vpn.*timeout"
+dispatch_rule,,firewall_fortinet,31,10,IT-NetworkMaster,,,IT-SHARED/10_RUNBOOKS/INFRA/INFRA__RUNBOOK__Fortinet_Operations_V1.md,"fortinet, fortigate, fortios"
+dispatch_rule,,firewall_watchguard,32,10,IT-NetworkMaster,,,IT-SHARED/10_RUNBOOKS/INFRA/INFRA__RUNBOOK__WatchGuard_Operations_V1.md,"watchguard, firebox"
+dispatch_rule,,firewall_meraki,33,10,IT-NetworkMaster,,,IT-SHARED/10_RUNBOOKS/INFRA/INFRA__RUNBOOK__Meraki_Operations_V1.md,"meraki, cisco.*meraki"
+dispatch_rule,,firewall_sonicwall,34,10,IT-NetworkMaster,,,IT-SHARED/10_RUNBOOKS/INFRA/INFRA__RUNBOOK__SonicWall_Operations_V1.md,"sonicwall, sonic wall"
+dispatch_rule,,veeam_job,40,32,IT-BackupDRMaster,,,IT-SHARED/60_BUNDLES/BUNDLE_RUNBOOK_BACKUP_Veeam-Operations_V1.md,"veeam.*fail, veeam.*error, veeam.*échec, backup.*veeam, job.*veeam, veeam.*warning"
+dispatch_rule,,datto_backup,41,33,IT-BackupDRMaster,,,IT-SHARED/10_RUNBOOKS/NOC/NOC__RUNBOOK__Datto_Operations_V1.md,"datto.*fail, datto.*error, datto.*échec, bcdr.*fail, agent.*datto"
+dispatch_rule,,keepit,42,34,IT-BackupDRMaster,,,IT-SHARED/10_RUNBOOKS/NOC/NOC__RUNBOOK__Keepit_Operations_V1.md,"keepit, keepit.*fail, backup.*m365.*fail, keepit.*déconnecté"
+dispatch_rule,,dr_test,43,35,IT-BackupDRMaster,,,IT-SHARED/10_RUNBOOKS/NOC/NOC__RUNBOOK__DR_Plan_Validation_V1.md,"test.*DR, DR.*test, test.*reprise, disaster.*recovery.*test, RPO.*RTO, plan.*relève"
+dispatch_rule,,incident_response,50,40,IT-SecurityMaster,IT_SECURITY_INCIDENT_RESPONSE,,IT-SHARED/10_RUNBOOKS/SECURITY/RUNBOOK__IT_SECURITY_INCIDENT_RESPONSE.md,"ransomware, chiffrement.*fichiers, breach, intrusion, compromis, compte.*compromis, malware, virus détecté, EDR.*alerte, SentinelOne.*alerte, CrowdStrike.*alerte"
+dispatch_rule,,alert_triage_security,51,41,IT-SecurityMaster,,,IT-SHARED/10_RUNBOOKS/SECURITY/SEC-SECU-AlertResponse_V2.md,"alerte.*sécurité, security.*alert, SIEM.*alerte, threat.*detected, menace détectée, suspicious.*activity"
+dispatch_rule,,m365_compliance,52,44,IT-SecurityMaster,,,IT-SHARED/10_RUNBOOKS/SECURITY/SECURITY__RUNBOOK__M365_Compliance_Purview_V1.md,"purview, DLP.*alerte, compliance.*m365, rétention.*données, eDiscovery"
+dispatch_rule,,support_n2_generic,60,51,IT-Assistant-N2,,,IT-SHARED/10_RUNBOOKS/SUPPORT/RUNBOOK__N2_Support_V1.md,"mot de passe.*oublié, password.*forgot, compte.*verrouillé.*utilisateur, imprimante.*ne.*imprime, imprimante.*problème, outlook.*ne.*ouvre, outlook.*crash, wifi.*problème, réseau.*utilisateur, logiciel.*plante, application.*crash, poste.*lent"
+dispatch_rule,,print_diag,61,53,IT-Assistant-N2,,,IT-SHARED/60_BUNDLES/BUNDLE_SUPPORT_Print_Diag_V1.md,"imprimante.*erreur, impression.*échouée, cannot print, print.*spooler, spooler.*arrêté, impression.*réseau"
+dispatch_rule,,incident_command,70,30,IT-Commandare-NOC,IT_URGENCE_P1P2,,IT-SHARED/10_RUNBOOKS/NOC/NOC__RUNBOOK__INCIDENT_COMMAND_V1.md,"site.*down, site.*entier.*inaccessible, WAN.*down, réseau.*entier.*down, serveurs.*inaccessibles, P1, incident.*critique, CRITICAL.*incident"
+dispatch_rule,,noc_frontdoor,71,31,IT-NOCDispatcher,IT_NOC_DISPATCH,,IT-SHARED/10_RUNBOOKS/NOC/NOC__RUNBOOK__FRONTDOOR_v2.md,"nouveau.*ticket, new.*ticket, triage.*billet, billet.*entrant, alerte.*RMM, alerte.*N-able, alerte.*CW RMM, alerte.*Auvik"
+dispatch_rule,,rmm_monitoring,72,37,IT-MonitoringMaster,,,IT-SHARED/10_RUNBOOKS/NOC/NOC__RUNBOOK__NAble_RMM_Operations_V1.md,"N-able.*alerte, nable.*alerte, CW RMM.*alerte, auvik.*alerte, monitoring.*alerte"
+runbook_file,00_POLICIES,,,,,,GUARDRAILS__IT_AGENTS_MASTER,IT-SHARED/10_RUNBOOKS/00_POLICIES/GUARDRAILS__IT_AGENTS_MASTER.md,
+runbook_file,00_POLICIES,,,,,,PROMPT_FRAMEWORK_MSP_Intelligence_V1,IT-SHARED/10_RUNBOOKS/00_POLICIES/PROMPT_FRAMEWORK_MSP_Intelligence_V1.md,
+runbook_file,00_POLICIES,,,,,,RUNBOOK — Cycle de vie d'un agent (ajout / modification / activation),IT-SHARED/10_RUNBOOKS/00_POLICIES/RUNBOOK__AGENT_LIFECYCLE_V1.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — Domain Controller (AD DS/DNS) — Precheck/Postcheck,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/INFRA-AD-DC_PrePost_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — CONFIGURATION BACKUP MSP,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/INFRA-BACKUP-Config_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — CONFIGURATION BACKUP MSP,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/INFRA-BACKUP-Config_ARCHIVE2.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — IT_BACKUP_DR_TEST_V1,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/INFRA-BACKUP-DR_Test_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — ARCHITECTURE CLOUD MSP,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/INFRA-CLOUD-Architecture_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — ONBOARDING UTILISATEUR M365,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/INFRA-M365-Onboarding_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — GESTION UTILISATEURS M365,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/INFRA-M365-UserMgmt_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — CONFIGURATION RESEAU INITIAL,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/INFRA-NET-NetworkSetup_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — CYCLE DE VIE DES ACTIFS IT,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/INFRA-OPS-AssetLifecycle_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — CYCLE DE VIE DES ACTIFS IT,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/INFRA-OPS-AssetLifecycle_ARCHIVE2.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — Post-Shutdown Électrique (reprise infra) — NOC/MSP,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/INFRA-SRV-PostShutdown_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — Print Server — Precheck/Postcheck,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/INFRA-SRV-PrintServer_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — AUDIT TRIMESTRIEL INFRASTRUCTURE TI,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/MAINT-SRV-AuditTrimestriel_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — Windows Server Patching (Complet),IT-SHARED/10_RUNBOOKS/99_ARCHIVE/MAINT-WIN-Patching_Complet_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK - Windows Server Patching,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/MAINT-WIN-Patching_Legacy_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK - Patching Process,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/MAINT-WIN-Patching_Process_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — DIAGNOSTIC RESEAU IT,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/NOC-NET-NetworkDiag_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — TRIAGE ALERTES SECURITE,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/SEC-SECU-AlertTriage_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — Réponse aux Incidents de Sécurité MSP,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/SEC-SECU-IncidentResponse_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — IT MSP: Dispatch ConnectWise (Type/Sub-type) + NOC Cells (OPS Ready),IT-SHARED/10_RUNBOOKS/99_ARCHIVE/SUP-OPS-CW_Dispatch_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — IT_INTERVENTION_LIVE,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/SUP-OPS-InterventionLive_ARCHIVE.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — IT_INTERVENTION_LIVE,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/SUP-OPS-InterventionLive_ARCHIVE2.md,
+runbook_file,99_ARCHIVE,,,,,,RUNBOOK — IT_MSP_TICKET_TO_KB,IT-SHARED/10_RUNBOOKS/99_ARCHIVE/SUP-OPS-TicketToKB_ARCHIVE.md,
+runbook_file,INFRA,,,,,,INFRA-AD-DC_Operations_V3,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-AD-DC_Operations_V3.md,
+runbook_file,INFRA,,,,,,INFRA-AD-DC_PrePost_Validation_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-AD-DC_PrePost_Validation_V2.md,
+runbook_file,INFRA,,,,,,INFRA-AD-EntraID_Operations_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-AD-EntraID_Operations_V2.md,
+runbook_file,INFRA,,,,,,INFRA-AD-FolderSecurity_V1,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-AD-FolderSecurity_V1.md,
+runbook_file,INFRA,,,,,,INFRA-AD-GPO_Management_V1,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-AD-GPO_Management_V1.md,
+runbook_file,INFRA,,,,,,INFRA-AD-UserManagement_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-AD-UserManagement_V2.md,
+runbook_file,INFRA,,,,,,INFRA-BACKUP-Veeam_Operations_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-BACKUP-Veeam_Operations_V2.md,
+runbook_file,INFRA,,,,,,INFRA-CLOUD-Architecture_Review_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-CLOUD-Architecture_Review_V2.md,
+runbook_file,INFRA,,,,,,INFRA-M365-Exchange_Online_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-M365-Exchange_Online_V2.md,
+runbook_file,INFRA,,,,,,INFRA-M365-Intune_Devices_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-M365-Intune_Devices_V2.md,
+runbook_file,INFRA,,,,,,INFRA-M365-Teams_SharePoint_OneDrive_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-M365-Teams_SharePoint_OneDrive_V2.md,
+runbook_file,INFRA,,,,,,INFRA-M365-UserManagement_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-M365-UserManagement_V2.md,
+runbook_file,INFRA,,,,,,INFRA-M365-UserOnboarding_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-M365-UserOnboarding_V2.md,
+runbook_file,INFRA,,,,,,INFRA-NET-Fortinet_Operations_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-NET-Fortinet_Operations_V2.md,
+runbook_file,INFRA,,,,,,INFRA-NET-Meraki_Operations_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-NET-Meraki_Operations_V2.md,
+runbook_file,INFRA,,,,,,INFRA-NET-NetworkDiagnostic_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-NET-NetworkDiagnostic_V2.md,
+runbook_file,INFRA,,,,,,INFRA-NET-NetworkSetup_V1,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-NET-NetworkSetup_V1.md,
+runbook_file,INFRA,,,,,,INFRA-NET-SonicWall_Operations_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-NET-SonicWall_Operations_V2.md,
+runbook_file,INFRA,,,,,,INFRA-NET-Unifi_Mikrotik_Operations_V1,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-NET-Unifi_Mikrotik_Operations_V1.md,
+runbook_file,INFRA,,,,,,INFRA-NET-WatchGuard_Operations_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-NET-WatchGuard_Operations_V2.md,
+runbook_file,INFRA,,,,,,INFRA-OPS-QuickStart_V1,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-OPS-QuickStart_V1.md,
+runbook_file,INFRA,,,,,,INFRA-SRV-HealthCheck_Template_V1,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-SRV-HealthCheck_Template_V1.md,
+runbook_file,INFRA,,,,,,INFRA-SRV-HyperV_Operations_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-SRV-HyperV_Operations_V2.md,
+runbook_file,INFRA,,,,,,INFRA-SRV-NewVM_Deployment_V1,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-SRV-NewVM_Deployment_V1.md,
+runbook_file,INFRA,,,,,,INFRA-SRV-RDS_Operations_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-SRV-RDS_Operations_V2.md,
+runbook_file,INFRA,,,,,,INFRA-SRV-SQL_PrePost_Validation_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-SRV-SQL_PrePost_Validation_V2.md,
+runbook_file,INFRA,,,,,,INFRA-SRV-VMware_Operations_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-SRV-VMware_Operations_V2.md,
+runbook_file,INFRA,,,,,,INFRA-SRV-XCPng_Operations_V1,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-SRV-XCPng_Operations_V1.md,
+runbook_file,INFRA,,,,,,INFRA-VOIP-Diagnostic_V2,IT-SHARED/10_RUNBOOKS/INFRA/INFRA-VOIP-Diagnostic_V2.md,
+runbook_file,MAINTENANCE,,,,,,MAINT-OPS-CMDB_AssetAudit_V1,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT-OPS-CMDB_AssetAudit_V1.md,
+runbook_file,MAINTENANCE,,,,,,MAINT-SRV-AuditTrimestriel_V2,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT-SRV-AuditTrimestriel_V2.md,
+runbook_file,MAINTENANCE,,,,,,MAINT-SRV-HealthCheck_V2,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT-SRV-HealthCheck_V2.md,
+runbook_file,MAINTENANCE,,,,,,MAINT-SRV-PostShutdown_Electrical_V2,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT-SRV-PostShutdown_Electrical_V2.md,
+runbook_file,MAINTENANCE,,,,,,MAINT-SRV-PrintServer_PrePost_V1,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT-SRV-PrintServer_PrePost_V1.md,
+runbook_file,MAINTENANCE,,,,,,MAINT-WIN-Patching CW-RMM V3,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT-WIN-Patching_CW-RMM_V3.md,
+runbook_file,MAINTENANCE,,,,,,MAINT-WIN-Patching_Complet_V3,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT-WIN-Patching_Complet_V3.md,
+runbook_file,MAINTENANCE,,,,,,MAINT-WIN-PendingReboot_V2,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT-WIN-PendingReboot_V2.md,
+runbook_file,MAINTENANCE,,,,,,MAINT-WIN-WSUS_Maintenance_V2,IT-SHARED/10_RUNBOOKS/MAINTENANCE/MAINT-WIN-WSUS_Maintenance_V2.md,
+runbook_file,NOC,,,,,,NOC-BACKUP-Backup_Configuration_V2,IT-SHARED/10_RUNBOOKS/NOC/NOC-BACKUP-Backup_Configuration_V2.md,
+runbook_file,NOC,,,,,,NOC-BACKUP-DR_Plan_Validation_V2,IT-SHARED/10_RUNBOOKS/NOC/NOC-BACKUP-DR_Plan_Validation_V2.md,
+runbook_file,NOC,,,,,,NOC-BACKUP-DR_Test_V2,IT-SHARED/10_RUNBOOKS/NOC/NOC-BACKUP-DR_Test_V2.md,
+runbook_file,NOC,,,,,,NOC-BACKUP-Datto_Operations_V2,IT-SHARED/10_RUNBOOKS/NOC/NOC-BACKUP-Datto_Operations_V2.md,
+runbook_file,NOC,,,,,,NOC-BACKUP-Keepit_Operations_V2,IT-SHARED/10_RUNBOOKS/NOC/NOC-BACKUP-Keepit_Operations_V2.md,
+runbook_file,NOC,,,,,,NOC-BACKUP-Restore_Test_Trimestriel_V1,IT-SHARED/10_RUNBOOKS/NOC/NOC-BACKUP-Restore_Test_Trimestriel_V1.md,
+runbook_file,NOC,,,,,,NOC-BACKUP-Validation_Statut_Sauvegardes_V1,IT-SHARED/10_RUNBOOKS/NOC/NOC-BACKUP-Validation_Statut_Sauvegardes_V1.md,
+runbook_file,NOC,,,,,,NOC-BACKUP-Veeam_Cloud_V2,IT-SHARED/10_RUNBOOKS/NOC/NOC-BACKUP-Veeam_Cloud_V2.md,
+runbook_file,NOC,,,,,,NOC-BACKUP-Veeam_Operations_V2,IT-SHARED/10_RUNBOOKS/NOC/NOC-BACKUP-Veeam_Operations_V2.md,
+runbook_file,NOC,,,,,,NOC-OPS-CommandCenter_V2,IT-SHARED/10_RUNBOOKS/NOC/NOC-OPS-CommandCenter_V2.md,
+runbook_file,NOC,,,,,,NOC-OPS-Dispatch_V2,IT-SHARED/10_RUNBOOKS/NOC/NOC-OPS-Dispatch_V2.md,
+runbook_file,NOC,,,,,,NOC-OPS-FrontDoor_V2,IT-SHARED/10_RUNBOOKS/NOC/NOC-OPS-FrontDoor_V2.md,
+runbook_file,NOC,,,,,,NOC-OPS-IncidentCommand_V2,IT-SHARED/10_RUNBOOKS/NOC/NOC-OPS-IncidentCommand_V2.md,
+runbook_file,NOC,,,,,,NOC-RMM-CWRMM_Auvik_Operations_V2,IT-SHARED/10_RUNBOOKS/NOC/NOC-RMM-CWRMM_Auvik_Operations_V2.md,
+runbook_file,NOC,,,,,,NOC-RMM-NAble_Operations_V2,IT-SHARED/10_RUNBOOKS/NOC/NOC-RMM-NAble_Operations_V2.md,
+runbook_file,OPR,,,,,,OPR-CMDB-Reconciliation-CW-Hudu-RMM_V1,IT-SHARED/10_RUNBOOKS/OPR/OPR-CMDB-Reconciliation-CW-Hudu-RMM_V1.md,
+runbook_file,OPR,,,,,,OPR-CW-TicketQualityAudit_V1,IT-SHARED/10_RUNBOOKS/OPR/OPR-CW-TicketQualityAudit_V1.md,
+runbook_file,OPR,,,,,,OPR-ClientCommunication-Cadence_V1,IT-SHARED/10_RUNBOOKS/OPR/OPR-ClientCommunication-Cadence_V1.md,
+runbook_file,OPR,,,,,,OPR-RUNBOOK-SKELETON,IT-SHARED/10_RUNBOOKS/OPR/OPR-EOL-EOS-RiskRegister_V1.md,
+runbook_file,OPR,,,,,,OPR-RUNBOOK-SKELETON,IT-SHARED/10_RUNBOOKS/OPR/OPR-Handoff-ShiftChange_V1.md,
+runbook_file,OPR,,,,,,OPR-RUNBOOK-SKELETON,IT-SHARED/10_RUNBOOKS/OPR/OPR-Monthly-Client-OpsPack_V1.md,
+runbook_file,OPR,,,,,,OPR-PostIncident-Review-P1P2_V1,IT-SHARED/10_RUNBOOKS/OPR/OPR-PostIncident-Review-P1P2_V1.md,
+runbook_file,OPR,,,,,,OPR-ProblemManagement-CAPA_V1,IT-SHARED/10_RUNBOOKS/OPR/OPR-ProblemManagement-CAPA_V1.md,
+runbook_file,OPR,,,,,,OPR-RUNBOOK-SKELETON,IT-SHARED/10_RUNBOOKS/OPR/OPR-QBR-DataCollection_V1.md,
+runbook_file,OPR,,,,,,OPR-SLA-BreachPrevention_V1,IT-SHARED/10_RUNBOOKS/OPR/OPR-SLA-BreachPrevention_V1.md,
+runbook_file,OPR,,,,,,OPR-RUNBOOK-SKELETON,IT-SHARED/10_RUNBOOKS/OPR/OPR-Weekly-OpsReview_V1.md,
+runbook_file,PROJET,,,,,,RUNBOOK — Processus Projet & SOW MSP,IT-SHARED/10_RUNBOOKS/PROJET/PROJET-SOW_Process_V1.md,
+runbook_file,RUNBOOKS_MD,,,,,,RUNBOOK — DC patching & prechecks (Windows Updates) — RUNBOOK__DC_PATCHING_PRECHECK,IT-SHARED/10_RUNBOOKS/RUNBOOKS_MD/RUNBOOK__DC_PATCHING_PRECHECK.md,
+runbook_file,RUNBOOKS_MD,,,,,,RUNBOOK__SERVER_ROLE_DISCOVERY,IT-SHARED/10_RUNBOOKS/RUNBOOKS_MD/RUNBOOK__SERVER_ROLE_DISCOVERY.md,
+runbook_file,ROOT,,,,,,RUNBOOK_MASTER__IT_v2,IT-SHARED/10_RUNBOOKS/RUNBOOK_MASTER__IT_v2.md,
+runbook_file,SECURITY,,,,,,SEC-COMPLIANCE-5Piliers_Framework_V1,IT-SHARED/10_RUNBOOKS/SECURITY/SEC-COMPLIANCE-5Piliers_Framework_V1.md,
+runbook_file,SECURITY,,,,,,SEC-ENTRA-SecurityCompliance_V1,IT-SHARED/10_RUNBOOKS/SECURITY/SEC-ENTRA-SecurityCompliance_V1.md,
+runbook_file,SECURITY,,,,,,SEC-M365-Compliance_Purview_V2,IT-SHARED/10_RUNBOOKS/SECURITY/SEC-M365-Compliance_Purview_V2.md,
+runbook_file,SECURITY,,,,,,SEC-OPS-LicenseAudit_V2,IT-SHARED/10_RUNBOOKS/SECURITY/SEC-OPS-LicenseAudit_V2.md,
+runbook_file,SECURITY,,,,,,SEC-PURVIEW-ComplianceAudit_V1,IT-SHARED/10_RUNBOOKS/SECURITY/SEC-PURVIEW-ComplianceAudit_V1.md,
+runbook_file,SECURITY,,,,,,SEC-SECU-AlertResponse V2,IT-SHARED/10_RUNBOOKS/SECURITY/SEC-SECU-AlertResponse_V2.md,
+runbook_file,SECURITY,,,,,,SEC-SECU-IncidentResponse_V3,IT-SHARED/10_RUNBOOKS/SECURITY/SEC-SECU-IncidentResponse_V3.md,
+runbook_file,SECURITY,,,,,,SEC-SECU-SecurityAudit V2,IT-SHARED/10_RUNBOOKS/SECURITY/SEC-SECU-SecurityAudit_V2.md,
+runbook_file,SUPPORT,,,,,,RUNBOOK — IT MSP: Dispatch ConnectWise (Type/Sub-type) + NOC Cells (OPS Ready),IT-SHARED/10_RUNBOOKS/SUPPORT/RUNBOOK__IT_MSP_CONNECTWISE_DISPATCH_V1.md,
+runbook_file,SUPPORT,,,,,,SUP-M365-OneDrive_SharePoint_Sync_V2,IT-SHARED/10_RUNBOOKS/SUPPORT/SUP-M365-OneDrive_SharePoint_Sync_V2.md,
+runbook_file,SUPPORT,,,,,,SUP-N1N2-SupportTriage V2,IT-SHARED/10_RUNBOOKS/SUPPORT/SUP-N1N2-SupportTriage_V2.md,
+runbook_file,SUPPORT,,,,,,SUP-N2-Support_V2,IT-SHARED/10_RUNBOOKS/SUPPORT/SUP-N2-Support_V2.md,
+runbook_file,SUPPORT,,,,,,SUP-NET-VPN_Troubleshooting_V2,IT-SHARED/10_RUNBOOKS/SUPPORT/SUP-NET-VPN_Troubleshooting_V2.md,
+runbook_file,SUPPORT,,,,,,SUP-OPS-CW_Dispatch_V2,IT-SHARED/10_RUNBOOKS/SUPPORT/SUP-OPS-CW_Dispatch_V2.md,
+runbook_file,SUPPORT,,,,,,SUP-OPS-CW_InterventionLive_Close_V2,IT-SHARED/10_RUNBOOKS/SUPPORT/SUP-OPS-CW_InterventionLive_Close_V2.md,
+runbook_file,SUPPORT,,,,,,SUP-OPS-CommandareOPR_V1,IT-SHARED/10_RUNBOOKS/SUPPORT/SUP-OPS-CommandareOPR_V1.md,
+runbook_file,SUPPORT,,,,,,SUP-OPS-CommandareTech_V1,IT-SHARED/10_RUNBOOKS/SUPPORT/SUP-OPS-CommandareTech_V1.md,
+runbook_file,SUPPORT,,,,,,SUP-OPS-TicketToKB_V2,IT-SHARED/10_RUNBOOKS/SUPPORT/SUP-OPS-TicketToKB_V2.md,
+runbook_file,SUPPORT,,,,,,SUP-WKS-Alerte_AV_V1,IT-SHARED/10_RUNBOOKS/SUPPORT/WKS/SUP-WKS-Alerte_AV_V1.md,
+runbook_file,SUPPORT,,,,,,SUP-WKS-Imprimante_V1,IT-SHARED/10_RUNBOOKS/SUPPORT/WKS/SUP-WKS-Imprimante_V1.md,
+runbook_file,SUPPORT,,,,,,SUP-WKS-Login_V1,IT-SHARED/10_RUNBOOKS/SUPPORT/WKS/SUP-WKS-Login_V1.md,
+runbook_file,SUPPORT,,,,,,SUP-WKS-Offboarding_V1,IT-SHARED/10_RUNBOOKS/SUPPORT/WKS/SUP-WKS-Offboarding_V1.md,
+runbook_file,SUPPORT,,,,,,SUP-WKS-Onboarding_Poste_V1,IT-SHARED/10_RUNBOOKS/SUPPORT/WKS/SUP-WKS-Onboarding_Poste_V1.md,
+runbook_file,SUPPORT,,,,,,SUP-WKS-Outlook_V1,IT-SHARED/10_RUNBOOKS/SUPPORT/WKS/SUP-WKS-Outlook_V1.md,
+runbook_file,SUPPORT,,,,,,SUP-WKS-Partage_Reseau_V1,IT-SHARED/10_RUNBOOKS/SUPPORT/WKS/SUP-WKS-Partage_Reseau_V1.md,
+runbook_file,SUPPORT,,,,,,SUP-WKS-Poste_Lent_V1,IT-SHARED/10_RUNBOOKS/SUPPORT/WKS/SUP-WKS-Poste_Lent_V1.md,
+runbook_file,SUPPORT,,,,,,SUP-WKS-Profil_Corrompu_V1,IT-SHARED/10_RUNBOOKS/SUPPORT/WKS/SUP-WKS-Profil_Corrompu_V1.md,
+runbook_file,SUPPORT,,,,,,SUP-WKS-Teams_AV_V1,IT-SHARED/10_RUNBOOKS/SUPPORT/WKS/SUP-WKS-Teams_AV_V1.md,
+runbook_file,SUPPORT,,,,,,SUP-WKS-VPN_Client_V1,IT-SHARED/10_RUNBOOKS/SUPPORT/WKS/SUP-WKS-VPN_Client_V1.md,
