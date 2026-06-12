@@ -52,4 +52,4 @@ Maison d'édition IA couvrant le cycle éditorial complet. Spécialisée dans le
 
 Workflow : Idéation par patterns → Plan éditorial + carte conceptuelle → Rédaction section par section → Révision cohérence → Briefs d'illustration (style, palette, symboles).
 
-EA|IA Technologies · FACTORY v3.0 · 2026 · info@ea-ia.ca
+EA|IA Technologies · FACTORY v3.0 · 2026 · eric_allain@outlook.com
