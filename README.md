@@ -138,7 +138,7 @@ La page sera disponible à `https://<username>.github.io/ea-ia` ou sur votre dom
 
 ## Contact & Démo
 
-📩 **eric_allain@outlook.com**
+📩 **info@ea-ia.ca**
 📅 **Démo 30 min** — Apportez un workflow, un document ou un problème récurrent de votre secteur.
 
 ---
