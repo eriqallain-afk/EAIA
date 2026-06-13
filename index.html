@@ -1,29 +1,784 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EA|IA — Intelligence artificielle opérationnelle</title>
-<meta name="description" content="EA|IA : Factory d’agents IA opérationnels par secteur — MSP, marketing IA, santé mentale non médicale, design intérieur, marchés, éducation et édition.">
-
-<meta property="og:type" content="website">
+<meta name="description" content="EA|IA : Factory d'agents IA opérationnels par secteur — MSP, marketing IA, santé mentale non médicale, design intérieur, marchés, éducation et édition.">
 <meta property="og:title" content="EA|IA — Intelligence artificielle opérationnelle">
-<meta property="og:description" content="Factory d’agents IA opérationnels par secteur : MSP, marketing IA, santé mentale, design intérieur, marchés, éducation et édition.">
+<meta property="og:description" content="Factory d'agents IA opérationnels par secteur : MSP, marketing IA, santé mentale, design intérieur, marchés, éducation et édition.">
 <meta property="og:image" content="og-image-1280x480.png">
+<meta property="og:url" content="https://www.ea-ia.ca">
+<meta property="og:type" content="website">
 <meta property="og:locale" content="fr_CA">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EA|IA — Intelligence artificielle opérationnelle">
+<meta name="twitter:description" content="Factory d'agents IA opérationnels par secteur. Des armées d'agents, pas des chatbots génériques.">
+<meta name="twitter:image" content="og-image-1280x480.png">
+<link rel="icon" type="image/png" href="LOGO.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--black:#000;--dark:#080808;--dark2:#0e0e0e;--dark3:#141414;--gold:#c8952a;--gold-light:#e4b84a;--silver:#b8bcc8;--silver-light:#d8dce8;--white:#fff;--muted:rgba(255,255,255,.52);--muted2:rgba(255,255,255,.25);--border:rgba(200,149,42,.2);--border2:rgba(255,255,255,.08);--ok:#79d28b;--warn:#f2be61;--max:1160px}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--black);color:var(--white);font-family:Outfit,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.65;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(200,149,42,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(200,149,42,.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;z-index:0}a{color:inherit;text-decoration:none}nav,section,footer{position:relative;z-index:1}nav{display:flex;justify-content:space-between;align-items:center;gap:28px;padding:22px 64px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.92);position:sticky;top:0;z-index:100;backdrop-filter:blur(24px)}.nav-brand{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:0}.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:4px;line-height:1;white-space:nowrap}.nav-logo-text .ea{color:var(--gold)}.nav-logo-text .sep{color:rgba(200,149,42,.5);margin:0 2px}.nav-logo-text .ia{color:var(--silver-light)}.nav-tagline{font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(200,149,42,.58);letter-spacing:3px;text-transform:uppercase;white-space:nowrap;line-height:1}.nav-links{display:flex;gap:34px;list-style:none}.nav-links a{color:var(--muted);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase}.nav-links a:hover{color:var(--gold-light)}.nav-cta{border:1px solid var(--gold);color:var(--gold);padding:8px 15px;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;white-space:nowrap;background:transparent}.nav-cta:hover{background:var(--gold);color:var(--black)}.hero{min-height:calc(100vh - 85px);display:flex;flex-direction:column;justify-content:center;padding:98px 64px 78px;overflow:hidden}.orb{position:absolute;top:-22%;right:-8%;width:700px;height:700px;border-radius:50%;border:1px solid rgba(200,149,42,.08);pointer-events:none}.orb:before{content:"";position:absolute;inset:40px;border-radius:50%;border:1px solid rgba(200,149,42,.05)}.orb-glow{position:absolute;top:50%;right:3%;transform:translateY(-50%);width:520px;height:520px;background:radial-gradient(ellipse,rgba(200,149,42,.075) 0%,transparent 65%);pointer-events:none}.label,.s-label{display:flex;align-items:center;gap:16px;margin-bottom:30px}.label-line,.s-label-line{width:48px;height:1px;background:var(--gold)}.label-text,.s-label-text{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold-light);letter-spacing:4px;text-transform:uppercase}.eyebrow{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--silver);letter-spacing:8px;text-transform:uppercase;margin-bottom:20px}.hero h1,.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,68px);font-weight:300;line-height:.95;letter-spacing:-1px;margin-bottom:18px;max-width:1000px}.hero h1 em,.s-title em{font-style:italic;color:var(--gold-light)}.hero h1 strong,.s-title strong{font-weight:600;color:var(--white)}.product-tag{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gold);letter-spacing:3px;margin:16px 0 34px;text-transform:uppercase}.hero-sub,.s-sub{font-size:17px;color:var(--muted);max-width:780px;line-height:1.8;font-weight:300}.hero-sub strong{color:var(--white);font-weight:600}.metrics{display:flex;gap:0;margin:42px 0 38px;border:1px solid var(--border);width:fit-content;flex-wrap:wrap}.metric{padding:20px 30px;border-right:1px solid var(--border);min-width:132px}.metric:last-child{border-right:0}.metric-n{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--gold-light);line-height:1}.metric-l{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:6px}.actions{display:flex;gap:18px;flex-wrap:wrap}.btn-gold,.btn-outline{display:inline-flex;align-items:center;justify-content:center;padding:15px 38px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}.btn-gold{background:var(--gold);color:var(--black);border:1px solid var(--gold)}.btn-outline{border:1px solid rgba(200,149,42,.42);color:var(--gold-light)}.firm-band{background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px}.firm-band-name{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:5px;color:var(--gold-light);text-transform:uppercase}.firm-band-desc{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted2);letter-spacing:2px;text-transform:uppercase;margin-top:6px}.firm-products{display:flex;gap:2px;flex-wrap:wrap}.firm-product{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;padding:6px 14px;border:1px solid rgba(200,149,42,.16);color:rgba(200,149,42,.7);text-transform:uppercase}.firm-product.active{border-color:var(--gold);color:var(--gold-light);background:rgba(200,149,42,.12)}.ticker{overflow:hidden;border-bottom:1px solid var(--border2);padding:12px 0;background:var(--dark3)}.ticker-inner{display:inline-flex;gap:48px;animation:ticker 35s linear infinite;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.22);white-space:nowrap}.ticker-inner span{color:rgba(200,149,42,.68)}@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}.s-pad{padding:92px 64px}.dark-band{background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.split{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}.terminal{background:#050505;border:1px solid rgba(200,149,42,.25);padding:28px;position:relative}.terminal:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}.t-bar{display:flex;gap:8px;margin-bottom:20px;align-items:center}.t-dot{width:9px;height:9px;border-radius:50%}.t-dot:nth-child(1){background:#ff5f57}.t-dot:nth-child(2){background:#febc2e}.t-dot:nth-child(3){background:#28c840}.t-bar-title{margin-left:8px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted2);letter-spacing:2px}.t-line{font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.74}.t-gray{color:var(--muted2)}.t-gold{color:var(--gold-light)}.t-silver{color:var(--silver)}.t-green{color:#4ade80}.t-white{color:var(--white)}.card-grid{max-width:var(--max);margin:50px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}.pro-card{background:var(--dark);padding:30px 26px;min-height:228px;transition:.25s}.pro-card:hover{background:#0c0c0c}.card-n{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(200,149,42,.55);letter-spacing:2px;margin-bottom:16px;text-transform:uppercase}.card-icon{font-size:24px;margin-bottom:12px}.card-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;margin-bottom:10px;line-height:1.08}.card-sub{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}.card-desc{font-size:13.5px;color:var(--muted);line-height:1.68;margin-bottom:14px}.army-status{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gold-light);letter-spacing:1.4px;text-transform:uppercase;margin-top:8px}.status-prod{color:var(--ok)}.status-coming{color:var(--warn)}.card-link{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;border-top:1px solid var(--border2);padding-top:14px;display:inline-block;margin-top:12px}.note-box{max-width:var(--max);margin:40px auto 0;border:1px solid var(--border);background:linear-gradient(180deg,rgba(200,149,42,.08),rgba(255,255,255,.02));padding:28px;color:var(--muted)}.note-box strong{color:var(--white)}.cta-section{padding:104px 64px;text-align:center;overflow:hidden}.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,8vw,86px);font-weight:300;line-height:.96;margin-bottom:26px}.cta-section h2 em{font-style:italic;color:var(--gold-light)}.cta-section p{color:var(--muted);font-size:17px;margin:0 auto 40px;max-width:620px;line-height:1.75}footer{border-top:1px solid var(--border);padding:36px 64px;display:flex;justify-content:space-between;gap:18px;background:var(--dark)}.footer-brand{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:4px;color:var(--gold)}.footer-brand span{color:rgba(200,149,42,.5);margin:0 4px}.footer-brand em{color:var(--silver);font-style:normal}.footer-right{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted2);letter-spacing:2px;text-align:right;text-transform:uppercase;line-height:1.8}@media(max-width:1100px){.nav-links{display:none}.split{grid-template-columns:1fr}.card-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:720px){nav{padding:12px 12px!important;gap:8px!important}.nav-brand{gap:2px!important;align-items:flex-start!important}.nav-logo-text{font-size:18px!important;letter-spacing:3px!important}.nav-tagline{display:block!important;font-size:5.8px!important;letter-spacing:1.15px!important;max-width:185px!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}.nav-cta{padding:5px 7px!important;font-size:7px!important;letter-spacing:.55px!important;line-height:1!important;max-width:58px!important;width:auto!important;min-width:0!important;overflow:hidden!important;text-align:center!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important}.hero,.s-pad,.firm-band,.cta-section,footer{padding-left:24px;padding-right:24px}.hero{padding-top:74px;min-height:auto}.hero h1{font-size:52px}.metrics{display:grid;width:100%;grid-template-columns:1fr}.metric{border-right:0;border-bottom:1px solid var(--border)}.firm-band{flex-direction:column;align-items:flex-start}.card-grid{grid-template-columns:1fr}.actions{align-items:stretch}.btn-gold,.btn-outline{width:100%}footer{flex-direction:column;align-items:flex-start}.footer-right{text-align:left}}@media(max-width:380px){.nav-tagline{max-width:150px!important;font-size:5.4px!important;letter-spacing:.75px!important}.nav-cta{max-width:50px!important;padding:5px 6px!important}}
-.hero-wrap{max-width:var(--max);width:100%;margin:0 auto}.card-hero-img{width:calc(100% + 52px);height:140px;object-fit:cover;display:block;margin:-30px -26px 20px}</style>
+:root {
+  --black: #000000;
+  --dark: #080808;
+  --dark2: #0E0E0E;
+  --dark3: #141414;
+  --gold: #C8952A;
+  --gold-light: #E4B84A;
+  --gold-dim: rgba(200,149,42,0.15);
+  --silver: #B8BCC8;
+  --silver-light: #D8DCE8;
+  --white: #FFFFFF;
+  --muted: rgba(255,255,255,0.56);
+  --muted2: rgba(255,255,255,0.25);
+  --border: rgba(200,149,42,0.18);
+  --border2: rgba(255,255,255,0.08);
+  --ok: #79D28B;
+  --warn: #F2BE61;
+  --max: 1160px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,149,42,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,149,42,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 75% 18%, rgba(200,149,42,0.09), transparent 32%),
+              radial-gradient(circle at 12% 70%, rgba(200,149,42,0.045), transparent 28%);
+  pointer-events: none;
+  z-index: 0;
+}
+section, nav, footer, header, div, main { position: relative; z-index: 1; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  padding: 22px 64px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.92);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(24px);
+}
+.nav-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-width: 0; }
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.nav-logo-text .ea { color: var(--gold); }
+.nav-logo-text .sep { color: rgba(200,149,42,0.5); margin: 0 2px; }
+.nav-logo-text .ia { color: var(--silver-light); }
+.nav-tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: rgba(200,149,42,0.5);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+.nav-links a {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold-light); }
+.nav-cta {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 10px 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--gold); color: var(--black); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 96px 64px 84px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.82) 48%, rgba(0,0,0,0.60) 72%, rgba(0,0,0,0.65) 100%),
+    url('img/MSP_OS_Hero_16x9.png') center right / cover no-repeat;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 14% 44%, rgba(200,149,42,0.11) 0%, transparent 42%);
+  pointer-events: none;
+}
+.hero-orb {
+  position: absolute;
+  top: -20%;
+  right: -8%;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,149,42,0.08);
+  pointer-events: none;
+}
+.hero-orb::before {
+  content: '';
+  position: absolute;
+  inset: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,149,42,0.05);
+}
+.hero-wrap { max-width: var(--max); width: 100%; margin: 0 auto; position: relative; }
+.hero-badge {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+  opacity: 0.18;
+  pointer-events: none;
+  display: none;
+}
+@media (min-width: 1240px) { .hero-badge { display: block; } }
+
+.hero-slogan {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2vw, 26px);
+  font-style: italic;
+  color: var(--gold-light);
+  line-height: 1.3;
+  margin: 14px 0 28px;
+  max-width: 900px;
+  transition: opacity .35s ease, transform .35s ease;
+}
+.hero-slogan.is-changing { opacity: 0; transform: translateY(4px); }
+
+.hero-label, .s-label { display: flex; align-items: center; gap: 16px; }
+.hero-label { margin-bottom: 34px; }
+.hero-label-line, .s-label-line { width: 48px; height: 1px; background: var(--gold); }
+.hero-label-text, .s-label-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.hero-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--silver);
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(58px, 8vw, 112px);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -1px;
+  max-width: 1010px;
+  margin-bottom: 18px;
+}
+h1 em, .s-title em { font-style: italic; color: var(--gold-light); }
+h1 strong, .s-title strong { color: var(--white); font-weight: 600; }
+.hero-product-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 2.5px;
+  margin: 18px 0 0;
+  text-transform: uppercase;
+}
+.hero-sub {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 790px;
+  line-height: 1.85;
+  margin-bottom: 50px;
+  font-weight: 300;
+}
+.hero-sub strong { color: var(--white); font-weight: 600; }
+.hero-metrics {
+  display: flex;
+  gap: 0;
+  margin-bottom: 54px;
+  border: 1px solid var(--border);
+  width: fit-content;
+  flex-wrap: wrap;
+  background: rgba(8,8,8,0.70);
+}
+.hero-metric {
+  padding: 20px 30px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 136px;
+}
+.hero-metric:last-child { border-right: none; }
+.hero-metric-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--gold-light);
+  line-height: 1;
+}
+.hero-metric-l {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.hero-actions { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+
+/* BUTTONS */
+.btn-gold, .btn-outline {
+  padding: 16px 44px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: all 0.25s;
+}
+.btn-gold { background: var(--gold); color: var(--black); }
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+.btn-outline { border: 1px solid rgba(200,149,42,0.4); color: var(--gold); }
+.btn-outline:hover { border-color: var(--gold); background: var(--gold-dim); transform: translateY(-2px); }
+
+/* TRUST BAND */
+.trust-band {
+  background:
+    linear-gradient(rgba(8,8,8,0.88), rgba(8,8,8,0.92)),
+    url('img/FACEBOOK-Bandeau.png') center / cover no-repeat;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 78px 64px;
+}
+.trust-wrap { max-width: var(--max); margin: 0 auto; }
+.trust-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.trust-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+.trust-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 4.4vw, 52px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  margin-bottom: 18px;
+}
+.trust-title em { font-style: italic; color: var(--gold-light); }
+.trust-lead {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.85;
+  max-width: 840px;
+  font-weight: 300;
+  margin-bottom: 48px;
+}
+.trust-lead strong { color: var(--white); font-weight: 600; }
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.trust-card { background: var(--dark2); padding: 34px 30px; position: relative; overflow: hidden; transition: background 0.25s; }
+.trust-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; transform-origin: left; }
+.trust-card:hover { background: #121212; }
+.trust-card:hover::after { transform: scaleX(1); }
+.trust-card-mark { font-family: 'JetBrains Mono', monospace; font-size: 26px; color: var(--gold); line-height: 1; margin-bottom: 18px; }
+.trust-card-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+.trust-card p { font-size: 13.5px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+/* FIRM BAND / TICKER */
+.firm-band {
+  background: var(--dark2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.firm-band-left { display: flex; flex-direction: column; gap: 6px; }
+.firm-band-name { font-family: 'Cormorant Garamond', serif; font-size: 16px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
+.firm-band-desc { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted2); letter-spacing: 2px; text-transform: uppercase; }
+.firm-products { display: flex; gap: 2px; flex-wrap: wrap; }
+.firm-product { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 1.5px; padding: 6px 14px; border: 1px solid rgba(200,149,42,0.15); color: rgba(200,149,42,0.56); text-transform: uppercase; }
+.firm-product.active { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+.ticker { overflow: hidden; border-bottom: 1px solid var(--border2); padding: 12px 0; background: var(--dark3); }
+.ticker-inner { display: inline-flex; gap: 48px; animation: ticker 40s linear infinite; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.22); white-space: nowrap; }
+.ticker-inner span { color: rgba(200,149,42,0.66); }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* SECTIONS */
+.s-pad { padding: 96px 64px; }
+.content-wrap, .modules-header { max-width: var(--max); margin: 0 auto; }
+.s-label { margin-bottom: 20px; }
+.s-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 6vw, 82px); font-weight: 300; line-height: 0.95; letter-spacing: -0.5px; margin-bottom: 24px; }
+.s-sub { color: var(--muted); font-size: 16px; max-width: 820px; line-height: 1.85; font-weight: 300; margin-bottom: 48px; }
+.dark-band { background: var(--dark2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+/* PROBLEM */
+.problem-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.problem-pains { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); background: rgba(5,5,5,0.7); }
+.pain-item { padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; gap: 16px; align-items: flex-start; transition: background 0.2s; }
+.pain-item:last-child { border-bottom: none; }
+.pain-item:hover { background: var(--gold-dim); }
+.pain-icon { font-size: 11px; color: var(--gold); margin-top: 3px; font-family: 'JetBrains Mono', monospace; flex-shrink: 0; }
+.pain-text { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.pain-text strong { color: var(--white); font-weight: 600; }
+
+/* TERMINAL */
+.terminal { background: #050505; border: 1px solid rgba(200,149,42,0.25); padding: 28px; position: relative; margin-top: 52px; }
+.terminal::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.t-bar { display: flex; gap: 8px; margin-bottom: 20px; align-items: center; }
+.t-dot { width: 9px; height: 9px; border-radius: 50%; }
+.t-dot:nth-child(1) { background: #FF5F57; }
+.t-dot:nth-child(2) { background: #FEBC2E; }
+.t-dot:nth-child(3) { background: #28C840; }
+.t-bar-title { margin-left: 8px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.22); letter-spacing: 2px; }
+.t-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.t-line { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; line-height: 1.8; margin-bottom: 2px; }
+.t-gray { color: rgba(255,255,255,0.25); }
+.t-gold { color: var(--gold); }
+.t-silver { color: var(--silver); }
+.t-green { color: #4ADE80; }
+.t-white { color: var(--white); }
+.cursor { display: inline-block; width: 7px; height: 12px; background: var(--gold); animation: blink 1.2s infinite; vertical-align: middle; }
+@keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+
+/* ARMÉES GRID */
+.modules-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.mod-card { background: var(--dark); padding: 34px 28px; transition: background 0.25s; position: relative; overflow: hidden; min-height: 235px; display: block; }
+.mod-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; transform-origin: left; }
+.mod-card:hover { background: #0C0C0C; }
+.mod-card:hover::after { transform: scaleX(1); }
+.mod-n { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: rgba(200,149,42,0.35); letter-spacing: 2px; margin-bottom: 18px; }
+.mod-name { font-family: 'Cormorant Garamond', serif; font-size: 29px; font-weight: 600; letter-spacing: 0.4px; margin-bottom: 8px; color: var(--white); }
+.mod-sub { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
+.mod-desc { font-size: 13px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+.mod-status { font-family: 'JetBrains Mono', monospace; font-size: 9px; margin-top: 14px; letter-spacing: 1px; text-transform: uppercase; }
+.mod-status.prod { color: var(--ok); }
+.mod-status.dev { color: var(--warn); }
+.mod-link { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gold-light); letter-spacing: 1.5px; text-transform: uppercase; border-top: 1px solid var(--border2); padding-top: 14px; display: inline-block; margin-top: 12px; }
+.mod-card-img { width: calc(100% + 56px); height: 130px; object-fit: cover; display: block; margin: -34px -28px 22px; }
+
+/* ARSENAL */
+.arsenal {
+  background:
+    linear-gradient(90deg, rgba(14,14,14,0.95) 0%, rgba(14,14,14,0.72) 48%, rgba(14,14,14,0.15) 100%),
+    url('img/MSP_OS_Hero_16x9.png') center right / cover no-repeat;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.arsenal-grid { max-width: var(--max); margin: 48px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.arsenal-block { background: var(--dark); padding: 40px 32px; }
+.arsenal-n { font-family: 'Cormorant Garamond', serif; font-size: 68px; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+.arsenal-unit { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: rgba(200,149,42,0.6); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+.arsenal-desc { color: var(--muted); font-size: 14px; line-height: 1.75; font-weight: 300; }
+
+/* QUOTE */
+.quote-section {
+  background:
+    linear-gradient(rgba(8,8,8,0.78), rgba(8,8,8,0.82)),
+    url('img/MSP_OS_Banniere_LinkedIn.png') center / cover no-repeat;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 96px 64px;
+  text-align: center;
+}
+.quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 120px; color: rgba(200,149,42,0.08); line-height: 0.5; margin-bottom: 20px; font-style: italic; }
+.quote-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 34px); font-weight: 300; font-style: italic; max-width: 960px; margin: 0 auto 28px; line-height: 1.55; color: var(--silver-light); }
+.quote-text strong { font-style: normal; color: var(--gold-light); }
+.quote-attr { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted2); letter-spacing: 3px; text-transform: uppercase; }
+
+/* CTA */
+.cta-section { padding: 120px 64px; text-align: center; position: relative; overflow: hidden; }
+.cta-orb { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; height: 500px; border-radius: 50%; border: 1px solid rgba(200,149,42,0.06); pointer-events: none; }
+.cta-orb::before { content: ''; position: absolute; inset: 60px; border-radius: 50%; border: 1px solid rgba(200,149,42,0.04); }
+.cta-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 8vw, 98px); font-weight: 300; line-height: 0.95; margin-bottom: 28px; }
+.cta-section h2 em { font-style: italic; color: var(--gold-light); }
+.cta-section p { color: var(--muted); font-size: 17px; margin-bottom: 48px; max-width: 720px; margin-left: auto; margin-right: auto; line-height: 1.85; font-weight: 300; }
+.cta-note { margin-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted2); letter-spacing: 2px; }
+
+footer { border-top: 1px solid var(--border); padding: 36px 64px; display: flex; justify-content: space-between; align-items: center; background: var(--dark); }
+.footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 16px; letter-spacing: 4px; color: var(--gold); }
+.footer-brand span { color: rgba(200,149,42,0.5); margin: 0 4px; }
+.footer-brand em { color: var(--silver); font-style: normal; }
+.footer-right { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted2); letter-spacing: 2px; text-align: right; line-height: 1.8; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.hero-label    { animation: fadeUp 0.7s ease both; }
+.hero-eyebrow  { animation: fadeUp 0.7s 0.10s ease both; }
+.hero h1       { animation: fadeUp 0.7s 0.15s ease both; }
+.hero-product-tag { animation: fadeUp 0.7s 0.20s ease both; }
+.hero-slogan   { animation: fadeUp 0.7s 0.22s ease both; }
+.hero-sub      { animation: fadeUp 0.7s 0.25s ease both; }
+.hero-metrics  { animation: fadeUp 0.7s 0.30s ease both; }
+.hero-actions  { animation: fadeUp 0.7s 0.35s ease both; }
+
+/* RESPONSIVE */
+@media (max-width: 1080px) {
+  .modules-grid, .arsenal-grid, .trust-grid { grid-template-columns: repeat(2, 1fr); }
+  .nav-links { display: none; }
+}
+@media (max-width: 960px) {
+  nav, .hero, .s-pad, .firm-band, .trust-band, .quote-section, .cta-section { padding-left: 24px; padding-right: 24px; }
+  .problem-inner { grid-template-columns: 1fr; gap: 40px; }
+  .t-grid { grid-template-columns: 1fr; }
+  .hero-metric { border-bottom: 1px solid var(--border); border-right: none; }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+  .footer-right { text-align: center; }
+}
+@media (max-width: 780px) {
+  .trust-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .modules-grid, .arsenal-grid { grid-template-columns: 1fr; }
+  h1 { font-size: 52px; }
+  .hero { padding-top: 64px; }
+  .btn-gold, .btn-outline { width: 100%; text-align: center; padding-left: 18px; padding-right: 18px; }
+  .nav-tagline { display: none; }
+  .nav-cta { padding: 7px 12px; font-size: 9px; }
+}
+</style>
 </head>
 <body>
-<nav><a class="nav-brand" href="index.html"><div class="nav-logo-text"><span class="ea">EA</span><span class="sep"> | </span><span class="ia">IA</span></div><div class="nav-tagline">Intelligence artificielle opérationnelle</div></a><ul class="nav-links"><li><a href="pages/factory.html">Factory</a></li><li><a href="pages/armees-eaia.html">Armées</a></li><li><a href="https://eriqallain-afk.github.io/MSP_OS_ENG_LAUNCH_SITE/index.html">MSP</a></li><li><a href="pages/agence-marketing-ia.html">Marketing IA</a></li><li><a href="pages/eaia-apercu-besoin-client.html">Cadrage</a></li></ul><a class="nav-cta" href="mailto:eric_allain@outlook.com?subject=Demo%20EAIA">Démo</a></nav>
-<section class="hero"><div class="orb"></div><div class="orb-glow"></div><div class="hero-wrap"><div class="label"><div class="label-line"></div><div class="label-text">Factory v3.0 · 6 armées produit · Déploiement 2025</div></div><div class="eyebrow">EA | IA — Firme d'architecture IA</div><h1>Des armées d'agents IA.<br><em>Enfin</em> utiles<br><strong>en production.</strong></h1><div class="product-tag">INTELLIGENCE ARTIFICIELLE OPÉRATIONNELLE</div><p class="hero-sub"><strong>EA|IA construit des armées d’agents spécialisées</strong> pour transformer les opérations réelles : IT MSP, marketing, santé mentale non médicale, design intérieur/rénovation, surveillance des marchés, éducation et édition. Le but : moins d’improvisation, plus de méthode, plus de livrables utilisables.</p><div class="metrics"><div class="metric"><div class="metric-n">6</div><div class="metric-l">Armées Factory</div></div><div class="metric"><div class="metric-n">87+</div><div class="metric-l">Agents spécialisés</div></div><div class="metric"><div class="metric-n">IT</div><div class="metric-l">Produit phare MSP</div></div><div class="metric"><div class="metric-n">2025</div><div class="metric-l">Déploiement progressif</div></div></div><div class="actions"><a class="btn-gold" href="pages/armees-eaia.html">Voir les armées EA|IA</a><a class="btn-outline" href="https://eriqallain-afk.github.io/MSP_OS_ENG_LAUNCH_SITE/index.html">Voir MSP Intelligence IT</a></div></div></section>
-<div class="firm-band"><div><div class="firm-band-name">EA | IA — Portefeuille de produits IA</div><div class="firm-band-desc">Architecture d'agents IA par secteur vertical · Sur mesure selon la demande</div></div><div class="firm-products"><span class="firm-product active">@IT MSP</span><span class="firm-product active">@Marketing IA</span><span class="firm-product">@DAM Studio Design IA</span><span class="firm-product">@TRAD Intel</span><span class="firm-product">@IASM</span><span class="firm-product">@EDU Services</span><span class="firm-product">Sur demande →</span></div></div>
-<div class="ticker"><div class="ticker-inner"><span>CONNECTWISE</span> · AZURE AD · MICROSOFT 365 · <span>N-ABLE</span> · DATTO · VEEAM · <span>HYPER-V</span> · VMWARE · FORTINET · <span>EXCHANGE</span> · INTUNE · SHAREPOINT · <span>HUDU</span> · AUVIK · XCP-NG · KEEPIT · <span>CONNECTWISE</span> · AZURE AD · MICROSOFT 365 · <span>N-ABLE</span> · DATTO · VEEAM · <span>HYPER-V</span> · VMWARE · FORTINET ·</div></div>
-<section class="s-pad dark-band"><div class="split"><div><div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Positionnement</div></div><div class="s-title">L'IA comme<br><em>infrastructure</em><br>de travail.</div><p class="s-sub">EA|IA ne vend pas une conversation générique. La Factory conçoit des agents, des runbooks, des garde-fous, des livrables et des flux de travail qui s'intègrent dans une réalité opérationnelle.</p></div><div class="terminal"><div class="t-bar"><span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span><span class="t-bar-title">EAIA-FACTORY · ROUTAGE</span></div><div class="t-line t-gray">// BESOIN CLIENT DÉTECTÉ</div><div class="t-line"><span class="t-gold">DOMAINE :</span> <span class="t-white">IT MSP / opérations / support</span></div><div class="t-line"><span class="t-gold">SORTIE :</span> <span class="t-silver">Blueprint d'équipe d'agents</span></div><div class="t-line"><span class="t-gold">GARDE-FOUS :</span> <span class="t-green">Humain décisionnaire · données sensibles protégées</span></div><div class="t-line t-gray" style="margin-top:12px">// ACTION</div><div class="t-line t-silver">Créer la structure, pas seulement du texte.</div></div></div></section>
-<section class="s-pad" id="produits"><div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Portefeuille</div></div><div class="s-title"><strong>Six armées.</strong><br><em>Une Factory.</em></div><p class="s-sub">Les produits EA|IA ne sont pas des promesses vagues. Chaque armée est un ensemble d’agents IA spécialisés livré avec playbooks, runbooks, workflows opérationnels et garde-fous.</p><div class="card-grid"><a class="pro-card" href="https://eriqallain-afk.github.io/MSP_OS_ENG_LAUNCH_SITE/index.html"><img class="card-hero-img" src="img/MSP_OS_Hero_16x9.png" alt="MSP Intelligence IT"><div class="card-n">Produit 01 · IT</div><div class="card-icon">🛡️</div><div class="card-title">MSP Intelligence IT</div><div class="card-sub">Disponible · Produit phare · 23 agents</div><div class="card-desc">Support N1–N3, NOC, patching, cloud/M365, backup, sécurité, reporting et QBR.</div><div class="army-status status-prod">Firmes IT / fournisseurs de services gérés</div><span class="card-link">Voir le produit →</span></a><a class="pro-card" href="pages/iasm-sante-mentale.html"><div class="card-n">Produit 02 · IASM</div><div class="card-icon">☉</div><div class="card-title">IASM · Intelligence Artificielle en Santé Mentale</div><div class="card-sub">En production · 19 agents + 3 OPS</div><div class="card-desc">Cabinet IA non médical pour soutien organisationnel, coaching structuré et psychoéducation.</div><div class="army-status status-prod">Coaching structuré — non médical</div><span class="card-link">Voir le produit →</span></a><a class="pro-card" href="pages/dam-design-interieur.html"><div class="card-n">Produit 03 · DAM</div><div class="card-icon">✦</div><div class="card-title">DAM Studio Design IA</div><div class="card-sub">En production · 19 agents + 3 OPS</div><div class="card-desc">Armée terrain pour design d’intérieur, aménagement, relevés, concepts, budget, conformité et suivi de projets.</div><div class="army-status status-prod">Design d’intérieur résidentiel — Québec</div><span class="card-link">Voir le produit →</span></a><a class="pro-card" href="pages/trad-surveillance-marches.html"><div class="card-n">Produit 04 · TRAD</div><div class="card-icon">◈</div><div class="card-title">TRAD · Surveillance intelligente des marchés</div><div class="card-sub">En production · 13 agents + 3 OPS</div><div class="card-desc">Veille multi-domaines : marchés, crypto, géopolitique, cybersécurité et signaux sociétaux.</div><div class="army-status status-prod">Marchés · crypto · géopolitique</div><span class="card-link">Voir le produit →</span></a><a class="pro-card" href="pages/edu-services.html"><div class="card-n">Produit 05 · EDU</div><div class="card-icon">▣</div><div class="card-title">EDU · EDU Services</div><div class="card-sub">En production · en expansion</div><div class="card-desc">Correction de travaux, OCR, évaluation selon critères, radio scolaire et formations.</div><div class="army-status status-coming">Éducation secondaire</div><span class="card-link">Voir le produit →</span></a><a class="pro-card" href="pages/nea-writing.html"><div class="card-n">Produit 06 · NEA</div><div class="card-icon">✎</div><div class="card-title">NEA · Army NEA Writing</div><div class="card-sub">En production · 7 agents + 3 OPS</div><div class="card-desc">Maison d’édition IA pour projets profonds, rédaction et cartographie conceptuelle.</div><div class="army-status status-prod">Édition · rédaction créative</div><span class="card-link">Voir le produit →</span></a><a class="pro-card" href="pages/agence-marketing-ia.html"><div class="card-n">Produit 07 · Nouveau</div><div class="card-icon">◎</div><div class="card-title">Agence Marketing IA</div><div class="card-sub">Mise en marché opérationnelle</div><div class="card-desc">Positionnement, site, landing pages, contenus, campagnes, coordination visuelle, leads et rapports.</div><span class="card-link">Voir le produit →</span></a></div><div class="note-box"><strong>Note de portefeuille :</strong> Agence Marketing IA demeure une verticale ajoutée au site comme produit de mise en marché.</div></section>
-<section class="cta-section dark-band"><h2>Décris ton besoin.<br><em>On route l'armée.</em></h2><p>Le formulaire Factory génère un premier aperçu d'équipe d'agents et un plan de démarrage.</p><a class="btn-gold" href="pages/eaia-apercu-besoin-client.html">Lancer le cadrage</a></section>
-<footer><div class="footer-brand">EA<span>|</span><em>IA</em></div><div class="footer-right">EA|IA — Intelligence artificielle opérationnelle<br>© 2025 · eric_allain@outlook.com · GitHub Pages ready</div></footer>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-logo-text"><span class="ea">EA</span><span class="sep"> | </span><span class="ia">IA</span></div>
+    <div class="nav-tagline">Intelligence artificielle opérationnelle</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="pages/factory.html">Factory</a></li>
+    <li><a href="#armees">Armées</a></li>
+    <li><a href="https://eriqallain-afk.github.io/MSP_OS_ENG_LAUNCH_SITE/index.html">MSP</a></li>
+    <li><a href="pages/agence-marketing-ia.html">Marketing IA</a></li>
+    <li><a href="pages/eaia-apercu-besoin-client.html">Cadrage</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:eric_allain@outlook.com?subject=D%C3%A9mo%20EA%7CIA">Démo — 30 min</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-orb"></div>
+  <div class="hero-wrap">
+    <img class="hero-badge" src="assets/images/eaia-logo-officiel.png" alt="EA|IA">
+    <div class="hero-label">
+      <div class="hero-label-line"></div>
+      <div class="hero-label-text">Factory v3.0 · 6 armées produit · Déploiement 2026</div>
+    </div>
+    <div class="hero-eyebrow">EA | IA — Firme d'architecture IA opérationnelle</div>
+    <h1>Des armées d'agents IA.<br><em>Enfin</em> utiles<br><strong>en production.</strong></h1>
+    <div class="hero-product-tag">INTELLIGENCE ARTIFICIELLE OPÉRATIONNELLE · 6 ARMÉES · 87+ AGENTS · PRODUIT PHARE : MSP INTELLIGENCE IT</div>
+    <p class="hero-slogan" id="sloganRotator">La prochaine étape de l'IA n'est pas une conversation. C'est une armée.</p>
+    <p class="hero-sub">
+      <strong>EA|IA construit des armées d'agents spécialisés</strong> pour transformer les opérations réelles : IT MSP, marketing, santé mentale non médicale, design intérieur, marchés, éducation et édition. Le résultat : moins d'improvisation, plus de méthode, des livrables utilisables dès le premier billet.
+    </p>
+    <div class="hero-metrics">
+      <div class="hero-metric"><div class="hero-metric-n">6</div><div class="hero-metric-l">Armées Factory</div></div>
+      <div class="hero-metric"><div class="hero-metric-n">87+</div><div class="hero-metric-l">Agents spécialisés</div></div>
+      <div class="hero-metric"><div class="hero-metric-n">IT</div><div class="hero-metric-l">Produit phare MSP</div></div>
+      <div class="hero-metric"><div class="hero-metric-n">2026</div><div class="hero-metric-l">Déploiement</div></div>
+    </div>
+    <div class="hero-actions">
+      <a href="#armees" class="btn-gold">Voir les armées EA|IA</a>
+      <a href="https://eriqallain-afk.github.io/MSP_OS_ENG_LAUNCH_SITE/index.html" class="btn-outline">Voir MSP Intelligence IT</a>
+    </div>
+  </div>
+</header>
+
+<section class="trust-band" id="confiance">
+  <div class="trust-wrap">
+    <div class="trust-eyebrow">Méthode &amp; confiance</div>
+    <div class="trust-title">Des agents qui connaissent <em>votre métier</em>. Pas une conversation.</div>
+    <p class="trust-lead">EA|IA ne produit pas des chatbots génériques. La Factory conçoit des équipes d'agents <strong>spécialisés par secteur</strong> — avec les outils, le vocabulaire, les runbooks, les garde-fous et les livrables propres à chaque domaine. <strong>L'humain décide toujours.</strong></p>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-card-mark">◎</div>
+        <div class="trust-card-title">Agents spécialisés</div>
+        <p>Chaque armée est construite pour un secteur précis. Les agents connaissent les outils, le vocabulaire, les livrables et les garde-fous de leur domaine — IT MSP, design, santé mentale, marchés ou édition.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-mark">◎</div>
+        <div class="trust-card-title">Livrables utilisables</div>
+        <p>Notes, rapports, communications, templates — des sorties directement utilisables, pas des brouillons à corriger. Chaque intervention produit un livrable structuré, traçable et facturable.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-mark">◎</div>
+        <div class="trust-card-title">Humain décisionnaire</div>
+        <p>Aucune armée ne s'active sans validation EA. L'IA produit, structure et propose — l'humain décide et exécute. C'est l'ADN de l'architecture : auto_activation:false sur chaque produit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="firm-band">
+  <div class="firm-band-left">
+    <div class="firm-band-name">EA | IA — Portefeuille de produits</div>
+    <div class="firm-band-desc">Architecture d'agents IA par secteur vertical · Déploiement progressif 2026</div>
+  </div>
+  <div class="firm-products">
+    <div class="firm-product active">IT MSP</div>
+    <div class="firm-product active">IASM</div>
+    <div class="firm-product active">DAM Design</div>
+    <div class="firm-product active">TRAD Intel</div>
+    <div class="firm-product active">EDU Services</div>
+    <div class="firm-product active">NEA Writing</div>
+    <div class="firm-product">Marketing IA →</div>
+  </div>
+</div>
+
+<div class="ticker"><div class="ticker-inner">
+  <span>IT MSP</span> · IASM SANTÉ MENTALE · DAM DESIGN INTÉRIEUR · <span>TRAD INTEL</span> · EDU SERVICES · NEA WRITING · <span>MARKETING IA</span> · CONNECTWISE · AZURE AD · HUDU · VEEAM · <span>N-ABLE</span> · MICROSOFT 365 · FACTORY V3.0 · 87+ AGENTS ·
+  <span>IT MSP</span> · IASM SANTÉ MENTALE · DAM DESIGN INTÉRIEUR · <span>TRAD INTEL</span> · EDU SERVICES · NEA WRITING · <span>MARKETING IA</span> · CONNECTWISE · AZURE AD · HUDU · VEEAM · <span>N-ABLE</span> · MICROSOFT 365 · FACTORY V3.0 · 87+ AGENTS ·
+</div></div>
+
+<section class="problem s-pad dark-band" id="preuve" style="background:linear-gradient(rgba(14,14,14,0.93),rgba(14,14,14,0.93)),url('img/MSP_OS_Header_Email.png') center/cover no-repeat;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="problem-inner">
+    <div>
+      <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Pourquoi l'IA générique ne suffit pas</div></div>
+      <div class="s-title">L'IA générique<br><em>ne connaît pas</em><br>votre métier.</div>
+      <p class="s-sub">
+        ChatGPT et Copilot répondent. Ils ne résolvent pas un billet MSP, ne connaissent pas l'anatomie d'un dossier de design intérieur, ni les critères d'une grille de correction pédagogique. La différence entre une conversation et une armée : la méthode, les garde-fous, les livrables.
+      </p>
+    </div>
+    <div class="problem-pains">
+      <div class="pain-item"><div class="pain-icon">01</div><div class="pain-text"><strong>L'IA générique répond.</strong> Elle ne résout pas. Elle ne connaît pas votre RMM, votre PSA, votre logiciel de gestion de projet ou votre vocabulaire métier.</div></div>
+      <div class="pain-item"><div class="pain-icon">02</div><div class="pain-text"><strong>Pas de runbooks. Pas de garde-fous.</strong> Chaque technicien réinvente la méthode — et le résultat varie selon l'humeur et le temps disponible.</div></div>
+      <div class="pain-item"><div class="pain-icon">03</div><div class="pain-text"><strong>Documentation inégale.</strong> La qualité dépend du technicien. Les livrables ne sont pas structurés pour le client — ils le sont pour le système interne.</div></div>
+      <div class="pain-item"><div class="pain-icon">04</div><div class="pain-text"><strong>Aucune capitalisation.</strong> Chaque intervention repart de zéro. Les meilleures pratiques ne se transfèrent pas du senior au junior automatiquement.</div></div>
+      <div class="pain-item"><div class="pain-icon">05</div><div class="pain-text"><strong>Valeur invisible.</strong> L'équipe travaille fort. Le client ne voit pas la profondeur réelle de l'intervention — et ne la paie pas à sa juste valeur.</div></div>
+    </div>
+  </div>
+  <div class="content-wrap">
+    <div class="terminal">
+      <div class="t-bar"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div><div class="t-bar-title">EAIA-FACTORY · ROUTAGE</div></div>
+      <div class="t-grid">
+        <div>
+          <div class="t-line t-gray">// BESOIN CLIENT</div>
+          <div class="t-line"><span class="t-gold">DOMAINE :</span> <span class="t-white">IT MSP / support / NOC</span></div>
+          <div class="t-line"><span class="t-gold">SOURCE :</span> <span class="t-white">Technicien · billet · symptôme</span></div>
+          <div class="t-line"><span class="t-gold">RISQUE :</span> <span class="t-white">Méthode inconsistante · note faible · escalade lente</span></div>
+        </div>
+        <div>
+          <div class="t-line t-gray">// SORTIE EA|IA</div>
+          <div class="t-line"><span class="t-green">✓ Agent spécialisé sélectionné</span></div>
+          <div class="t-line"><span class="t-green">✓ Runbook / playbook / garde-fous appliqués</span></div>
+          <div class="t-line"><span class="t-green">✓ Livrables structurés · traçables · facturables</span></div>
+          <div class="t-line"><span class="t-gold">RÉSULTAT :</span> <span class="t-white">MÉTHODE UNIFORME · VALEUR VISIBLE</span> <span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-pad" id="armees">
+  <div class="modules-header">
+    <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Portefeuille EA|IA</div></div>
+    <div class="s-title"><strong>Six armées.</strong><br><em>Une Factory.</em></div>
+    <p class="s-sub">Les produits EA|IA ne sont pas des promesses vagues. Chaque armée est un ensemble d'agents IA spécialisés livré avec playbooks, runbooks, workflows opérationnels et garde-fous — pour un secteur précis.</p>
+  </div>
+  <div class="modules-grid">
+    <a class="mod-card" href="https://eriqallain-afk.github.io/MSP_OS_ENG_LAUNCH_SITE/index.html">
+      <img class="mod-card-img" src="img/MSP_OS_Hero_16x9.png" alt="MSP Intelligence IT">
+      <div class="mod-n">PRODUIT 01 · IT · PHARE</div>
+      <div class="mod-name">MSP Intelligence IT</div>
+      <div class="mod-sub">24 agents · 123 runbooks · 93 templates</div>
+      <div class="mod-desc">Support N1–N3, NOC, patching, cloud/M365, backup, sécurité, reporting et capitalisation. Le cerveau opérationnel des équipes MSP.</div>
+      <div class="mod-status prod">✓ En production — Firmes IT / MSP</div>
+      <span class="mod-link">Voir le produit →</span>
+    </a>
+    <a class="mod-card" href="pages/iasm-sante-mentale.html">
+      <div class="mod-n">PRODUIT 02 · IASM</div>
+      <div class="mod-name">IASM · Santé mentale IA</div>
+      <div class="mod-sub">19 agents + 3 OPS</div>
+      <div class="mod-desc">Cabinet IA non médical pour soutien organisationnel, coaching structuré et psychoéducation. Aucune donnée personnelle stockée.</div>
+      <div class="mod-status prod">✓ En production — Coaching structuré</div>
+      <span class="mod-link">Voir le produit →</span>
+    </a>
+    <a class="mod-card" href="pages/dam-design-interieur.html">
+      <div class="mod-n">PRODUIT 03 · DAM</div>
+      <div class="mod-name">DAM Studio Design IA</div>
+      <div class="mod-sub">22 agents + backend Flask</div>
+      <div class="mod-desc">Armée terrain pour design d'intérieur, aménagement, relevés, concepts, budget, conformité et suivi de projets résidentiels.</div>
+      <div class="mod-status prod">✓ En production — Design intérieur Québec</div>
+      <span class="mod-link">Voir le produit →</span>
+    </a>
+    <a class="mod-card" href="pages/trad-surveillance-marches.html">
+      <div class="mod-n">PRODUIT 04 · TRAD</div>
+      <div class="mod-name">TRAD · Intel marchés</div>
+      <div class="mod-sub">16 agents spécialisés</div>
+      <div class="mod-desc">Veille multi-domaines : marchés financiers, crypto, géopolitique, cybersécurité et signaux sociétaux. Recommandations, pas conseils certifiés.</div>
+      <div class="mod-status prod">✓ En production — Marchés · crypto · géopolitique</div>
+      <span class="mod-link">Voir le produit →</span>
+    </a>
+    <a class="mod-card" href="pages/edu-services.html">
+      <div class="mod-n">PRODUIT 05 · EDU</div>
+      <div class="mod-name">EDU Services</div>
+      <div class="mod-sub">Architecture par secteurs</div>
+      <div class="mod-desc">Correction de travaux, OCR, évaluation par critères, radio scolaire, formations. Architecture modulaire par secteur éducatif.</div>
+      <div class="mod-status prod">✓ En production — Éducation secondaire</div>
+      <span class="mod-link">Voir le produit →</span>
+    </a>
+    <a class="mod-card" href="pages/nea-writing.html">
+      <div class="mod-n">PRODUIT 06 · NEA</div>
+      <div class="mod-name">NEA · Army Writing</div>
+      <div class="mod-sub">10 agents + 3 OPS</div>
+      <div class="mod-desc">Maison d'édition IA pour projets profonds, rédaction créative, cartographie conceptuelle et production éditoriale structurée.</div>
+      <div class="mod-status prod">✓ En production — Édition · rédaction</div>
+      <span class="mod-link">Voir le produit →</span>
+    </a>
+    <a class="mod-card" href="pages/agence-marketing-ia.html">
+      <div class="mod-n">PRODUIT 07 · ADMKT · NOUVEAU</div>
+      <div class="mod-name">Agence Marketing IA</div>
+      <div class="mod-sub">En développement — 2026</div>
+      <div class="mod-desc">Positionnement, landing pages, contenus, campagnes, coordination visuelle, génération de leads et rapports de performance.</div>
+      <div class="mod-status dev">◎ En développement — Lancement 2026</div>
+      <span class="mod-link">Voir le produit →</span>
+    </a>
+  </div>
+</section>
+
+<section class="arsenal s-pad">
+  <div class="content-wrap">
+    <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Preuve Factory</div></div>
+    <div class="s-title">Une Factory complète.<br><em>Pas une promesse.</em></div>
+    <p class="s-sub">Les chiffres ne remplacent pas la qualité — mais ici, ils prouvent l'ampleur de ce qui est déjà construit, testé et déployé sur le terrain.</p>
+  </div>
+  <div class="arsenal-grid">
+    <div class="arsenal-block">
+      <div class="arsenal-n">6</div>
+      <div class="arsenal-unit">Armées verticales</div>
+      <div class="arsenal-desc">IT MSP, santé mentale IA, design intérieur, intel marchés, éducation et édition — chaque armée est un produit complet avec agents, playbooks et livrables.</div>
+    </div>
+    <div class="arsenal-block">
+      <div class="arsenal-n">87+</div>
+      <div class="arsenal-unit">Agents spécialisés</div>
+      <div class="arsenal-desc">Pas des chatbots génériques. Des agents qui connaissent ConnectWise, Hudu, DSM-5, critères pédagogiques, protocoles de design — selon leur domaine.</div>
+    </div>
+    <div class="arsenal-block">
+      <div class="arsenal-n">24</div>
+      <div class="arsenal-unit">Agents dans IT seul</div>
+      <div class="arsenal-desc">Le produit phare regroupe 24 agents MSP spécialisés, 123 runbooks, 93 templates et 45 scripts — le moteur complet pour équipes IT et MSP.</div>
+    </div>
+    <div class="arsenal-block">
+      <div class="arsenal-n">5</div>
+      <div class="arsenal-unit">Équipes internes Factory</div>
+      <div class="arsenal-desc">HUB, IAHQ, META, OPS, CTL — la chaîne de production qui conçoit, fabrique, déploie et surveille chaque produit de l'écosystème.</div>
+    </div>
+    <div class="arsenal-block">
+      <div class="arsenal-n">25</div>
+      <div class="arsenal-unit">Années d'expérience</div>
+      <div class="arsenal-desc">Une synthèse opérationnelle bâtie sur le terrain, renforcée par plus de 160 formations cumulées — pas une démo de laboratoire.</div>
+    </div>
+    <div class="arsenal-block">
+      <div class="arsenal-n">0</div>
+      <div class="arsenal-unit">Activation sans validation EA</div>
+      <div class="arsenal-desc">auto_activation:false sur chaque produit. L'IA produit et propose — EA valide. Le gate humain n'est pas une option : c'est l'architecture.</div>
+    </div>
+  </div>
+</section>
+
+<div class="quote-section">
+  <div class="quote-mark">"</div>
+  <p class="quote-text">La prochaine étape de l'IA n'est pas une conversation. C'est une armée — spécialisée, structurée, avec des livrables que vous pouvez utiliser <strong>le lendemain matin.</strong></p>
+  <div class="quote-attr">EA|IA · Architecture d'agents IA opérationnels · 2026</div>
+</div>
+
+<section class="cta-section dark-band" id="demo" style="background:linear-gradient(rgba(8,8,8,0.82),rgba(8,8,8,0.86)),url('img/FACEBOOK-Bandeau-1.png') center/cover no-repeat;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="cta-orb"></div>
+  <h2>Décris ton besoin.<br><em>On route l'armée.</em></h2>
+  <p>Le formulaire Factory génère un premier aperçu d'équipe d'agents et un plan de démarrage adapté à votre domaine — IT, design, santé mentale, marchés ou autre.</p>
+  <a href="pages/eaia-apercu-besoin-client.html" class="btn-gold">Lancer le cadrage →</a>
+  <p class="cta-note">EA|IA · Factory v3.0 · 6 armées spécialisées · Déploiement progressif 2026</p>
+</section>
+
+<footer>
+  <div class="footer-brand">EA<span>|</span><em>IA</em></div>
+  <div class="footer-right">EA|IA — Intelligence artificielle opérationnelle<br>© 2026 EA|IA · eric_allain@outlook.com</div>
+</footer>
+
+<script>
+(function(){
+  var slogans = [
+    "La prochaine étape de l'IA n'est pas une conversation. C'est une armée.",
+    "Des agents IA qui connaissent votre métier. Pas des chatbots génériques.",
+    "Six secteurs. Six armées. Une seule Factory.",
+    "Moins d'improvisation. Plus de garde-fous. Plus de livrables.",
+    "L'IA qui structure, documente et capitalise — pas celle qui répond seulement.",
+    "Chaque intervention peut produire une preuve, une fois structurée et validée.",
+    "Du signal brut au livrable client — le système garde la méthode.",
+    "Vos meilleurs réflexes opérationnels, structurés pour toute l'équipe.",
+    "Arrêtez d'éteindre des feux. Recommencez à servir."
+  ];
+  var el = document.getElementById('sloganRotator');
+  if(!el) return;
+  var i = 0;
+  setInterval(function() {
+    el.classList.add('is-changing');
+    setTimeout(function() {
+      i = (i + 1) % slogans.length;
+      el.textContent = slogans[i];
+      el.classList.remove('is-changing');
+    }, 350);
+  }, 9000);
+})();
+</script>
+
 </body>
 </html>
