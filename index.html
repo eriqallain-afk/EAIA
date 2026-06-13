@@ -396,9 +396,9 @@ h1 strong, .s-title strong { color: var(--white); font-weight: 600; }
 
 /* ARMÉES GRID */
 .modules-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-.mod-card { background: var(--dark); padding: 34px 28px; transition: background 0.25s; position: relative; overflow: hidden; min-height: 235px; display: block; }
+.mod-card { background: var(--card-img, var(--dark)); background-size: cover; background-position: center; padding: 34px 28px; transition: background 0.25s, filter 0.25s; position: relative; overflow: hidden; min-height: 235px; display: block; }
 .mod-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; transform-origin: left; }
-.mod-card:hover { background: #0C0C0C; }
+.mod-card:hover { background: var(--card-img, #0C0C0C); background-size: cover; background-position: center; filter: brightness(1.08); }
 .mod-card:hover::after { transform: scaleX(1); }
 .mod-n { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: rgba(200,149,42,0.35); letter-spacing: 2px; margin-bottom: 18px; }
 .mod-name { font-family: 'Cormorant Garamond', serif; font-size: 29px; font-weight: 600; letter-spacing: 0.4px; margin-bottom: 8px; color: var(--white); }
