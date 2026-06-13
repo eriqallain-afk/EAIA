@@ -163,7 +163,18 @@ nav {
   border-radius: 50%;
   border: 1px solid rgba(200,149,42,0.05);
 }
-.hero-wrap { max-width: var(--max); width: 100%; margin: 0 auto; }
+.hero-wrap { max-width: var(--max); width: 100%; margin: 0 auto; position: relative; }
+.hero-badge {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+  opacity: 0.18;
+  pointer-events: none;
+  display: none;
+}
+@media (min-width: 1240px) { .hero-badge { display: block; } }
 
 .hero-slogan {
   font-family: 'Cormorant Garamond', serif;
@@ -276,7 +287,9 @@ h1 strong, .s-title strong { color: var(--white); font-weight: 600; }
 
 /* TRUST BAND */
 .trust-band {
-  background: var(--dark);
+  background:
+    linear-gradient(rgba(8,8,8,0.88), rgba(8,8,8,0.92)),
+    url('img/FACEBOOK-Bandeau.png') center / cover no-repeat;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   padding: 78px 64px;
@@ -492,11 +505,10 @@ footer { border-top: 1px solid var(--border); padding: 36px 64px; display: flex;
     <div class="nav-tagline">Intelligence artificielle opérationnelle</div>
   </a>
   <ul class="nav-links">
-    <li><a href="#armees">Armées</a></li>
-    <li><a href="#confiance">Confiance</a></li>
-    <li><a href="#preuve">Preuve</a></li>
     <li><a href="pages/factory.html">Factory</a></li>
+    <li><a href="#armees">Armées</a></li>
     <li><a href="https://eriqallain-afk.github.io/MSP_OS_ENG_LAUNCH_SITE/index.html">MSP</a></li>
+    <li><a href="pages/agence-marketing-ia.html">Marketing IA</a></li>
     <li><a href="pages/eaia-apercu-besoin-client.html">Cadrage</a></li>
   </ul>
   <a class="nav-cta" href="mailto:eric_allain@outlook.com?subject=D%C3%A9mo%20EA%7CIA">Démo — 30 min</a>
@@ -505,6 +517,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 64px; display: flex;
 <header class="hero" id="top">
   <div class="hero-orb"></div>
   <div class="hero-wrap">
+    <img class="hero-badge" src="assets/images/eaia-logo-officiel.png" alt="EA|IA">
     <div class="hero-label">
       <div class="hero-label-line"></div>
       <div class="hero-label-text">Factory v3.0 · 6 armées produit · Déploiement 2026</div>
@@ -575,7 +588,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 64px; display: flex;
   <span>IT MSP</span> · IASM SANTÉ MENTALE · DAM DESIGN INTÉRIEUR · <span>TRAD INTEL</span> · EDU SERVICES · NEA WRITING · <span>MARKETING IA</span> · CONNECTWISE · AZURE AD · HUDU · VEEAM · <span>N-ABLE</span> · MICROSOFT 365 · FACTORY V3.0 · 87+ AGENTS ·
 </div></div>
 
-<section class="problem s-pad dark-band" id="preuve">
+<section class="problem s-pad dark-band" id="preuve" style="background:linear-gradient(rgba(14,14,14,0.93),rgba(14,14,14,0.93)),url('img/MSP_OS_Header_Email.png') center/cover no-repeat;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="problem-inner">
     <div>
       <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Pourquoi l'IA générique ne suffit pas</div></div>
@@ -727,7 +740,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 64px; display: flex;
   <div class="quote-attr">EA|IA · Architecture d'agents IA opérationnels · 2026</div>
 </div>
 
-<section class="cta-section dark-band" id="demo">
+<section class="cta-section dark-band" id="demo" style="background:linear-gradient(rgba(8,8,8,0.82),rgba(8,8,8,0.86)),url('img/FACEBOOK-Bandeau-1.png') center/cover no-repeat;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="cta-orb"></div>
   <h2>Décris ton besoin.<br><em>On route l'armée.</em></h2>
   <p>Le formulaire Factory génère un premier aperçu d'équipe d'agents et un plan de démarrage adapté à votre domaine — IT, design, santé mentale, marchés ou autre.</p>
