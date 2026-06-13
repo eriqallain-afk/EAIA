@@ -135,8 +135,8 @@ nav {
   align-items: center;
   padding: 96px 64px 84px;
   background:
-    linear-gradient(90deg, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.82) 48%, rgba(0,0,0,0.60) 72%, rgba(0,0,0,0.65) 100%),
-    url('assets/factory-bg/factory-hero.png') center right / cover no-repeat;
+    linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.78)),
+    url('assets/factory-bg/factory-hero.png') center / cover no-repeat;
   overflow: hidden;
 }
 .hero::before {
@@ -163,18 +163,19 @@ nav {
   border-radius: 50%;
   border: 1px solid rgba(200,149,42,0.05);
 }
-.hero-wrap { max-width: var(--max); width: 100%; margin: 0 auto; position: relative; }
+.hero-wrap { max-width: var(--max); width: 100%; margin: 0 auto; }
 .hero-badge {
   position: absolute;
-  left: 0;
+  left: 24px;
   top: 50%;
   transform: translateY(-50%);
-  width: 280px;
-  opacity: 0.12;
+  width: 240px;
+  opacity: 0.13;
   pointer-events: none;
   display: none;
+  z-index: 0;
 }
-@media (min-width: 1240px) { .hero-badge { display: block; } }
+@media (min-width: 1440px) { .hero-badge { display: block; } }
 
 .hero-slogan {
   font-family: 'Cormorant Garamond', serif;
@@ -419,8 +420,8 @@ h1 strong, .s-title strong { color: var(--white); font-weight: 600; }
 /* ARSENAL */
 .arsenal {
   background:
-    linear-gradient(90deg, rgba(14,14,14,0.95) 0%, rgba(14,14,14,0.72) 48%, rgba(14,14,14,0.15) 100%),
-    url('assets/factory-bg/factory-hero.png') center right / cover no-repeat;
+    linear-gradient(rgba(14,14,14,0.82), rgba(14,14,14,0.82)),
+    url('assets/factory-bg/factory-hero.png') center / cover no-repeat;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -516,8 +517,8 @@ footer { border-top: 1px solid var(--border); padding: 36px 64px; display: flex;
 
 <header class="hero" id="top">
   <div class="hero-orb"></div>
+  <img class="hero-badge" src="assets/factory-bg/Logo_officiel.png" alt="EA|IA">
   <div class="hero-wrap">
-    <img class="hero-badge" src="assets/factory-bg/Logo_officiel.png" alt="EA|IA">
     <div class="hero-label">
       <div class="hero-label-line"></div>
       <div class="hero-label-text">Factory v3.0 · 6 armées produit · Déploiement 2026</div>
