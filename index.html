@@ -139,10 +139,23 @@ nav {
   display: flex;
   align-items: center;
   padding: 96px 64px 84px;
-  background:
-    linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.78)),
-    url('img/bg-hero.png') center / cover no-repeat;
+  background: var(--black);
   overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 0;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.78);
 }
 .hero::before {
   content: '';
@@ -150,6 +163,7 @@ nav {
   inset: 0;
   background: radial-gradient(ellipse at 14% 44%, rgba(200,149,42,0.11) 0%, transparent 42%);
   pointer-events: none;
+  z-index: 1;
 }
 .hero-orb {
   position: absolute;
@@ -160,6 +174,7 @@ nav {
   border-radius: 50%;
   border: 1px solid rgba(200,149,42,0.08);
   pointer-events: none;
+  z-index: 2;
 }
 .hero-orb::before {
   content: '';
@@ -168,7 +183,7 @@ nav {
   border-radius: 50%;
   border: 1px solid rgba(200,149,42,0.05);
 }
-.hero-wrap { max-width: var(--max); width: 100%; margin: 0 auto; }
+.hero-wrap { max-width: var(--max); width: 100%; margin: 0 auto; position: relative; z-index: 3; }
 
 .hero-slogan {
   font-family: 'Cormorant Garamond', serif;
@@ -501,7 +516,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 64px; display: flex;
   <ul class="nav-links">
     <li><a href="pages/factory.html">Factory</a></li>
     <li><a href="#armees">Armées</a></li>
-    <li><a href="https://eriqallain-afk.github.io/MSP_OS_ENG_LAUNCH_SITE/index.html">MSP</a></li>
+    <li><a href="pages/msp-lancement.html">MSP</a></li>
     <li><a href="pages/agence-marketing-ia.html">Marketing IA</a></li>
     <li><a href="pages/eaia-apercu-besoin-client.html">Cadrage</a></li>
   </ul>
@@ -509,6 +524,8 @@ footer { border-top: 1px solid var(--border); padding: 36px 64px; display: flex;
 </nav>
 
 <header class="hero" id="top">
+  <div class="hero-bg" id="heroBgA"></div>
+  <div class="hero-bg" id="heroBgB" style="opacity:0"></div>
   <div class="hero-orb"></div>
   <div class="hero-wrap">
     <div class="hero-label">
@@ -530,7 +547,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 64px; display: flex;
     </div>
     <div class="hero-actions">
       <a href="#armees" class="btn-gold">Voir les armées EA|IA</a>
-      <a href="https://eriqallain-afk.github.io/MSP_OS_ENG_LAUNCH_SITE/index.html" class="btn-outline">Voir MSP Intelligence IT</a>
+      <a href="pages/msp-lancement.html" class="btn-outline">Voir MSP Intelligence IT</a>
     </div>
   </div>
 </header>
@@ -627,7 +644,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 64px; display: flex;
     <p class="s-sub">Les produits EA|IA ne sont pas des promesses vagues. Chaque armée est un ensemble d'agents IA spécialisés livré avec playbooks, runbooks, workflows opérationnels et garde-fous — pour un secteur précis.</p>
   </div>
   <div class="modules-grid">
-    <a class="mod-card" href="https://eriqallain-afk.github.io/MSP_OS_ENG_LAUNCH_SITE/index.html">
+    <a class="mod-card" href="pages/msp-lancement.html">
       <div class="mod-n">PRODUIT 01 · IT · PHARE</div>
       <div class="mod-name">MSP Intelligence IT</div>
       <div class="mod-sub">24 agents · 123 runbooks · 93 templates</div>
@@ -772,5 +789,29 @@ footer { border-top: 1px solid var(--border); padding: 36px 64px; display: flex;
 })();
 </script>
 
+<script>
+(function(){
+  var imgs=['1','2','3','4','5','6','7','8','9','11','12','13','14','15','16','18'];
+  var a=document.getElementById('heroBgA'),b=document.getElementById('heroBgB');
+  if(!a||!b)return;
+  var idx=Math.floor(Math.random()*imgs.length);
+  function src(n){return'assets/factory-bg/'+n+'.png';}
+  a.style.backgroundImage='url("'+src(imgs[idx])+'")';
+  var nxt=(idx+1)%imgs.length;
+  b.style.backgroundImage='url("'+src(imgs[nxt])+'")';
+  var active='a';
+  setInterval(function(){
+    if(active==='a'){
+      b.style.opacity='1';a.style.opacity='0';active='b';
+      idx=nxt;nxt=(nxt+1)%imgs.length;
+      setTimeout(function(){a.style.backgroundImage='url("'+src(imgs[nxt])+'")';},1600);
+    } else {
+      a.style.opacity='1';b.style.opacity='0';active='a';
+      idx=nxt;nxt=(nxt+1)%imgs.length;
+      setTimeout(function(){b.style.backgroundImage='url("'+src(imgs[nxt])+'")';},1600);
+    }
+  },7000);
+})();
+</script>
 </body>
 </html>
