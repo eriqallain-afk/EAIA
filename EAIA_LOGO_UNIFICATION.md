@@ -20,7 +20,7 @@ Ce fichier reprend le logo EA IA noir / or / argent, sans déformation.
 - `pages/msp-demos.html`
 - `pages/msp-case-incident-noc-hyperv.html`
 - `pages/msp-capacite-resolution-11-serveurs.html`
-- `pages/eaia-msp-case-page-1746993-canards-du-lac-brome.html`
+- `pages/eaia-msp-case-page-000022-anonymise.html`
 - `pages/eaia-msp-resolution-billet-agent.html`
 - `pages/eaia-formulaire-besoins-agents.html`
 
