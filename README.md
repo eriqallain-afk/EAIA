@@ -130,6 +130,21 @@ scripts/scan_anonymisation.py          ← scanner portable (motifs de billets r
 - Pour rendre le gate **réellement bloquant** : Settings → Branches → Branch protection sur `main`
   → *Require status checks* → cocher `scan-anonymisation`.
 
+## Poids des images — garde-fou CI
+
+Empêche le site de s'alourdir, **sans modifier aucune image** (lit la taille seulement).
+
+```
+scripts/check_image_weight.py          ← budget 500 Ko/image ; échoue sur toute NOUVELLE image trop lourde
+scripts/image_weight_allowlist.txt     ← images actuelles « grandfathered » (cliquet : ne doivent que rétrécir)
+.github/workflows/image-weight.yml      ← s'exécute sur push + PR vers main
+```
+
+- Allège les images existantes en local (Squoosh/`cwebp`/`pngquant`, viser WebP ~250 Ko), puis
+  **retire-les de l'allowlist** au fur et à mesure.
+- Vérifier en local : `python scripts/check_image_weight.py`.
+- Rendre bloquant : Branch protection → *Require status checks* → `image-weight`.
+
 ---
 
 ## Déploiement GitHub Pages
