@@ -116,6 +116,22 @@ ea-ia/
 
 ---
 
+## Anonymisation — garde-fou CI (non négociable)
+
+Aucune donnée identifiante ni billet réel ne doit atteindre `main` (règle EA|IA).
+Un **gate bloquant** l'empêche désormais automatiquement :
+
+```
+scripts/scan_anonymisation.py          ← scanner portable (motifs de billets réels : 17xxxxx, #T17xxxxx, Billet/Ticket…)
+.github/workflows/anonymisation.yml     ← s'exécute sur push + PR vers main, échoue si occurrence
+```
+
+- Vérifier en local avant de pousser : `python scripts/scan_anonymisation.py` (attendu : `0 occurrence`).
+- Pour rendre le gate **réellement bloquant** : Settings → Branches → Branch protection sur `main`
+  → *Require status checks* → cocher `scan-anonymisation`.
+
+---
+
 ## Déploiement GitHub Pages
 
 ```bash
