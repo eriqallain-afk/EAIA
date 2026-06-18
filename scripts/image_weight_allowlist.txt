@@ -1,0 +1,74 @@
+# Allowlist du garde-fou de poids des images (grandfather).
+# Budget : 500 Ko. Format : <octets> <chemin>.
+# Une image listée ne doit que RÉTRÉCIR. Retire la ligne quand elle passe sous le budget.
+# Régénérer : python scripts/check_image_weight.py --update-allowlist
+
+598204 LOGO.png
+598204 assets/LOGO.png
+1136947 assets/dam-bg/10.png
+1474693 assets/dam-bg/12.png
+1280186 assets/dam-bg/13.png
+1456378 assets/dam-bg/8.png
+1136947 assets/dam-bg/bg-DAM.png
+1708382 assets/dam-bg/dam-hero.png
+1167601 assets/dam-bg/dam-hero.png.OLD
+1436009 assets/dam-bg/dams-bg-02.png
+1079023 assets/edu-services/Use AI Image Jun 11, 2026, 11_00_41.png
+938466 assets/edu-services/bg-edu-service-01.png
+1164269 assets/factory-bg/1.png
+1207606 assets/factory-bg/11.png
+1474693 assets/factory-bg/12.png
+1280186 assets/factory-bg/13.png
+1115099 assets/factory-bg/14.png
+1709771 assets/factory-bg/15.png
+1614768 assets/factory-bg/16.png
+981375 assets/factory-bg/18.png
+1302067 assets/factory-bg/2.png
+1123874 assets/factory-bg/3.png
+1181478 assets/factory-bg/4.png
+1430404 assets/factory-bg/5.png
+1246706 assets/factory-bg/6.png
+1375709 assets/factory-bg/7.png
+1447065 assets/factory-bg/8.png
+1710447 assets/factory-bg/9.png
+693107 assets/factory-bg/Logo_officiel.png
+1020389 assets/factory-bg/factory-hero.png
+1245252 assets/iasm-bg/5.png
+1246706 assets/iasm-bg/6.png
+913024 assets/iasm-bg/iasm-hero.png
+550418 assets/images/LOGO.png
+598204 assets/images/eaia-logo-officiel.png
+1654368 assets/msp-bg/1.png
+1503746 assets/msp-bg/4.png
+1551192 assets/msp-bg/6.png
+1616487 assets/msp-bg/7.png
+1861349 assets/msp-bg/ChatGPT Image 9 mai 2026, 20_12_22 (1).png
+1647118 assets/msp-bg/ChatGPT Image 9 mai 2026, 20_12_22 (2).png
+1704990 assets/msp-bg/ChatGPT Image 9 mai 2026, 20_12_22 (3).png
+1520200 assets/msp-bg/ChatGPT Image 9 mai 2026, 20_12_22 (5).png
+1582950 assets/msp-bg/ChatGPT Image 9 mai 2026, 20_12_22 (6).png
+1375098 assets/nea-bg/08.png
+1084754 assets/nea-bg/14.png
+978508 assets/nea-bg/nea-hero.png
+1207606 assets/trad-bg/11.png
+1103235 assets/trad-bg/trad-hero.png
+598204 img/LOGO.png
+1673332 img/bg-CTA.png
+1080784 img/bg-arsenal - Copie.png
+1291693 img/bg-arsenal.png
+1140197 img/bg-dam-2.png
+1819001 img/bg-earth - Copie.png
+1819001 img/bg-earth.png
+1129030 img/bg-hero.png
+1164269 img/bg-hero_16x9.png
+1406041 img/bg-king.png
+1581609 img/bg-nea.png
+1884334 img/bg-preuve-001.png
+2067413 img/bg-preuve.png
+1043562 img/bg-quote12.png
+1698952 img/bg-trust.png
+1004773 img/bg.png
+1424171 img/og-image - Copie.png
+1392338 img/og-image.png
+803539 og-image-1280x480.png
+1424171 og-image.png
