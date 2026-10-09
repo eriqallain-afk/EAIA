@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MSP Intelligence AI — L'équipe : 38 agents, 38 raisons d'être</title>
+<meta name="description" content="Les agents de MSP Intelligence AI, un par un : son rôle, ce qui le définit, ses garde-fous. Vitesse, discipline, profondeur, rigueur — une équipe, pas un chatbot.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="MSP Intelligence AI — L'équipe : 38 agents, 38 raisons d'être">
+<meta property="og:description" content="Chaque agent a une raison d'être. Découvrez l'équipe qui fait tourner un MSP, du triage de ticket au risque facturable.">
+<meta property="og:image" content="../og-image.png">
+<meta property="og:locale" content="fr_CA">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black:#000000;--dark:#080808;--dark2:#0E0E0E;
+  --gold:#C8952A;--gold-light:#E4B84A;--gold-dim:rgba(200,149,42,.12);--gold-line:rgba(200,149,42,.28);
+  --silver:#B8BCC8;--silver-light:#D8DCE8;--white:#FFFFFF;
+  --muted:rgba(255,255,255,.52);--muted2:rgba(255,255,255,.22);
+  --border:rgba(200,149,42,.18);--border2:rgba(255,255,255,.08);
+  --ok:#79D28B;--max:980px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Outfit',system-ui,sans-serif;overflow-x:hidden;line-height:1.65}
+a{color:inherit;text-decoration:none}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(200,149,42,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,149,42,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+section,nav,footer{position:relative;z-index:1}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.95);position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:4px}
+.nav-brand .ea{color:var(--gold-light)}
+.nav-cta{border:1px solid var(--gold);color:var(--gold-light);padding:9px 20px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:.2s}
+.nav-cta:hover{background:var(--gold);color:var(--black)}
+
+.hero{padding:64px 28px 44px;max-width:var(--max);margin:0 auto}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold-light);letter-spacing:4px;text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,8vw,68px);font-weight:300;line-height:.97;letter-spacing:-.5px;margin-bottom:26px}
+.hero h1 em{font-style:italic;color:var(--gold-light)}
+.hero h1 strong{font-weight:600}
+.hero-lead{font-size:17px;color:var(--muted);line-height:1.78;margin-bottom:0;max-width:680px}
+.hero-lead strong{color:var(--white)}
+
+.divider{border:none;border-top:1px solid var(--border);margin:0}
+
+.section{padding:52px 28px;max-width:var(--max);margin:0 auto}
+.s-label{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.s-label-line{width:28px;height:1px;background:var(--gold)}
+.s-label-text{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gold-light);letter-spacing:4px;text-transform:uppercase}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,5vw,46px);font-weight:300;line-height:1;letter-spacing:-.3px;margin-bottom:10px}
+.s-title em{font-style:italic;color:var(--gold-light)}
+.s-intro{color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:30px;max-width:620px}
+
+/* ── Grille d'agents ───────────────────────────── */
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+.agent-card{background:var(--dark2);padding:0;display:flex;flex-direction:column}
+.agent-img{width:100%;aspect-ratio:16/10;object-fit:cover;background:linear-gradient(135deg,#141414,#0a0a0a);border-bottom:1px solid var(--border);display:block}
+.agent-img-ph{width:100%;aspect-ratio:16/10;background:linear-gradient(135deg,#161616,#0a0a0a);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted2);letter-spacing:2px}
+.agent-body{padding:22px 22px 24px}
+.agent-def{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;color:var(--gold-light);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.agent-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.05;margin-bottom:12px}
+.agent-text{color:var(--silver);font-size:13.5px;line-height:1.7;margin-bottom:14px}
+.agent-guard{border-top:1px solid var(--border2);padding-top:12px;font-size:12px;color:var(--muted);line-height:1.6}
+.agent-guard b{color:var(--gold-light);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:4px}
+
+.soon{background:var(--dark2);border:1px dashed var(--gold-line);padding:26px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+
+.cta-section{padding:60px 28px;text-align:center;background:var(--dark2);border-top:1px solid var(--border)}
+.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,5vw,44px);font-weight:300;margin-bottom:14px}
+.cta-section h2 em{font-style:italic;color:var(--gold-light)}
+.cta-section p{color:var(--muted);font-size:15px;margin-bottom:26px;max-width:540px;margin-left:auto;margin-right:auto}
+.actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn-gold{display:inline-flex;align-items:center;padding:14px 32px;background:var(--gold);color:var(--black);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:.2s;border:1px solid var(--gold)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{display:inline-flex;align-items:center;padding:14px 32px;border:1px solid var(--gold-line);color:var(--gold-light);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:.2s}
+.btn-outline:hover{border-color:var(--gold);background:var(--gold-dim)}
+
+footer{padding:34px 28px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:18px;letter-spacing:3px}
+.footer-right{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);text-align:right;line-height:1.7}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand"><span class="ea">EA</span> | IA</div>
+  <a class="nav-cta" href="mailto:info@ea-ia.ca?subject=Demo MSP Intelligence AI">Démo — 30 min</a>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">MSP Intelligence AI · L'équipe</div>
+  <h1>38 agents.<br><em>38 raisons</em><br><strong>d'être.</strong></h1>
+  <p class="hero-lead">
+    MSP Intelligence AI n'est pas un chatbot générique — c'est une <strong>équipe d'agents spécialisés</strong>,
+    chacun calibré pour un rôle précis dans un MSP, avec ses garde-fous et ses limites. Voici qui fait quoi,
+    et surtout <strong>pourquoi chacun existe</strong>.
+  </p>
+</section>
+
+<hr class="divider">
+
+<!-- ÉQUIPE DE SUPPORT -->
+<section class="section">
+  <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Équipe 01 · Support</div></div>
+  <div class="s-title">Quand le client <em>appelle.</em></div>
+  <p class="s-intro">De la file téléphonique à l'exécution serveur : quatre agents, une chaîne claire — <strong style="color:var(--silver-light)">vitesse → discipline → profondeur → rigueur.</strong></p>
+
+  <div class="agent-grid">
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-FrontLine.png" alt="IT-FrontLine" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-FRONTLINE&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Vitesse maîtrisée</div>
+        <div class="agent-name">IT-FrontLine</div>
+        <div class="agent-text">Première ligne sur la file téléphonique. Piloté par menus, avec un script temps réel qui montre en même temps <em>ce qu'on dit</em> au client et <em>ce qu'on fait</em>. Résolution visée en moins de 45 minutes, sans quitter l'appel.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Identité vérifiée avant tout mot de passe · P1 → escalade immédiate, zéro tentative.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-Assistant-N2.png" alt="IT-Assistant-N2" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-ASSISTANT-N2&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Discipline</div>
+        <div class="agent-name">IT-Assistant-N2</div>
+        <div class="agent-text">Le helpdesk derrière l'appel. Guide le technicien pas à pas sur le quotidien — mots de passe, imprimantes, Outlook, VPN, OneDrive, RDS — puis ferme proprement dans ConnectWise. Lecture seule d'abord : on collecte avant d'agir.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Confirmation avant action à risque · escalade structurée au bon agent, au bon moment.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-Assistant-N3.png" alt="IT-Assistant-N3" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-ASSISTANT-N3&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Profondeur</div>
+        <div class="agent-name">IT-Assistant-N3</div>
+        <div class="agent-text">Du triage à la clôture en une seule conversation : Windows, AD, M365, RDS, serveurs de fichiers, Linux, réseau, Veeam, sécurité, reprise après panne. Scripts, runbooks et livrables CW intégrés.</div>
+        <div class="agent-guard"><b>Limites assumées</b>Un serveur à la fois, après validation · avertissement d'impact avant toute action destructrice · escalade non négociable sur breach ou perte de données.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-SysAdmin.png" alt="IT-SysAdmin" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-SYSADMIN&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Rigueur</div>
+        <div class="agent-name">IT-SysAdmin</div>
+        <div class="agent-text">L'administrateur système polyvalent — AD, M365, serveurs Windows et Linux, scripts, incidents N2/N3. Sa signature : chaque intervention est normée et traçable (header, UTF-8, transcript, logs), nommée selon une convention. Une trace auditable, pas un geste isolé.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Impact validé avant tout reboot/suppression · jamais de secret ni d'IP dans un livrable.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- COUCHES À VENIR (structure prête à remplir, vérifiée agent par agent) -->
+<section class="section">
+  <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Équipe 02 · NOC & Commandement</div></div>
+  <div class="s-title">Quand ça <em>escalade.</em></div>
+  <p class="s-intro">Dispatch NOC, urgences P1/P2, et les quatre Commandare (NOC, TECH, Infra, OPR) qui orchestrent la crise.</p>
+  <div class="soon">Portraits en cours d'ajout</div>
+</section>
+
+<hr class="divider">
+
+<section class="section">
+  <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Équipe 03 · Infrastructure & Cloud</div></div>
+  <div class="s-title">Ce qui <em>tient debout.</em></div>
+  <p class="s-intro">Réseau, cloud/M365, maintenance & patching, backup/DR, VoIP, CMDB, scripts, monitoring.</p>
+  <div class="soon">Portraits en cours d'ajout</div>
+</section>
+
+<hr class="divider">
+
+<section class="section">
+  <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Équipe 04 · Sécurité, conformité & transitions</div></div>
+  <div class="s-title">Ce qui se <em>facture.</em></div>
+  <p class="s-intro">Sécurité/SOC, conformité (Loi 25, PCI, HIPAA, cyber-assurance), onboarding/offboarding, documentation, rapports.</p>
+  <div class="soon">Portraits en cours d'ajout</div>
+</section>
+
+<hr class="divider">
+
+<section class="section">
+  <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Couche stratégique · MODULE_RISK_ENGINE + Lead</div></div>
+  <div class="s-title">Au-dessus du <em>ticket.</em></div>
+  <p class="s-intro">Les 5 agents du Risk Engine (scoring de risque infra → livrable facturable) et IT-CoachTECH, le copilote qui hisse l'équipe.</p>
+  <div class="soon">Portraits en cours d'ajout</div>
+</section>
+
+<section class="cta-section">
+  <h2>Une équipe, <em>pas un outil.</em></h2>
+  <p>On vous montre en 30 minutes ce que ces agents font avec un cas concret de votre MSP.</p>
+  <div class="actions">
+    <a class="btn-gold" href="mailto:info@ea-ia.ca?subject=Demo MSP Intelligence AI">Réserver une démo</a>
+    <a class="btn-outline" href="msp-lancement.html">Retour au lancement</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand"><span style="color:var(--gold-light)">EA</span> | IA</div>
+  <div class="footer-right">MSP Intelligence AI · EA|IA<br>info@ea-ia.ca · 2026</div>
+</footer>
+
+</body>
+</html>
