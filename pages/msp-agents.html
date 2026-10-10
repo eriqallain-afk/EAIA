@@ -162,7 +162,69 @@ footer{padding:34px 28px;border-top:1px solid var(--border);display:flex;justify
   <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Équipe 02 · NOC & Commandement</div></div>
   <div class="s-title">Quand ça <em>escalade.</em></div>
   <p class="s-intro">Dispatch NOC, urgences P1/P2, et les quatre Commandare (NOC, TECH, Infra, OPR) qui orchestrent la crise.</p>
-  <div class="soon">Portraits en cours d'ajout</div>
+  <div class="agent-grid">
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-NOCDispatcher.png" alt="IT-NOCDispatcher" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-NOCDISPATCHER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Dispatch</div>
+        <div class="agent-name">IT-NOCDispatcher</div>
+        <div class="agent-text">Le point de tri du NOC : qualifie les alertes et billets entrants, pose la priorité et le SLA, affecte au bon technicien et coordonne le handover de quart.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Priorisation tracée · plus de 5 users impactés → P2, escalade.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-UrgenceMaster.png" alt="IT-UrgenceMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-URGENCEMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Crise P0/P1</div>
+        <div class="agent-name">IT-UrgenceMaster</div>
+        <div class="agent-text">Prend la main sur les urgences : panne en cours, décision GO/NO-GO, mobilisation de l'équipe, mises à jour client cadencées. Le calme dans la tempête.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Billet P1 ouvert immédiatement · format d'alerte normé « 🔴 P1 — Panne en cours ».</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-Commandare-NOC.png" alt="IT-Commandare-NOC" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-COMMANDARE-NOC&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Commandement NOC</div>
+        <div class="agent-name">IT-Commandare-NOC</div>
+        <div class="agent-text">Chef de quart NOC : triage de sévérité P1-P4, orchestration des alertes monitoring, escalade selon la matrice.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Escalade selon la matrice de sévérité, sans improviser.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-Commandare-TECH.png" alt="IT-Commandare-TECH" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-COMMANDARE-TECH&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Commandement technique</div>
+        <div class="agent-name">IT-Commandare-TECH</div>
+        <div class="agent-text">Pilote la résolution technique : analyse de cause racine (RCA), troubleshooting, remédiation et validation post-fix.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Escalade immédiate sur suspicion de sécurité ou de breach.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-Commandare-Infra.png" alt="IT-Commandare-Infra" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-COMMANDARE-INFRA&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Commandement infra</div>
+        <div class="agent-name">IT-Commandare-Infra</div>
+        <div class="agent-text">Incidents d'infrastructure et cloud : serveurs, VM, contrôleurs de domaine, stockage, réseau critique.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Un serveur à la fois · impact validé avant toute action.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-Commandare-OPR.png" alt="IT-Commandare-OPR" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-COMMANDARE-OPR&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Gouvernance ops</div>
+        <div class="agent-name">IT-Commandare-OPR</div>
+        <div class="agent-text">Le back-office opérationnel : fermeture des tickets, RFC et change management, contrôle et coordination.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Tout changement tracé et validé.</div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <hr class="divider">
@@ -170,8 +232,100 @@ footer{padding:34px 28px;border-top:1px solid var(--border);display:flex;justify
 <section class="section">
   <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Équipe 03 · Infrastructure & Cloud</div></div>
   <div class="s-title">Ce qui <em>tient debout.</em></div>
-  <p class="s-intro">Réseau, cloud/M365, maintenance & patching, backup/DR, VoIP, CMDB, scripts, monitoring.</p>
-  <div class="soon">Portraits en cours d'ajout</div>
+  <p class="s-intro">Réseau, cloud/M365, maintenance & patching, backup/DR, VoIP, CMDB, scripts, monitoring, terrain.</p>
+  <div class="agent-grid">
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-MaintenanceMaster.png" alt="IT-MaintenanceMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-MAINTENANCEMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Maintenance</div>
+        <div class="agent-name">IT-MaintenanceMaster</div>
+        <div class="agent-text">Patching, health checks et plans de maintenance (DC, DNS, SQL, serveurs d'impression) — l'entretien planifié qui évite la panne.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Pré/postcheck systématiques · un serveur à la fois.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-MonitoringMaster.png" alt="IT-MonitoringMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-MONITORINGMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Supervision</div>
+        <div class="agent-name">IT-MonitoringMaster</div>
+        <div class="agent-text">Observabilité et NOC : KPIs, alertes RMM, rapports de disponibilité. L'œil qui ne cligne pas.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Lecture seule — il surveille, il n'altère pas.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-NetworkMaster.png" alt="IT-NetworkMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-NETWORKMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Réseau</div>
+        <div class="agent-name">IT-NetworkMaster</div>
+        <div class="agent-text">LAN/WAN, VLAN, VPN, WiFi, firewalls, routage et QoS — la plomberie qui doit toujours couler.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Impact validé avant toute coupure réseau.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-CloudMaster.png" alt="IT-CloudMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-CLOUDMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Cloud / M365</div>
+        <div class="agent-name">IT-CloudMaster</div>
+        <div class="agent-text">Azure, M365, Entra ID, Exchange, Intune et gouvernance cloud.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Jamais de secret ni de token dans un livrable.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-BackupDRMaster.png" alt="IT-BackupDRMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-BACKUPDRMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Backup & DR</div>
+        <div class="agent-name">IT-BackupDRMaster</div>
+        <div class="agent-text">RPO/RTO, Veeam et Datto, tests de restauration, plan de reprise après sinistre. L'assurance qu'on espère ne jamais réclamer.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Validation explicite avant toute restauration.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-VoIPMaster.png" alt="IT-VoIPMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-VOIPMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Téléphonie</div>
+        <div class="agent-name">IT-VoIPMaster</div>
+        <div class="agent-text">VoIP et communications unifiées : Teams Phone, 3CX/FreePBX, SIP trunking, QoS.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Scope IT uniquement.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-AssetMaster.png" alt="IT-AssetMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-ASSETMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">CMDB</div>
+        <div class="agent-name">IT-AssetMaster</div>
+        <div class="agent-text">Inventaire du parc HW/SW, cycle de vie et conformité des actifs. On ne protège bien que ce qu'on connaît.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Données exactes · zéro invention.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-ScriptMaster.png" alt="IT-ScriptMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-SCRIPTMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Automatisation</div>
+        <div class="agent-name">IT-ScriptMaster</div>
+        <div class="agent-text">Scripts PowerShell et Bash : génération, validation et documentation, selon le standard maison (header, logs).</div>
+        <div class="agent-guard"><b>Garde-fous</b>Impact validé · pas de commande à l'aveugle.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-TechOnsite.png" alt="IT-TechOnsite" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-TECHONSITE&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Terrain</div>
+        <div class="agent-name">IT-TechOnsite</div>
+        <div class="agent-text">Interventions terrain : déploiement de poste, remplacement hardware, migration logicielle, configuration de périphériques.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Precheck/postcheck systématiques.</div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <hr class="divider">
@@ -180,7 +334,89 @@ footer{padding:34px 28px;border-top:1px solid var(--border);display:flex;justify
   <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Équipe 04 · Sécurité, conformité & transitions</div></div>
   <div class="s-title">Ce qui se <em>facture.</em></div>
   <p class="s-intro">Sécurité/SOC, conformité (Loi 25, PCI, HIPAA, cyber-assurance), onboarding/offboarding, documentation, rapports.</p>
-  <div class="soon">Portraits en cours d'ajout</div>
+  <div class="agent-grid">
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-SecurityMaster.png" alt="IT-SecurityMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-SECURITYMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Posture d'identité</div>
+        <div class="agent-name">IT-SecurityMaster</div>
+        <div class="agent-text">Propriétaire de la posture d'identité (Conditional Access, MFA, PIM, Identity Protection, legacy auth, break-glass) et du Zero Trust sur 5 surfaces. Triage EDR/SIEM, incident response, audit de posture. Principe : <em>un contrôle configuré n'est pas un contrôle appliqué.</em></div>
+        <div class="agent-guard"><b>Garde-fous</b>Refuse de désactiver MFA/CA, de supprimer un log ou de contourner un contrôle · mémoire OFF — la posture d'un client est une information d'attaque.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-ComplianceMaster.png" alt="IT-ComplianceMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-COMPLIANCEMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Conformité facturable</div>
+        <div class="agent-name">IT-ComplianceMaster</div>
+        <div class="agent-text">Loi 25, PCI-DSS, HIPAA, cyber-assurance sur 3 périmètres. Détecte les écarts avant l'auditeur et produit des rapports facturables — le MSP devient le conseiller de référence.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Aucun claim de conformité sans preuve.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-OnOffBoarder.png" alt="IT-OnOffBoarder" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-ONOFFBOARDER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Transitions</div>
+        <div class="agent-name">IT-OnOffBoarder</div>
+        <div class="agent-text">Onboarding/offboarding client et employé (4 scénarios). Onboarding client v2.0 : inventaire 10 domaines + découverte d'entreprise, baseline Risk Index T0, roadmap IT 12-24 mois → livrable <strong>Client Intelligence Profile</strong>.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Zéro oubli sur les accès, MFA et révocations.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-TicketOpr.png" alt="IT-TicketOpr" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-TICKETOPR&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Cycle du billet</div>
+        <div class="agent-name">IT-TicketOpr</div>
+        <div class="agent-text">MSP TicketOps AI : le cycle complet d'un billet, de <code>/start</code> à <code>/close</code> — triage, analyse, clôture CW, mémo, Teams, rapports.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Jamais d'IP ni de nom de serveur dans la discussion client.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-TicketScribe.png" alt="IT-TicketScribe" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-TICKETSCRIBE&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Rédaction CW</div>
+        <div class="agent-name">IT-TicketScribe</div>
+        <div class="agent-text">Transforme des notes brutes en compte-rendu ConnectWise structuré, avec les actions et les gabarits officiels.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Langage client-safe · zéro secret.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-ClientDocMaster.png" alt="IT-ClientDocMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-CLIENTDOCMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Documentation client</div>
+        <div class="agent-name">IT-ClientDocMaster</div>
+        <div class="agent-text">Fiches objets Hudu/eDocs et audit de la documentation client — la mémoire du parc, tenue à jour.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Scope IT · données exactes.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-ReportMaster.png" alt="IT-ReportMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-REPORTMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Rapports & KPIs</div>
+        <div class="agent-name">IT-ReportMaster</div>
+        <div class="agent-text">Postmortems, rapports mensuels, QBR et dashboards client — la preuve de valeur, livrée.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Chiffres sourcés, jamais inventés.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-KnowledgeKeeper.png" alt="IT-KnowledgeKeeper" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-KNOWLEDGEKEEPER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Base de connaissance</div>
+        <div class="agent-name">IT-KnowledgeKeeper</div>
+        <div class="agent-text">Transforme les tickets résolus en articles KB et runbooks, détecte les patterns récurrents et suggère des intents. La connaissance qui reste quand le technicien part.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Nouveaux intents → validation EA.</div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <hr class="divider">
@@ -189,8 +425,133 @@ footer{padding:34px 28px;border-top:1px solid var(--border);display:flex;justify
   <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Couche stratégique · MODULE_RISK_ENGINE + Lead</div></div>
   <div class="s-title">Au-dessus du <em>ticket.</em></div>
   <p class="s-intro">Les 5 agents du Risk Engine (scoring de risque infra → livrable facturable) et IT-CoachTECH, le copilote qui hisse l'équipe.</p>
-  <div class="soon">Portraits en cours d'ajout</div>
+  <div class="agent-grid">
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-RiskScorer.png" alt="IT-RiskScorer" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-RISKSCORER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Orchestrateur risque</div>
+        <div class="agent-name">IT-RiskScorer</div>
+        <div class="agent-text">Le chef d'orchestre du Risk Engine : calcule P1 (cycle de vie) et P5 (dérive opérationnelle), coordonne P2/P3/P4 et agrège le <strong>Risk Index Global (0–100)</strong>.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Scoring canonique versionné — aucune dérive sans validation EA.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-GovernanceAnalyst.png" alt="IT-GovernanceAnalyst" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-GOVERNANCEANALYST&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">P2 · Gouvernance</div>
+        <div class="agent-name">IT-GovernanceAnalyst</div>
+        <div class="agent-text">Pilier Governance Integrity : violations Tier-0, MFA des comptes privilégiés, segmentation, accès tiers.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Analyse en lecture seule · zéro invention.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-ContinuityValidator.png" alt="IT-ContinuityValidator" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-CONTINUITYVALIDATOR&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">P3 · Continuité</div>
+        <div class="agent-name">IT-ContinuityValidator</div>
+        <div class="agent-text">Pilier Continuity Assurance : backup, SPOF (DC/SAN/WAN), plan DR, RTO/RPO.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Valide la continuité, ne modifie rien.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-ExposureMapper.png" alt="IT-ExposureMapper" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-EXPOSUREMAPPER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">P4 · Exposition</div>
+        <div class="agent-name">IT-ExposureMapper</div>
+        <div class="agent-text">Pilier Exposure Surface : ports d'administration exposés au WAN, couverture EDR, inspection NGFW, comptes surprivilégiés.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Cartographie — aucune action intrusive.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-ExecutiveReporter.png" alt="IT-ExecutiveReporter" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-EXECUTIVEREPORTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Livrables client</div>
+        <div class="agent-name">IT-ExecutiveReporter</div>
+        <div class="agent-text">Produit les 3 livrables du module : note interne (CW), rapport exécutif client anonymisé, plan d'action 30/60/90 facturable.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Scan pré-livraison 9 points · ne recopie jamais la donnée brute.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-CoachTECH.png" alt="IT-CoachTECH" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-COACHTECH&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Coach d'équipe</div>
+        <div class="agent-name">IT-CoachTECH</div>
+        <div class="agent-text">Chef d'équipe TECH à deux casquettes — <strong>COACH</strong> (revue qualité 5 critères, 1-on-1, rapports, suivi SLA) et <strong>ADMIN</strong> (résolution de billets de bout en bout). L'IA qui rend l'équipe meilleure, pas juste le ticket fermé.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Périmètre TECH · ne prend pas les décisions stratégiques (→ IT-Commandare-TECH).</div>
+      </div>
+    </div>
+
+  </div>
 </section>
+
+<hr class="divider">
+
+<section class="section">
+  <div class="s-label"><div class="s-label-line"></div><div class="s-label-text">Infrastructure interne · OPS</div></div>
+  <div class="s-title">Le moteur <em>invisible.</em></div>
+  <p class="s-intro">Cinq agents qu'on ne voit pas, mais qui font tourner la machine : routage, exécution, traçabilité, qualité, synchronisation.</p>
+  <div class="agent-grid">
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-OPS-RouterIA.png" alt="IT-OPS-RouterIA" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-OPS-ROUTERIA&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Routage</div>
+        <div class="agent-name">IT-OPS-RouterIA</div>
+        <div class="agent-text">Le point d'entrée unique du produit : charge les garde-fous, détecte l'intent et route vers le bon agent ou playbook.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Garde-fous chargés avant tout dispatch.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-OPS-PlaybookRunner.png" alt="IT-OPS-PlaybookRunner" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-OPS-PLAYBOOKRUNNER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Exécution</div>
+        <div class="agent-name">IT-OPS-PlaybookRunner</div>
+        <div class="agent-text">Déroule les playbooks étape par étape, applique les politiques d'échec (retry/skip/abort) et compile le livrable final.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Arrêt et reprise supportés.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-OPS-DossierIA.png" alt="IT-OPS-DossierIA" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-OPS-DOSSIERIA&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Traçabilité</div>
+        <div class="agent-name">IT-OPS-DossierIA</div>
+        <div class="agent-text">Archive chaque run — inputs, outputs, logs — en un dossier d'exécution audit-ready.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Trace complète, rien ne se perd.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-QAMaster.png" alt="IT-QAMaster" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-QAMASTER&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Qualité plateforme</div>
+        <div class="agent-name">IT-QAMaster</div>
+        <div class="agent-text">Analyse les incidents, détecte les patterns systémiques, propose des correctifs et fait la revue pre-activation des nouveaux agents.</div>
+        <div class="agent-guard"><b>Garde-fous</b>Aucun correctif appliqué sans validation EA.</div>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <img class="agent-img" src="../assets/images/agents/IT-OPS-SyncFactory.png" alt="IT-OPS-SyncFactory" onerror="this.outerHTML='&lt;div class=&quot;agent-img-ph&quot;&gt;IT-OPS-SYNCFACTORY&lt;/div&gt;'">
+      <div class="agent-body">
+        <div class="agent-def">Sync Produit → Factory</div>
+        <div class="agent-name">IT-OPS-SyncFactory</div>
+        <div class="agent-text">Monitore les changements structurels et package la remontée vers la Factory (digest anonymisé, opt-in).</div>
+        <div class="agent-guard"><b>Garde-fous</b>Opt-out par défaut · gate EA sur toute remontée.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
 
 <section class="cta-section">
   <h2>Une équipe, <em>pas un outil.</em></h2>
