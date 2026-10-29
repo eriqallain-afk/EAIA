@@ -32,8 +32,10 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 section,nav,footer{position:relative;z-index:1}
 
 nav{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.95);position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
-.nav-brand{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:4px}
-.nav-brand .ea{color:var(--gold-light)}
+.nav-brand{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:4px}
+.nav-logo-text .ea{color:var(--gold)}
+.nav-logo-text .sep{color:rgba(200,149,42,.5);margin:0 2px}
 .nav-cta{border:1px solid var(--gold);color:var(--gold-light);padding:9px 20px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:.2s}
 .nav-cta:hover{background:var(--gold);color:var(--black)}
 
@@ -88,7 +90,7 @@ footer{padding:34px 28px;border-top:1px solid var(--border);display:flex;justify
 <body>
 
 <nav>
-  <div class="nav-brand"><span class="ea">EA</span> | IA</div>
+  <a href="../index.html" class="nav-brand"><div class="nav-logo-text"><span class="ea">EA</span><span class="sep"> | </span><span class="ia">IA</span></div></a>
   <a class="nav-cta" href="mailto:info@ea-ia.ca?subject=Demo MSP Intelligence AI">Démo — 30 min</a>
 </nav>
 
