@@ -6,6 +6,14 @@ Format : [Version] — Date — Description
 
 ---
 
+## [Non publié] — 2026-10-31 · Page Services TI gérés (ébauche)
+
+### Ajouts
+- Nouvelle page `pages/services-ti-geres.html` : service TI géré pour PME de 20 à 32 utilisateurs, appel à l’action unique « Demander l’audit de sécurité ».
+- Lien « Services TI » dans la navigation de `index.html`.
+
+---
+
 ## [1.0.0] — 2026-05-10 · Lancement public
 
 ### Ajouts
